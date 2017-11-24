@@ -1,0 +1,25 @@
+hows current brightness
+#
+# dependencies:
+# - xbacklight
+#
+# @return {Number}: Current brightness
+################################
+
+case $BLOCK_BUTTON in
+	# right click
+	# set to `20
+	3) echo 20 > /sys/class/backlight/intel_backlight/brightness ;;
+
+	# scroll up
+	# raise brightness
+	4) brightup ;;
+
+	# scroll down
+	# lower brightness
+	5) brightdown ;;
+esac
+
+brightpercentage=$(echo $(cat /sys/class/backlight/intel_backlight/brightness)/77.2|bc)
+echo $brightpercentage%
+
