@@ -10,10 +10,12 @@ exec --no-startup-id nitrogen --restore &
 bindsym $mod+Shift+f exec pcmanfm
 bindsym $mod+Shift+s exec pavucontrol
 bindsym $mod+Shift+w exec chromium
-bindsym $mod+Return exec sakura
+bindsym $mod+Return exec roxterm
+focus_follows_mouse no
 
 bindsym $mod+q kill
 bindsym $mod+Shift+q exec i3lock-blur
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'reboot'"
 
 bindsym $mod+d exec rofi -show run
 
@@ -38,8 +40,6 @@ set $workspace9 " 9"
 set $workspace10 " 10"
 
 workspace_auto_back_and_forth yes
-
-bindsym $mod+Shift+t split h; layout tabbed
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
