@@ -6,7 +6,8 @@ exec --no-startup-id compton &
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id nitrogen --restore &
-exec --no-startup-id /home/jasperro/.config/i3/pulsescreeninhibit.sh &
+exec --no-startup-id caffeine &
+exec --no-startup-id arandr-indicator &
 
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
@@ -27,7 +28,7 @@ smart_gaps on
 new_window pixel 0
 new_float pixel 0
 
-font pango:Source Sans Pro 11
+font pango:Roboto Condensed Light 11
 
 set $workspace1 " 1"
 set $workspace2 " 2"
@@ -92,6 +93,10 @@ mode "resize" {
         bindsym Up resize grow height 5 px or 5 ppt
         bindsym Down resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Shift+Left resize shrink width 10 px or 10 ppt
+        bindsym Shift+Up resize grow height 10 px or 10 ppt
+        bindsym Shift+Down resize shrink height 10 px or 10 ppt
+        bindsym Shift+Right resize grow width 10 px or 10 ppt
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
