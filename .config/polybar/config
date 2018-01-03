@@ -27,7 +27,7 @@ white = #ffffff
 monitor = ${env:MONITOR:eDP-1}
 bottom = false
 width = 100%
-height = 17
+height = 20
 offset-x = 0
 offset-y = 0
 
@@ -53,14 +53,15 @@ font-4 = FontAwesome:size=10;1
 font-5 = Fira Sans:size=10;1
 
 modules-left = i3
-modules-right = wifi filesystem memory cpu battery backlight volume date
+modules-center = date
+modules-right = wifi filesystem memory cpu battery backlight volume
 
-tray-position = right
+tray-position = left
 tray-detached = false
 tray-maxsize = 18
 tray-background = ${colors.background}
-tray-transparent = false
-tray-padding = 1
+; tray-transparent = true
+tray-padding = 5
 
 [module/filesystem]
 type = internal/fs
@@ -133,6 +134,7 @@ exec = "nmcli d show wlp1s0 | grep 'GENERAL.CONNECTION' | awk '{ print $2 }'"
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
+click-left = networkmanager_dmenu
 
 [module/eth]
 type = internal/network
@@ -151,10 +153,10 @@ format-disconnected-underline = ${colors.red}
 [module/date]
 type = internal/date
 interval = 5
-date = "%Y-%m-%d"
-date-alt = "%Y-%m-%d"
+date = "%a %d %b"
+date-alt = "%d-%m-%Y, %U"
 time = %H:%M
-time-alt = %H:%M
+time-alt = %H:%M %a
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
@@ -176,27 +178,34 @@ format-muted-underline = ${colors.red}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP0
+adapter = AC
 full-at = 100
+time-format = %H:%M
 
-label-charging =  %percentage%%
-label-discharging =  %percentage%%
-label-full =  %percentage%%
-
-format-charging = <label-charging>
+format-charging = <animation-charging><label-charging>
+format-discharging = <ramp-capacity><label-discharging>
 format-charging-underline = ${colors.yellow}
-
-format-discharging = <label-discharging>
 format-discharging-underline = ${colors.red}
-
-format-full = <label-full>
-format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${colors.green}
 
-format = <label>
-format-underline = ${colors.cyan}
-format-warn = <label-warn>
-format-warn-underline = ${self.format-underline}
+label-discharging = %percentage%% %time%
+label-charging = %percentage%% %time%
+
+label-full = ""
+
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+
+animation-charging-framerate = 750
 
 [module/backlight]
 type = internal/backlight 
