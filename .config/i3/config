@@ -3,19 +3,22 @@ exec --no-startup-id xset dpms 120 300 0 &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dunst -config ~/.config/dunst/config &
 exec --no-startup-id compton &
-exec --no-startup-id nm-applet &
-exec --no-startup-id redshift-gtk &
+#exec --no-startup-id nm-applet &
+#exec --no-startup-id redshift-gtk &
+exec --no-startup-id redshift &
 exec --no-startup-id nitrogen --restore &
-exec --no-startup-id caffeine &
-exec --no-startup-id arandr-indicator &
+#exec --no-startup-id caffeine &
+#exec --no-startup-id arandr-indicator &
+exec --no-startup-id polybar main &
 
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
-bindsym $mod+Shift+w exec firefox
+bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+Return exec roxterm
 focus_follows_mouse no
 
 bindsym $mod+q kill
+bindsym $mod+F5 exec gnome-screenshot -i
 bindsym $mod+Shift+q exec i3lock
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'reboot'"
 
@@ -28,12 +31,12 @@ smart_gaps on
 new_window pixel 0
 new_float pixel 0
 
-font pango:Roboto Condensed Light 11
+font pango:Fira Sans 11
 
 set $workspace1 " 1"
 set $workspace2 " 2"
-set $workspace3 " 3"
-set $workspace4 " 4"
+set $workspace3 " 3"
+set $workspace4 " 4"
 set $workspace5 " 5"
 set $workspace6 " 6"
 set $workspace7 " 7"
@@ -103,21 +106,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bar {
-	status_command i3blocks -c ~/.config/i3blocks.conf
-    	position top
-	i3bar_command i3bar -t
-   
-    colors {
-        statusline #00000000
-        background #00000000
-	separator #585858
-        focused_workspace	#00000000	#00000000	#ffffff
-        inactive_workspace	#00000000	#00000000	#ffffff50
-	active_workspace	#00000000	#00000000	#ffffff
-    	urgent_workspace	#00000000	#00000000	#ffffff   
-    }
-}
+# bar {
+#	status_command i3blocks -c ~/.config/i3blocks.conf
+#    	position top
+#	i3bar_command i3bar -t
+#   
+#    colors {
+#        statusline #00000000
+#        background #00000000
+#	separator #585858
+#        focused_workspace	#00000000	#00000000	#ffffff
+#        inactive_workspace	#00000000	#00000000	#ffffff50
+#	active_workspace	#00000000	#00000000	#ffffff
+#    	urgent_workspace	#00000000	#00000000	#ffffff   
+#    }
+#}
 bindsym Mod4+F10 exec pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off & exec pkill -RTMIN+2 i3blocks 
 bindsym Mod4+F9 exec pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off & exec pkill -RTMIN+2 i3blocks 
 bindsym Mod4+F8 exec pactl set-sink-mute 0 toggle & exec pkill -RTMIN+2 i3blocks
