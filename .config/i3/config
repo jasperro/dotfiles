@@ -10,11 +10,12 @@ exec --no-startup-id redshift &
 exec --no-startup-id ~/.config/i3/autowpp &
 #exec --no-startup-id caffeine &
 #exec --no-startup-id arandr-indicator &
-exec --no-startup-id polybar main &
+exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
 bindsym $mod+Shift+w exec qutebrowser
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 bindsym $mod+Return exec roxterm
 focus_follows_mouse no
 
@@ -22,6 +23,7 @@ bindsym $mod+q kill
 bindsym $mod+F5 exec gnome-screenshot -i
 bindsym $mod+Shift+q exec i3lock
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'reboot'"
+bindsym $mod+Shift+a exec python ~/.config/i3/arandr-dmenu.py
 
 bindsym $mod+d exec rofi -show combi
 
