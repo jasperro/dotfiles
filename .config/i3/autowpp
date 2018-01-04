@@ -1,0 +1,6 @@
+#!/bin/sh
+while true
+do
+ nitrogen /usr/share/wallpapers/ --random --set-zoom-fill 
+ sleep 300
+done

@@ -133,7 +133,7 @@ interval = 30
 exec = "nmcli d show wlp1s0 | grep 'GENERAL.CONNECTION' | awk '{ print $2 }'"
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.blue}
+format-underline = ${colors.magenta}
 click-left = networkmanager_dmenu
 
 [module/eth]
