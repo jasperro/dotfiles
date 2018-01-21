@@ -6,15 +6,15 @@ exec --no-startup-id compton &
 #exec --no-startup-id nm-applet &
 #exec --no-startup-id redshift-gtk &
 exec --no-startup-id redshift &
-#exec --no-startup-id nitrogen --restore &
-exec --no-startup-id ~/.config/i3/autowpp &
+exec --no-startup-id nitrogen --restore &
+#exec --no-startup-id ~/.config/i3/autowpp &
 #exec --no-startup-id caffeine &
 #exec --no-startup-id arandr-indicator &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
-bindsym $mod+Shift+w exec qutebrowser
+bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 bindsym $mod+Return exec roxterm
 focus_follows_mouse no

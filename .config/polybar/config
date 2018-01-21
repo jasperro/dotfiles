@@ -11,20 +11,20 @@ alert = #ff6600
 high = #268bd2
 high-alt = #0c2b41
 
-red = #eb606b
-green = #c3e88d
-yellow = #f7eb95
-blue = #aeddff
-magenta = #6c71c3
-cyan = #80cbc3
-white = #ffffff
+red = #dc322f
+green = #859900
+yellow = #b58900
+blue = #268bd2
+magenta = #d33682
+cyan = #2aa198
+white = #eee8d5
 
 ; [global/wm]
 ; margin-top = 5
 ; margin-bottom = 5
 
 [bar/main]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:}
 bottom = false
 width = 100%
 height = 20
