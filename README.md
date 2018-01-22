@@ -1,2 +1,0 @@
-# dotfiles
-Jasperro's Dotfiles
