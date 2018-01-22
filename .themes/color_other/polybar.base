@@ -1,9 +1,9 @@
 [colors]
-background = #90002b36
-background-alt = #90002b36
-foreground = #f3f4f5
-foreground-alt = #f3f4f5
-foreground-dim = #676e7d
+background = #50COLOR4
+background-alt = #50COLOR4
+foreground = #COLOR7
+foreground-alt = #COLOR7
+foreground-dim = #COLOR7
 primary = #ffb52a
 secondary = #fe60053
 alert = #ff6600
