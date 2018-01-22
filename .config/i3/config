@@ -3,16 +3,15 @@ exec --no-startup-id xset dpms 120 300 0 &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dunst -config ~/.config/dunst/config &
 exec --no-startup-id compton &
+exec --no-startup-id $HOME/.wallpapers/wp_init.sh &
 exec --no-startup-id redshift &
-exec --no-startup-id nitrogen --restore &
-#exec --no-startup-id ~/.config/i3/autowpp &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
-bindsym $mod+Return exec roxterm
+bindsym $mod+Return exec termite
 focus_follows_mouse no
 
 bindsym $mod+q kill
@@ -105,6 +104,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# bar {
+#	status_command i3blocks -c ~/.config/i3blocks.conf
+#    	position top
+#	i3bar_command i3bar -t
+#   
+#    colors {
+#        statusline #00000000
+#        background #00000000
+#	separator #585858
+#        focused_workspace	#00000000	#00000000	#ffffff
+#        inactive_workspace	#00000000	#00000000	#ffffff50
+#	active_workspace	#00000000	#00000000	#ffffff
+#    	urgent_workspace	#00000000	#00000000	#ffffff   
+#    }
+#}
 bindsym Mod4+F10 exec pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off & exec pkill -RTMIN+2 i3blocks 
 bindsym Mod4+F9 exec pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off & exec pkill -RTMIN+2 i3blocks 
 bindsym Mod4+F8 exec pactl set-sink-mute 0 toggle & exec pkill -RTMIN+2 i3blocks
