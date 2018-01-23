@@ -1,6 +1,6 @@
 [colors]
-background = #88COLOR0
-background-alt = #88COLOR0
+background = #deCOLOR0
+background-alt = #deCOLOR0
 foreground = #COLOR7
 foreground-alt = #COLOR7
 foreground-dim = #COLOR7
@@ -11,13 +11,13 @@ alert = #ff6600
 high = #268bd2
 high-alt = #0c2b41
 
-red = #dc322f
-green = #859900
-yellow = #b58900
-blue = #268bd2
-magenta = #d33682
-cyan = #2aa198
-white = #eee8d5
+red = #COLOR1
+green = #COLOR2
+yellow = #COLOR3
+blue = #COLOR4
+magenta = #COLOR5
+cyan = #COLOR6
+white = #COLOR7
 
 ; [global/wm]
 ; margin-top = 5

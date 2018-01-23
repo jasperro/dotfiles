@@ -7,7 +7,7 @@ exec --no-startup-id $HOME/.wallpapers/wp_init.sh &
 exec --no-startup-id redshift &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 
-bindsym $mod+Shift+f exec thunar
+bindsym $mod+Shift+f exec pcmanfm
 bindsym $mod+Shift+s exec pavucontrol
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
