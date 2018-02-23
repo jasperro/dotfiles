@@ -1,13 +1,13 @@
 set $mod Mod4
 exec --no-startup-id xset dpms 120 300 0 &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id dunst -config ~/.config/dunst/config &
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id compton &
 exec --no-startup-id $HOME/.wallpapers/wp_init.sh &
 exec --no-startup-id redshift &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
-
-bindsym $mod+Shift+f exec pcmanfm
+exec --no-startup-id light-locker --lock-on-suspend &
+bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
@@ -17,7 +17,7 @@ focus_follows_mouse no
 bindsym $mod+q kill
 bindsym $mod+F5 exec gnome-screenshot -i
 bindsym $mod+Shift+q exec i3lock
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'reboot'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot'"
 bindsym $mod+Shift+a exec python ~/.config/i3/arandr-dmenu.py
 
 bindsym $mod+d exec rofi -show combi
