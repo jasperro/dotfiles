@@ -1,4 +1,4 @@
-(cat $HOME/.wallpapers/sequences &)
+(cat $HOME/.config/wpg/sequences &)
 export TERM="xterm-256color"
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
