@@ -1,0 +1,1 @@
+/home/jasperro/.config/i3/i3lockcolor.sh

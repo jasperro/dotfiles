@@ -1,9 +1,9 @@
 [colors]
-background = #deCOLOR0
-background-alt = #deCOLOR0
-foreground = #COLOR7
-foreground-alt = #COLOR7
-foreground-dim = #COLOR7
+background = #de<COLOR0>
+background-alt = #de<COLOR0>
+foreground = <COLOR7>
+foreground-alt = <COLOR7>
+foreground-dim = <COLOR7>
 primary = #ffb52a
 secondary = #fe60053
 alert = #ff6600
@@ -11,13 +11,13 @@ alert = #ff6600
 high = #268bd2
 high-alt = #0c2b41
 
-red = #COLOR1
-green = #COLOR2
-yellow = #COLOR3
-blue = #COLOR4
-magenta = #COLOR5
-cyan = #COLOR6
-white = #COLOR7
+red = <COLOR1>
+green = <COLOR2>
+yellow = <COLOR3>
+blue = <COLOR4>
+magenta = <COLOR5>
+cyan = <COLOR6>
+white = <COLOR7>
 
 ; [global/wm]
 ; margin-top = 5
@@ -27,7 +27,7 @@ white = #COLOR7
 monitor = ${env:MONITOR:}
 bottom = false
 width = 100%
-height = 20
+height = 24
 offset-x = 0
 offset-y = 0
 
@@ -50,11 +50,11 @@ font-1 = octicons:size=10;1
 font-2 = icomoon:size=10;1
 font-3 = Pomodoro:size=10;1
 font-4 = FontAwesome:size=10;1
-font-5 = Fira Sans:size=10;1
+font-5 = Overpass Heavy:size=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = eth filesystem memory cpu volume
+modules-right = wifi filesystem memory cpu battery backlight volume
 
 tray-position = left
 tray-detached = false
@@ -127,12 +127,14 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
 label = %percentage_used%%
 
-[module/network]
-type = internal/network
-interface = eth0
-interval = 3.0
+[module/wifi]
+type = custom/script
+interval = 30
+exec = "nmcli d show wlp1s0 | grep 'GENERAL.CONNECTION' | awk '{ print $2 }'"
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.magenta}
+click-left = networkmanager_dmenu
 
 [module/eth]
 type = internal/network
@@ -171,6 +173,44 @@ label-muted = " %percentage%%"
 format-muted = "<label-muted>"
 format-muted-foreground = ${colors.foreground-alt}
 format-muted-underline = ${colors.red}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 100
+time-format = %H:%M
+
+format-charging = <animation-charging><label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+format-charging-underline = ${colors.yellow}
+format-discharging-underline = ${colors.red}
+format-full-underline = ${colors.green}
+
+label-discharging = %percentage%% %time%
+label-charging = %percentage%% %time%
+
+label-full = ""
+
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+
+animation-charging-framerate = 750
+
+[module/backlight]
+type = internal/backlight 
+card = intel_backlight
+format-underline = ${colors.cyan}
+label =  %percentage%%
 
 [settings]
 screenchange-reload = true

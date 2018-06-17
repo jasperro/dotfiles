@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/jasperro/Programmeren/go/decodezone/themes/casper-two/layouts'
+let g:netrw_dirhist_2='/home/jasperro/Programmeren/go/decodezone/themes/casper-two/layouts/partials'
+let g:netrw_dirhist_3='/home/jasperro/.mozilla/firefox/wqfqhs7e.default'
+let g:netrw_dirhist_4='/home/jasperro/.local/share/supertuxkart/addons/karts/blehp'
+let g:netrw_dirhist_5='/usr/share/supertuxkart/data/karts/sara_the_racer'
+let g:netrw_dirhist_6='/home/jasperro/.local/share/supertuxkart/addons/karts/blehp'

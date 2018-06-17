@@ -1,28 +1,31 @@
 set $mod Mod4
-exec --no-startup-id xset dpms 120 300 0 &
+exec --no-startup-id xset dpms 240 600 0 &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id compton &
 exec --no-startup-id $HOME/.config/wpg/wp_init.sh &
 exec --no-startup-id redshift &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
-exec --no-startup-id light-locker --lock-on-suspend &
+#exec --no-startup-id light-locker --lock-on-suspend &
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
-bindsym $mod+Shift+w exec chromium
+#bindsym $mod+Shift+w exec chromium
+bindsym $mod+Shift+w exec firefox-nightly
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 bindsym $mod+Return exec termite
 focus_follows_mouse no
 
 bindsym $mod+q kill
 bindsym $mod+F5 exec gnome-screenshot -i
-bindsym $mod+Shift+q exec i3lock
+bindsym $mod+Shift+q exec /usr/local/bin/i3lockcolor.sh
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot'"
+bindsym $mod+Shift+a exec python ~/.config/i3/arandr-dmenu.py
 
 bindsym $mod+d exec rofi -show combi
 
 gaps inner 10
 gaps outer 0
+smart_gaps on
 
 new_window pixel 0
 new_float pixel 0
@@ -84,6 +87,8 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
+
+bindsym $mod+m move workspace to output left
 
 bindsym $mod+Shift+c restart
 
