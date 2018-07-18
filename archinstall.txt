@@ -1,0 +1,118 @@
+﻿# Boot arch linux iso
+ping -c 3 www.google.com #Check internet connectivity
+efivar -l                        #If you get output, boot mode is UEFI
+lsblk                                #Find your partition you want to install on
+gdisk /dev/sdX                #Input x,z,y,y to wipe drive
+cgdisk /dev/sdX                #New, [return], 1024MiB, ef00, EFI
+                                #New, [return], [return], [return], root
+                                #Write, yes
+fdisk -l                        #Check partition layout
+mkfs.fat -F32 /dev/sdX1        #Make EFI partition
+mkfs.ext4 /dev/sdX2                #Make root partition
+mount /dev/sdX2 /mnt
+mkdir /mnt/boot
+mount /dev/sdX1 /mnt/boot
+pacman -Syy
+pacman -S reflector
+reflector -c Netherlands --sort country --sort delay --sort rate -p https -p http --save /etc/pacman.d/mirrorlist
+
+
+pacstrap -i base base-devel neovim zsh wget linux-headers
+intel-ucode networkmanager #Install intel-ucode only with intel
+
+
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+
+#Don’t install vi
+
+
+arch-chroot /mnt        #Start chroot into new system
+nvim /etc/locale.gen        #Uncomment your locale eg. nl_NL.UTF-8
+locale-gen
+echo LANG=nl_NL.UTF-8 > /etc/locale.conf
+echo LC_ALL=nl_NL.UTF-8 > /etc/locale.conf
+export LANG=nl_NL.UTF-8
+ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+hwclock --systohc --utc
+systemctl enable fstrim.timer
+
+
+________________
+
+
+echo architude > /etc/hostname
+nvim /etc/hosts                #Enter:
+“
+#
+# /etc/hosts: static lookup table for host names
+#
+
+
+#<ip-address>   <hostname.domain.org>   <hostname>
+127.0.0.1           localhost.localdomain   localhost
+::1                 localhost.localdomain   localhost
+127.0.1.1           localhost.localdomain   tostiapparaat
+
+
+# End of file
+
+
+”
+systemctl enable NetworkManager
+________________
+
+
+nvim /etc/pacman.conf        #Uncomment multilib and add:
+“
+[aur-archlinux]
+Server = https://repo.itmettke.de/aur/$repo/$arch 
+”
+wget https://repo.itmettke.de/aur/aur-archlinux/aurarchlinux-keyring.pkg.tar.xz
+pacman -U aurarchlinux-keyring.pkg.tar.xz
+pacman -Sy
+________________
+
+
+passwd                #Set password of root
+useradd -m -g users -G wheel,storage,power -s /bin/zsh jasperro
+passwd jasperro
+#Add user and set password (replace jasperro with your username)
+
+
+ln -s /usr/bin/nvim /usr/bin/vi
+ln -s /usr/bin/nvim /usr/bin/vim
+visudo                #Uncomment “%wheel ALL=(ALL) ALL”
+
+
+________________
+
+mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+bootctl install
+nvim /boot/loader/entries/arch.conf #Enter this, with uuid of root from ‘sudo blkid -p /dev/sdX2’:
+“
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img                #Only add this line with Intel
+initrd  /initramfs-linux.img
+options root=UUID=uuid rw
+”
+exit
+umount -R /mnt
+sudo reboot
+________________
+
+
+#After bootup
+login with your username
+
+
+sudo pacman -S --needed xorg i3-gaps compton libreoffice acpi acpid awesome-terminal-fonts adapta-gtk-theme adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts arandr aspell-en aspell-nl audacity blueberry blueman bluez-hid2hci firefox gimp gnome-calculator gnome-screenshot go godot gparted gpick gufw kdeconnect kdenlive lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings ncdu lxappearance-gtk3 neofetch p7zip unzip zip pulseaudio-alsa alsa-utils pavucontrol thunar thunar-archive-plugin thunar-volman tlp tlp-rdw powertop cpupower hunspell-en hunspell-nl htop polkit-gnome pulseaudio-bluetooth redshift rofi ttf-dejavu ttf-fira-mono ttf-fira-sans ttf-ms-fonts ttf-roboto xarchiver xfce4-notifyd yay zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel9k
+
+
+sudo systemctl enable lightdm
+sudo systemctl enable tlp
+sudo systemctl enable ufw
+
+
+yay -S polybar-git i3lock-color-git networkmanager-dmenu-git wpgtk-git xbanish xcursor-breeze-serie-obsidian

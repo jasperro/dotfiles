@@ -1,22 +1,22 @@
 #!/bin/sh
-#i3lock -c 587190 \
+#i3lock -c C6915D \
 #       --veriftext="..." --wrongtext="×" \
 #       --timepos="x-90:h-ch-20" --datepos="x-90:h-ch+10" --indpos="x+290:h-120" \
-#       --insidecolor=0c181599 --ringcolor=58719099 \
-#       --insidevercolor=827D8299 --ringvercolor=628FAE99 \
-#       --insidewrongcolor=628FAE99 --ringwrongcolor=62AFCC99 \
-#       --keyhlcolor=9F9BAB99 --bshlcolor=c3d1de99 \
-#       --linecolor=88929b99 --separatorcolor=58719099 \
+#       --insidecolor=0c172199 --ringcolor=C6915D99 \
+#       --insidevercolor=20649099 --ringvercolor=5C718A99 \
+#       --insidewrongcolor=5C718A99 --ringwrongcolor=678DAB99 \
+#       --keyhlcolor=A49B9C99 --bshlcolor=ddd4d099 \
+#       --linecolor=9a949199 --separatorcolor=C6915D99 \
 #       --radius 30 --ring-width 10 \
 #       --blur 6 \
-#       --clock --timestr="%H:%M" --timecolor="827D82ff" --datecolor="45A6C4ff"
+#       --clock --timestr="%H:%M" --timecolor="206490ff" --datecolor="867D86ff"
 
-B='587190dd'  # blank
-C='827D82dd'  # clear ish
-D='628FAEdd'  # default
-T='45A6C4dd'  # text
-W='62AFCCdd'  # wrong
-V='62AFCCdd' # verifying
+B='C6915Ddd'  # blank
+C='206490dd'  # clear ish
+D='5C718Add'  # default
+T='867D86dd'  # text
+W='678DABdd'  # wrong
+V='678DABdd' # verifying
 
 i3lock \
 --blur 5 \
@@ -25,8 +25,8 @@ i3lock \
 --bar-direction 1 \
 --bar-max-height 20 \
 --bar-base-width 20 \
---bar-color 827D82dd \
---keyhlcolor 62AFCCdd \
+--bar-color 206490dd \
+--keyhlcolor 678DABdd \
 --bar-periodic-step 50 \
 --bar-step 50 \
 --bar-width 250 \
@@ -35,13 +35,13 @@ i3lock \
 --clock \
 --force-clock \
 --timepos 80:h-80 \
---timecolor 587190dd \
+--timecolor C6915Ddd \
 --datepos tx:ty-40 \
---datecolor 45A6C4ff \
+--datecolor 867D86ff \
 --date-align 1 \
 --time-align 1 \
---ringvercolor 628FAE88 \
---ringwrongcolor 827D8288 \
+--ringvercolor 5C718A88 \
+--ringwrongcolor 20649088 \
 --statuspos 5:h-16 \
 --verif-align 1 \
 --wrong-align 1 \

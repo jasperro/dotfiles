@@ -110,7 +110,7 @@ alias ls='ls --color=always'
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CFlh'
-alias pac='trizen'
+alias pac='yay'
 mcd () {
     mkdir -p $1
     cd $1
@@ -181,4 +181,4 @@ alias builddecodezone='cd ~/Programmeren/go/decodezone/ && hugo && rsync -avz --
 alias '_'='sudo'
 
 export GOPATH="$HOME/Programmeren/go"
-export PATH=$PATH:/usr/bin/go
+export PATH=$PATH:$GOPATH/bin/

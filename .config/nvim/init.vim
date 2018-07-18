@@ -14,7 +14,9 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'scrooloose/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'deviantfero/wpgtk.vim'
 call plug#end()
+let g:colors_name = "wpgtk"
 syntax on
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -36,7 +38,7 @@ nnoremap <leader>d ""d
 nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-highlight LineNr ctermfg=grey ctermbg=darkgrey guibg=black guifg=grey
+"highlight LineNr ctermfg=grey ctermbg=darkgrey guibg=black guifg=grey
 set nu
-highlight ColorColumn ctermbg=gray
-set colorcolumn=85
+"highlight ColorColumn ctermbg=gray
+"set colorcolumn=85
