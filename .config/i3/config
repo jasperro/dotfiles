@@ -21,8 +21,8 @@ focus_follows_mouse no
 bindsym $mod+q kill
 bindsym $mod+F5 exec gnome-screenshot -i
 bindsym $mod+Shift+q exec /usr/local/bin/i3lockcolor.sh
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Logout' 'i3-msg exit' -b 'Suspend' 'systemctl suspend' -b 'Shut Down' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot'"
-bindsym $mod+Shift+a exec python ~/.config/i3/arandr-dmenu.py
+bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
+bindsym $mod+Shift+a exec ~/.config/rofi/arandr.sh
 
 bindsym $mod+d exec rofi -show combi
 
@@ -125,8 +125,8 @@ bindsym $mod+r mode "resize"
 #    	urgent_workspace	#00000000	#00000000	#ffffff   
 #    }
 #}
-bindsym Mod4+F10 exec pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off & exec pkill -RTMIN+2 i3blocks 
-bindsym Mod4+F9 exec pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off & exec pkill -RTMIN+2 i3blocks 
-bindsym Mod4+F8 exec pactl set-sink-mute 0 toggle & exec pkill -RTMIN+2 i3blocks
-bindsym Mod4+F7 exec brightup
-bindsym Mod4+F6 exec brightdown
+bindsym Mod4+F10 exec pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off
+bindsym Mod4+F9 exec pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off
+bindsym Mod4+F8 exec pactl set-sink-mute 0 toggle
+bindsym Mod4+F7 exec light -A 5
+bindsym Mod4+F6 exec light -U 5
