@@ -5,7 +5,7 @@ export TERM="xterm-256color"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+#bindkey "-v
 
 function zle-line-init {
   powerlevel9k_prepare_prompts
@@ -94,7 +94,8 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='white'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context ssh root_indicator dir vcs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context ssh root_indicator dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status rvm time)
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{black}█"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}█ %F{white}"
@@ -177,8 +178,14 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PD6c71c4" # S_violet
     clear # against bg artifacts
 fi
-alias builddecodezone='cd ~/Programmeren/go/decodezone/ && hugo && rsync -avz --exclude=hashover/ --delete public/ jasperro@192.168.0.166:~/DecodeZone && cd -'
 alias '_'='sudo'
 
 export GOPATH="$HOME/Programmeren/go"
 export PATH=$PATH:$GOPATH/bin/
+
+bindkey "^[[2~" overwrite-mode
+bindkey "^[OH" beginning-of-line
+bindkey "^[[5~" up-line-or-history
+bindkey "^[[3~" delete-char
+bindkey "^[OF" end-of-line
+bindkey "^[[6~" down-line-or-history

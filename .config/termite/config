@@ -8,7 +8,7 @@ font = Fira Mono 9
 foreground      = #dcf0f0
 foreground_bold = #dcf0f0
 cursor          = #dcf0f0
-background      = rgba(0,43,54,0.6)
+background      = rgba(0,43,54,0.9)
 
 # black
 color0  = #073642

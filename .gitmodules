@@ -43,3 +43,6 @@
 [submodule ".vim/plugged/auto-pairs"]
 	path = .vim/plugged/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule ".vim/plugged/neoinclude.vim"]
+	path = .vim/plugged/neoinclude.vim
+	url = https://github.com/Shougo/neoinclude.vim.git

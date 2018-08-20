@@ -15,10 +15,12 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'deviantfero/wpgtk.vim'
+	Plug 'Shougo/neoinclude.vim'
 call plug#end()
 let g:colors_name = "wpgtk"
 syntax on
 set laststatus=2
+set clipboard=unnamedplus
 let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1
 let g:airline_theme='term'
@@ -29,14 +31,25 @@ let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
 let g:deoplete#sources#go#gocode_binary = "$GOPATH/bin/gocode"
 set mouse=a
+
 nnoremap x "_x
+nnoremap X "_X
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
-nnoremap dd "_dd
-nnoremap <leader>d ""d
-nnoremap <leader>D ""D
-vnoremap <leader>d ""d
+
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+  nnoremap <leader>d "+d
+  nnoremap <leader>D "+D
+  vnoremap <leader>d "+d
+else
+  set clipboard=unnamed
+  nnoremap <leader>d "*d
+  nnoremap <leader>D "*D
+  vnoremap <leader>d "*d
+endif
+
 "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "highlight LineNr ctermfg=grey ctermbg=darkgrey guibg=black guifg=grey
 set nu

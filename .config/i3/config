@@ -20,7 +20,7 @@ focus_follows_mouse no
 
 bindsym $mod+q kill
 bindsym $mod+F5 exec gnome-screenshot -i
-bindsym $mod+Shift+q exec /usr/local/bin/i3lockcolor.sh
+bindsym $mod+Shift+q exec sh ~/.config/i3/i3lockcolor.sh
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+a exec ~/.config/rofi/arandr.sh
 
@@ -125,8 +125,11 @@ bindsym $mod+r mode "resize"
 #    	urgent_workspace	#00000000	#00000000	#ffffff   
 #    }
 #}
-bindsym Mod4+F10 exec pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off
-bindsym Mod4+F9 exec pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off
-bindsym Mod4+F8 exec pactl set-sink-mute 0 toggle
-bindsym Mod4+F7 exec light -A 5
-bindsym Mod4+F6 exec light -U 5
+bindsym Mod4+F10 exec --no-startup-id pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off
+bindsym Mod4+F9 exec --no-startup-id pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off
+bindsym Mod4+F8 exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym Mod4+F7 exec --no-startup-id light -A 5
+bindsym Mod4+F6 exec --no-startup-id light -U 5
