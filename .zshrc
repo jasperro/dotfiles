@@ -1,10 +1,9 @@
 (cat $HOME/.config/wpg/sequences &)
 export TERM="xterm-256color"
 
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=2000
+SAVEHIST=2000
 #bindkey "-v
 
 function zle-line-init {
@@ -35,7 +34,7 @@ zle -N zle-line-init
 zle -N ale-line-finish
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
-# End of lines configured by zsh-newuser-install
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jasperro/.zshrc'
 autoload -Uz compinit
@@ -112,6 +111,8 @@ alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CFlh'
 alias pac='yay'
+alias remorphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias '_'='sudo'
 mcd () {
     mkdir -p $1
     cd $1
@@ -119,73 +120,20 @@ mcd () {
 wgsh () {
 	sh -c "$(curl -fsSL $1)"
 }
-function extract {
- if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
-    return 1
- else
-    for n in $@
-    do
-      if [ -f "$n" ] ; then
-          case "${n%,}" in
-            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-                         tar xvf "$n"       ;;
-            *.lzma)      unlzma ./"$n"      ;;
-            *.bz2)       bunzip2 ./"$n"     ;;
-            *.rar)       unrar x -ad ./"$n" ;;
-            *.gz)        gunzip ./"$n"      ;;
-            *.zip)       unzip ./"$n"       ;;
-            *.z)         uncompress ./"$n"  ;;
-            *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
-                         7z x ./"$n"        ;;
-            *.xz)        unxz ./"$n"        ;;
-            *.exe)       cabextract ./"$n"  ;;
-            *)
-                         echo "extract: '$n' - unknown archive method"
-                         return 1
-                         ;;
-          esac
-      else
-          echo "'$n' - file does not exist"
-          return 1
-      fi
-    done
-fi
-}
 up() { cd $(eval printf '../'%.0s {1..$1}) && echo Went up $1 to $(pwd); }
-alias remorphans='sudo pacman -Rns $(pacman -Qtdq)'
 cl() {
 cd $1 && ls
 }
-if [ "$TERM" = "linux" ]; then
-    echo -en "\e]PB657b83" # S_base00
-    echo -en "\e]PA586e75" # S_base01
-    echo -en "\e]P0073642" # S_base02
-    echo -en "\e]P62aa198" # S_cyan
-    echo -en "\e]P8002b36" # S_base03
-    echo -en "\e]P2859900" # S_green
-    echo -en "\e]P5d33682" # S_magenta
-    echo -en "\e]P1dc322f" # S_red
-    echo -en "\e]PC839496" # S_base0
-    echo -en "\e]PE93a1a1" # S_base1
-    echo -en "\e]P9cb4b16" # S_orange
-    echo -en "\e]P7eee8d5" # S_base2
-    echo -en "\e]P4268bd2" # S_blue
-    echo -en "\e]P3b58900" # S_yellow
-    echo -en "\e]PFfdf6e3" # S_base3
-    echo -en "\e]PD6c71c4" # S_violet
-    clear # against bg artifacts
-fi
-alias '_'='sudo'
 
-export GOPATH="$HOME/Programmeren/go"
+export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin/
 
+# Keybindings
 bindkey "^[[2~" overwrite-mode
 bindkey "^[OH" beginning-of-line
 bindkey "^[[5~" up-line-or-history
 bindkey "^[[3~" delete-char
 bindkey "^[OF" end-of-line
 bindkey "^[[6~" down-line-or-history
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward

@@ -2,11 +2,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'bling/vim-airline'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'zchee/deoplete-jedi'
-	Plug 'zchee/deoplete-clang'
+	Plug 'tweekmonster/deoplete-clang2'
 	Plug 'zchee/deoplete-go', { 'do': 'make'}
 	Plug 'vim-airline/vim-airline-themes'
 	Plug '907th/vim-auto-save'
-"	Plug 'vim-syntastic/syntastic'
 	Plug 'neomake/neomake'
 	Plug 'huawenyu/neogdb.vim'
 	Plug 'sheerun/vim-polyglot'
@@ -16,10 +15,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'deviantfero/wpgtk.vim'
 	Plug 'Shougo/neoinclude.vim'
+	Plug 'sbdchd/neoformat'
 call plug#end()
 let g:colors_name = "wpgtk"
 syntax on
 set laststatus=2
+set ruler
+set incsearch
 set clipboard=unnamedplus
 let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1
@@ -30,7 +32,11 @@ let g:mapleader = ","
 let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
 let g:deoplete#sources#go#gocode_binary = "$GOPATH/bin/gocode"
+let g:AutoPairsMultilineClose = 0
+call neomake#configure#automake('w')
+
 set mouse=a
+set tabstop=3
 
 nnoremap x "_x
 nnoremap X "_X
