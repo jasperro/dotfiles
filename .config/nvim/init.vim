@@ -2,8 +2,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'bling/vim-airline'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'zchee/deoplete-jedi'
-	Plug 'tweekmonster/deoplete-clang2'
 	Plug 'zchee/deoplete-go', { 'do': 'make'}
+	Plug 'zchee/deoplete-clang',
 	Plug 'vim-airline/vim-airline-themes'
 	Plug '907th/vim-auto-save'
 	Plug 'neomake/neomake'
