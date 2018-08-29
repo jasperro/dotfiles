@@ -61,3 +61,5 @@ endif
 set nu
 "highlight ColorColumn ctermbg=gray
 "set colorcolumn=85
+hi NonText ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE

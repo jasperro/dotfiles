@@ -5,7 +5,7 @@ keycode 22 = BackSpace Delete BackSpace BackSpace
 keycode  32 = o O o O Home Home
 keycode  46 = l L l L End End
 keycode 33 = p P p P Prior Prior
-keycode 47 = semicolon colon semicolon colon Next 
+keycode 47 = semicolon colon semicolon colon Next
 
 keycode  67 = XF86Back F1 F1 F1 F1 F1 XF86Switch_VT_1
 keycode  68 = XF86Forward F2 F2 F2 F2 F2 XF86Switch_VT_2
@@ -18,4 +18,6 @@ keycode  76 = XF86AudioRaiseVolume F10 F10 F10 F10 F10 XF86Switch_VT_10
 
 keycode  65 = space space space space space space space
 
-keycode 66 = Super_R Caps_Lock Caps_Lock NoSymbol Caps_Lock Caps_Lock
+clear Lock
+remove lock = Caps_Lock
+keycode 66 = Super_L Caps_Lock Caps_Lock NoSymbol Caps_Lock Caps_Lock

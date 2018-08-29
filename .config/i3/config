@@ -14,7 +14,8 @@ bindsym $mod+Shift+s exec pavucontrol
 #bindsym $mod+Shift+w exec firefox-nightly
 bindsym $mod+Shift+w exec firefox
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
-bindsym $mod+Return exec termite
+#bindsym $mod+Return exec termite
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Control+p exec pasuspender /bin/true &
 focus_follows_mouse no
 
