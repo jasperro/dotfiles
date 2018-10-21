@@ -7,7 +7,6 @@ exec --no-startup-id $HOME/.config/wpg/wp_init.sh &
 exec --no-startup-id redshift &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 exec --no-startup-id xbanish &
-exec --no-startup-id /usr/lib/gsd-xsettings &
 #exec --no-startup-id light-locker --lock-on-suspend &
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
