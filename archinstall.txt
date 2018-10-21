@@ -107,7 +107,7 @@ ________________
 login with your username
 
 
-sudo pacman -S --needed xorg i3-gaps compton libreoffice acpi acpid awesome-terminal-fonts adapta-gtk-theme adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts arandr aspell-en aspell-nl audacity blueberry blueman bluez-hid2hci firefox gimp gnome-calculator gnome-screenshot go godot gparted gpick gufw kdeconnect kdenlive lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings ncdu lxappearance-gtk3 neofetch p7zip unzip zip pulseaudio-alsa alsa-utils pavucontrol thunar thunar-archive-plugin thunar-volman tlp tlp-rdw powertop cpupower hunspell-en hunspell-nl htop polkit-gnome pulseaudio-bluetooth redshift rofi ttf-dejavu ttf-fira-mono ttf-fira-sans ttf-ms-fonts ttf-roboto xarchiver xfce4-notifyd yay zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel9k light keychain
+sudo pacman -S --needed xorg i3-gaps compton libreoffice acpi acpid awesome-terminal-fonts adapta-gtk-theme adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts arandr aspell-en aspell-nl audacity blueberry blueman bluez-hid2hci firefox gimp gnome-calculator gnome-screenshot go godot gparted gpick gufw kdeconnect kdenlive lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings ncdu lxappearance-gtk3 neofetch p7zip unzip zip pulseaudio-alsa alsa-utils pavucontrol thunar thunar-archive-plugin thunar-volman tlp tlp-rdw powertop cpupower hunspell-en hunspell-nl htop polkit-gnome pulseaudio-bluetooth redshift rofi ttf-dejavu ttf-fira-mono ttf-fira-sans ttf-ms-fonts ttf-roboto xarchiver xfce4-notifyd yay zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel9k light keychain gnome-settings-daemon
 
 
 sudo systemctl enable lightdm

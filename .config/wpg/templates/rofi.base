@@ -3,7 +3,7 @@ rofi.modi:			     combi
 rofi.width:			     40
 rofi.columns:                        2
 rofi.lines:			     30
-rofi.font:                           Overpass Regular 10
+rofi.font:                           IBM Plex Sans 10
 rofi.color-normal:                   #cc<COLOR0>, #<COLOR15>, #99<COLOR0>, #cc<COLORACT>, #<COLOR15>
 rofi.color-urgent:                   #cc<COLOR0>, #d6b48d, #9922231D, #ccd6b48d, #<COLOR15>
 rofi.color-active:                   #cc<COLOR0>, #<COLOR14>, #99<COLOR0>, #cc<COLOR14>, #<COLOR0>

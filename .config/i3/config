@@ -7,6 +7,7 @@ exec --no-startup-id $HOME/.config/wpg/wp_init.sh &
 exec --no-startup-id redshift &
 exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 exec --no-startup-id xbanish &
+exec --no-startup-id /usr/lib/gsd-xsettings &
 #exec --no-startup-id light-locker --lock-on-suspend &
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
@@ -24,12 +25,12 @@ bindsym $mod+F5 exec gnome-screenshot -i
 bindsym $mod+Shift+q exec sh ~/.config/i3/i3lockcolor.sh
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+a exec ~/.config/rofi/arandr.sh
+bindsym $mod+Shift+m exec wpg -m
 
 bindsym $mod+d exec rofi -show combi
 
 gaps inner 10
 gaps outer 0
-smart_gaps on
 
 new_window pixel 0
 new_float pixel 0
@@ -131,3 +132,40 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% &&
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+ 
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+ 
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+ 
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+ 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+ 
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+ 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}

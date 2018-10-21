@@ -19,6 +19,9 @@ magenta = <COLOR5>
 cyan = <COLOR6>
 white = <COLOR7>
 
+desktopback = #cc<COLOR1>
+
+
 ; [global/wm]
 ; margin-top = 5
 ; margin-bottom = 5
@@ -36,7 +39,7 @@ foreground = ${colors.foreground}
 
 overline-size = 2
 overline-color = #f00
-underline-size = 2
+underline-size = 4
 underline-color = ${colors.blue}
 
 spacing = 2
@@ -50,7 +53,7 @@ font-1 = octicons:size=10;1
 font-2 = icomoon:size=10;1
 font-3 = Pomodoro:size=10;1
 font-4 = FontAwesome:size=10;1
-font-5 = Overpass Heavy:size=10;1
+font-5 = IBM Plex Sans:size=10;1
 
 modules-left = i3
 modules-center = date
@@ -84,7 +87,7 @@ padding = 2
 label-value = %name%
 
 label-focused = ${self.label-value}
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.desktopback}
 label-focused-underline= ${colors.red}
 label-focused-padding = ${self.padding}
 
