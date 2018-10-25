@@ -18,7 +18,7 @@ T='<COLOR4>dd'  # text
 W='<COLOR5>dd'  # wrong
 V='<COLOR5>dd' # verifying
 
-i3lock \
+i3lock -n \
 --blur 5 \
 --bar-indicator \
 --bar-position h \

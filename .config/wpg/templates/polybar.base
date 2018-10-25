@@ -133,7 +133,7 @@ label = %percentage_used%%
 [module/wifi]
 type = custom/script
 interval = 30
-exec = "nmcli d show wlp1s0 | grep 'GENERAL.CONNECTION' | awk '{ print $2 }'"
+exec = "nmcli d show wlp3s0 | grep 'GENERAL.CONNECTION' | awk '{ print $2 }'"
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.magenta}
@@ -141,7 +141,7 @@ click-left = networkmanager_dmenu
 
 [module/eth]
 type = internal/network
-interface = enp3s0
+interface = enp2s0f1
 interval = 3.0
 
 label-connected =  %ifname%
@@ -179,7 +179,7 @@ format-muted-underline = ${colors.red}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = AC
 full-at = 100
 time-format = %H:%M
@@ -213,7 +213,7 @@ animation-charging-framerate = 750
 type = internal/backlight 
 card = intel_backlight
 format-underline = ${colors.cyan}
-label =  %percentage%%
+label = %percentage%%
 
 [settings]
 screenchange-reload = true
