@@ -1,6 +1,6 @@
 [colors]
-background = #de<COLOR0>
-background-alt = #de<COLOR0>
+background = #66<COLOR0>
+background-alt = #66<COLOR0>
 foreground = <COLOR7>
 foreground-alt = <COLOR7>
 foreground-dim = <COLOR7>
@@ -19,8 +19,7 @@ magenta = <COLOR5>
 cyan = <COLOR6>
 white = <COLOR7>
 
-desktopback = #cc<COLOR1>
-
+desktopback = #77<COLOR1>
 
 ; [global/wm]
 ; margin-top = 5
@@ -30,7 +29,7 @@ desktopback = #cc<COLOR1>
 monitor = ${env:MONITOR:}
 bottom = false
 width = 100%
-height = 26
+height = 32
 offset-x = 0
 offset-y = 0
 
@@ -53,7 +52,7 @@ font-1 = octicons:size=10;1
 font-2 = icomoon:size=10;1
 font-3 = Pomodoro:size=10;1
 font-4 = FontAwesome:size=10;1
-font-5 = IBM Plex Sans:size=10;1
+font-5 = <polybarfont>
 
 modules-left = i3
 modules-center = date
@@ -88,7 +87,7 @@ label-value = %name%
 
 label-focused = ${self.label-value}
 label-focused-background = ${colors.desktopback}
-label-focused-underline= ${colors.red}
+#label-focused-underline= ${colors.red}
 label-focused-padding = ${self.padding}
 
 label-occupied = ${self.label-value}
@@ -111,13 +110,13 @@ label-unfocused-padding = ${self.padding}
 
 label-visible = ${self.label-value}
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+#label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.padding}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.magenta}
 label = %percentage%%
@@ -159,7 +158,7 @@ date = "%a %d %b"
 date-alt = "%d-%m-%Y, %U"
 time = %H:%M
 time-alt = %H:%M %a
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
 label = %date% %time%
@@ -213,7 +212,7 @@ animation-charging-framerate = 750
 type = internal/backlight 
 card = intel_backlight
 format-underline = ${colors.cyan}
-label = %percentage%%
+label =  %percentage%%
 
 [settings]
 screenchange-reload = true

@@ -1,5 +1,5 @@
-font_family     IBM Plex Mono
-font_size       9
+font_family     <terminalfont>
+font_size       <terminalfontsize>
 
 foreground       #839496
 background       #002b36

@@ -21,6 +21,13 @@ let g:colors_name = "wpgtk"
 syntax on
 set laststatus=2
 set ruler
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 set incsearch
 set clipboard=unnamedplus
 let g:airline_powerline_fonts = 1
