@@ -47,12 +47,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = icons\-in\-terminal:size=10;1
-font-1 = octicons:size=10;1
-font-2 = icomoon:size=10;1
-font-3 = Pomodoro:size=10;1
-font-4 = FontAwesome:size=10;1
-font-5 = <polybarfont>
+font-0 = <polybarfont>
+font-1 = icons\-in\-terminal:size=10;1
+font-2 = octicons:size=10;1
+font-3 = icomoon:size=10;1
+font-4 = Pomodoro:size=10;1
+font-5 = FontAwesome:size=10;1
 
 modules-left = i3
 modules-center = date
