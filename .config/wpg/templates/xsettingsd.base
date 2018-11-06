@@ -6,7 +6,7 @@ Gtk/CursorThemeName "<cursortheme>"
 Gtk/CursorThemeSize 0
 Gtk/EnableEventSounds 0
 Gtk/EnableInputFeedbackSounds 0
-Gtk/FontName "<uifont>"
+Gtk/FontName "<uifont> <uifontsize>"
 Gtk/IconThemeName "<icontheme>"
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1

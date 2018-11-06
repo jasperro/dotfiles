@@ -3,11 +3,11 @@ rofi.modi:			     					 combi
 rofi.width:			     					 40
 rofi.columns:                        2
 rofi.lines:									 30
-rofi.font:                           <uifont>
-rofi.color-normal:                   #cc<COLOR0>, #<COLOR15>, #99<COLOR0>, #cc<COLORACT>, #<COLOR15>
-rofi.color-urgent:                   #cc<COLOR0>, #d6b48d, #9922231D, #ccd6b48d, #<COLOR15>
-rofi.color-active:                   #cc<COLOR0>, #<COLOR14>, #99<COLOR0>, #cc<COLOR14>, #<COLOR0>
-rofi.color-window:                   #cc<COLOR0>, #<COLORACT>, #cc<COLORIN>
+rofi.font:                           <uifont> <rofifontsize>
+rofi.color-normal:                   #00<COLOR0>, #<COLOR15>, #00<COLOR0>, #44<COLORACT>, #<COLOR15>
+rofi.color-urgent:                   #00<COLOR0>, #d6b48d, #0022231D, #44d6b48d, #<COLOR15>
+rofi.color-active:                   #00<COLOR0>, #<COLOR14>, #00<COLOR0>, #44<COLOR14>, #<COLOR0>
+rofi.color-window:                   #00<COLOR0>, #<COLORACT>, #00<COLORIN>
 rofi.bw:                             0
 rofi.location:                       2
 rofi.padding:                        0

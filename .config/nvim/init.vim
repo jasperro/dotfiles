@@ -16,7 +16,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'deviantfero/wpgtk.vim'
 	Plug 'Shougo/neoinclude.vim'
 	Plug 'sbdchd/neoformat'
+	Plug 'altercation/vim-colors-solarized'
 call plug#end()
+"let g:colors_name = "industry"
+"let g:colors_name = "elflord"
 let g:colors_name = "wpgtk"
 syntax on
 set laststatus=2
@@ -70,3 +73,5 @@ set nu
 "set colorcolumn=85
 hi NonText ctermbg=none
 hi Normal guibg=NONE ctermbg=NONE
+
+"set background=dark
