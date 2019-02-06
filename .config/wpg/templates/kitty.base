@@ -1,5 +1,5 @@
-font_family     <terminalfont>
-font_size       <terminalfontsize>
+font_family     {terminalfont}
+font_size       {terminalfontsize}
 
 foreground       #839496
 background       #002b36
@@ -7,7 +7,7 @@ background       #002b36
 selection_foreground #93a1a1
 selection_background #073642
 
-background_opacity 0.8
+background_opacity 0.9
 
 cursor_shape     beam
 cursor_blink_interval     0.8

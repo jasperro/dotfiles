@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'huawenyu/neogdb.vim'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	Plug 'jiangmiao/auto-pairs'
+	"Plug 'jiangmiao/auto-pairs'
 	Plug 'scrooloose/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'deviantfero/wpgtk.vim'
@@ -47,6 +47,8 @@ call neomake#configure#automake('w')
 
 set mouse=a
 set tabstop=3
+set guicursor=
+autocmd OptionSet guicursor noautocmd set guicursor=
 
 nnoremap x "_x
 nnoremap X "_X
