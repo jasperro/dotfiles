@@ -103,7 +103,7 @@ alias pac='yay'
 alias remorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias pkglist="pacman --query --quiet --explicit --native | sed ':a;N;\$!ba;s/\n/ /g'"
 alias '_'='sudo'
-alias protoncli='STEAM_COMPAT_DATA_PATH=~/wineprefix/ ~/.steam/steam/steamapps/common/Proton\ 3.16\ Beta/proton'
+alias protoncli='STEAM_COMPAT_DATA_PATH=~/wineprefix/ ~/.steam/steam/steamapps/common/Proton\ 4.2/proton'
 mcd () {
     mkdir -p $1
     cd $1

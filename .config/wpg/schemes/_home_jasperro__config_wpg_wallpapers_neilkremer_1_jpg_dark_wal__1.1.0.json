@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/neilkremer_1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0F0C07",
+        "foreground": "#d7c79a",
+        "cursor": "#d7c79a"
+    },
+    "colors": {
+        "color0": "#0F0C07",
+        "color1": "#52543F",
+        "color2": "#8C5312",
+        "color3": "#9E671E",
+        "color4": "#B05C23",
+        "color5": "#63867E",
+        "color6": "#D89629",
+        "color7": "#d7c79a",
+        "color8": "#968b6b",
+        "color9": "#52543F",
+        "color10": "#8C5312",
+        "color11": "#9E671E",
+        "color12": "#B05C23",
+        "color13": "#63867E",
+        "color14": "#D89629",
+        "color15": "#d7c79a"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/cameron-venti-1130600-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#121917",
+        "foreground": "#cadbe0",
+        "cursor": "#cadbe0"
+    },
+    "colors": {
+        "color0": "#121917",
+        "color1": "#126DA2",
+        "color2": "#4F7692",
+        "color3": "#058AA3",
+        "color4": "#6D8F9F",
+        "color5": "#50A5D0",
+        "color6": "#99A3A0",
+        "color7": "#cadbe0",
+        "color8": "#8d999c",
+        "color9": "#126DA2",
+        "color10": "#4F7692",
+        "color11": "#058AA3",
+        "color12": "#6D8F9F",
+        "color13": "#50A5D0",
+        "color14": "#99A3A0",
+        "color15": "#cadbe0"
+    }
+}

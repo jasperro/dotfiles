@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/waltersoestbergen_0.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#191504",
+        "foreground": "#ead8a5",
+        "cursor": "#ead8a5"
+    },
+    "colors": {
+        "color0": "#191504",
+        "color1": "#77872E",
+        "color2": "#AF892E",
+        "color3": "#CF8A30",
+        "color4": "#DE9F39",
+        "color5": "#A79260",
+        "color6": "#DCA84C",
+        "color7": "#ead8a5",
+        "color8": "#a39773",
+        "color9": "#77872E",
+        "color10": "#AF892E",
+        "color11": "#CF8A30",
+        "color12": "#DE9F39",
+        "color13": "#A79260",
+        "color14": "#DCA84C",
+        "color15": "#ead8a5"
+    }
+}

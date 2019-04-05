@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/josh-spires-713294-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0E1116",
+        "foreground": "#dfcdc4",
+        "cursor": "#dfcdc4"
+    },
+    "colors": {
+        "color0": "#0E1116",
+        "color1": "#92715F",
+        "color2": "#AF8B72",
+        "color3": "#32728E",
+        "color4": "#857B85",
+        "color5": "#5495AE",
+        "color6": "#ACB3BC",
+        "color7": "#dfcdc4",
+        "color8": "#9c8f89",
+        "color9": "#92715F",
+        "color10": "#AF8B72",
+        "color11": "#32728E",
+        "color12": "#857B85",
+        "color13": "#5495AE",
+        "color14": "#ACB3BC",
+        "color15": "#dfcdc4"
+    }
+}

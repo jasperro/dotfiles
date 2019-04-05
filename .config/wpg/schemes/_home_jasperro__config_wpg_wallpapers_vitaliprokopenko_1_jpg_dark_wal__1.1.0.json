@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/vitaliprokopenko_1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#101525",
+        "foreground": "#ccdae1",
+        "cursor": "#ccdae1"
+    },
+    "colors": {
+        "color0": "#101525",
+        "color1": "#0F3D81",
+        "color2": "#16668F",
+        "color3": "#5C6E88",
+        "color4": "#5E91A6",
+        "color5": "#529FC1",
+        "color6": "#9E9DA0",
+        "color7": "#ccdae1",
+        "color8": "#8e989d",
+        "color9": "#0F3D81",
+        "color10": "#16668F",
+        "color11": "#5C6E88",
+        "color12": "#5E91A6",
+        "color13": "#529FC1",
+        "color14": "#9E9DA0",
+        "color15": "#ccdae1"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/flamingpedals.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#3e3912",
+        "foreground": "#a8ccdf",
+        "cursor": "#a8ccdf"
+    },
+    "colors": {
+        "color0": "#3e3912",
+        "color1": "#616B94",
+        "color2": "#9F58A3",
+        "color3": "#BC60AA",
+        "color4": "#1490AC",
+        "color5": "#6493A4",
+        "color6": "#269FC9",
+        "color7": "#a8ccdf",
+        "color8": "#758e9c",
+        "color9": "#616B94",
+        "color10": "#9F58A3",
+        "color11": "#BC60AA",
+        "color12": "#1490AC",
+        "color13": "#6493A4",
+        "color14": "#269FC9",
+        "color15": "#a8ccdf"
+    }
+}

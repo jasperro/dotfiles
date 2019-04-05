@@ -99,7 +99,7 @@ bindsym $mod+m move workspace to output left
 
 bindsym $mod+Shift+c restart
 
-mode "resize" {
+mode "resize" {{
         bindsym Left resize shrink width 5 px or 5 ppt
         bindsym Up resize grow height 5 px or 5 ppt
         bindsym Down resize shrink height 5 px or 5 ppt
@@ -110,7 +110,7 @@ mode "resize" {
         bindsym Shift+Right resize grow width 10 px or 10 ppt
         bindsym Return mode "default"
         bindsym Escape mode "default"
-}
+}}
 
 bindsym $mod+r mode "resize"
 
@@ -130,14 +130,14 @@ set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
  
-mode "$mode_gaps" {
+mode "$mode_gaps" {{
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
-}
+}}
  
-mode "$mode_gaps_inner" {
+mode "$mode_gaps_inner" {{
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
@@ -148,8 +148,8 @@ mode "$mode_gaps_inner" {
  
         bindsym Return mode "default"
         bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
+}}
+mode "$mode_gaps_outer" {{
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
         bindsym 0     gaps outer current set 0
@@ -160,7 +160,7 @@ mode "$mode_gaps_outer" {
  
         bindsym Return mode "default"
         bindsym Escape mode "default"
-}
+}}
 
 client.unfocused			#00000000	{color0}	{color0}	{color0}	{color0}
 client.focused			#00000000	{color10}	{color15}	{color3}	{color3}

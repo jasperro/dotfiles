@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/mikereyfman_0.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1c1a12",
+        "foreground": "#c0c5ce",
+        "cursor": "#c0c5ce"
+    },
+    "colors": {
+        "color0": "#1c1a12",
+        "color1": "#946A2C",
+        "color2": "#D8921A",
+        "color3": "#3C5D84",
+        "color4": "#5F728D",
+        "color5": "#7687A0",
+        "color6": "#7A9CC6",
+        "color7": "#c0c5ce",
+        "color8": "#868990",
+        "color9": "#946A2C",
+        "color10": "#D8921A",
+        "color11": "#3C5D84",
+        "color12": "#5F728D",
+        "color13": "#7687A0",
+        "color14": "#7A9CC6",
+        "color15": "#c0c5ce"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/mat-reding-1129404-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#101012",
+        "foreground": "#79d0e8",
+        "cursor": "#79d0e8"
+    },
+    "colors": {
+        "color0": "#101012",
+        "color1": "#04627C",
+        "color2": "#027394",
+        "color3": "#05819E",
+        "color4": "#018EB3",
+        "color5": "#13A6CF",
+        "color6": "#06AAD5",
+        "color7": "#79d0e8",
+        "color8": "#5491a2",
+        "color9": "#04627C",
+        "color10": "#027394",
+        "color11": "#05819E",
+        "color12": "#018EB3",
+        "color13": "#13A6CF",
+        "color14": "#06AAD5",
+        "color15": "#79d0e8"
+    }
+}

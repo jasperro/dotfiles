@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/stefanoronchi_3.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#211e0f",
+        "foreground": "#b8b2ba",
+        "cursor": "#b8b2ba"
+    },
+    "colors": {
+        "color0": "#211e0f",
+        "color1": "#7D9F4E",
+        "color2": "#8EAA50",
+        "color3": "#96A15E",
+        "color4": "#92AD68",
+        "color5": "#B1C65F",
+        "color6": "#B1C864",
+        "color7": "#b8b2ba",
+        "color8": "#807c82",
+        "color9": "#7D9F4E",
+        "color10": "#8EAA50",
+        "color11": "#96A15E",
+        "color12": "#92AD68",
+        "color13": "#B1C65F",
+        "color14": "#B1C864",
+        "color15": "#b8b2ba"
+    }
+}

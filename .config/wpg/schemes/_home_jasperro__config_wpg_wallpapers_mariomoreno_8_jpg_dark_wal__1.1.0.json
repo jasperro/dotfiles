@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/mariomoreno_8.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#192013",
+        "foreground": "#cadcca",
+        "cursor": "#cadcca"
+    },
+    "colors": {
+        "color0": "#192013",
+        "color1": "#7E6B71",
+        "color2": "#619020",
+        "color3": "#64925C",
+        "color4": "#9ABC46",
+        "color5": "#74968E",
+        "color6": "#95AE9F",
+        "color7": "#cadcca",
+        "color8": "#8d9a8d",
+        "color9": "#7E6B71",
+        "color10": "#619020",
+        "color11": "#64925C",
+        "color12": "#9ABC46",
+        "color13": "#74968E",
+        "color14": "#95AE9F",
+        "color15": "#cadcca"
+    }
+}

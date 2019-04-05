@@ -1,0 +1,106 @@
+* {{
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}}
+
+window#waybar {{
+    background: rgba({background.rgb}, 0.5);
+    color: {foreground};
+}}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button {{
+    padding: 0 5px;
+    background: transparent;
+    color: {foreground};
+    border-bottom: 3px solid transparent;
+}}
+
+#workspaces button.focused {{
+    background: {color1};
+    border-bottom: 3px solid white;
+}}
+
+#mode {{
+    background: {color1};
+    border-bottom: 3px solid white;
+}}
+
+#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {{
+    padding: 0 10px;
+    margin: 0 5px;
+}}
+
+#clock {{
+    background-color: {color2};
+}}
+
+#battery {{
+    background-color: {color3};
+    color: white;
+}}
+
+#battery.charging {{
+    color: black;
+    background-color: {color4};
+}}
+
+@keyframes blink {{
+    to {{
+        background-color: {color0};
+        color: black;
+    }}
+}}
+
+#battery.critical:not(.charging) {{
+    background: {color5};
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}}
+
+#cpu {{
+    background: {color6};
+    color: #000000;
+}}
+
+#memory {{
+    background: {color7};
+	 color: black;
+}}
+
+#backlight {{
+    background: {color8};
+}}
+
+#network {{
+    background: {color9};
+}}
+
+#network.disconnected {{
+    background: {inactive};
+}}
+
+#pulseaudio {{
+    background: {color13};
+    color: black;
+}}
+
+#pulseaudio.muted {{
+    background: {color12};
+    color: {inactive};
+}}
+
+#tray {{
+    background-color: {color11};
+}}
+
+#idle_inhibitor {{
+    background-color: {color10};
+}}

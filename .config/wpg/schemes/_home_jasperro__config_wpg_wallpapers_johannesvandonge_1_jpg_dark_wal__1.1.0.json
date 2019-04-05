@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/johannesvandonge_1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f1301",
+        "foreground": "#f5e0a4",
+        "cursor": "#f5e0a4"
+    },
+    "colors": {
+        "color0": "#0f1301",
+        "color1": "#72471A",
+        "color2": "#62521E",
+        "color3": "#776D48",
+        "color4": "#976126",
+        "color5": "#C0742B",
+        "color6": "#E8A343",
+        "color7": "#f5e0a4",
+        "color8": "#ab9c72",
+        "color9": "#72471A",
+        "color10": "#62521E",
+        "color11": "#776D48",
+        "color12": "#976126",
+        "color13": "#C0742B",
+        "color14": "#E8A343",
+        "color15": "#f5e0a4"
+    }
+}

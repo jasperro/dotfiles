@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/pauloflop_5.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0A0604",
+        "foreground": "#dbd6d6",
+        "cursor": "#dbd6d6"
+    },
+    "colors": {
+        "color0": "#0A0604",
+        "color1": "#C88778",
+        "color2": "#757F80",
+        "color3": "#7B868A",
+        "color4": "#8B908F",
+        "color5": "#A7A8AA",
+        "color6": "#E7A192",
+        "color7": "#dbd6d6",
+        "color8": "#999595",
+        "color9": "#C88778",
+        "color10": "#757F80",
+        "color11": "#7B868A",
+        "color12": "#8B908F",
+        "color13": "#A7A8AA",
+        "color14": "#E7A192",
+        "color15": "#dbd6d6"
+    }
+}

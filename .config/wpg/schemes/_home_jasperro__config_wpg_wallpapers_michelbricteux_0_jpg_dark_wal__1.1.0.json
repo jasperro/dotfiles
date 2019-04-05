@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/michelbricteux_0.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#171615",
+        "foreground": "#dad6d1",
+        "cursor": "#dad6d1"
+    },
+    "colors": {
+        "color0": "#171615",
+        "color1": "#978974",
+        "color2": "#CFAC6B",
+        "color3": "#3D669C",
+        "color4": "#63738A",
+        "color5": "#798599",
+        "color6": "#9E9E9F",
+        "color7": "#dad6d1",
+        "color8": "#989592",
+        "color9": "#978974",
+        "color10": "#CFAC6B",
+        "color11": "#3D669C",
+        "color12": "#63738A",
+        "color13": "#798599",
+        "color14": "#9E9E9F",
+        "color15": "#dad6d1"
+    }
+}

@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/jasperro/.config/wpg/wallpapers/pauloflop_0.jpg"
+let background = "#090B05"
+let foreground = "#dcdad2"
+let cursor     = "#dcdad2"
+
+" Colors
+let color0  = "#090B05"
+let color1  = "#CC5E46"
+let color2  = "#7C8474"
+let color3  = "#958A74"
+let color4  = "#E08872"
+let color5  = "#ABA798"
+let color6  = "#C7B6A7"
+let color7  = "#dcdad2"
+let color8  = "#9a9893"
+let color9  = "#CC5E46"
+let color10 = "#7C8474"
+let color11 = "#958A74"
+let color12 = "#E08872"
+let color13 = "#ABA798"
+let color14 = "#C7B6A7"
+let color15 = "#dcdad2"

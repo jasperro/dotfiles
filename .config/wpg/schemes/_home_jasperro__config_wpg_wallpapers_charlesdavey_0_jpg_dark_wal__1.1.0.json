@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/charlesdavey_0.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0F0D08",
+        "foreground": "#cbcac4",
+        "cursor": "#cbcac4"
+    },
+    "colors": {
+        "color0": "#0F0D08",
+        "color1": "#8C691E",
+        "color2": "#8C7031",
+        "color3": "#8A794E",
+        "color4": "#B89E4E",
+        "color5": "#A7935B",
+        "color6": "#7B7E83",
+        "color7": "#cbcac4",
+        "color8": "#8e8d89",
+        "color9": "#8C691E",
+        "color10": "#8C7031",
+        "color11": "#8A794E",
+        "color12": "#B89E4E",
+        "color13": "#A7935B",
+        "color14": "#7B7E83",
+        "color15": "#cbcac4"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/blades.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#afcecf",
+        "foreground": "#010101",
+        "cursor": "#010101"
+    },
+    "colors": {
+        "color0": "#afcecf",
+        "color1": "#2E5652",
+        "color2": "#52935D",
+        "color3": "#37696E",
+        "color4": "#345469",
+        "color5": "#437586",
+        "color6": "#5FA1A6",
+        "color7": "#0A1314",
+        "color8": "#98b3b3",
+        "color9": "#144742",
+        "color10": "#257a34",
+        "color11": "#18555b",
+        "color12": "#173d56",
+        "color13": "#1d5a6f",
+        "color14": "#2b848a",
+        "color15": "#010101"
+    }
+}

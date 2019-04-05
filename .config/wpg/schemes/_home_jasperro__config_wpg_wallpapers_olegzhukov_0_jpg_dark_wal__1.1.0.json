@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/olegzhukov_0.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090c1a",
+        "foreground": "#b1bae4",
+        "cursor": "#b1bae4"
+    },
+    "colors": {
+        "color0": "#090c1a",
+        "color1": "#2C4EAF",
+        "color2": "#5A60A3",
+        "color3": "#375EC6",
+        "color4": "#5B72CC",
+        "color5": "#867290",
+        "color6": "#7B81BC",
+        "color7": "#b1bae4",
+        "color8": "#7b829f",
+        "color9": "#2C4EAF",
+        "color10": "#5A60A3",
+        "color11": "#375EC6",
+        "color12": "#5B72CC",
+        "color13": "#867290",
+        "color14": "#7B81BC",
+        "color15": "#b1bae4"
+    }
+}

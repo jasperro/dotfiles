@@ -29,7 +29,7 @@ desktopback = #77{color1.strip}
 monitor = ${{env:MONITOR:}}
 bottom = false
 width = 100%
-height = 32
+height = 36
 offset-x = 0
 offset-y = 0
 
@@ -131,8 +131,8 @@ label = %percentage_used%% %percentage_swap_used%%
 
 [module/wifi]
 type = custom/script
-interval = 30
-exec = "nmcli d show wlp3s0 | grep 'GENERAL.CONNECTION' | awk 'i{{ print $2 }}'"
+interval = 3.0
+exec = "nmcli d show wlp3s0 | grep 'GENERAL.CONNECTION' | sed -e 's/GENERAL.CONNECTION://g' -e 's/ //g'"
 format-prefix = " "
 format-prefix-foreground = ${{colors.foreground}}
 format-underline = ${{colors.magenta}}
