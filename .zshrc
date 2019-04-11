@@ -12,7 +12,6 @@ function zle-line-init {
   if (( ${+terminfo[smkx]} )); then
     printf '%s' ${terminfo[smkx]}
   fi
-  zle reset-prompt
   zle -R
 }
 
@@ -21,13 +20,11 @@ function zle-line-finish {
   if (( ${+terminfo[rmkx]} )); then
     printf '%s' ${terminfo[rmkx]}
   fi
-  zle reset-prompt
   zle -R
 }
 
 function zle-keymap-select {
   powerlevel9k_prepare_prompts
-  zle reset-prompt
   zle -R
 }
 
@@ -35,6 +32,8 @@ zle -N zle-line-init
 zle -N ale-line-finish
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
+
+source /usr/share/fonts/awesome-terminal-fonts/*.sh
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jasperro/.zshrc'
@@ -47,9 +46,9 @@ ZSH_AUTOSUGGEST_USE_ASYNC=enabled
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Powerlevel9k Configuration
-POWERLEVEL9K_MODE='awesome-fontconfig'
+#POWERLEVEL9K_MODE=''
 POWERLEVEL9K_COLOR_SCHEME='dark'
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -58,34 +57,15 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 
-POWERLEVEL9K_RVM_BACKGROUND="black"
-POWERLEVEL9K_RVM_FOREGROUND="green"
-POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="blue"
-
-POWERLEVEL9K_TIME_BACKGROUND="blue"
-POWERLEVEL9K_TIME_FORMAT=" %D{%H:%M}"
-
-#POWERLEVEL9K_FOLDER_ICON='  '
-POWERLEVEL9K_HOME_ICON=''
-#POWERLEVEL9K_HOME_SUB_ICON='  '
-#POWERLEVEL9K_EXECUTION_TIME_ICON=' '
-#POWERLEVEL9K_BATTERY_ICON=' '
-POWERLEVEL9K_OS_ICON='ArchLinux'
-
 POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
 
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='blue'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
-
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context ssh root_indicator dir vcs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(icons_test vi_mode context ssh root_indicator dir vcs)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status)
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{black}█"
