@@ -48,9 +48,13 @@
         "format": "{{}}% "
     }},
     "backlight": {{
-        // "device": "acpi_video1",
+        "device": "intel_backlight",
         "format": "{{percent}}% {{icon}}",
-        "format-icons": ["", ""]
+        "format-icons": ["", ""],
+		  "on-click": "light -S 1",
+		  "on-click-right": "light -S 100",
+		  "on-scroll-up": "light -A 2",
+		  "on-scroll-down": "light -U 2"
     }},
     "battery": {{
         "states": {{
@@ -84,8 +88,8 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": ["", ""]
         }},
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute 0 toggle"
     }}
 }}

@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/pauloflop_1.jpg",
     "alpha": "100",
     "special": {
-        "background": "#13120f",
-        "foreground": "#9dc2d7",
-        "cursor": "#9dc2d7"
+        "background": "#131210",
+        "foreground": "#9ec2d8",
+        "cursor": "#9ec2d8"
     },
     "colors": {
-        "color0": "#13120f",
-        "color1": "#5C5C57",
-        "color2": "#9D6C42",
-        "color3": "#799851",
-        "color4": "#C69E59",
-        "color5": "#0B6895",
-        "color6": "#567490",
-        "color7": "#9dc2d7",
-        "color8": "#6d8796",
-        "color9": "#5C5C57",
-        "color10": "#9D6C42",
-        "color11": "#799851",
-        "color12": "#C69E59",
-        "color13": "#0B6895",
-        "color14": "#567490",
-        "color15": "#9dc2d7"
+        "color0": "#131210",
+        "color1": "#5C5B58",
+        "color2": "#9E6C44",
+        "color3": "#7C9654",
+        "color4": "#C79E5A",
+        "color5": "#0B6896",
+        "color6": "#577390",
+        "color7": "#9ec2d8",
+        "color8": "#6e8797",
+        "color9": "#5C5B58",
+        "color10": "#9E6C44",
+        "color11": "#7C9654",
+        "color12": "#C79E5A",
+        "color13": "#0B6896",
+        "color14": "#577390",
+        "color15": "#9ec2d8"
     }
 }

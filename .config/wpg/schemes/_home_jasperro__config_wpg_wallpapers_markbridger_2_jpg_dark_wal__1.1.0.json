@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/markbridger_2.jpg",
     "alpha": "100",
     "special": {
-        "background": "#110c07",
-        "foreground": "#d6c89e",
-        "cursor": "#d6c89e"
+        "background": "#120c08",
+        "foreground": "#d7c89f",
+        "cursor": "#d7c89f"
     },
     "colors": {
-        "color0": "#110c07",
-        "color1": "#625451",
-        "color2": "#9D4825",
-        "color3": "#975A2E",
+        "color0": "#120c08",
+        "color1": "#635352",
+        "color2": "#9D4827",
+        "color3": "#97592F",
         "color4": "#9D6C54",
-        "color5": "#7A8627",
-        "color6": "#AD9853",
-        "color7": "#d6c89e",
-        "color8": "#958c6e",
-        "color9": "#625451",
-        "color10": "#9D4825",
-        "color11": "#975A2E",
+        "color5": "#7C852C",
+        "color6": "#AD9753",
+        "color7": "#d7c89f",
+        "color8": "#968c6f",
+        "color9": "#635352",
+        "color10": "#9D4827",
+        "color11": "#97592F",
         "color12": "#9D6C54",
-        "color13": "#7A8627",
-        "color14": "#AD9853",
-        "color15": "#d6c89e"
+        "color13": "#7C852C",
+        "color14": "#AD9753",
+        "color15": "#d7c89f"
     }
 }

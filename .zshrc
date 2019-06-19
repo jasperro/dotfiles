@@ -1,6 +1,9 @@
 (cat $HOME/.config/wpg/sequences &)
 export TERM="xterm-256color"
 source ~/.fonts/fontawesome-regular.sh
+source ~/.fonts/devicons-regular.sh
+source ~/.fonts/octicons-regular.sh
+source ~/.fonts/pomicons-regular.sh
 
 HISTFILE=~/.histfile
 HISTSIZE=2000

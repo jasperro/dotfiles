@@ -1,27 +1,28 @@
 {
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/cameron-venti-1130600-unsplash.jpg",
     "alpha": "100",
+
     "special": {
-        "background": "#121917",
-        "foreground": "#cadbe0",
-        "cursor": "#cadbe0"
+        "background": "#222f2b",
+        "foreground": "#faffff",
+        "cursor": "#faffff"
     },
     "colors": {
-        "color0": "#121917",
-        "color1": "#126DA2",
-        "color2": "#4F7692",
-        "color3": "#058AA3",
-        "color4": "#6D8F9F",
-        "color5": "#50A5D0",
-        "color6": "#99A3A0",
-        "color7": "#cadbe0",
-        "color8": "#8d999c",
-        "color9": "#126DA2",
-        "color10": "#4F7692",
-        "color11": "#058AA3",
-        "color12": "#6D8F9F",
-        "color13": "#50A5D0",
-        "color14": "#99A3A0",
-        "color15": "#cadbe0"
+        "color0": "#222f2b",
+        "color1": "#5b8aad",
+        "color2": "#05aaca",
+        "color3": "#abb6b4",
+        "color4": "#1485c6",
+        "color5": "#7da3b6",
+        "color6": "#5abbed",
+        "color7": "#dceef4",
+        "color8": "#364c45",
+        "color9": "#62afe9",
+        "color10": "#01d7ff",
+        "color11": "#c2fcef",
+        "color12": "#0ba8ff",
+        "color13": "#8ad3f9",
+        "color14": "#5ef5ff",
+        "color15": "#faffff"
     }
 }

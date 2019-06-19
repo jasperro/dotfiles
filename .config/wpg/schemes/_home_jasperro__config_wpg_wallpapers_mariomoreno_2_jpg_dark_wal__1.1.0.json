@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/mariomoreno_2.jpg",
     "alpha": "100",
     "special": {
-        "background": "#0d0d0d",
-        "foreground": "#e3dbcd",
-        "cursor": "#e3dbcd"
+        "background": "#0e0d0e",
+        "foreground": "#e3dace",
+        "cursor": "#e3dace"
     },
     "colors": {
-        "color0": "#0d0d0d",
-        "color1": "#8E745C",
-        "color2": "#798545",
-        "color3": "#B7AE44",
-        "color4": "#A99368",
-        "color5": "#B49F8C",
-        "color6": "#C9B397",
-        "color7": "#e3dbcd",
-        "color8": "#9e998f",
-        "color9": "#8E745C",
-        "color10": "#798545",
-        "color11": "#B7AE44",
-        "color12": "#A99368",
-        "color13": "#B49F8C",
-        "color14": "#C9B397",
-        "color15": "#e3dbcd"
+        "color0": "#0e0d0e",
+        "color1": "#8E745D",
+        "color2": "#7A8546",
+        "color3": "#B9AE46",
+        "color4": "#A99268",
+        "color5": "#B49D8C",
+        "color6": "#CAB398",
+        "color7": "#e3dace",
+        "color8": "#9e9890",
+        "color9": "#8E745D",
+        "color10": "#7A8546",
+        "color11": "#B9AE46",
+        "color12": "#A99268",
+        "color13": "#B49D8C",
+        "color14": "#CAB398",
+        "color15": "#e3dace"
     }
 }

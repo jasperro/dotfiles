@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/johannesvandonge_2.jpg",
     "alpha": "100",
     "special": {
-        "background": "#0B0B09",
-        "foreground": "#c7c8c3",
-        "cursor": "#c7c8c3"
+        "background": "#0C0B0A",
+        "foreground": "#b2b8b9",
+        "cursor": "#b2b8b9"
     },
     "colors": {
-        "color0": "#0B0B09",
-        "color1": "#936A22",
-        "color2": "#92702B",
-        "color3": "#8B714A",
-        "color4": "#A98733",
-        "color5": "#A99461",
-        "color6": "#788382",
-        "color7": "#c7c8c3",
-        "color8": "#8b8c88",
-        "color9": "#936A22",
-        "color10": "#92702B",
-        "color11": "#8B714A",
-        "color12": "#A98733",
-        "color13": "#A99461",
-        "color14": "#788382",
-        "color15": "#c7c8c3"
+        "color0": "#0C0B0A",
+        "color1": "#606157",
+        "color2": "#946A23",
+        "color3": "#926F2B",
+        "color4": "#8C714B",
+        "color5": "#AA8734",
+        "color6": "#AA9361",
+        "color7": "#b2b8b9",
+        "color8": "#7c8081",
+        "color9": "#606157",
+        "color10": "#946A23",
+        "color11": "#926F2B",
+        "color12": "#8C714B",
+        "color13": "#AA8734",
+        "color14": "#AA9361",
+        "color15": "#b2b8b9"
     }
 }

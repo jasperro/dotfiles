@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/vitaliprokopenko_0.jpg",
     "alpha": "100",
     "special": {
-        "background": "#061D27",
-        "foreground": "#d0dde9",
-        "cursor": "#d0dde9"
+        "background": "#061C28",
+        "foreground": "#dae3ec",
+        "cursor": "#dae3ec"
     },
     "colors": {
-        "color0": "#061D27",
-        "color1": "#6A95B6",
-        "color2": "#6FA2C8",
-        "color3": "#86A1BB",
-        "color4": "#90B3D2",
-        "color5": "#A0BCD9",
-        "color6": "#A9C5DC",
-        "color7": "#d0dde9",
-        "color8": "#919aa3",
-        "color9": "#6A95B6",
-        "color10": "#6FA2C8",
-        "color11": "#86A1BB",
-        "color12": "#90B3D2",
-        "color13": "#A0BCD9",
-        "color14": "#A9C5DC",
-        "color15": "#d0dde9"
+        "color0": "#061C28",
+        "color1": "#6FA1C9",
+        "color2": "#86A0BA",
+        "color3": "#90B2D3",
+        "color4": "#A0BBDB",
+        "color5": "#AAC4DD",
+        "color6": "#B3CCE6",
+        "color7": "#dae3ec",
+        "color8": "#989ea5",
+        "color9": "#6FA1C9",
+        "color10": "#86A0BA",
+        "color11": "#90B2D3",
+        "color12": "#A0BBDB",
+        "color13": "#AAC4DD",
+        "color14": "#B3CCE6",
+        "color15": "#dae3ec"
     }
 }

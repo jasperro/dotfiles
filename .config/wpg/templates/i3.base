@@ -1,5 +1,5 @@
 set $mod Mod4
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 5
 exec --no-startup-id xset dpms 240 600 0 &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
@@ -13,16 +13,19 @@ exec --no-startup-id xsettingsd &
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec pavucontrol
 #bindsym $mod+Shift+w exec chromium
-#bindsym $mod+Shift+w exec firefox-nightly
-bindsym $mod+Shift+w exec firefox
+bindsym $mod+Shift+w exec firefox-nightly
+#bindsym $mod+Shift+w exec firefox
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/polybar/launchpolybar.sh &
 #bindsym $mod+Return exec termite
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Control+p exec pasuspender /bin/true &
 focus_follows_mouse no
 
 bindsym $mod+q kill
-bindsym $mod+F5 exec gnome-screenshot -i
+bindsym $mod+c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{{cmd}}'
+
+bindsym $mod+Print exec gnome-screenshot -i
+bindsym Print exec gnome-screenshot
 bindsym $mod+Shift+q exec sh ~/.config/i3/i3lockcolor.sh
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+a exec ~/.config/rofi/arandr.sh
@@ -121,8 +124,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym Mod4+p exec --no-startup-id light -S 1
 
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 

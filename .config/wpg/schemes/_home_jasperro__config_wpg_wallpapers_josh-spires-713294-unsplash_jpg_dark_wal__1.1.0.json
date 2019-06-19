@@ -1,27 +1,28 @@
 {
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/josh-spires-713294-unsplash.jpg",
     "alpha": "100",
+
     "special": {
-        "background": "#0E1116",
-        "foreground": "#dfcdc4",
-        "cursor": "#dfcdc4"
+        "background": "#091927",
+        "foreground": "#fff9ee",
+        "cursor": "#fff9ee"
     },
     "colors": {
-        "color0": "#0E1116",
-        "color1": "#92715F",
-        "color2": "#AF8B72",
-        "color3": "#32728E",
-        "color4": "#857B85",
-        "color5": "#5495AE",
-        "color6": "#ACB3BC",
+        "color0": "#091927",
+        "color1": "#937060",
+        "color2": "#897A86",
+        "color3": "#B08B73",
+        "color4": "#33718F",
+        "color5": "#ACB2BC",
+        "color6": "#5495B0",
         "color7": "#dfcdc4",
-        "color8": "#9c8f89",
-        "color9": "#92715F",
-        "color10": "#AF8B72",
-        "color11": "#32728E",
-        "color12": "#857B85",
-        "color13": "#5495AE",
-        "color14": "#ACB3BC",
-        "color15": "#dfcdc4"
+        "color8": "#113350",
+        "color9": "#ce8b6d",
+        "color10": "#c28db8",
+        "color11": "#f7b082",
+        "color12": "#3597c6",
+        "color13": "#c8e1ff",
+        "color14": "#5cc8f5",
+        "color15": "#fff9ee"
     }
 }

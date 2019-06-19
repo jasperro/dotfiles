@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/anjali-mehta-759833-unsplash.jpg",
     "alpha": "100",
     "special": {
-        "background": "#02151F",
+        "background": "#03141E",
         "foreground": "#dee3e8",
         "cursor": "#dee3e8"
     },
     "colors": {
-        "color0": "#02151F",
-        "color1": "#837F89",
-        "color2": "#6A88A8",
-        "color3": "#9BA3B0",
+        "color0": "#03141E",
+        "color1": "#827D89",
+        "color2": "#6A88A9",
+        "color3": "#9BA2B1",
         "color4": "#A5BBD5",
-        "color5": "#B5C8DB",
-        "color6": "#BCCEE0",
+        "color5": "#B5C7DC",
+        "color6": "#BBCEE0",
         "color7": "#dee3e8",
         "color8": "#9b9ea2",
-        "color9": "#837F89",
-        "color10": "#6A88A8",
-        "color11": "#9BA3B0",
+        "color9": "#827D89",
+        "color10": "#6A88A9",
+        "color11": "#9BA2B1",
         "color12": "#A5BBD5",
-        "color13": "#B5C8DB",
-        "color14": "#BCCEE0",
+        "color13": "#B5C7DC",
+        "color14": "#BBCEE0",
         "color15": "#dee3e8"
     }
 }

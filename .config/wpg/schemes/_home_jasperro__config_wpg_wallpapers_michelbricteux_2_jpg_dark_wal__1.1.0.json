@@ -2,26 +2,26 @@
     "wallpaper": "/home/jasperro/.config/wpg/wallpapers/michelbricteux_2.jpg",
     "alpha": "100",
     "special": {
-        "background": "#121a0f",
-        "foreground": "#d1d9d1",
-        "cursor": "#d1d9d1"
+        "background": "#131a10",
+        "foreground": "#d1d8d2",
+        "cursor": "#d1d8d2"
     },
     "colors": {
-        "color0": "#121a0f",
-        "color1": "#597C7C",
-        "color2": "#768608",
-        "color3": "#718563",
-        "color4": "#929807",
-        "color5": "#929068",
-        "color6": "#A4B5A6",
-        "color7": "#d1d9d1",
-        "color8": "#929792",
-        "color9": "#597C7C",
-        "color10": "#768608",
-        "color11": "#718563",
-        "color12": "#929807",
-        "color13": "#929068",
-        "color14": "#A4B5A6",
-        "color15": "#d1d9d1"
+        "color0": "#131a10",
+        "color1": "#5A7B7B",
+        "color2": "#768509",
+        "color3": "#728562",
+        "color4": "#939808",
+        "color5": "#939069",
+        "color6": "#A5B4A7",
+        "color7": "#d1d8d2",
+        "color8": "#929793",
+        "color9": "#5A7B7B",
+        "color10": "#768509",
+        "color11": "#728562",
+        "color12": "#939808",
+        "color13": "#939069",
+        "color14": "#A5B4A7",
+        "color15": "#d1d8d2"
     }
 }
