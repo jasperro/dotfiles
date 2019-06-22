@@ -1,7 +1,7 @@
 * {{
     border: none;
     border-radius: 0;
-    font-family: "{uifont}", Roboto, Helvetica, Arial, sans-serif;
+    font-family: icons-in-terminal, octicons, icomoon, Pomodoro, FontAwesome, "{polybarfont}", Roboto, Helvetica, Arial, sans-serif;
     font-size: {rofifontsize}px;
     min-height: 0;
 }}
@@ -17,49 +17,46 @@ window#waybar {{
     background: transparent;
     color: {foreground};
     border-bottom: 3px solid transparent;
-	 border-radius: 10px;
 }}
 
 #workspaces button.focused {{
-    background: {color1};
-    border: 1px solid white;
+    background: rgba({color1.rgb}, 0.2);
+	 border-bottom: 3px solid {color4};
 }}
 
 #mode {{
-    background: {color1};
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid {color1};
 }}
 
-#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {{
-    padding: 0 10px;
-    margin: 0 5px;
-	 border-radius: 10px;
+#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor, #window {{
+    padding: 5px 5px;
+    margin: 0 3px;
 }}
 
 #clock {{
-    background-color: {color2};
+    border-bottom: 3px solid {color2};
 }}
 
 #battery {{
-    background-color: {color3};
-    color: white;
+    border-bottom: 3px solid {color3};
+    color: {foreground};
 }}
 
 #battery.charging {{
-    color: black;
-    background-color: {color4};
+    color: {foreground};
+    border-bottom: 3px solid {color4};
 }}
 
 @keyframes blink {{
     to {{
-        background-color: {color0};
-        color: black;
+        border-bottom: 3px solid {color0};
+        color: {foreground};
     }}
 }}
 
 #battery.critical:not(.charging) {{
-    background: {color5};
-    color: white;
+    border-bottom: 3px solid {color5};
+    color: {foreground};
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -68,41 +65,40 @@ window#waybar {{
 }}
 
 #cpu {{
-    background: {color6};
-    color: #000000;
+    border-bottom: 3px solid {color6};
+    color: {foreground};
 }}
 
 #memory {{
-    background: {color7};
-	 color: black;
+    border-bottom: 3px solid {color7};
+	 color: {foreground};
 }}
 
 #backlight {{
-    background: {color8};
+    border-bottom: 3px solid {color8};
 }}
 
 #network {{
-    background: {color9};
+    border-bottom: 3px solid {color9};
 }}
 
 #network.disconnected {{
-    background: {inactive};
+    border-bottom: 3px solid {inactive};
 }}
 
 #pulseaudio {{
-    background: {color13};
-    color: black;
+    border-bottom: 3px solid {color13};
+    color: {foreground};
 }}
 
 #pulseaudio.muted {{
-    background: {color12};
-    color: {inactive};
+    border-bottom: 3px solid {color12};
 }}
 
 #tray {{
-    background-color: {color11};
+    border-bottom: 3px solid {color11};
 }}
 
 #idle_inhibitor {{
-    background-color: {color10};
+    border-bottom: 3px solid {color10};
 }}

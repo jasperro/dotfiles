@@ -9,10 +9,11 @@ exec gsettings set org.gnome.desktop.interface gtk-theme {gtktheme} &
 bindsym $mod+Shift+f exec thunar &
 bindsym $mod+Shift+s exec pavucontrol &
 #bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+w exec firefox-nightly
+bindsym $mod+Shift+w exec GDK_BACKEND=wayland firefox-nightly
 #bindsym $mod+Shift+w exec firefox &
 bindsym $mod+Shift+p exec waybar &
-bindsym $mod+Return exec env WAYLAND_DISPLAY= alacritty &
+bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
+bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
 focus_follows_mouse no
 
 bindsym $mod+q kill
@@ -37,12 +38,12 @@ hide_edge_borders smart
 
 font pango:Fira Sans 11
 
-set $workspace1 "I"
-set $workspace2 "II"
-set $workspace3 "III"
-set $workspace4 "IV"
-set $workspace5 "V"
-set $workspace6 "VI"
+set $workspace1 " I"
+set $workspace2 " II"
+set $workspace3 " III"
+set $workspace4 " IV"
+set $workspace5 " V"
+set $workspace6 " VI"
 set $workspace7 "VII"
 set $workspace8 "VIII"
 set $workspace9 "IX"
@@ -166,16 +167,17 @@ client.focused			#00000000	{color10}	{color15}	{color3}	{color3}
 client.focused_inactive	#00000000	{color10}	{color15}	{color3}	{color3}
 client.background			#000000
 
-#input 1:1:AT_Translated_Set_2_keyboard {{
-#    xkb_layout us,intl
-#    xkb_variant ,deadkeys
-#    xkb_options grp:alt_shift_toggle
-#}}
-
-
 input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
     accel_profile flat
     middle_emulation enabled
     tap enabled
     tap_button_map lrm
 }}
+
+input * {{
+    xkb_layout us
+    xkb_variant intl
+}}
+
+output eDP-1 position 0 400
+output HDMI-A-1 position 1920 0
