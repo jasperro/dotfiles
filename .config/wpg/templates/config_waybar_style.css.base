@@ -1,7 +1,7 @@
 * {{
     border: none;
     border-radius: 0;
-    font-family: icons-in-terminal, octicons, icomoon, Pomodoro, FontAwesome, "{polybarfont}", Roboto, Helvetica, Arial, sans-serif;
+    font-family: icons-in-terminal, octicons, icomoon, Pomodoro, FontAwesome, "{uifont}", Roboto, Helvetica, Arial, sans-serif;
     font-size: {rofifontsize}px;
     min-height: 0;
 }}
@@ -13,7 +13,7 @@ window#waybar {{
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {{
-    padding: 5px 10px;
+    padding: 7px 10px;
     background: transparent;
     color: {foreground};
     border-bottom: 3px solid transparent;

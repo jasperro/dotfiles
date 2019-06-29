@@ -6,23 +6,22 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "battery#bat2", "tray"],
+    "modules-right": ["idle_inhibitor", "network", "battery", "cpu", "memory", "backlight", "pulseaudio", "tray"],
     // Modules configuration
-    // "sway/workspaces": {{
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{{name}}: {{icon}}",
-    //     "format-icons": {{
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }}
-    // }},
+    "sway/workspaces": {{
+         "format": "{{name}}: {{icon}}",
+         "format-icons": {{
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+				 "6": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }}
+    }},
     "sway/mode": {{
         "format": "<span style=\"italic\">{{}}</span>"
     }},
@@ -39,8 +38,11 @@
     }},
     "clock": {{
         "tooltip-format": "{{:%Y-%m-%d | %H:%M}}",
-        "format-alt": "{{:%Y-%m-%d}}"
+        "format-alt": "{{:%H:%M %Y-%m-%d %a w%V}}"
     }},
+	 "sway/window": {{
+		  "tooltip": false
+	 }},
     "cpu": {{
         "format": "{{usage}}% "
     }},
@@ -74,7 +76,8 @@
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{{essid}} ({{signalStrength}}%) ",
         "format-ethernet": "{{ifname}}: {{ipaddr}}/{{cidr}} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-disconnected": "Disconnected ⚠",
+		  "on-click": "networkmanager_dmenu"
     }},
     "pulseaudio": {{
         "scroll-step": 1,
@@ -90,6 +93,9 @@
             "car": "",
             "default": ["", ""]
         }},
-        "on-click": "pactl set-sink-mute 0 toggle"
+        "on-click": "pactl set-sink-mute 0 toggle",
+		  "on-click-right": "pavucontrol",
+		  "on-scroll-up": "pactl set-sink-volume 0 +1%",
+		  "on-scroll-down": "pactl set-sink-volume 0 -1%"
     }}
 }}

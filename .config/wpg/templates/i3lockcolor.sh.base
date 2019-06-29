@@ -1,19 +1,19 @@
 #!/bin/sh
-#i3lock -c {color.strip1} \
+#i3lock -c {color1.strip} \
 #       --veriftext="..." --wrongtext="×" \
 #       --timepos="x-90:h-ch-20" --datepos="x-90:h-ch+10" --indpos="x+290:h-120" \
-#       --insidecolor={color.strip0}99 --ringcolor={color.strip1}99 \
-#       --insidevercolor={color.strip2}99 --ringvercolor={color.strip3}99 \
-#       --insidewrongcolor={color.strip3}99 --ringwrongcolor={color.strip5}99 \
-#       --keyhlcolor={color.strip6}99 --bshlcolor={color.strip7}99 \
-#       --linecolor={color.strip8}99 --separatorcolor={color.strip9}99 \
+#       --insidecolor={color0.strip}99 --ringcolor={color1.strip}99 \
+#       --insidevercolor={color2.strip}99 --ringvercolor={color3.strip}99 \
+#       --insidewrongcolor={color3.strip}99 --ringwrongcolor={color.strip5}99 \
+#       --keyhlcolor={color6.strip}99 --bshlcolor={color7.strip}99 \
+#       --linecolor={color8.strip}99 --separatorcolor={color9.strip}99 \
 #       --radius 30 --ring-width 10 \
 #       --blur 6 \
-#       --clock --timestr="%H:%M" --timecolor="{color.strip10}ff" --datecolor="{color.strip12}ff"
+#       --clock --timestr="%H:%M" --timecolor="{color1.strip0}ff" --datecolor="{color12.strip}ff"
 
-B='{color.strip1}dd'  # blank
-C='{color.strip2}dd'  # clear ish
-D='{color.strip3}dd'  # default
+B='{color1.strip}dd'  # blank
+C='{color2.strip}dd'  # clear ish
+D='{color3.strip}dd'  # default
 T='{color.strip4}dd'  # text
 W='{color.strip5}dd'  # wrong
 V='{color.strip5}dd' # verifying
@@ -25,7 +25,7 @@ i3lock -n \
 --bar-direction 1 \
 --bar-max-height 20 \
 --bar-base-width 20 \
---bar-color {color.strip2}dd \
+--bar-color {color2.strip}dd \
 --keyhlcolor {color.strip5}dd \
 --bar-periodic-step 50 \
 --bar-step 50 \
@@ -35,13 +35,13 @@ i3lock -n \
 --clock \
 --force-clock \
 --timepos 80:h-80 \
---timecolor {color.strip1}dd \
+--timecolor {color1.strip}dd \
 --datepos tx:ty-40 \
---datecolor {color.strip12}ff \
+--datecolor {color12.strip}ff \
 --date-align 1 \
 --time-align 1 \
---ringvercolor {color.strip11}88 \
---ringwrongcolor {color.strip10}88 \
+--ringvercolor {color1.strip1}88 \
+--ringwrongcolor {color1.strip0}88 \
 --statuspos 5:h-16 \
 --verif-align 1 \
 --wrong-align 1 \

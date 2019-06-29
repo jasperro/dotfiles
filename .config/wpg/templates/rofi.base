@@ -4,10 +4,10 @@ rofi.width:			     					 20
 rofi.columns:                        1
 rofi.lines:									 30
 rofi.font:                           {uifont} {rofifontsize}
-rofi.color-normal:                   #00{color0.strip}, #{color15.strip}, #00{color0.strip}, #aa{color15.strip}, #{color0.strip}
+rofi.color-normal:                   #00{color0.strip}, #{color15.strip}, #00{color0.strip}, #dd{color15.strip}, #{color0.strip}
 rofi.color-urgent:                   #88{color0.strip}, #d6b48d, #8822231D, #44d6b48d, #{color15.strip}
 rofi.color-active:                   #88{color0.strip}, #{color14.strip}, #88{color0.strip}, #44{color14.strip}, #{color0.strip}
-rofi.color-window:                   #00{color0.strip}, #00{color0.strip}, #00{color0.strip}
+rofi.color-window:                   #dd{color0.strip}, #dd{color0.strip}, #dd{color0.strip}
 rofi.bw:                             0
 rofi.location:                       0
 rofi.padding:                        200
