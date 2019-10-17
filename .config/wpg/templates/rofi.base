@@ -29,3 +29,4 @@ rofi.kb-row-down:                    Down,Control+n,Alt+j
 rofi.show-icons:                     true
 rofi.drun-icon-theme:                {icontheme}
 rofi.fullscreen:							 true
+rofi.monitor:								 -1

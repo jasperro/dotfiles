@@ -1,6 +1,6 @@
 {{
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar at the bottom of your screen
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar at the bottom of your screen
     // "height": 30, // Waybar height
     // "width": 1280, // Waybar width
     // Choose the order of the modules
@@ -11,12 +11,14 @@
     "sway/workspaces": {{
          "format": "{{name}}: {{icon}}",
          "format-icons": {{
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-             "5": "",
-				 "6": "",
+             "1": "\ue1e3",
+             "2": "\ue1e3",
+             "3": "\ue632",
+             "4": "\ue632",
+             "5": "\ue4bf",
+				 "6": "\ue659",
+				 "7": "\uea13",
+				 "8": "\ue4c0",
              "urgent": "",
              "focused": "",
              "default": ""
@@ -83,7 +85,7 @@
         "scroll-step": 1,
         "format": "{{volume}}% ",
         "format-bluetooth": "{{volume}}% {{icon}}",
-        "format-muted": "",
+        "format-muted": "{{volume}}% ",
         "format-icons": {{
             "headphones": "",
             "handsfree": "",

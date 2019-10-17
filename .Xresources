@@ -34,3 +34,5 @@
 ! white
 *.color7:       #eee8d5
 *.color15:      #fdf6e3
+
+Xcursor.size: 24

@@ -1,20 +1,21 @@
 set $mod Mod4
 for_window [class="^.*"] border pixel 1
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec mako &
+exec_always "killall mako; mako"
 exec $HOME/.config/wpg/wp_init.sh &
-exec xsettingsd &
-exec clipman -d &
+exec_always xsettingsd
+#exec clipman -d &
+#exec swayidle timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 exec gsettings set org.gnome.desktop.interface gtk-theme {gtktheme} &
 exec redshift &
-exec waybar &
+exec_always "killall waybar; waybar"
 bindsym $mod+Shift+f exec thunar &
 bindsym $mod+Shift+s exec pavucontrol &
 #bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+w exec GDK_BACKEND=wayland firefox-nightly
-#bindsym $mod+Shift+w exec firefox &
+bindsym $mod+Shift+w exec GDK_BACKEND=wayland firefox &
 bindsym $mod+c exec clipman -s &
-bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
+#bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
+bindsym $mod+Return exec kitty &
 bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
 focus_follows_mouse no
 
@@ -22,6 +23,7 @@ bindsym $mod+q kill
 bindsym $mod+F5 exec swaygrab -i
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+m exec wpg -m
+bindsym $mod+Ctrl+m exec wpg -s `wpg -c`
 
 bindsym $mod+d exec rofi -show combi &
 
@@ -31,7 +33,7 @@ exec_always import-gsettings \
     cursor-theme:gtk-cursor-theme-name \
 	 font-name:gtk-font-name
 
-gaps inner 5
+gaps inner 10
 gaps outer 0
 
 default_border pixel 5
@@ -85,7 +87,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 bindsym $mod+Ctrl+Left split h
-bindsym $mod+Ctrl+Right split hexec_always bash /home/jasperro/test.sh &
+bindsym $mod+Ctrl+Right split h 
 
 bindsym $mod+Ctrl+Up split v
 bindsym $mod+Ctrl+Down split v
@@ -163,8 +165,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym Mod4+p exec --no-startup-id light -S 1
 
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -172,7 +174,6 @@ set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
- exec_always bash /home/jasperro/test.sh &
 mode "$mode_gaps" {{
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
@@ -215,6 +216,7 @@ input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
     middle_emulation enabled
     tap enabled
     tap_button_map lrm
+	 dwt disabled
 }}
 
 input * {{
@@ -222,14 +224,12 @@ input * {{
     xkb_variant intl
 }}
 
-set $laptop eDP-1
+set $laptop 'Unknown 0x1E3D 0x00000000'
 
 bindsym $mod+k output $laptop toggle
 
 output $laptop position 0 0
 output HDMI-A-1 position 1920 0
 
-bindswitch lid:on output $laptop disable
-bindswitch lid:off output $laptop enable
-
-exec_always cat /proc/acpi/button/lid/LID0/state | awk '{print $2}' | grep -q 'closed' && swaymsg output eDP-1 disable &
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable

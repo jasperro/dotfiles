@@ -12,6 +12,7 @@ then
 elif [ x"Logout" = x"${SEL}" ]
 then
     i3-msg exit
+	 killall clipman
 elif [ x"Save session" = x"${SEL}" ]
 then
     ~/session save

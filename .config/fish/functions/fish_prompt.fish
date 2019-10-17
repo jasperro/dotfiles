@@ -1,0 +1,1 @@
+/home/jasperro/.local/share/omf/themes/agnoster/fish_prompt.fish

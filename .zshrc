@@ -42,6 +42,7 @@ source /usr/share/fonts/awesome-terminal-fonts/*.sh
 zstyle :compinstall filename '/home/jasperro/.zshrc'
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # End of lines added by compinstall
 
 # Autosuggestions
