@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/painting_in_the_rain.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#110f10",
+        "foreground": "#dea585",
+        "cursor": "#dea585"
+    },
+    "colors": {
+        "color0": "#110f10",
+        "color1": "#481B24",
+        "color2": "#4B282C",
+        "color3": "#1A423C",
+        "color4": "#28453F",
+        "color5": "#982F1C",
+        "color6": "#B3471E",
+        "color7": "#dea585",
+        "color8": "#9b735d",
+        "color9": "#481B24",
+        "color10": "#4B282C",
+        "color11": "#1A423C",
+        "color12": "#28453F",
+        "color13": "#982F1C",
+        "color14": "#B3471E",
+        "color15": "#dea585"
+    }
+}

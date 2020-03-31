@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#544a5a",
+        "foreground": "#fff8ff",
+        "cursor": "#fff8ff"
+    },
+    "colors": {
+        "color0": "#544a5a",
+        "color1": "#CFCDEA",
+        "color2": "#AECFEC",
+        "color3": "#D9B1D9",
+        "color4": "#B0C4DF",
+        "color5": "#E9B1D6",
+        "color6": "#90CEEE",
+        "color7": "#e7deea",
+        "color8": "#6d6075",
+        "color9": "#dad4ff",
+        "color10": "#bfffff",
+        "color11": "#ffcbff",
+        "color12": "#c7f6ff",
+        "color13": "#ffc2ff",
+        "color14": "#a2ffff",
+        "color15": "#fff8ff"
+    }
+}

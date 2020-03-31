@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -rs 'alexander-schimmeck-ineC_oi7NHs-unsplash.jpg' 'alexander-schimmeck-ineC_oi7NHs-unsplash.jpg'
+wpg -rs '/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Berry.png' '/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Berry.png'

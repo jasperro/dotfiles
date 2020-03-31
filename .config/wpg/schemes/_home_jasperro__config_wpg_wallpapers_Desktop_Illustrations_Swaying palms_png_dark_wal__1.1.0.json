@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Illustrations/Swaying palms.png",
+    "alpha": "100",
+    "special": {
+        "background": "#092445",
+        "foreground": "#dec1c1",
+        "cursor": "#dec1c1"
+    },
+    "colors": {
+        "color0": "#092445",
+        "color1": "#967988",
+        "color2": "#2A97A9",
+        "color3": "#56AAAE",
+        "color4": "#69C3B5",
+        "color5": "#44C9C0",
+        "color6": "#AD8E9A",
+        "color7": "#dec1c1",
+        "color8": "#9b8787",
+        "color9": "#967988",
+        "color10": "#2A97A9",
+        "color11": "#56AAAE",
+        "color12": "#69C3B5",
+        "color13": "#44C9C0",
+        "color14": "#AD8E9A",
+        "color15": "#dec1c1"
+    }
+}

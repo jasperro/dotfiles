@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/garrett-parker-DlkF4-dbCOU-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#11100c",
+        "foreground": "#e9cac5",
+        "cursor": "#e9cac5"
+    },
+    "colors": {
+        "color0": "#11100c",
+        "color1": "#9B6862",
+        "color2": "#C46848",
+        "color3": "#DB8F75",
+        "color4": "#7D7B86",
+        "color5": "#5F8A9D",
+        "color6": "#A18F96",
+        "color7": "#e9cac5",
+        "color8": "#a38d89",
+        "color9": "#9B6862",
+        "color10": "#C46848",
+        "color11": "#DB8F75",
+        "color12": "#7D7B86",
+        "color13": "#5F8A9D",
+        "color14": "#A18F96",
+        "color15": "#e9cac5"
+    }
+}

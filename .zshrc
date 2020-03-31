@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 (cat $HOME/.config/wpg/sequences &)
 export TERM="xterm-256color"
 source ~/.fonts/fontawesome-regular.sh
@@ -10,30 +17,6 @@ HISTSIZE=2000
 SAVEHIST=2000
 #bindkey "-v
 
-function zle-line-init {
-  powerlevel9k_prepare_prompts
-  if (( ${+terminfo[smkx]} )); then
-    printf '%s' ${terminfo[smkx]}
-  fi
-  zle -R
-}
-
-function zle-line-finish {
-  powerlevel9k_prepare_prompts
-  if (( ${+terminfo[rmkx]} )); then
-    printf '%s' ${terminfo[rmkx]}
-  fi
-  zle -R
-}
-
-function zle-keymap-select {
-  powerlevel9k_prepare_prompts
-  zle -R
-}
-
-zle -N zle-line-init
-zle -N ale-line-finish
-zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 source /usr/share/fonts/awesome-terminal-fonts/*.sh
@@ -48,32 +31,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Autosuggestions
 ZSH_AUTOSUGGEST_USE_ASYNC=enabled
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Powerlevel9k Configuration
-#POWERLEVEL9K_MODE=''
-POWERLEVEL9K_COLOR_SCHEME='dark'
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
-
-POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
-
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(icons_test vi_mode context ssh root_indicator dir vcs)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status)
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{black}█"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}█ %F{white}"
 
 # Zsh syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -112,3 +69,7 @@ bindkey "^[OF" end-of-line
 bindkey "^[[6~" down-line-or-history
 bindkey "^[OA" history-beginning-search-backward
 bindkey "^[OB" history-beginning-search-forward
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

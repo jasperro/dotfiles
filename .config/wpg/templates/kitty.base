@@ -20,7 +20,7 @@ initial_window_width   640
 initial_window_height  400
 
 repaint_delay    10
-enable_audio_bell yes
+enable_audio_bell no
 open_url_modifiers ctrl+shift
 open_url_with default
 

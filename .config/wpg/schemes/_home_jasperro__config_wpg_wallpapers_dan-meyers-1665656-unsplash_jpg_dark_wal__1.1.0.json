@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/dan-meyers-1665656-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#14130f",
+        "foreground": "#d7b1a3",
+        "cursor": "#d7b1a3"
+    },
+    "colors": {
+        "color0": "#14130f",
+        "color1": "#594235",
+        "color2": "#6D4734",
+        "color3": "#303E41",
+        "color4": "#6C5144",
+        "color5": "#885137",
+        "color6": "#935E48",
+        "color7": "#d7b1a3",
+        "color8": "#967b72",
+        "color9": "#594235",
+        "color10": "#6D4734",
+        "color11": "#303E41",
+        "color12": "#6C5144",
+        "color13": "#885137",
+        "color14": "#935E48",
+        "color15": "#d7b1a3"
+    }
+}

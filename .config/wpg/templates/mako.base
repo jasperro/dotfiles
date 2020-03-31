@@ -5,3 +5,5 @@ icons=1
 markup=1
 actions=1
 default-timeout=10000
+border-size=8
+icon-path=/usr/share/icons/Papirus-Dark

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/praewthida-k-5Ui5glVjUAQ-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0C0C0D",
+        "foreground": "#f0c8c4",
+        "cursor": "#f0c8c4"
+    },
+    "colors": {
+        "color0": "#0C0C0D",
+        "color1": "#E46163",
+        "color2": "#50827D",
+        "color3": "#EE966E",
+        "color4": "#236F93",
+        "color5": "#F05F94",
+        "color6": "#51A1AE",
+        "color7": "#f0c8c4",
+        "color8": "#a88c89",
+        "color9": "#E46163",
+        "color10": "#50827D",
+        "color11": "#EE966E",
+        "color12": "#236F93",
+        "color13": "#F05F94",
+        "color14": "#51A1AE",
+        "color15": "#f0c8c4"
+    }
+}

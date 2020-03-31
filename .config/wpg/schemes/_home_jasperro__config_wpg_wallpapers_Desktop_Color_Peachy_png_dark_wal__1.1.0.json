@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Peachy.png",
+    "alpha": "100",
+    "special": {
+        "background": "#8a3410",
+        "foreground": "#e7c4ca",
+        "cursor": "#e7c4ca"
+    },
+    "colors": {
+        "color0": "#8a3410",
+        "color1": "#ED8D54",
+        "color2": "#E08669",
+        "color3": "#E58772",
+        "color4": "#F8B26D",
+        "color5": "#FAC37C",
+        "color6": "#E3908E",
+        "color7": "#e7c4ca",
+        "color8": "#a1898d",
+        "color9": "#ED8D54",
+        "color10": "#E08669",
+        "color11": "#E58772",
+        "color12": "#F8B26D",
+        "color13": "#FAC37C",
+        "color14": "#E3908E",
+        "color15": "#e7c4ca"
+    }
+}

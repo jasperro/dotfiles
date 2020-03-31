@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/dilyara-garifullina-BSbXkgg6YLo-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0E2D",
+        "foreground": "#a89aee",
+        "cursor": "#a89aee"
+    },
+    "colors": {
+        "color0": "#0B0E2D",
+        "color1": "#5128AF",
+        "color2": "#0A07CA",
+        "color3": "#2806EB",
+        "color4": "#5625D5",
+        "color5": "#5A30ED",
+        "color6": "#6335EE",
+        "color7": "#a89aee",
+        "color8": "#756ba6",
+        "color9": "#5128AF",
+        "color10": "#0A07CA",
+        "color11": "#2806EB",
+        "color12": "#5625D5",
+        "color13": "#5A30ED",
+        "color14": "#6335EE",
+        "color15": "#a89aee"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Cityscapes/Harajuku.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0b0c0d",
+        "foreground": "#ede8e6",
+        "cursor": "#ede8e6"
+    },
+    "colors": {
+        "color0": "#0b0c0d",
+        "color1": "#92989E",
+        "color2": "#ACAEB4",
+        "color3": "#BABCC4",
+        "color4": "#C1C0C4",
+        "color5": "#C9C8CD",
+        "color6": "#E7DAD5",
+        "color7": "#ede8e6",
+        "color8": "#a5a2a1",
+        "color9": "#92989E",
+        "color10": "#ACAEB4",
+        "color11": "#BABCC4",
+        "color12": "#C1C0C4",
+        "color13": "#C9C8CD",
+        "color14": "#E7DAD5",
+        "color15": "#ede8e6"
+    }
+}

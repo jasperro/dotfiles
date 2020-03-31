@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Illustrations/Guiding light.png",
+    "alpha": "100",
+    "special": {
+        "background": "#040D1B",
+        "foreground": "#7dbfca",
+        "cursor": "#7dbfca"
+    },
+    "colors": {
+        "color0": "#040D1B",
+        "color1": "#9A6544",
+        "color2": "#937051",
+        "color3": "#AE8A5D",
+        "color4": "#23309E",
+        "color5": "#185AA2",
+        "color6": "#5E648F",
+        "color7": "#7dbfca",
+        "color8": "#57858d",
+        "color9": "#9A6544",
+        "color10": "#937051",
+        "color11": "#AE8A5D",
+        "color12": "#23309E",
+        "color13": "#185AA2",
+        "color14": "#5E648F",
+        "color15": "#7dbfca"
+    }
+}

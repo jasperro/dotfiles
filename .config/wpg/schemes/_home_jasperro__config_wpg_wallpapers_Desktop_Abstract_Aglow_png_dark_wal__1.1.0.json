@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Abstract/Aglow.png",
+    "alpha": "100",
+    "special": {
+        "background": "#842c21",
+        "foreground": "#f1e4eb",
+        "cursor": "#f1e4eb"
+    },
+    "colors": {
+        "color0": "#842c21",
+        "color1": "#B8B5D9",
+        "color2": "#CAA2CD",
+        "color3": "#B9CADA",
+        "color4": "#BCD7E3",
+        "color5": "#F1DFD6",
+        "color6": "#CED7E6",
+        "color7": "#f1e4eb",
+        "color8": "#a89fa4",
+        "color9": "#B8B5D9",
+        "color10": "#CAA2CD",
+        "color11": "#B9CADA",
+        "color12": "#BCD7E3",
+        "color13": "#F1DFD6",
+        "color14": "#CED7E6",
+        "color15": "#f1e4eb"
+    }
+}

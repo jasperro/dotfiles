@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Misty.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#465d72",
+        "foreground": "#fff6ff",
+        "cursor": "#fff6ff"
+    },
+    "colors": {
+        "color0": "#465d72",
+        "color1": "#BBC0DF",
+        "color2": "#AFC7EA",
+        "color3": "#C9ACCE",
+        "color4": "#B2B0D4",
+        "color5": "#C6A9CC",
+        "color6": "#8FC8EC",
+        "color7": "#e0d7e6",
+        "color8": "#587691",
+        "color9": "#cfdcff",
+        "color10": "#c0f3ff",
+        "color11": "#ffc7ff",
+        "color12": "#d1cbff",
+        "color13": "#ffc3ff",
+        "color14": "#a1ffff",
+        "color15": "#fff6ff"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/oneplus3_wallpaper2_hampus_olsson_hd.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#07050F",
+        "foreground": "#d5e0cf",
+        "cursor": "#d5e0cf"
+    },
+    "colors": {
+        "color0": "#07050F",
+        "color1": "#4B8C79",
+        "color2": "#D5B55A",
+        "color3": "#254F8C",
+        "color4": "#669F89",
+        "color5": "#55BC9E",
+        "color6": "#AECCAC",
+        "color7": "#d5e0cf",
+        "color8": "#959c90",
+        "color9": "#4B8C79",
+        "color10": "#D5B55A",
+        "color11": "#254F8C",
+        "color12": "#669F89",
+        "color13": "#55BC9E",
+        "color14": "#AECCAC",
+        "color15": "#d5e0cf"
+    }
+}

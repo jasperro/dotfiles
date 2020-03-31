@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/WP_Staggitarius-2560x1440_00000.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#010102",
+        "foreground": "#90e9f4",
+        "cursor": "#90e9f4"
+    },
+    "colors": {
+        "color0": "#010102",
+        "color1": "#AF2920",
+        "color2": "#16549B",
+        "color3": "#2556BC",
+        "color4": "#CC62A3",
+        "color5": "#1F9DEF",
+        "color6": "#4194C8",
+        "color7": "#90e9f4",
+        "color8": "#64a3aa",
+        "color9": "#AF2920",
+        "color10": "#16549B",
+        "color11": "#2556BC",
+        "color12": "#CC62A3",
+        "color13": "#1F9DEF",
+        "color14": "#4194C8",
+        "color15": "#90e9f4"
+    }
+}

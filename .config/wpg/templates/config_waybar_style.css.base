@@ -2,60 +2,66 @@
     border: none;
     border-radius: 0;
     font-family: icons-in-terminal, octicons, icomoon, Pomodoro, FontAwesome, {barfont}, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: {barfontsize}px;
     min-height: 0;
+	 box-shadow: none;
 }}
 
 window#waybar {{
-    background: rgba({background.rgb}, 0.6);
+    background: rgba({background.rgb}, 0.8);
     color: {foreground};
 }}
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {{
-    padding: 7px 10px;
     background: transparent;
     color: {foreground};
-    border-bottom: 1px solid transparent;
 }}
 
 #workspaces button.focused {{
     background: rgba({color1.rgb}, 0.2);
-	 border-bottom: 1px solid {color4};
+	 background-color: rgba({color4.rgb}, 0.2);
 }}
 
 #mode {{
-    border-bottom: 1px solid {color1};
+    background-color: {color1};
 }}
 
-#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor, #window {{
-    padding: 5px 5px;
-    margin: 0 4px;
+#battery, #cpu, #memory, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor, #window {{
+    padding: 8px 5px;
+	 margin: 0px 1px;
+    /*margin: 4px 2px;
+	 border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0.8px 6px rgba(0,0,0,0.23);*/
+}}
+
+#window {{
+    box-shadow: none;
 }}
 
 #clock {{
-    border-bottom: 1px solid {color2};
+    /*background-color: rgba({color2.rgb}, 0.8);*/
 }}
 
 #battery {{
-    border-bottom: 1px solid {color3};
+    background-color: rgba({color3.rgb}, 0.8);
     color: {foreground};
 }}
 
 #battery.charging {{
     color: {foreground};
-    border-bottom: 1px solid {color4};
+    background-color: rgba({color4.rgb}, 0.8);
 }}
 
 @keyframes blink {{
     to {{
-        border-bottom: 1px solid {color0};
+        background-color: rgba({color0.rgb}, 0.8);
         color: {foreground};
     }}
 }}
 
 #battery.critical:not(.charging) {{
-    border-bottom: 1px solid {color5};
+    background-color: rgba({color5.rgb}, 0.8);
     color: {foreground};
     animation-name: blink;
     animation-duration: 0.5s;
@@ -65,40 +71,40 @@ window#waybar {{
 }}
 
 #cpu {{
-    border-bottom: 1px solid {color6};
+    background-color: rgba({color6.rgb}, 0.8);
     color: {foreground};
 }}
 
 #memory {{
-    border-bottom: 1px solid {color7};
+    background-color: rgba({color10.rgb}, 0.8);
 	 color: {foreground};
 }}
 
 #backlight {{
-    border-bottom: 1px solid {color8};
+    background-color: rgba({color8.rgb}, 0.8);
 }}
 
 #network {{
-    border-bottom: 1px solid {color9};
+    background-color: rgba({color9.rgb}, 0.8);
 }}
 
 #network.disconnected {{
-    border-bottom: 1px solid {inactive};
+    background-color: rgba({inactive.rgb}, 0.8);
 }}
 
 #pulseaudio {{
-    border-bottom: 1px solid {color13};
+    background-color: rgba({color13.rgb}, 0.8);
     color: {foreground};
 }}
 
 #pulseaudio.muted {{
-    border-bottom: 1px solid {color12};
+    background-color: rgba({color12.rgb}, 0.8);
 }}
 
 #tray {{
-    border-bottom: 1px solid {color11};
+    /*background-color: rgba({color11.rgb}, 0.8);*/
 }}
 
 #idle_inhibitor {{
-    border-bottom: 1px solid {color10};
+    /*background-color: rgba({color10.rgb}, 0.8);*/
 }}

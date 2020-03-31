@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Swirly.png",
+    "alpha": "100",
+    "special": {
+        "background": "#24393d",
+        "foreground": "#dfb9bd",
+        "cursor": "#dfb9bd"
+    },
+    "colors": {
+        "color0": "#24393d",
+        "color1": "#AD7A84",
+        "color2": "#C77D84",
+        "color3": "#4C8993",
+        "color4": "#67939B",
+        "color5": "#8D9296",
+        "color6": "#A89DA3",
+        "color7": "#dfb9bd",
+        "color8": "#9c8184",
+        "color9": "#AD7A84",
+        "color10": "#C77D84",
+        "color11": "#4C8993",
+        "color12": "#67939B",
+        "color13": "#8D9296",
+        "color14": "#A89DA3",
+        "color15": "#dfb9bd"
+    }
+}

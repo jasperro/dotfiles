@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/jo-wroten-_ocWTLxYhTU-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#081D02",
+        "foreground": "#c4e881",
+        "cursor": "#c4e881"
+    },
+    "colors": {
+        "color0": "#081D02",
+        "color1": "#3FA005",
+        "color2": "#489203",
+        "color3": "#56A804",
+        "color4": "#68B507",
+        "color5": "#6AA913",
+        "color6": "#76C708",
+        "color7": "#c4e881",
+        "color8": "#89a25a",
+        "color9": "#3FA005",
+        "color10": "#489203",
+        "color11": "#56A804",
+        "color12": "#68B507",
+        "color13": "#6AA913",
+        "color14": "#76C708",
+        "color15": "#c4e881"
+    }
+}

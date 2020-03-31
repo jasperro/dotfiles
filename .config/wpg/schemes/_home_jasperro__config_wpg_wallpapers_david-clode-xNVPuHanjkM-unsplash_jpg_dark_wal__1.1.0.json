@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/david-clode-xNVPuHanjkM-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#020207",
+        "foreground": "#a4e4e9",
+        "cursor": "#a4e4e9"
+    },
+    "colors": {
+        "color0": "#020207",
+        "color1": "#246EB3",
+        "color2": "#0F92AD",
+        "color3": "#0DA9D5",
+        "color4": "#0DD1EF",
+        "color5": "#1CD5E3",
+        "color6": "#13F3FD",
+        "color7": "#a4e4e9",
+        "color8": "#729fa3",
+        "color9": "#246EB3",
+        "color10": "#0F92AD",
+        "color11": "#0DA9D5",
+        "color12": "#0DD1EF",
+        "color13": "#1CD5E3",
+        "color14": "#13F3FD",
+        "color15": "#a4e4e9"
+    }
+}

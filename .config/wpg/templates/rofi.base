@@ -1,8 +1,7 @@
-rofi.combi-modi:                     window,drun,run
-rofi.modi:			     					 combi
+rofi.modi:			     					 drun,run
 rofi.width:			     					 20
-rofi.columns:                        1
-rofi.lines:									 30
+rofi.columns:                        5
+rofi.lines:									 5
 rofi.font:                           {uifont} {rofifontsize}
 rofi.color-normal:                   #00{color0.strip}, #{color15.strip}, #00{color0.strip}, #dd{color15.strip}, #{color0.strip}
 rofi.color-urgent:                   #88{color0.strip}, #d6b48d, #8822231D, #44d6b48d, #{color15.strip}

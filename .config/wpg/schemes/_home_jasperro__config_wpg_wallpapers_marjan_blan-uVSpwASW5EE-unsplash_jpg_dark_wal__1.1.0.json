@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/marjan_blan-uVSpwASW5EE-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#161f11",
+        "foreground": "#e7cba6",
+        "cursor": "#e7cba6"
+    },
+    "colors": {
+        "color0": "#161f11",
+        "color1": "#697650",
+        "color2": "#6E745C",
+        "color3": "#A57820",
+        "color4": "#78835F",
+        "color5": "#DC932B",
+        "color6": "#8F8A67",
+        "color7": "#e7cba6",
+        "color8": "#a18e74",
+        "color9": "#697650",
+        "color10": "#6E745C",
+        "color11": "#A57820",
+        "color12": "#78835F",
+        "color13": "#DC932B",
+        "color14": "#8F8A67",
+        "color15": "#e7cba6"
+    }
+}

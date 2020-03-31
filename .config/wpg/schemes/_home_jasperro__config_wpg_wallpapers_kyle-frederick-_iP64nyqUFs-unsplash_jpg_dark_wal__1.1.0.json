@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/kyle-frederick-_iP64nyqUFs-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0c0507",
+        "foreground": "#b2bbbd",
+        "cursor": "#b2bbbd"
+    },
+    "colors": {
+        "color0": "#0c0507",
+        "color1": "#393B43",
+        "color2": "#3D434A",
+        "color3": "#4A4D52",
+        "color4": "#5A666A",
+        "color5": "#616A6E",
+        "color6": "#6E7C80",
+        "color7": "#b2bbbd",
+        "color8": "#7c8284",
+        "color9": "#393B43",
+        "color10": "#3D434A",
+        "color11": "#4A4D52",
+        "color12": "#5A666A",
+        "color13": "#616A6E",
+        "color14": "#6E7C80",
+        "color15": "#b2bbbd"
+    }
+}

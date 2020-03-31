@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/ivan-bandura-Cdr1ryVJyQA-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#15100d",
+        "foreground": "#c6c2c4",
+        "cursor": "#c6c2c4"
+    },
+    "colors": {
+        "color0": "#15100d",
+        "color1": "#9A6B5C",
+        "color2": "#C46940",
+        "color3": "#C5855C",
+        "color4": "#EB8F5F",
+        "color5": "#6F7986",
+        "color6": "#7B8490",
+        "color7": "#c6c2c4",
+        "color8": "#8a8789",
+        "color9": "#9A6B5C",
+        "color10": "#C46940",
+        "color11": "#C5855C",
+        "color12": "#EB8F5F",
+        "color13": "#6F7986",
+        "color14": "#7B8490",
+        "color15": "#c6c2c4"
+    }
+}

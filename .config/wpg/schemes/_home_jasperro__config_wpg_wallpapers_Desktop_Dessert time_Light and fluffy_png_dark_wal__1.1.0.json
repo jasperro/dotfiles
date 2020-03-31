@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Dessert time/Light and fluffy.png",
+    "alpha": "100",
+    "special": {
+        "background": "#250706",
+        "foreground": "#f3e9e1",
+        "cursor": "#f3e9e1"
+    },
+    "colors": {
+        "color0": "#250706",
+        "color1": "#EBA590",
+        "color2": "#FEB2B5",
+        "color3": "#F5CFA8",
+        "color4": "#DCBFC1",
+        "color5": "#FFBEC1",
+        "color6": "#FDC7C9",
+        "color7": "#f3e9e1",
+        "color8": "#aaa39d",
+        "color9": "#EBA590",
+        "color10": "#FEB2B5",
+        "color11": "#F5CFA8",
+        "color12": "#DCBFC1",
+        "color13": "#FFBEC1",
+        "color14": "#FDC7C9",
+        "color15": "#f3e9e1"
+    }
+}

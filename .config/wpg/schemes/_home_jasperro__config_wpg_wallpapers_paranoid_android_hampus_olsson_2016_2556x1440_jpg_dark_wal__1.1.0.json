@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/paranoid_android_hampus_olsson_2016_2556x1440.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a1211",
+        "foreground": "#a8bab3",
+        "cursor": "#a8bab3"
+    },
+    "colors": {
+        "color0": "#1a1211",
+        "color1": "#314F6A",
+        "color2": "#225F73",
+        "color3": "#4A4A56",
+        "color4": "#4A5568",
+        "color5": "#61696D",
+        "color6": "#887670",
+        "color7": "#a8bab3",
+        "color8": "#75827d",
+        "color9": "#314F6A",
+        "color10": "#225F73",
+        "color11": "#4A4A56",
+        "color12": "#4A5568",
+        "color13": "#61696D",
+        "color14": "#887670",
+        "color15": "#a8bab3"
+    }
+}

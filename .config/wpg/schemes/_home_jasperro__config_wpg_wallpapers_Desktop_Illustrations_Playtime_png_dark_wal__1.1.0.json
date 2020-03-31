@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Illustrations/Playtime.png",
+    "alpha": "100",
+    "special": {
+        "background": "#1c1e1e",
+        "foreground": "#93bddc",
+        "cursor": "#93bddc"
+    },
+    "colors": {
+        "color0": "#1c1e1e",
+        "color1": "#126BCD",
+        "color2": "#1F6ED9",
+        "color3": "#0F59E7",
+        "color4": "#28969E",
+        "color5": "#56A99C",
+        "color6": "#47BBA4",
+        "color7": "#93bddc",
+        "color8": "#66849a",
+        "color9": "#126BCD",
+        "color10": "#1F6ED9",
+        "color11": "#0F59E7",
+        "color12": "#28969E",
+        "color13": "#56A99C",
+        "color14": "#47BBA4",
+        "color15": "#93bddc"
+    }
+}

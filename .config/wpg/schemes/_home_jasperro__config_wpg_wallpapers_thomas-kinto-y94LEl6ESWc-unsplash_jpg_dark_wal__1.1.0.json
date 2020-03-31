@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/thomas-kinto-y94LEl6ESWc-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#120d0a",
+        "foreground": "#e9dfc4",
+        "cursor": "#e9dfc4"
+    },
+    "colors": {
+        "color0": "#120d0a",
+        "color1": "#B59947",
+        "color2": "#DCA85D",
+        "color3": "#EFCB69",
+        "color4": "#285EBE",
+        "color5": "#7287A8",
+        "color6": "#B8AAAD",
+        "color7": "#e9dfc4",
+        "color8": "#a39c89",
+        "color9": "#B59947",
+        "color10": "#DCA85D",
+        "color11": "#EFCB69",
+        "color12": "#285EBE",
+        "color13": "#7287A8",
+        "color14": "#B8AAAD",
+        "color15": "#e9dfc4"
+    }
+}

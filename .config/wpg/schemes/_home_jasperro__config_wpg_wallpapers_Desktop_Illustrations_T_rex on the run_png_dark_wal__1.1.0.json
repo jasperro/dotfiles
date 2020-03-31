@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Illustrations/T.rex on the run.png",
+    "alpha": "100",
+    "special": {
+        "background": "#313231",
+        "foreground": "#ebdddf",
+        "cursor": "#ebdddf"
+    },
+    "colors": {
+        "color0": "#313231",
+        "color1": "#7F8081",
+        "color2": "#A8A5A1",
+        "color3": "#FD9681",
+        "color4": "#F7B2A2",
+        "color5": "#92D4E6",
+        "color6": "#ACD9E6",
+        "color7": "#ebdddf",
+        "color8": "#a49a9c",
+        "color9": "#7F8081",
+        "color10": "#A8A5A1",
+        "color11": "#FD9681",
+        "color12": "#F7B2A2",
+        "color13": "#92D4E6",
+        "color14": "#ACD9E6",
+        "color15": "#ebdddf"
+    }
+}

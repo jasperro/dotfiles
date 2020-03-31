@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Berry.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#50384b",
+        "foreground": "#ffeaed",
+        "cursor": "#ffeaed"
+    },
+    "colors": {
+        "color0": "#50384b",
+        "color1": "#E077A3",
+        "color2": "#B987B5",
+        "color3": "#E093A8",
+        "color4": "#9162DC",
+        "color5": "#C673C6",
+        "color6": "#AF72D1",
+        "color7": "#efccce",
+        "color8": "#6d4c66",
+        "color9": "#ff84d0",
+        "color10": "#ff9afc",
+        "color11": "#ffa7cf",
+        "color12": "#b76aff",
+        "color13": "#ff81ff",
+        "color14": "#e97fff",
+        "color15": "#ffeaed"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/lollipop.jpg_wal_sample.png",
+    "alpha": "100",
+    "special": {
+        "background": "#00283C",
+        "foreground": "#d3e0e2",
+        "cursor": "#d3e0e2"
+    },
+    "colors": {
+        "color0": "#00283C",
+        "color1": "#56A1BE",
+        "color2": "#77ADB7",
+        "color3": "#58A5C4",
+        "color4": "#79B4C3",
+        "color5": "#829597",
+        "color6": "#B4D0D6",
+        "color7": "#d3e0e2",
+        "color8": "#939c9e",
+        "color9": "#56A1BE",
+        "color10": "#77ADB7",
+        "color11": "#58A5C4",
+        "color12": "#79B4C3",
+        "color13": "#829597",
+        "color14": "#B4D0D6",
+        "color15": "#d3e0e2"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Dreamy.png",
+    "alpha": "100",
+    "special": {
+        "background": "#495d6a",
+        "foreground": "#ddedf4",
+        "cursor": "#ddedf4"
+    },
+    "colors": {
+        "color0": "#495d6a",
+        "color1": "#98C3DA",
+        "color2": "#91D0EA",
+        "color3": "#B0D4EF",
+        "color4": "#97E4F0",
+        "color5": "#B1E6F6",
+        "color6": "#CAD7EF",
+        "color7": "#ddedf4",
+        "color8": "#9aa5aa",
+        "color9": "#98C3DA",
+        "color10": "#91D0EA",
+        "color11": "#B0D4EF",
+        "color12": "#97E4F0",
+        "color13": "#B1E6F6",
+        "color14": "#CAD7EF",
+        "color15": "#ddedf4"
+    }
+}

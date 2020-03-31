@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/simone-hutsch-8p6pdSkA-6A-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0d1118",
+        "foreground": "#dedded",
+        "cursor": "#dedded"
+    },
+    "colors": {
+        "color0": "#0d1118",
+        "color1": "#3CB2CE",
+        "color2": "#A2A9B7",
+        "color3": "#ED9A9D",
+        "color4": "#8FD4E9",
+        "color5": "#B1D0EB",
+        "color6": "#AAE4EE",
+        "color7": "#dedded",
+        "color8": "#9b9aa5",
+        "color9": "#3CB2CE",
+        "color10": "#A2A9B7",
+        "color11": "#ED9A9D",
+        "color12": "#8FD4E9",
+        "color13": "#B1D0EB",
+        "color14": "#AAE4EE",
+        "color15": "#dedded"
+    }
+}

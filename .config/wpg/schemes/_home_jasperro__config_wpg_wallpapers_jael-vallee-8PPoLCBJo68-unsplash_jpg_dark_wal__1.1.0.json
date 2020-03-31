@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/jael-vallee-8PPoLCBJo68-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#060B14",
+        "foreground": "#d2d0da",
+        "cursor": "#d2d0da"
+    },
+    "colors": {
+        "color0": "#060B14",
+        "color1": "#585963",
+        "color2": "#927876",
+        "color3": "#325E90",
+        "color4": "#5C6C92",
+        "color5": "#6490A8",
+        "color6": "#9C98A4",
+        "color7": "#d2d0da",
+        "color8": "#939198",
+        "color9": "#585963",
+        "color10": "#927876",
+        "color11": "#325E90",
+        "color12": "#5C6C92",
+        "color13": "#6490A8",
+        "color14": "#9C98A4",
+        "color15": "#d2d0da"
+    }
+}

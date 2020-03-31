@@ -4,28 +4,34 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec_always "killall mako; mako"
 exec $HOME/.config/wpg/wp_init.sh &
 exec_always xsettingsd
+#exec /usr/lib/kdeconnectd
 #exec clipman -d &
 #exec swayidle timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 exec gsettings set org.gnome.desktop.interface gtk-theme {gtktheme} &
 exec redshift &
 exec_always "killall waybar; waybar"
+exec_always flashfocus
 bindsym $mod+Shift+f exec thunar &
 bindsym $mod+Shift+s exec pavucontrol &
 #bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+w exec GDK_BACKEND=wayland firefox &
+#bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 firefox &
+bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 firefox-nightly &
 bindsym $mod+c exec clipman -s &
+bindsym $mod+x layout toggle tabbed split
 #bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
 bindsym $mod+Return exec kitty &
 bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
+bindsym $mod+l exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - /home/jasperro/InformaticaScreens/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
 focus_follows_mouse no
 
 bindsym $mod+q kill
+bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
 bindsym $mod+F5 exec swaygrab -i
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+m exec wpg -m
 bindsym $mod+Ctrl+m exec wpg -s `wpg -c`
 
-bindsym $mod+d exec rofi -show combi &
+bindsym $mod+d exec rofi -show drun &
 
 exec_always import-gsettings \
     gtk-theme:gtk-theme-name \
@@ -206,9 +212,9 @@ mode "$mode_gaps_outer" {{
         bindsym Escape mode "default"
 }}
 
-client.unfocused			#00000000	{color0}	{color0}	{color0}	{color0}
-client.focused			#00000000	{color10}	{color15}	{color3}	{color3}
-client.focused_inactive	#00000000	{color10}	{color15}	{color3}	{color3}
+client.unfocused			#00000000	{color10}	{inactive}	{inactive}	{inactive}
+client.focused			#00000000	{color3}	{color15}	{color3}	{color3}
+client.focused_inactive	#00000000	{color3}	{color15}	{color3}	{color3}
 client.background			#000000
 
 input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
@@ -217,19 +223,21 @@ input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
     tap enabled
     tap_button_map lrm
 	 dwt disabled
+#	 natural_scroll enabled
 }}
 
 input * {{
     xkb_layout us
     xkb_variant intl
+	 xkb_options caps:escape
 }}
 
 set $laptop 'Unknown 0x1E3D 0x00000000'
 
 bindsym $mod+k output $laptop toggle
 
-output $laptop position 0 0
+output $laptop position 0 245
 output HDMI-A-1 position 1920 0
 
-bindswitch --reload lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
+#bindswitch --reload --locked lid:on output $laptop disable
+#bindswitch --reload --locked lid:off output $laptop enable

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Abstract/On the breeze.png",
+    "alpha": "100",
+    "special": {
+        "background": "#292d48",
+        "foreground": "#e8e2eb",
+        "cursor": "#e8e2eb"
+    },
+    "colors": {
+        "color0": "#292d48",
+        "color1": "#7BB6C9",
+        "color2": "#85BACE",
+        "color3": "#A3A5D2",
+        "color4": "#B4C6E0",
+        "color5": "#D1D0CF",
+        "color6": "#E1E1DE",
+        "color7": "#e8e2eb",
+        "color8": "#a29ea4",
+        "color9": "#7BB6C9",
+        "color10": "#85BACE",
+        "color11": "#A3A5D2",
+        "color12": "#B4C6E0",
+        "color13": "#D1D0CF",
+        "color14": "#E1E1DE",
+        "color15": "#e8e2eb"
+    }
+}

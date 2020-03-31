@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/guillaume-bolduc-uBe2mknURG4-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#130d0d",
+        "foreground": "#95cdcf",
+        "cursor": "#95cdcf"
+    },
+    "colors": {
+        "color0": "#130d0d",
+        "color1": "#9A5E58",
+        "color2": "#DAA01C",
+        "color3": "#B89745",
+        "color4": "#DCA754",
+        "color5": "#315C93",
+        "color6": "#8D7985",
+        "color7": "#95cdcf",
+        "color8": "#688f90",
+        "color9": "#9A5E58",
+        "color10": "#DAA01C",
+        "color11": "#B89745",
+        "color12": "#DCA754",
+        "color13": "#315C93",
+        "color14": "#8D7985",
+        "color15": "#95cdcf"
+    }
+}

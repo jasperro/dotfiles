@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/timon-studler--L3q2Uuz6oY-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#16211d",
+        "foreground": "#ede2da",
+        "cursor": "#ede2da"
+    },
+    "colors": {
+        "color0": "#16211d",
+        "color1": "#AC8A72",
+        "color2": "#778287",
+        "color3": "#ACA09B",
+        "color4": "#D4B6A1",
+        "color5": "#DDC3AF",
+        "color6": "#E5CCB9",
+        "color7": "#ede2da",
+        "color8": "#a59e98",
+        "color9": "#AC8A72",
+        "color10": "#778287",
+        "color11": "#ACA09B",
+        "color12": "#D4B6A1",
+        "color13": "#DDC3AF",
+        "color14": "#E5CCB9",
+        "color15": "#ede2da"
+    }
+}

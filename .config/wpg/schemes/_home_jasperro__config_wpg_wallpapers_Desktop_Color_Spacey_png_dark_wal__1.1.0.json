@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Spacey.png",
+    "alpha": "100",
+    "special": {
+        "background": "#103968",
+        "foreground": "#d5d8d8",
+        "cursor": "#d5d8d8"
+    },
+    "colors": {
+        "color0": "#103968",
+        "color1": "#857DA2",
+        "color2": "#5D8CB7",
+        "color3": "#7686B9",
+        "color4": "#8B88B8",
+        "color5": "#92ACBD",
+        "color6": "#ACADC1",
+        "color7": "#d5d8d8",
+        "color8": "#959797",
+        "color9": "#857DA2",
+        "color10": "#5D8CB7",
+        "color11": "#7686B9",
+        "color12": "#8B88B8",
+        "color13": "#92ACBD",
+        "color14": "#ACADC1",
+        "color15": "#d5d8d8"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/joseph-bae-PFhZ7l2kSPY-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1c0a06",
+        "foreground": "#e5cdbd",
+        "cursor": "#e5cdbd"
+    },
+    "colors": {
+        "color0": "#1c0a06",
+        "color1": "#9C5131",
+        "color2": "#C3673C",
+        "color3": "#9C6655",
+        "color4": "#B7876D",
+        "color5": "#DD9367",
+        "color6": "#50778D",
+        "color7": "#e5cdbd",
+        "color8": "#a08f84",
+        "color9": "#9C5131",
+        "color10": "#C3673C",
+        "color11": "#9C6655",
+        "color12": "#B7876D",
+        "color13": "#DD9367",
+        "color14": "#50778D",
+        "color15": "#e5cdbd"
+    }
+}

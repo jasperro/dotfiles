@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/jason-leung-1662092-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#070B18",
+        "foreground": "#abdeef",
+        "cursor": "#abdeef"
+    },
+    "colors": {
+        "color0": "#070B18",
+        "color1": "#305AC8",
+        "color2": "#4661C4",
+        "color3": "#AE4B89",
+        "color4": "#0397AB",
+        "color5": "#1DC7B9",
+        "color6": "#08B0D0",
+        "color7": "#abdeef",
+        "color8": "#779ba7",
+        "color9": "#305AC8",
+        "color10": "#4661C4",
+        "color11": "#AE4B89",
+        "color12": "#0397AB",
+        "color13": "#1DC7B9",
+        "color14": "#08B0D0",
+        "color15": "#abdeef"
+    }
+}

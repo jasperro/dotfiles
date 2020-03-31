@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Illustrations/Cosmic Voyage.png",
+    "alpha": "100",
+    "special": {
+        "background": "#303034",
+        "foreground": "#dff4f3",
+        "cursor": "#dff4f3"
+    },
+    "colors": {
+        "color0": "#303034",
+        "color1": "#82FBC4",
+        "color2": "#97CAF1",
+        "color3": "#B7D6E3",
+        "color4": "#B7F9FA",
+        "color5": "#CAD9E5",
+        "color6": "#DED3EB",
+        "color7": "#dff4f3",
+        "color8": "#9caaaa",
+        "color9": "#82FBC4",
+        "color10": "#97CAF1",
+        "color11": "#B7D6E3",
+        "color12": "#B7F9FA",
+        "color13": "#CAD9E5",
+        "color14": "#DED3EB",
+        "color15": "#dff4f3"
+    }
+}

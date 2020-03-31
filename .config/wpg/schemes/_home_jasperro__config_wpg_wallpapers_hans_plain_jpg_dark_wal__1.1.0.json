@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/hans_plain.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#342325",
+        "foreground": "#e1eed9",
+        "cursor": "#e1eed9"
+    },
+    "colors": {
+        "color0": "#342325",
+        "color1": "#689A94",
+        "color2": "#6ABB9F",
+        "color3": "#99B197",
+        "color4": "#DBBC8A",
+        "color5": "#A8D2A3",
+        "color6": "#D8EDB6",
+        "color7": "#e1eed9",
+        "color8": "#9da697",
+        "color9": "#689A94",
+        "color10": "#6ABB9F",
+        "color11": "#99B197",
+        "color12": "#DBBC8A",
+        "color13": "#A8D2A3",
+        "color14": "#D8EDB6",
+        "color15": "#e1eed9"
+    }
+}

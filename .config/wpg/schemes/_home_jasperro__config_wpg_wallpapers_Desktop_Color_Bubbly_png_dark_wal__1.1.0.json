@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Bubbly.png",
+    "alpha": "100",
+    "special": {
+        "background": "#4a808d",
+        "foreground": "#e0e9ef",
+        "cursor": "#e0e9ef"
+    },
+    "colors": {
+        "color0": "#4a808d",
+        "color1": "#B1DDEF",
+        "color2": "#D8D2D7",
+        "color3": "#ECD2CD",
+        "color4": "#F9E3DB",
+        "color5": "#D3DBE8",
+        "color6": "#E1DBE8",
+        "color7": "#e0e9ef",
+        "color8": "#9ca3a7",
+        "color9": "#B1DDEF",
+        "color10": "#D8D2D7",
+        "color11": "#ECD2CD",
+        "color12": "#F9E3DB",
+        "color13": "#D3DBE8",
+        "color14": "#E1DBE8",
+        "color15": "#e0e9ef"
+    }
+}

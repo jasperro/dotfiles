@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/martin-woortman-ehQIJotE6Nc-unsplash.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#14181e",
+        "foreground": "#dedfe2",
+        "cursor": "#dedfe2"
+    },
+    "colors": {
+        "color0": "#14181e",
+        "color1": "#748896",
+        "color2": "#6D9BC6",
+        "color3": "#9B9EA1",
+        "color4": "#C1C2B9",
+        "color5": "#B0B6C5",
+        "color6": "#BBC4CE",
+        "color7": "#dedfe2",
+        "color8": "#9b9c9e",
+        "color9": "#748896",
+        "color10": "#6D9BC6",
+        "color11": "#9B9EA1",
+        "color12": "#C1C2B9",
+        "color13": "#B0B6C5",
+        "color14": "#BBC4CE",
+        "color15": "#dedfe2"
+    }
+}

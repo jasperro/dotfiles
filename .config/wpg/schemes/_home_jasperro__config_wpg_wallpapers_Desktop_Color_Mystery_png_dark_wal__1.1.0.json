@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/jasperro/.config/wpg/wallpapers/Desktop/Color/Mystery.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0b0d1b",
+        "foreground": "#c1a4eb",
+        "cursor": "#c1a4eb"
+    },
+    "colors": {
+        "color0": "#0b0d1b",
+        "color1": "#736ED5",
+        "color2": "#6C50E0",
+        "color3": "#AE6BB9",
+        "color4": "#D170B7",
+        "color5": "#8B6DC9",
+        "color6": "#B267D4",
+        "color7": "#c1a4eb",
+        "color8": "#8772a4",
+        "color9": "#736ED5",
+        "color10": "#6C50E0",
+        "color11": "#AE6BB9",
+        "color12": "#D170B7",
+        "color13": "#8B6DC9",
+        "color14": "#B267D4",
+        "color15": "#c1a4eb"
+    }
+}
