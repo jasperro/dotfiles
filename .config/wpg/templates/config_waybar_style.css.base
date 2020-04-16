@@ -29,9 +29,8 @@ window#waybar {{
 
 #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor, #window {{
     padding: 8px 5px;
-	 margin: 0px 1px;
+	 margin: 0px 2px;
     /*margin: 4px 2px;
-	 border-radius: 2px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0.8px 6px rgba(0,0,0,0.23);*/
 }}
 

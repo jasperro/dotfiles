@@ -5,6 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
+  bindkey "^[[1~" beginning-of-line
+  bindkey "^[[4~" end-of-line
+else
+  bindkey "^[[H" beginning-of-line
+  bindkey "^[[F" end-of-line
+fi
+
 (cat $HOME/.config/wpg/sequences &)
 export TERM="xterm-256color"
 source ~/.fonts/fontawesome-regular.sh
@@ -36,21 +44,28 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases and functions
-alias ls='ls --color=always'
-alias ll='ls -alh'
-alias la='ls -A'
-alias l='ls -CFlh'
+#alias ls='ls --color=always'
+alias ls='exa --icons'
+alias la='ls -la'
+alias lg='la --git'
+alias l='ls -Flh'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
 alias pac='yay'
 alias remorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias pkglist="pacman --query --quiet --explicit --native | sed ':a;N;\$!ba;s/\n/ /g'"
 alias '_'='sudo'
 alias protoncli='STEAM_COMPAT_DATA_PATH=~/wineprefix/ ~/.steam/steam/steamapps/common/Proton\ 4.2/proton'
+
+setopt autocd
+setopt correct
+setopt histignoredups
+setopt rcquotes
+
 mcd () {
     mkdir -p $1
     cd $1
-}
-wgsh () {
-	sh -c "$(curl -fsSL $1)"
 }
 up() { cd $(eval printf '../'%.0s {1..$1}) && echo Went up $1 to $(pwd); }
 cl() {

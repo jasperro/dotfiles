@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "network", "battery", "cpu", "memory", "backlight", "pulseaudio", "tray"],
+    "modules-right": ["tray", "idle_inhibitor", "network", "battery", "cpu", "memory", "backlight", "pulseaudio"],
 	 "margin-left": 0,
 	 "margin-top": 0,
     //"margin-right": 10,

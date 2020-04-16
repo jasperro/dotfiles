@@ -1,43 +1,50 @@
-set $mod Mod4
-for_window [class="^.*"] border pixel 1
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec_always "killall mako; mako"
 exec $HOME/.config/wpg/wp_init.sh &
-exec_always xsettingsd
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#exec xsettingsd &
 #exec /usr/lib/kdeconnectd
-#exec clipman -d &
-#exec swayidle timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+exec clipman -d &
 exec gsettings set org.gnome.desktop.interface gtk-theme {gtktheme} &
-exec redshift &
+exec redshift-gtk &
+exec flashfocus &
+
+exec_always "killall mako; mako"
 exec_always "killall waybar; waybar"
-exec_always flashfocus
-bindsym $mod+Shift+f exec thunar &
-bindsym $mod+Shift+s exec pavucontrol &
-#bindsym $mod+Shift+w exec chromium
-#bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 firefox &
-bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 firefox-nightly &
-bindsym $mod+c exec clipman -s &
-bindsym $mod+x layout toggle tabbed split
-#bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
-bindsym $mod+Return exec kitty &
-bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
-bindsym $mod+l exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - /home/jasperro/InformaticaScreens/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
-focus_follows_mouse no
-
-bindsym $mod+q kill
-bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
-bindsym $mod+F5 exec swaygrab -i
-bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
-bindsym $mod+Shift+m exec wpg -m
-bindsym $mod+Ctrl+m exec wpg -s `wpg -c`
-
-bindsym $mod+d exec rofi -show drun &
-
+exec_always killall swayidle && swayidle -w \
+timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+timeout 600 'systemctl suspend'
 exec_always import-gsettings \
     gtk-theme:gtk-theme-name \
     icon-theme:gtk-icon-theme-name \
     cursor-theme:gtk-cursor-theme-name \
 	 font-name:gtk-font-name
+
+focus_follows_mouse no
+for_window [class="^.*"] border pixel 1
+set $mod Mod4
+
+# Applications
+bindsym $mod+Shift+f exec thunar &
+bindsym $mod+Shift+s exec pavucontrol &
+#bindsym $mod+Shift+w exec chromium
+#bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox &
+bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox-nightly &
+#bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
+bindsym $mod+Return exec kitty &
+
+# Utilities
+bindsym $mod+c exec clipman -s &
+bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
+bindsym $mod+F5 exec swaygrab -i
+bindsym $mod+k output $laptop toggle
+bindsym $mod+d exec rofi -show drun &
+bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
+bindsym $mod+Shift+m exec wpg -m
+bindsym $mod+Ctrl+m exec wpg -s `wpg -c`
+bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
+
+# Sway
+bindsym $mod+q kill
+bindsym $mod+x layout toggle tabbed split
 
 gaps inner 10
 gaps outer 0
@@ -103,6 +110,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+space floating toggle
 floating_modifier Mod1
 
+## Workspaces
+
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
@@ -149,6 +158,8 @@ bindsym $mod+m move workspace to output left
 
 bindsym $mod+Shift+c restart
 
+## Resize mode
+
 mode "resize" {{
         bindsym Left resize shrink width 5 px or 5 ppt
         bindsym Up resize grow height 5 px or 5 ppt
@@ -164,17 +175,19 @@ mode "resize" {{
 
 bindsym $mod+r mode "resize"
 
+## Function keys
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% && exec pactl set-sink-mute 0 off
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% && exec pactl set-sink-mute 0 off
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym Mod4+p exec --no-startup-id light -S 1
-
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+## Gaps configuration
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -217,6 +230,8 @@ client.focused			#00000000	{color3}	{color15}	{color3}	{color3}
 client.focused_inactive	#00000000	{color3}	{color15}	{color3}	{color3}
 client.background			#000000
 
+## Input configuration
+
 input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
     accel_profile flat
     middle_emulation enabled
@@ -232,10 +247,15 @@ input * {{
 	 xkb_options caps:escape
 }}
 
+## Output configuration
+
 set $laptop 'Unknown 0x1E3D 0x00000000'
 
-bindsym $mod+k output $laptop toggle
+# Laptop right
+# output $laptop position 1680 245
+# output HDMI-A-1 position 0 0
 
+# Laptop left
 output $laptop position 0 245
 output HDMI-A-1 position 1920 0
 
