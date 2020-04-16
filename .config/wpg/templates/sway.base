@@ -34,7 +34,6 @@ bindsym $mod+Return exec kitty &
 # Utilities
 bindsym $mod+c exec clipman -s &
 bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
-bindsym $mod+F5 exec swaygrab -i
 bindsym $mod+k output $laptop toggle
 bindsym $mod+d exec rofi -show drun &
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
