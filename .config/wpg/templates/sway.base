@@ -2,14 +2,15 @@ exec $HOME/.config/wpg/wp_init.sh &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #exec xsettingsd &
 #exec /usr/lib/kdeconnectd
-exec clipman -d &
+#exec clipman -d &
 exec gsettings set org.gnome.desktop.interface gtk-theme {gtktheme} &
 exec redshift-gtk &
 exec flashfocus &
 
 exec_always "killall mako; mako"
 exec_always "killall waybar; waybar"
-exec_always killall swayidle && swayidle -w \
+exec_always killall swayidle & swayidle -w \
+timeout 60 'light -O && light -S 1' resume 'light -I' \
 timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 timeout 600 'systemctl suspend'
 exec_always import-gsettings \
@@ -34,7 +35,6 @@ bindsym $mod+Return exec kitty &
 # Utilities
 bindsym $mod+c exec clipman -s &
 bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
-bindsym $mod+k output $laptop toggle
 bindsym $mod+d exec rofi -show drun &
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+m exec wpg -m
@@ -250,6 +250,8 @@ input * {{
 
 set $laptop 'Unknown 0x1E3D 0x00000000'
 
+bindsym $mod+k output $laptop toggle
+
 # Laptop right
 # output $laptop position 1680 245
 # output HDMI-A-1 position 0 0
@@ -257,6 +259,8 @@ set $laptop 'Unknown 0x1E3D 0x00000000'
 # Laptop left
 output $laptop position 0 245
 output HDMI-A-1 position 1920 0
+
+output "*" bg ~/.config/wpg/.current fill
 
 #bindswitch --reload --locked lid:on output $laptop disable
 #bindswitch --reload --locked lid:off output $laptop enable

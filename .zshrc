@@ -68,7 +68,7 @@ mcd () {
     cd $1
 }
 up() { cd $(eval printf '../'%.0s {1..$1}) && echo Went up $1 to $(pwd); }
-cl() {
+c() {
 cd $1 && ls
 }
 

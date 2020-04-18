@@ -27,7 +27,7 @@ window#waybar {{
     background-color: {color1};
 }}
 
-#battery, #cpu, #memory, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor, #window {{
+#battery, #cpu, #memory, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor, #window, #disk {{
     padding: 8px 5px;
 	 margin: 0px 2px;
     /*margin: 4px 2px;
@@ -40,6 +40,11 @@ window#waybar {{
 
 #clock {{
     /*background-color: rgba({color2.rgb}, 0.8);*/
+}}
+
+#disk {{
+    background-color: rgba({color8.rgb}, 0.8);
+    color: {foreground};
 }}
 
 #battery {{

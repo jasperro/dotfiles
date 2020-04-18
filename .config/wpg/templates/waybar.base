@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "idle_inhibitor", "network", "battery", "cpu", "memory", "backlight", "pulseaudio"],
+    "modules-right": ["tray", "idle_inhibitor", "network", "battery", "disk", "cpu", "memory", "backlight", "pulseaudio"],
 	 "margin-left": 0,
 	 "margin-top": 0,
     //"margin-right": 10,
@@ -48,6 +48,10 @@
 	 "sway/window": {{
 		  "tooltip": false
 	 }},
+    "disk": {{
+        "path": "/",
+        "format": "{{percentage_used}}% {{path}}"
+    }},
     "cpu": {{
         "format": "{{usage}}% cpu"
     }},
