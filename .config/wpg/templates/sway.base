@@ -9,7 +9,7 @@ exec flashfocus &
 
 exec_always "killall mako; mako"
 exec_always "killall waybar; waybar"
-exec_always killall swayidle & swayidle -w \
+exec_always killall swayidle; swayidle -w \
 timeout 60 'light -O && light -S 1' resume 'light -I' \
 timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 timeout 600 'systemctl suspend'

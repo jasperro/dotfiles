@@ -6,7 +6,7 @@ This is jasperro's dotfiles repository. My setup contains:
 * wpgtk
 * waybar
 * rofi
-* vscode, vim
+* vscode, neovim
 
 ## Install
 Dependencies: `slurp grim clipman flashfocus polkit-gnome rofi wpgtk-git kitty mako redshift playerctl firefox-nightly pavucontrol thunar`

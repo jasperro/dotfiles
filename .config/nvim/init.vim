@@ -32,17 +32,13 @@ set laststatus=2
 set ruler
 set number relativenumber
 
-xnoremap "+y y:call system("wl-copy", @")<cr>
-nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
-
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 set incsearch
-set clipboard=unnamed
+set clipboard=unnamedplus
 let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1
 let g:airline_theme='term'
