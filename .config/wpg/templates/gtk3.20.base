@@ -93,7 +93,6 @@
 @import url("widgets/notebook.css");
 @import url("widgets/progress-scale.css");
 @import url("widgets/scrollbar.css");
-@import url("widgets/separator.css");
 @import url("widgets/sidebar.css");
 @import url("widgets/chrome.css");
 @import url("widgets/spinbutton.css");
@@ -104,5 +103,6 @@
 @import url("widgets/header-bar.css");
 @import url("widgets/osd.css");
 @import url("widgets/csd.css");
+@import url("widgets/separator.css");
 @import url("widgets/combobox.css");
 @import url("widgets/selection-mode.css");

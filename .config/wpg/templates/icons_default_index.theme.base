@@ -2,3 +2,4 @@
 Name=Default
 Comment=Default Cursor Theme
 Inherits={cursortheme}
+Size={cursorsize}

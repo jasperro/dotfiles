@@ -1,4 +1,4 @@
-rofi.modi:			     					 drun,run
+rofi.modi:			     					 drun,run,emoji
 rofi.width:			     					 20
 rofi.columns:                        5
 rofi.lines:									 5

@@ -1,14 +1,19 @@
+focus_follows_mouse no
+for_window [class="^.*"] border pixel 1
+set $mod Mod4
+
 exec $HOME/.config/wpg/wp_init.sh &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #exec xsettingsd &
 #exec /usr/lib/kdeconnectd
-#exec clipman -d &
+#exec wl-paste -P -t text --watch clipman store --histpath="~/.local/share/clipman.json" &
 exec gsettings set org.gnome.desktop.interface gtk-theme {gtktheme} &
 exec redshift-gtk &
 exec flashfocus &
 
+bindsym $mod+Shift+r exec gsettings set org.gnome.desktop.interface gtk-theme '' && gsettings set org.gnome.desktop.interface gtk-theme {gtktheme};
+
 exec_always "killall mako; mako"
-exec_always "killall waybar; waybar"
 exec_always killall swayidle; swayidle -w \
 timeout 60 'light -O && light -S 1' resume 'light -I' \
 timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -19,21 +24,18 @@ exec_always import-gsettings \
     cursor-theme:gtk-cursor-theme-name \
 	 font-name:gtk-font-name
 
-focus_follows_mouse no
-for_window [class="^.*"] border pixel 1
-set $mod Mod4
-
 # Applications
 bindsym $mod+Shift+f exec thunar &
 bindsym $mod+Shift+s exec pavucontrol &
 #bindsym $mod+Shift+w exec chromium
 #bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox &
-bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox-nightly &
+bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox-developer-edition &
+#bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox-nightly &
 #bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
 bindsym $mod+Return exec kitty &
 
 # Utilities
-bindsym $mod+c exec clipman -s &
+bindsym $mod+c exec clipman pick -t rofi &
 bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
 bindsym $mod+d exec rofi -show drun &
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
@@ -229,6 +231,14 @@ client.focused			#00000000	{color3}	{color15}	{color3}	{color3}
 client.focused_inactive	#00000000	{color3}	{color15}	{color3}	{color3}
 client.background			#000000
 
+## Bar configuration
+
+bar {{
+    swaybar_command waybar
+}}
+
+set $laptop 'Unknown 0x1E3D 0x00000000'
+
 ## Input configuration
 
 input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
@@ -240,6 +250,10 @@ input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
 #	 natural_scroll enabled
 }}
 
+input 1386:105:Wacom_Bamboo1_Pen {{
+    map_to_output $laptop
+}}
+
 input * {{
     xkb_layout us
     xkb_variant intl
@@ -248,9 +262,8 @@ input * {{
 
 ## Output configuration
 
-set $laptop 'Unknown 0x1E3D 0x00000000'
-
 bindsym $mod+k output $laptop toggle
+bindsym $mod+Shift+k output 'Samsung Electric Company SyncMaster H9XQ300468' toggle
 
 # Laptop right
 # output $laptop position 1680 245
@@ -261,6 +274,11 @@ output $laptop position 0 245
 output HDMI-A-1 position 1920 0
 
 output "*" bg ~/.config/wpg/.current fill
+
+seat seat0 xcursor_theme {cursortheme} {cursorsize}
+
+for_window [class="."] inhibit_idle fullscreen
+for_window [app_id="."] inhibit_idle fullscreen
 
 #bindswitch --reload --locked lid:on output $laptop disable
 #bindswitch --reload --locked lid:off output $laptop enable

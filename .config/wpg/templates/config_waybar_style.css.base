@@ -19,8 +19,7 @@ window#waybar {{
 }}
 
 #workspaces button.focused {{
-    background: rgba({color1.rgb}, 0.2);
-	 background-color: rgba({color4.rgb}, 0.2);
+	 background-color: rgba({color4.rgb}, 0.5);
 }}
 
 #mode {{

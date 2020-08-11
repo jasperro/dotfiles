@@ -14,15 +14,16 @@ else
 fi
 
 (cat $HOME/.config/wpg/sequences &)
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
+export TERM="kitty"
 source ~/.fonts/fontawesome-regular.sh
 source ~/.fonts/devicons-regular.sh
 source ~/.fonts/octicons-regular.sh
 source ~/.fonts/pomicons-regular.sh
 
 HISTFILE=~/.histfile
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=20000
+SAVEHIST=20000
 #bindkey "-v
 
 export KEYTIMEOUT=1
@@ -52,11 +53,14 @@ alias l='ls -Flh'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
+alias gr='git clean -fdx && git reset --hard'
 alias pac='yay'
+alias bgr='setsid'
+alias siz='du -hs'
 alias remorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias pkglist="pacman --query --quiet --explicit --native | sed ':a;N;\$!ba;s/\n/ /g'"
 alias '_'='sudo'
-alias protoncli='STEAM_COMPAT_DATA_PATH=~/wineprefix/ ~/.steam/steam/steamapps/common/Proton\ 4.2/proton'
+alias protoncli='STEAM_COMPAT_DATA_PATH=~/.wine/ ~/.steam/steam/steamapps/common/Proton\ 4.11/proton'
 
 setopt autocd
 setopt correct
@@ -73,7 +77,7 @@ cd $1 && ls
 }
 
 export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin/
+export PATH=$PATH:$GOPATH/bin/:$HOME/.local/bin
 
 # Keybindings
 bindkey "^[[2~" overwrite-mode
