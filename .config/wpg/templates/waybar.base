@@ -13,7 +13,7 @@
     "margin-bottom": 0,
     // Modules configuration
     "sway/workspaces": {{
-         "format": "{{name}}: {{icon}}",
+         "format": "{{name}} {{icon}}",
          "format-icons": {{
              "1": "\ue1e3",
              "2": "\ue1e3",

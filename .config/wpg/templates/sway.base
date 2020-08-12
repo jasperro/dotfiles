@@ -41,7 +41,8 @@ bindsym $mod+d exec rofi -show drun &
 bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+m exec wpg -m
 bindsym $mod+Ctrl+m exec wpg -s `wpg -c`
-bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') &
+bindsym Ctrl+Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - `xdg-user-dir PICTURES`/"`date +'Schermafdruk van %Y-%m-%d %H-%M-%S.png'`" &
+bindsym Print exec grim -o `swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name'` `xdg-user-dir PICTURES`/"`date +'Schermafdruk van %Y-%m-%d %H-%M-%S.png'`" &
 
 # Sway
 bindsym $mod+q kill

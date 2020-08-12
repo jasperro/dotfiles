@@ -36,6 +36,7 @@ window#waybar {{
 
 #window {{
     box-shadow: none;
+	 color: rgba({foreground.rgb}, 0.75);
 }}
 
 #clock {{
