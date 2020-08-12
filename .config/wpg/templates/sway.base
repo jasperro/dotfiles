@@ -47,11 +47,11 @@ bindsym Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect
 bindsym $mod+q kill
 bindsym $mod+x layout toggle tabbed split
 
-gaps inner 10
+gaps inner 5
 gaps outer 0
 
-default_border pixel 5
-default_floating_border pixel 5
+default_border pixel 4
+default_floating_border pixel 4
 hide_edge_borders smart
 
 font pango:Fira Sans 11

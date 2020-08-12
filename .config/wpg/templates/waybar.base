@@ -1,12 +1,12 @@
 {{
     "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
-    "height": 30, // Waybar height
-    // "width": 1280, // Waybar width
+    "position": "left", // Waybar at the bottom of your screen
+    // "height": 30, // Waybar height
+    // "width": 30, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "idle_inhibitor", "network", "battery", "disk", "cpu", "memory", "backlight", "pulseaudio"],
+    "modules-center": [],
+    "modules-right": ["tray", "idle_inhibitor", "clock", "network", "battery", "disk", "cpu", "memory", "backlight", "pulseaudio"],
 	 "margin-left": 0,
 	 "margin-top": 0,
     "margin-right": 0,
@@ -26,10 +26,12 @@
              "urgent": "",
              "focused": "",
              "default": ""
-         }}
+         }},
+		  "rotate": 90,
     }},
     "sway/mode": {{
-        "format": "<span style=\"italic\">{{}}</span>"
+        "format": "<span style=\"italic\">{{}}</span>",
+		  "rotate": 90
     }},
     "idle_inhibitor": {{
         "format": "{{icon}}",
@@ -44,20 +46,25 @@
     }},
     "clock": {{
         "tooltip-format": "{{:%Y-%m-%d | %H:%M}}",
-        "format-alt": "{{:%H:%M %Y-%m-%d %a w%V}}"
+        "format-alt": "{{:%H:%M %Y-%m-%d %a w%V}}",
+		  "rotate": 90,
     }},
 	 "sway/window": {{
-		  "tooltip": false
+		  "tooltip": false,
+		  "rotate": 90,
 	 }},
     "disk": {{
         "path": "/",
-        "format": "{{percentage_used}}% {{path}}"
+        "format": "{{percentage_used}}% {{path}}",
+		  "rotate": 90,
     }},
     "cpu": {{
-        "format": "{{usage}}% cpu"
+        "format": "{{usage}}% cpu",
+		  "rotate": 90,
     }},
     "memory": {{
-        "format": "{{}}% "
+        "format": "{{}}% ",
+		  "rotate": 90,
     }},
     "backlight": {{
         "device": "intel_backlight",
@@ -66,7 +73,8 @@
 		  "on-click": "light -S 1",
 		  "on-click-right": "light -S 100",
 		  "on-scroll-up": "light -A 2",
-		  "on-scroll-down": "light -U 2"
+		  "on-scroll-down": "light -U 2",
+		  "rotate": 90,
     }},
     "battery": {{
         "states": {{
@@ -78,7 +86,8 @@
 		  "format-charging": "  {{capacity}}% {{icon}}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+		  "rotate": 90,
     }},
     "battery#bat2": {{
         "bat": "BAT2"
@@ -88,7 +97,8 @@
         "format-wifi": "{{essid}} ({{signalStrength}}%) ",
         "format-ethernet": "{{ifname}}: {{ipaddr}}/{{cidr}} ",
         "format-disconnected": "Disconnected ⚠",
-		  "on-click": "networkmanager_dmenu"
+		  "on-click": "networkmanager_dmenu",
+		  "rotate": 90,
     }},
     "pulseaudio": {{
         "scroll-step": 1,
@@ -107,6 +117,7 @@
         "on-click": "pactl set-sink-mute 0 toggle",
 		  "on-click-right": "pavucontrol",
 		  "on-scroll-up": "pactl set-sink-volume 0 +1%",
-		  "on-scroll-down": "pactl set-sink-volume 0 -1%"
+		  "on-scroll-down": "pactl set-sink-volume 0 -1%",
+		  "rotate": 90,
     }}
 }}

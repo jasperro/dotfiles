@@ -17,7 +17,7 @@ window#waybar {{
     background: transparent;
     color: {foreground};
 	 margin: 0;
-	 padding: 2px 10px;
+	 padding: 10px 2px;
 }}
 
 #workspaces button.focused {{
@@ -29,9 +29,9 @@ window#waybar {{
 }}
 
 #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor, #window, #disk {{
-    padding: 2px 10px;
+    padding: 10px 2px;
     /*margin: 4px 2px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0.8px 6px rgba(0,0,0,0.23);*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0.2000px 6px rgba(0,0,0,0.23);*/
 }}
 
 #window {{
@@ -39,33 +39,34 @@ window#waybar {{
 }}
 
 #clock {{
-    /*background-color: rgba({color2.rgb}, 0.8);*/
+    /*background-color: rgba({color2.rgb}, 0.2000);*/
+	 padding: 6px 2px;
 }}
 
 #disk {{
-    background-color: rgba({color8.rgb}, 0.8);
+    background-color: rgba({color8.rgb}, 0.2000);
     color: {foreground};
 }}
 
 #battery {{
-    background-color: rgba({color3.rgb}, 0.8);
+    background-color: rgba({color3.rgb}, 0.2000);
     color: {foreground};
 }}
 
 #battery.charging {{
     color: {foreground};
-    background-color: rgba({color4.rgb}, 0.8);
+    background-color: rgba({color4.rgb}, 0.2000);
 }}
 
 @keyframes blink {{
     to {{
-        background-color: rgba({color0.rgb}, 0.8);
+        background-color: rgba({color0.rgb}, 0.2000);
         color: {foreground};
     }}
 }}
 
 #battery.critical:not(.charging) {{
-    background-color: rgba({color5.rgb}, 0.8);
+    background-color: rgba({color5.rgb}, 0.2000);
     color: {foreground};
     animation-name: blink;
     animation-duration: 0.5s;
@@ -75,40 +76,40 @@ window#waybar {{
 }}
 
 #cpu {{
-    background-color: rgba({color6.rgb}, 0.8);
+    background-color: rgba({color6.rgb}, 0.2000);
     color: {foreground};
 }}
 
 #memory {{
-    background-color: rgba({color10.rgb}, 0.8);
+    background-color: rgba({color10.rgb}, 0.2000);
 	 color: {foreground};
 }}
 
 #backlight {{
-    background-color: rgba({color8.rgb}, 0.8);
+    background-color: rgba({color8.rgb}, 0.2000);
 }}
 
 #network {{
-    background-color: rgba({color9.rgb}, 0.8);
+    background-color: rgba({color9.rgb}, 0.2000);
 }}
 
 #network.disconnected {{
-    background-color: rgba({inactive.rgb}, 0.8);
+    background-color: rgba({inactive.rgb}, 0.2000);
 }}
 
 #pulseaudio {{
-    background-color: rgba({color13.rgb}, 0.8);
+    background-color: rgba({color13.rgb}, 0.2000);
     color: {foreground};
 }}
 
 #pulseaudio.muted {{
-    background-color: rgba({color12.rgb}, 0.8);
+    background-color: rgba({color12.rgb}, 0.2000);
 }}
 
 #tray {{
-    /*background-color: rgba({color11.rgb}, 0.8);*/
+    /*background-color: rgba({color11.rgb}, 0.2000);*/
 }}
 
 #idle_inhibitor {{
-    /*background-color: rgba({color10.rgb}, 0.8);*/
+    /*background-color: rgba({color10.rgb}, 0.2000);*/
 }}
