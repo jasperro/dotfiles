@@ -1,7 +1,7 @@
 {{
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
-    // "height": 30, // Waybar height
+    "height": 30, // Waybar height
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
@@ -9,7 +9,8 @@
     "modules-right": ["tray", "idle_inhibitor", "network", "battery", "disk", "cpu", "memory", "backlight", "pulseaudio"],
 	 "margin-left": 0,
 	 "margin-top": 0,
-    //"margin-right": 10,
+    "margin-right": 0,
+    "margin-bottom": 0,
     // Modules configuration
     "sway/workspaces": {{
          "format": "{{name}}: {{icon}}",
