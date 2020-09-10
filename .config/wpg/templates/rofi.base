@@ -1,31 +1,31 @@
-rofi.modi:			     					 drun,run,emoji
-rofi.width:			     					 20
-rofi.columns:                        5
-rofi.lines:									 5
-rofi.font:                           {uifont} {rofifontsize}
-rofi.color-normal:                   #00{color0.strip}, #{color15.strip}, #00{color0.strip}, #dd{color15.strip}, #{color0.strip}
-rofi.color-urgent:                   #88{color0.strip}, #d6b48d, #8822231D, #44d6b48d, #{color15.strip}
-rofi.color-active:                   #88{color0.strip}, #{color14.strip}, #88{color0.strip}, #44{color14.strip}, #{color0.strip}
-rofi.color-window:                   #dd{color0.strip}, #dd{color0.strip}, #dd{color0.strip}
-rofi.bw:                             0
-rofi.location:                       0
-rofi.padding:                        200
-rofi.yoffset:                        0
-rofi.xoffset:                        none
-rofi.fixed-num-lines:                true
-rofi.terminal:                       rofi-sensible-terminal
-rofi.ssh-client:                     ssh
-rofi.ssh-command:                    {{terminal}} -e {{ssh-client}} {{host}}
-rofi.run-command:                    {{cmd}}
-rofi.parse-hosts:                    true
-rofi.matching:                       normal
-rofi.separator-style:                none
-rofi.scrollbar-width:                3
-rofi.kb-mode-next:                   Shift+Right,Control+Tab,Alt+l
-rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Alt+h
-rofi.kb-row-up:                      Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab,Alt+k
-rofi.kb-row-down:                    Down,Control+n,Alt+j
-rofi.show-icons:                     true
-rofi.drun-icon-theme:                {icontheme}
-rofi.fullscreen:							 true
-rofi.monitor:								 -1
+configuration {{
+	modi: "drun,run,emoji";
+	width: 20;
+	lines: 5;
+	columns: 5;
+	font: "{uifont} {rofifontsize}";
+	bw: 0;
+	location: 0;
+	padding: 200;
+	yoffset: 0;
+	xoffset: 0;
+	fixed-num-lines: true;
+	show-icons: true;
+	terminal: "rofi-sensible-terminal";
+	ssh-client: "ssh";
+	ssh-command: "{{terminal}} -e {{ssh-client}} {{host}}";
+	run-command: "{{cmd}}";
+	parse-hosts: true;
+	matching: "normal";
+	separator-style: "none";
+	fullscreen: true;
+	scrollbar-width: 3;
+   color-normal: "#00{color0.strip}, #{color15.strip}, #00{color0.strip}, #dd{color15.strip}, #{color0.strip}";
+   color-urgent: "#88{color0.strip}, #d6b48d, #8822231D, #44d6b48d, #{color15.strip}";
+	color-active: "#88{color0.strip}, #{color14.strip}, #88{color0.strip}, #44{color14.strip}, #{color0.strip}";
+   color-window: "#dd{color0.strip}, #dd{color0.strip}, #dd{color0.strip}";
+	kb-mode-next: "Shift+Right,Control+Tab,Alt+l";
+	kb-mode-previous: "Shift+Left,Control+Shift+Tab,Alt+h";
+	kb-row-up: "Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab,Alt+k";
+	kb-row-down: "Down,Control+n,Alt+j";
+}}

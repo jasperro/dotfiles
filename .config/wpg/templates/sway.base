@@ -243,11 +243,13 @@ set $laptop 'Unknown 0x1E3D 0x00000000'
 ## Input configuration
 
 input 1739:52544:SYNA7DAB:00_06CB:CD40_Touchpad {{
-    accel_profile flat
+    accel_profile adaptive
+	 pointer_accel 0
     middle_emulation enabled
     tap enabled
     tap_button_map lrm
 	 dwt disabled
+	 scroll_factor 0.9
 #	 natural_scroll enabled
 }}
 

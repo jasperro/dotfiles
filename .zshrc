@@ -57,6 +57,7 @@ alias gr='git clean -fdx && git reset --hard'
 alias pac='yay'
 alias bgr='setsid'
 alias siz='du -hs'
+alias ':q'='exit'
 alias remorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias pkglist="pacman --query --quiet --explicit --native | sed ':a;N;\$!ba;s/\n/ /g'"
 alias '_'='sudo'
@@ -77,7 +78,7 @@ cd $1 && ls
 }
 
 export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin/:$HOME/.local/bin
+export PATH=$GOPATH/bin/:$HOME/.local/bin:$HOME/.yarn/bin:$PATH
 
 # Keybindings
 bindkey "^[[2~" overwrite-mode
