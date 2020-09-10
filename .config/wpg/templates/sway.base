@@ -28,9 +28,9 @@ exec_always import-gsettings \
 bindsym $mod+Shift+f exec thunar &
 bindsym $mod+Shift+s exec pavucontrol &
 #bindsym $mod+Shift+w exec chromium
-#bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox &
-bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox-developer-edition &
-#bindsym $mod+Shift+w exec GDK_BACKEND=wayland MOZ_ACCELERATED=1 MOZ_USE_XINPUT2=1 firefox-nightly &
+#bindsym $mod+Shift+w exec firefox &
+bindsym $mod+Shift+w exec firefox-developer-edition &
+#bindsym $mod+Shift+w exec firefox-nightly &
 #bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty &
 bindsym $mod+Return exec kitty &
 
