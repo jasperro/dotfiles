@@ -78,6 +78,7 @@ cd $1 && ls
 }
 
 export GOPATH="$HOME/go"
+export REACT_EDITOR=code
 export PATH=$GOPATH/bin/:$HOME/.local/bin:$HOME/.yarn/bin:$PATH
 
 # Keybindings
