@@ -1,2 +1,15 @@
-{"coc.prefences.hoverTarget":"float",
-"suggest.floatEnable": true}
+{
+  "coc.prefences.hoverTarget": "float",
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql"
+  ],
+  "eslint.autoFixOnSave": true
+}

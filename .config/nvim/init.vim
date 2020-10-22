@@ -5,8 +5,10 @@ call plug#begin('~/.vim/plugged')
    "pacman -S fzf
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
+	"pacman -S watchman
    Plug 'neoclide/coc.nvim', {'branch': 'release'}
    Plug 'scrooloose/nerdtree'
+	Plug 'jistr/vim-nerdtree-tabs'
    Plug 'Xuyuanp/nerdtree-git-plugin'
    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
    Plug 'ryanoasis/vim-devicons'
@@ -50,24 +52,26 @@ set tabstop=3
 set guicursor=
 autocmd OptionSet guicursor noautocmd set guicursor=
 
-
 " Nerdtree config
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-n> <plug>NERDTreeTabsToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-" open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
+" Run NERDTreeTabs on console vim startup.
+" When set to 2, open only if directory was given as startup argument.
+let g:nerdtree_tabs_open_on_console_startup = 2
 
-" Open NERDTree if folder opened
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
+" On startup, focus NERDTree if opening a directory, focus file if opening a file.
+let g:nerdtree_tabs_smart_startup_focus = 1
 
-autocmd VimEnter * call StartUp()
+" Open NERDTree Tabs on new tab
+let g:nerdtree_tabs_open_on_new_tab = 1
+
+" Make sure that Focus is on the file window when switching into a tab
+let g:nerdtree_tabs_focus_on_files = 1
+
+" Automatically find and select currently opened file in NERDTree.
+let g:nerdtree_tabs_autofind = 1
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -88,27 +92,28 @@ let g:NERDTreeIgnore = ['^node_modules$']
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
+"function! IsNERDTreeOpen()        
+"  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
+"function! SyncTree()
+"  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"   NERDTreeFind
+"    wincmd p
+"  endif
+"endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+"autocmd BufEnter * call SyncTree()
 
 " vim-prettier
 "let g:prettier#quickfix_enabled = 0
 "let g:prettier#quickfix_auto_focus = 0
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 ESLint :CocCommand eslint.executeAutoFix
 " run prettier on save
 "let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
@@ -121,6 +126,8 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-react-refactor',
+  \ 'coc-emmet',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -254,8 +261,8 @@ vnoremap d "_d
 
 
 " j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+"noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+"noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus

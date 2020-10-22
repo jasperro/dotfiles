@@ -24,6 +24,9 @@ source ~/.fonts/pomicons-regular.sh
 HISTFILE=~/.histfile
 HISTSIZE=20000
 SAVEHIST=20000
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --ignore-vcs'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #bindkey "-v
 
 export KEYTIMEOUT=1
