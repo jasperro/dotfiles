@@ -13,6 +13,9 @@ exec flashfocus &
 
 bindsym $mod+Shift+r exec gsettings set org.gnome.desktop.interface gtk-theme '' && gsettings set org.gnome.desktop.interface gtk-theme {gtktheme};
 
+# Fix libsecret prompt not opening, 20 second gtk app start
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 exec_always "killall mako; mako"
 exec_always killall swayidle; swayidle -w \
 timeout 60 'light -O && light -S 1' resume 'light -I' \

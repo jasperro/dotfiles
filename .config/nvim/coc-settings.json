@@ -11,5 +11,8 @@
     "typescript.tsx",
     "graphql"
   ],
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "tailwindCSS.includeLanguages": {
+    "jinja": "html"
+  }
 }

@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'bling/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'sbdchd/neoformat'
+   Plug 'lepture/vim-jinja'
    "pacman -S fzf
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
@@ -54,6 +55,7 @@ autocmd OptionSet guicursor noautocmd set guicursor=
 
 " Nerdtree config
 nmap <C-n> <plug>NERDTreeTabsToggle<CR>
+nmap <silent> <space><C-n> <plug>NERDTreeTabsFind<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
@@ -100,7 +102,7 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " file, and we're not in vimdiff
 "function! SyncTree()
 "  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-"   NERDTreeFind
+"   NERDTreeTabsFind
 "    wincmd p
 "  endif
 "endfunction
@@ -122,12 +124,19 @@ command! -nargs=0 ESLint :CocCommand eslint.executeAutoFix
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
+  \ 'coc-html',
   \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-react-refactor',
   \ 'coc-emmet',
+  \ 'coc-vimtex',
+  \ 'coc-yaml',
+  \ 'coc-svg',
+  \ 'coc-vimlsp',
+  \ 'coc-highlight',
+  \ 'https://github.com/rodrigore/coc-tailwind-intellisense',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
