@@ -38,6 +38,7 @@ bindsym $mod+Shift+w exec firefox-developer-edition &
 bindsym $mod+Return exec kitty &
 
 # Utilities
+bindsym $mod+g exec swaymsg \[con_id=$(swaymsg -t get_tree | jq -r '.nodes | .[] | .nodes | . [] | select(.nodes != null) | .nodes | .[] | select(.name != null) | "\(.id?) \(.name?)"' | rofi -dmenu -i | awk '{{print $1}}')] focus
 bindsym $mod+c exec clipman pick -t rofi &
 bindsym $mod+o exec makoctl menu dmenu -p 'Select Action: '
 bindsym $mod+d exec rofi -show drun &
@@ -45,7 +46,8 @@ bindsym $mod+Shift+e exec ~/.config/rofi/poweroptions.sh
 bindsym $mod+Shift+m exec wpg -m
 bindsym $mod+Ctrl+m exec wpg -s `wpg -c`
 bindsym Ctrl+Print exec swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - `xdg-user-dir PICTURES`/"`date +'Schermafdruk van %Y-%m-%d %H-%M-%S.png'`" &
-bindsym Print exec grim -o `swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name'` `xdg-user-dir PICTURES`/"`date +'Schermafdruk van %Y-%m-%d %H-%M-%S.png'`" &
+bindsym $mod+Print exec grim -o `swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name'` `xdg-user-dir PICTURES`/"`date +'Schermafdruk van %Y-%m-%d %H-%M-%S.png'`" &
+bindsym Print exec sway-interactive-screenshot &
 
 # Sway
 bindsym $mod+q kill
@@ -57,6 +59,7 @@ gaps outer 0
 default_border pixel 4
 default_floating_border pixel 4
 hide_edge_borders smart
+#smart_gaps on
 
 font pango:Fira Sans 11
 
@@ -194,39 +197,41 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## Gaps configuration
 
-set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps Gaps: (o) outer, (i) inner, (r) reset, (Shift+r) global reset
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 mode "$mode_gaps" {{
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
+		  bindsym r      gaps inner current set 5; gaps outer current set 0;
+		  bindsym Shift+r gaps inner all set 5; gaps outer all set 0
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }}
  
 mode "$mode_gaps_inner" {{
-        bindsym plus  gaps inner current plus 5
+        bindsym equal  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
  
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
- 
-        bindsym Return mode "default"
+		  bindsym plus  gaps inner all plus 5
+		  bindsym Shift+minus gaps inner all minus 5
+		  bindsym Shift+0     gaps inner all set 0
+
+		  bindsym Return mode "$mode_gaps_outer"
         bindsym Escape mode "default"
 }}
 mode "$mode_gaps_outer" {{
-        bindsym plus  gaps outer current plus 5
+        bindsym equal  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
         bindsym 0     gaps outer current set 0
  
-        bindsym Shift+plus  gaps outer all plus 5
+        bindsym plus  gaps outer all plus 5
         bindsym Shift+minus gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
  
-        bindsym Return mode "default"
+        bindsym Return mode "$mode_gaps_inner"
         bindsym Escape mode "default"
 }}
 
@@ -269,7 +274,7 @@ input * {{
 ## Output configuration
 
 bindsym $mod+k output $laptop toggle
-bindsym $mod+Shift+k output 'Samsung Electric Company SyncMaster H9XQ300468' toggle
+bindsym $mod+Shift+k output HDMI-A-1 toggle
 
 # Laptop right
 # output $laptop position 1680 245

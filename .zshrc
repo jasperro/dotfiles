@@ -16,10 +16,10 @@ fi
 (cat $HOME/.config/wpg/sequences &)
 #export TERM="xterm-256color"
 export TERM="kitty"
-source ~/.fonts/fontawesome-regular.sh
-source ~/.fonts/devicons-regular.sh
-source ~/.fonts/octicons-regular.sh
-source ~/.fonts/pomicons-regular.sh
+#source ~/.fonts/fontawesome-regular.sh
+#source ~/.fonts/devicons-regular.sh
+#source ~/.fonts/octicons-regular.sh
+#source ~/.fonts/pomicons-regular.sh
 
 HISTFILE=~/.histfile
 HISTSIZE=20000
@@ -31,7 +31,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export KEYTIMEOUT=1
 
-source /usr/share/fonts/awesome-terminal-fonts/*.sh
+#source /usr/share/fonts/awesome-terminal-fonts/*.sh
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jasperro/.zshrc'
@@ -49,7 +49,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Aliases and functions
 #alias ls='ls --color=always'
-alias ls='exa --icons'
+alias ls='exa -g --icons'
 alias la='ls -la'
 alias lg='la --git'
 alias l='ls -Flh'

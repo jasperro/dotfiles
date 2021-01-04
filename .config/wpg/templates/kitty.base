@@ -114,5 +114,3 @@ map ctrl+shift+,        move_tab_backward
 map ctrl+shift+equal    increase_font_size
 map ctrl+shift+minus    decrease_font_size
 map ctrl+shift+backspace restore_font_size
-
-include ~/.cache/wal/colors-kitty.conf

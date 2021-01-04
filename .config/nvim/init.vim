@@ -136,6 +136,7 @@ let g:coc_global_extensions = [
   \ 'coc-svg',
   \ 'coc-vimlsp',
   \ 'coc-highlight',
+  \ 'coc-python', 
   \ 'https://github.com/rodrigore/coc-tailwind-intellisense',
   \ ]
 " from readme
