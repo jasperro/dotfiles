@@ -1,6 +1,7 @@
 {
   "emmet.includeLanguages": {
-    "nunjucks": "html"
+    "nunjucks": "html",
+    "njk": "html"
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -26,6 +27,10 @@
     "venv": true,
     "*.sublime-*": true,
     "env*": true
+  },
+  "files.associations": {
+    "*.html": "html",
+    "*.njk": "nunjucks"
   },
   "vim.neovimPath": "/usr/bin/vim",
   "vim.useSystemClipboard": true,
@@ -142,7 +147,6 @@
       "gitDecoration.untrackedResourceForeground": "#3D5382"
     }
   },
-  "workbench.colorTheme": "Monokai",
   "editor.tokenColorCustomizations": {
     "[Wal]": {
       "textMateRules": [
@@ -572,28 +576,21 @@
         },
         {
           "name": "PHP variables",
-          "scope": [
-            "variable.language.php",
-            "variable.other.php"
-          ],
+          "scope": ["variable.language.php", "variable.other.php"],
           "settings": {
             "foreground": "#9E7BB0"
           }
         },
         {
           "name": "PHP variables",
-          "scope": [
-            "variable.other.property.php"
-          ],
+          "scope": ["variable.other.property.php"],
           "settings": {
             "foreground": "#CC8242"
           }
         },
         {
           "name": "PHP variables",
-          "scope": [
-            "support.variable.property.php"
-          ],
+          "scope": ["support.variable.property.php"],
           "settings": {
             "foreground": "#FFC66D"
           }
@@ -626,9 +623,17 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "python.languageServer": "Microsoft"
+  "python.languageServer": "Microsoft",
+  "vim.enableNeovim": true,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
+  "todo-tree.tree.showScanModeButton": false,
+  "workbench.colorTheme": "Nord",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

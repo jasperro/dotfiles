@@ -13,9 +13,9 @@ else
   bindkey "^[[F" end-of-line
 fi
 
-(cat $HOME/.config/wpg/sequences &)
-#export TERM="xterm-256color"
-export TERM="kitty"
+#(cat $HOME/.config/wpg/sequences &)
+export TERM="xterm-256color"
+#export TERM="kitty"
 #source ~/.fonts/fontawesome-regular.sh
 #source ~/.fonts/devicons-regular.sh
 #source ~/.fonts/octicons-regular.sh
@@ -53,6 +53,12 @@ alias ls='exa -g --icons'
 alias la='ls -la'
 alias lg='la --git'
 alias l='ls -Flh'
+
+alias pd='pushd'
+alias ds='dirs -v'
+
+alias cp='cp --reflink=auto --sparse=always'
+
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
@@ -82,7 +88,10 @@ cd $1 && ls
 
 export GOPATH="$HOME/go"
 export REACT_EDITOR=code
-export PATH=$GOPATH/bin/:$HOME/.local/bin:$HOME/.yarn/bin:$PATH
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+export PATH=$GOPATH/bin/:$HOME/.local/bin:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH
 
 # Keybindings
 bindkey "^[[2~" overwrite-mode
