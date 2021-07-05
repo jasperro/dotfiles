@@ -30,7 +30,8 @@
   },
   "files.associations": {
     "*.html": "html",
-    "*.njk": "nunjucks"
+    "*.njk": "nunjucks",
+    "*.js": "javascript"
   },
   "vim.neovimPath": "/usr/bin/vim",
   "vim.useSystemClipboard": true,
@@ -49,9 +50,9 @@
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-h>": false,
+    "<C-s>": false,
     "<C-a>": false
   },
-  "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.cursorStyle": "line",
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
@@ -628,12 +629,24 @@
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
   "python.languageServer": "Microsoft",
-  "vim.enableNeovim": true,
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
   "todo-tree.tree.showScanModeButton": false,
   "workbench.colorTheme": "Nord",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "remote.SSH.localServerDownload": "always",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "keyboard.dispatch": "keyCode",
+  "terminal.integrated.tabs.enabled": true
 }
