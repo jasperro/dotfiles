@@ -1,7 +1,8 @@
 {
   "emmet.includeLanguages": {
     "nunjucks": "html",
-    "njk": "html"
+    "njk": "html",
+    "postcss": "css"
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -621,7 +622,7 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -648,5 +649,6 @@
   ],
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "keyboard.dispatch": "keyCode",
-  "terminal.integrated.tabs.enabled": true
+  "terminal.integrated.tabs.enabled": true,
+  "gitlens.views.branches.files.layout": "list"
 }

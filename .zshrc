@@ -25,6 +25,8 @@ HISTFILE=~/.histfile
 HISTSIZE=20000
 SAVEHIST=20000
 
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --ignore-vcs'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #bindkey "-v
@@ -58,6 +60,8 @@ alias pd='pushd'
 alias ds='dirs -v'
 
 alias cp='cp --reflink=auto --sparse=always'
+alias rm='rm -i'
+alias docker='podman'
 
 alias gs='git status'
 alias ga='git add'
@@ -91,7 +95,7 @@ export REACT_EDITOR=code
 NPM_PACKAGES="${HOME}/.npm-packages"
 
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
-export PATH=$GOPATH/bin/:$HOME/.local/bin:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH
+export PATH=$HOME/.emacs.d/bin:$GOPATH/bin/:$HOME/.local/bin:$HOME/.yarn/bin:$NPM_PACKAGES/bin:$PATH
 
 # Keybindings
 bindkey "^[[2~" overwrite-mode
