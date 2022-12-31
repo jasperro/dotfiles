@@ -12,6 +12,7 @@ in
   imports = [
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
+    ../modules/minecraft
 
     ./hardware-configuration.nix
   ];
@@ -101,7 +102,7 @@ in
 
   nixpkgs = {
     # You can add overlays here
-    overlays = [ ];
+    overlays = [ inputs.nix-minecraft.overlay ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages

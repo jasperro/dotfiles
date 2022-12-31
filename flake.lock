@@ -1,18 +1,201 @@
 {
   "nodes": {
+    "CleanroomGenerator": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-jFmSQm4CE6OUNeGxNLjqxeCJDUqfrsjawsrwe82Astg=",
+        "type": "file",
+        "url": "https://mediafilez.forgecdn.net/files/3596/715/CleanroomGenerator-1.2.1.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://mediafilez.forgecdn.net/files/3596/715/CleanroomGenerator-1.2.1.jar"
+      }
+    },
+    "DecentHolograms": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-RpkyIXI0j4Noxo8eZODQ39dhrUqo4c4wASDBnbbmhRI=",
+        "type": "file",
+        "url": "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.7.9/DecentHolograms-2.7.9.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.7.9/DecentHolograms-2.7.9.jar"
+      }
+    },
+    "EssentialsX": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Xh90S6KDke9THEWsFW/OZi3IkjtLzXopkCC5cBdgEq4=",
+        "type": "file",
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsX-2.19.7.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsX-2.19.7.jar"
+      }
+    },
+    "EssentialsXChat": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-o4Z9FAeE0wXiHqAl+TsqaiWI0D5YJMS6hE1iR0k0ylc=",
+        "type": "file",
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsXChat-2.19.7.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsXChat-2.19.7.jar"
+      }
+    },
+    "EssentialsXSpawn": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-fu26ED1XveK3kT5kuWfcIbMLgeMF2gjMY8A/K9ORywU=",
+        "type": "file",
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsXSpawn-2.19.7.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsXSpawn-2.19.7.jar"
+      }
+    },
+    "FAWE": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-DvMTR1E5avTSxuAo8ClLgQhQar/JOMixTB272a/vsWc=",
+        "type": "file",
+        "url": "https://cdn.modrinth.com/data/z4HZZnLr/versions/o3DnEEKh/FastAsyncWorldEdit-Bukkit-2.5.0.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://cdn.modrinth.com/data/z4HZZnLr/versions/o3DnEEKh/FastAsyncWorldEdit-Bukkit-2.5.0.jar"
+      }
+    },
+    "Floodgate": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-mK2Q9HYKfZMDjbLJ9Z0HYbuQGu13c4WeARgpW9LYIJM=",
+        "type": "file",
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar"
+      }
+    },
+    "Geyser": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-UpQ54broT70lb7rzPMv4814gHEWi7Z4BOQ/+SjSF+M8=",
+        "type": "file",
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar"
+      }
+    },
+    "HeadDB": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-qEUhezKEKKNtT1L0uv5HzNkJE3V2LtVXy4AjqHzR8jI=",
+        "type": "file",
+        "url": "https://github.com/TheSilentPro/HeadDB/releases/download/4.4.4/HeadDB-4.4.4.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/TheSilentPro/HeadDB/releases/download/4.4.4/HeadDB-4.4.4.jar"
+      }
+    },
+    "MultiverseCore": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-SERoS768c8i6Vu5dJOW+/ZNPSjixCA70deIp5sZ52f8=",
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar"
+      }
+    },
+    "MultiverseInventories": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-5JE294omXZ6QM1C8JRQdee6zJPaPeN11dmnLOHSwgeI=",
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Inventories/lastSuccessfulBuild/artifact/target/Multiverse-Inventories-4.2.4-SNAPSHOT.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Inventories/lastSuccessfulBuild/artifact/target/Multiverse-Inventories-4.2.4-SNAPSHOT.jar"
+      }
+    },
+    "MultiverseNetherPortals": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-TJGRBgsN95etV2etGZOPyWY+gIoZmKEz0tMNHAnglrE=",
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-NetherPortals/lastSuccessfulBuild/artifact/target/Multiverse-NetherPortals-4.2.3-SNAPSHOT.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-NetherPortals/lastSuccessfulBuild/artifact/target/Multiverse-NetherPortals-4.2.3-SNAPSHOT.jar"
+      }
+    },
+    "MultiverseSignPortals": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-b6g23Lje/1aRZYIGQgsbusgBESxJwg7Q2a+2NEEA6Zw=",
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-SignPortals/lastSuccessfulBuild/artifact/target/Multiverse-SignPortals-4.2.1-SNAPSHOT.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-SignPortals/lastSuccessfulBuild/artifact/target/Multiverse-SignPortals-4.2.1-SNAPSHOT.jar"
+      }
+    },
+    "Vault": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-RIJUpsArQrgzaQrhlQBmD/cNy6O06+f0s65xp53YQ/w=",
+        "type": "file",
+        "url": "https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar"
+      }
+    },
     "astronvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1672419122,
-        "narHash": "sha256-GpmF2qS1twYCxJmfw31qEfCmaZl5EUvZx2dCMaBpKuA=",
+        "lastModified": 1672673348,
+        "narHash": "sha256-RY737hxkvUwuBOzPEOpdWF93JA0v0Yg+ZJZfcLufxB8=",
         "owner": "AstroNvim",
         "repo": "AstroNvim",
-        "rev": "6a08bd1d49028169e5182a60e30e85439301ded2",
+        "rev": "1eb976ecc6893af46312ccc83ed6b7c01796e502",
         "type": "github"
       },
       "original": {
         "owner": "AstroNvim",
         "repo": "AstroNvim",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -24,11 +207,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1672349765,
-        "narHash": "sha256-Ul3lSGglgHXhgU3YNqsNeTlRH1pqxbR64h+2hM+HtnM=",
+        "lastModified": 1672780900,
+        "narHash": "sha256-DxuSn6BdkZapIbg76xzYx1KhVPEZeBexMkt1q/sMVPA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dd99675ee81fef051809bc87d67eb07f5ba022e8",
+        "rev": "54245e1820caabd8a0b53ce4d47e4d0fefe04cd4",
         "type": "github"
       },
       "original": {
@@ -37,13 +220,34 @@
         "type": "github"
       }
     },
+    "nix-minecraft": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1670559144,
+        "narHash": "sha256-H5IkrM720lD4mcUktGKvHNXai9QdWq7hMj3R/+7MyP0=",
+        "owner": "infinidoge",
+        "repo": "nix-minecraft",
+        "rev": "a1d77146d8cd32563a1da417859dd5b49f518166",
+        "type": "github"
+      },
+      "original": {
+        "owner": "infinidoge",
+        "repo": "nix-minecraft",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1672353432,
-        "narHash": "sha256-oZfgp/44/o2tWiylV30cR+DLyWTJ+5dhsdWZVpzs3e4=",
+        "lastModified": 1672616430,
+        "narHash": "sha256-e18rRwDUaW/Uw1tBmtsVueJ2SVI5DLhrEGwhkIo+c50=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "913a47cd064cc06440ea84e5e0452039a85781f0",
+        "rev": "0bf3109eeb61780965c27f4a0a4affdcd0cd4d3d",
         "type": "github"
       },
       "original": {
@@ -55,11 +259,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1672567407,
-        "narHash": "sha256-iS/zsRj/tnhg7vfffhpt+iSxfm+fK3FJPVDxvFCGp8I=",
+        "lastModified": 1672856798,
+        "narHash": "sha256-fHbwk5qPWPiDssnDWAScDvlWVv215ym1lAR1U87bn8A=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "2a5a76227bba619d216becb367a9789de4c12a2f",
+        "rev": "82b2397d1b0a9b053f45fb48d41b340cccfc1158",
         "type": "github"
       },
       "original": {
@@ -70,8 +274,23 @@
     },
     "root": {
       "inputs": {
+        "CleanroomGenerator": "CleanroomGenerator",
+        "DecentHolograms": "DecentHolograms",
+        "EssentialsX": "EssentialsX",
+        "EssentialsXChat": "EssentialsXChat",
+        "EssentialsXSpawn": "EssentialsXSpawn",
+        "FAWE": "FAWE",
+        "Floodgate": "Floodgate",
+        "Geyser": "Geyser",
+        "HeadDB": "HeadDB",
+        "MultiverseCore": "MultiverseCore",
+        "MultiverseInventories": "MultiverseInventories",
+        "MultiverseNetherPortals": "MultiverseNetherPortals",
+        "MultiverseSignPortals": "MultiverseSignPortals",
+        "Vault": "Vault",
         "astronvim": "astronvim",
         "home-manager": "home-manager",
+        "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
       }
