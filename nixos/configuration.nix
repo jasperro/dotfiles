@@ -53,6 +53,8 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.ratbagd.enable = true;
+
   fileSystems =
     {
       "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
@@ -99,7 +101,7 @@ in
 
   nixpkgs = {
     # You can add overlays here
-    overlays = [];
+    overlays = [ ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
@@ -166,8 +168,11 @@ in
     xkbVariant = "altgr-intl";
     xkbOptions = "terminate:ctrl_alt_bksp";
     videoDrivers = [ "amdgpu" ];
-    displayManager.sddm.enable = true;
-    displayManager.sddm.settings = { Theme = { CursorTheme = "breeze_cursors"; }; };
+    displayManager = {
+      sddm.enable = true;
+      sddm.settings = { Theme = { CursorTheme = "breeze_cursors"; }; };
+      defaultSession = "plasmawayland";
+    };
     desktopManager.plasma5.enable = true;
     desktopManager.plasma5.supportDDC = true;
   };

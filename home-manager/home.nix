@@ -88,6 +88,7 @@
     waypipe
     waynergy
     wev
+    piper
 
     # wine
     wine-wayland
