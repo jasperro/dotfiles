@@ -16,6 +16,11 @@ in
     allowedUDPPorts = [ 25565 19132 ];
   };
 
+  systemd.services.minecraft-server-hacko = {
+    restartIfChanged = false;
+    wantedBy = lib.mkForce [ ];
+  };
+
   services.minecraft-servers = {
     enable = true;
     eula = true;
@@ -27,7 +32,7 @@ in
         # openFirewall = true;
         serverProperties = {
           server-port = 25565;
-          online-mode = false;
+          online-mode = true;
         };
         files = {
           # "plugins/LuckPerms/config.yml" = lib'.toYAMLFile {
