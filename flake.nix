@@ -16,7 +16,7 @@
     astronvim.flake = false;
 
     nix-minecraft = {
-      url = "github:infinidoge/nix-minecraft";
+      url = "github:Misterio77/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -49,6 +49,8 @@
     MultiverseSignPortals.flake = false;
     Vault.url = "https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar";
     Vault.flake = false;
+    LuckPerms.url = "https://download.luckperms.net/1465/bukkit/loader/LuckPerms-Bukkit-5.4.57.jar";
+    LuckPerms.flake = false;
   };
 
   outputs = { self, nixpkgs, nur, home-manager, astronvim, ... }@inputs:

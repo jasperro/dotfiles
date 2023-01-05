@@ -190,9 +190,6 @@ in
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [
-      25565 # Minecraft server
-    ];
     allowedTCPPortRanges = [
       { from = 1714; to = 1764; } # KDE Connect
     ];

@@ -1,51 +1,68 @@
-{ inputs, pkgs, outputs, config, ... }:
+{ inputs, pkgs, outputs, config, lib, ... }:
 let
-  papermc = pkgs.callPackage ./pkgs/papermc.nix { };
-  toTOMLFile = expr: pkgs.runCommand "expr.toml" { } ''
-    ${pkgs.remarshal}/bin/remarshal \
-    -i ${builtins.toFile "expr" (builtins.toJSON expr)} \
-    -o $out -if json -of toml
-  '';
+  lib' = import ./lib.nix { inherit pkgs; };
+  papermc = lib'.mkMCServer rec {
+    pname = "papermc";
+    version = "1.19.3-370";
+    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/370/downloads/paper-1.19.3-370.jar";
+    sha256 = "MG68uu91fYn7iq2bxu2hAVA5Jo0+muNOG/dTFk1kgq0=";
+  };
 in
 {
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
+
+  networking.firewall = {
+    allowedTCPPorts = [ 25565 ];
+    allowedUDPPorts = [ 25565 19132 ];
+  };
 
   services.minecraft-servers = {
     enable = true;
     eula = true;
     servers = {
       hacko = {
-        enable = false;
+        enable = true;
         package = papermc;
-        jvmOpts = "-Xmx4G -Xms4G";
-        openFirewall = true;
+        jvmOpts = lib'.aikarFlags "4G";
+        # openFirewall = true;
         serverProperties = {
           server-port = 25565;
           online-mode = false;
         };
+        files = {
+          # "plugins/LuckPerms/config.yml" = lib'.toYAMLFile {
+          #   split-storage = {
+          #     # Don't touch this if you don't want to use split storage!
+          #     enabled = true;
+          #     methods = {
+          #       # These options don't need to be modified if split storage isn't enabled.
+          #       user = "h2";
+          #       group = "h2";
+          #       track = "h2";
+          #       uuid = "h2";
+          #       log = "h2";
+          #     };
+          #   };
+          # };
+        };
         symlinks = {
-          plugins = pkgs.linkFarm "plugins"
-
-            [
-              { name = "FastAsyncWorldEdit.jar"; path = inputs.FAWE; }
-              { name = "EssentialsX.jar"; path = inputs.EssentialsX; }
-              { name = "EssentialsXChat.jar"; path = inputs.EssentialsXChat; }
-              { name = "EssentialsXSpawn.jar"; path = inputs.EssentialsXSpawn; }
-              { name = "DecentHolograms.jar"; path = inputs.DecentHolograms; }
-              { name = "CleanroomGenerator.jar"; path = inputs.CleanroomGenerator; }
-              { name = "Geyser-Spigot.jar"; path = inputs.Geyser; }
-              { name = "Floodgate-Spigot.jar"; path = inputs.Floodgate; }
-              { name = "HeadDB.jar"; path = inputs.HeadDB; }
-              { name = "Multiverse-Core.jar"; path = inputs.MultiverseCore; }
-              { name = "Multiverse-Inventories.jar"; path = inputs.MultiverseInventories; }
-              { name = "Multiverse-SignPortals.jar"; path = inputs.MultiverseSignPortals; }
-              { name = "Multiverse-NetherPortals.jar"; path = inputs.MultiverseNetherPortals; }
-              { name = "Vault.jar"; path = inputs.Vault; }
-            ];
-
+          "plugins/FastAsyncWorldEdit.jar" = inputs.FAWE;
+          "plugins/EssentialsX.jar" = inputs.EssentialsX;
+          "plugins/EssentialsXChat.jar" = inputs.EssentialsXChat;
+          "plugins/EssentialsXSpawn.jar" = inputs.EssentialsXSpawn;
+          "plugins/DecentHolograms.jar" = inputs.DecentHolograms;
+          "plugins/CleanroomGenerator.jar" = inputs.CleanroomGenerator;
+          "plugins/Geyser-Spigot.jar" = inputs.Geyser;
+          "plugins/Floodgate-Spigot.jar" = inputs.Floodgate;
+          "plugins/HeadDB.jar" = inputs.HeadDB;
+          "plugins/Multiverse-Core.jar" = inputs.MultiverseCore;
+          "plugins/Multiverse-Inventories.jar" = inputs.MultiverseInventories;
+          "plugins/Multiverse-SignPortals.jar" = inputs.MultiverseSignPortals;
+          "plugins/Multiverse-NetherPortals.jar" = inputs.MultiverseNetherPortals;
+          "plugins/Vault.jar" = inputs.Vault;
+          "plugins/LuckPerms.jar" = inputs.LuckPerms;
         };
       };
-
     };
   };
 }
