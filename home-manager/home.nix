@@ -73,7 +73,14 @@
     blender
     inkscape
     qalculate-qt
+    ark
 
+    # Development
+    jetbrains.rider
+    jetbrains.webstorm
+    android-studio
+
+    # Office
     libreoffice
     hyphen
     hunspell

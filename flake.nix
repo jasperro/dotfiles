@@ -37,7 +37,7 @@
     Geyser.flake = false;
     Floodgate.url = "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar";
     Floodgate.flake = false;
-    HeadDB.url = "https://github.com/TheSilentPro/HeadDB/releases/download/4.4.4/HeadDB-4.4.4.jar";
+    HeadDB.url = "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.2/HeadDB.jar";
     HeadDB.flake = false;
     MultiverseCore.url = "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar";
     MultiverseCore.flake = false;

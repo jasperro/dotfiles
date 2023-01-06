@@ -33,6 +33,9 @@ in
         serverProperties = {
           server-port = 25565;
           online-mode = true;
+          enable-command-block = true;
+          motd = "Welkom bij hacko!";
+          enforce-secure-profile = false;
         };
         files = {
           # "plugins/LuckPerms/config.yml" = lib'.toYAMLFile {
