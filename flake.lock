@@ -99,13 +99,13 @@
     "HeadDB": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-qEUhezKEKKNtT1L0uv5HzNkJE3V2LtVXy4AjqHzR8jI=",
+        "narHash": "sha256-s2jguLDc6ZG0mXN8Pgar8P2wux0Yp5LB2mDX10L7pSk=",
         "type": "file",
-        "url": "https://github.com/TheSilentPro/HeadDB/releases/download/4.4.4/HeadDB-4.4.4.jar"
+        "url": "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.2/HeadDB.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/TheSilentPro/HeadDB/releases/download/4.4.4/HeadDB-4.4.4.jar"
+        "url": "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.2/HeadDB.jar"
       }
     },
     "LuckPerms": {
@@ -232,6 +232,35 @@
         "type": "github"
       }
     },
+    "minecraftPlugins": {
+      "inputs": {
+        "CleanroomGenerator": "CleanroomGenerator",
+        "DecentHolograms": "DecentHolograms",
+        "EssentialsX": "EssentialsX",
+        "EssentialsXChat": "EssentialsXChat",
+        "EssentialsXSpawn": "EssentialsXSpawn",
+        "FAWE": "FAWE",
+        "Floodgate": "Floodgate",
+        "Geyser": "Geyser",
+        "HeadDB": "HeadDB",
+        "LuckPerms": "LuckPerms",
+        "MultiverseCore": "MultiverseCore",
+        "MultiverseInventories": "MultiverseInventories",
+        "MultiverseNetherPortals": "MultiverseNetherPortals",
+        "MultiverseSignPortals": "MultiverseSignPortals",
+        "Vault": "Vault"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-nNKqMTQEfLHWCbiAmc7c+1hHEuJX1RFXCNQ+833FEIo=",
+        "path": "/nix/store/s291swjw8bcl9mn8fj7b0fjq6s7da46l-source/modules/minecraft/plugins",
+        "type": "path"
+      },
+      "original": {
+        "path": "/nix/store/s291swjw8bcl9mn8fj7b0fjq6s7da46l-source/modules/minecraft/plugins",
+        "type": "path"
+      }
+    },
     "nix-minecraft": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -286,23 +315,9 @@
     },
     "root": {
       "inputs": {
-        "CleanroomGenerator": "CleanroomGenerator",
-        "DecentHolograms": "DecentHolograms",
-        "EssentialsX": "EssentialsX",
-        "EssentialsXChat": "EssentialsXChat",
-        "EssentialsXSpawn": "EssentialsXSpawn",
-        "FAWE": "FAWE",
-        "Floodgate": "Floodgate",
-        "Geyser": "Geyser",
-        "HeadDB": "HeadDB",
-        "LuckPerms": "LuckPerms",
-        "MultiverseCore": "MultiverseCore",
-        "MultiverseInventories": "MultiverseInventories",
-        "MultiverseNetherPortals": "MultiverseNetherPortals",
-        "MultiverseSignPortals": "MultiverseSignPortals",
-        "Vault": "Vault",
         "astronvim": "astronvim",
         "home-manager": "home-manager",
+        "minecraftPlugins": "minecraftPlugins",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs",
         "nur": "nur"

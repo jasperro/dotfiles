@@ -53,22 +53,22 @@ in
           #   };
           # };
         };
-        symlinks = {
-          "plugins/FastAsyncWorldEdit.jar" = inputs.FAWE;
-          "plugins/EssentialsX.jar" = inputs.EssentialsX;
-          "plugins/EssentialsXChat.jar" = inputs.EssentialsXChat;
-          "plugins/EssentialsXSpawn.jar" = inputs.EssentialsXSpawn;
-          "plugins/DecentHolograms.jar" = inputs.DecentHolograms;
-          "plugins/CleanroomGenerator.jar" = inputs.CleanroomGenerator;
-          "plugins/Geyser-Spigot.jar" = inputs.Geyser;
-          "plugins/Floodgate-Spigot.jar" = inputs.Floodgate;
-          "plugins/HeadDB.jar" = inputs.HeadDB;
-          "plugins/Multiverse-Core.jar" = inputs.MultiverseCore;
-          "plugins/Multiverse-Inventories.jar" = inputs.MultiverseInventories;
-          "plugins/Multiverse-SignPortals.jar" = inputs.MultiverseSignPortals;
-          "plugins/Multiverse-NetherPortals.jar" = inputs.MultiverseNetherPortals;
-          "plugins/Vault.jar" = inputs.Vault;
-          "plugins/LuckPerms.jar" = inputs.LuckPerms;
+        symlinks = with inputs.minecraftPlugins.inputs; {
+          "plugins/FastAsyncWorldEdit.jar" = FAWE;
+          "plugins/EssentialsX.jar" = EssentialsX;
+          "plugins/EssentialsXChat.jar" = EssentialsXChat;
+          "plugins/EssentialsXSpawn.jar" = EssentialsXSpawn;
+          "plugins/DecentHolograms.jar" = DecentHolograms;
+          "plugins/CleanroomGenerator.jar" = CleanroomGenerator;
+          "plugins/Geyser-Spigot.jar" = Geyser;
+          "plugins/Floodgate-Spigot.jar" = Floodgate;
+          "plugins/HeadDB.jar" = HeadDB;
+          "plugins/Multiverse-Core.jar" = MultiverseCore;
+          "plugins/Multiverse-Inventories.jar" = MultiverseInventories;
+          "plugins/Multiverse-SignPortals.jar" = MultiverseSignPortals;
+          "plugins/Multiverse-NetherPortals.jar" = MultiverseNetherPortals;
+          "plugins/Vault.jar" = Vault;
+          "plugins/LuckPerms.jar" = LuckPerms;
         };
       };
     };
