@@ -33,6 +33,10 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+      nurNoPkgs = import nur {
+        nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = throw "nixpkgs eval";
+      };
     in
     rec {
       # Your custom packages
@@ -71,11 +75,14 @@
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
+
       homeConfigurations = {
         "jasperro@doosje" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
+
+          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
           modules = [
+            nur.hmModules.nur
             # > Our main home-manager configuration file <
             ./home-manager/home.nix
           ];

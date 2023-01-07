@@ -76,8 +76,8 @@
     ark
 
     # Development
-    jetbrains.rider
-    jetbrains.webstorm
+    config.nur.repos.utybo.jetbrains.rider
+    config.nur.repos.utybo.jetbrains.webstorm
     android-studio
 
     # Office
