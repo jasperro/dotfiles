@@ -77,23 +77,23 @@
       "locked": {
         "narHash": "sha256-mK2Q9HYKfZMDjbLJ9Z0HYbuQGu13c4WeARgpW9LYIJM=",
         "type": "file",
-        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar"
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/74/artifact/spigot/build/libs/floodgate-spigot.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar"
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/74/artifact/spigot/build/libs/floodgate-spigot.jar"
       }
     },
     "Geyser": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-UpQ54broT70lb7rzPMv4814gHEWi7Z4BOQ/+SjSF+M8=",
+        "narHash": "sha256-h9VaII1NjzY6FZWYjsVOlbN3eG8rk5rOgChCkke0Yps=",
         "type": "file",
-        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar"
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1270/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar"
+        "url": "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1270/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar"
       }
     },
     "HeadDB": {
@@ -125,11 +125,11 @@
       "locked": {
         "narHash": "sha256-SERoS768c8i6Vu5dJOW+/ZNPSjixCA70deIp5sZ52f8=",
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/870/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/870/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar"
       }
     },
     "MultiverseInventories": {
@@ -137,11 +137,11 @@
       "locked": {
         "narHash": "sha256-5JE294omXZ6QM1C8JRQdee6zJPaPeN11dmnLOHSwgeI=",
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Inventories/lastSuccessfulBuild/artifact/target/Multiverse-Inventories-4.2.4-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Inventories/524/artifact/target/Multiverse-Inventories-4.2.4-SNAPSHOT.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Inventories/lastSuccessfulBuild/artifact/target/Multiverse-Inventories-4.2.4-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Inventories/524/artifact/target/Multiverse-Inventories-4.2.4-SNAPSHOT.jar"
       }
     },
     "MultiverseNetherPortals": {
@@ -149,11 +149,11 @@
       "locked": {
         "narHash": "sha256-TJGRBgsN95etV2etGZOPyWY+gIoZmKEz0tMNHAnglrE=",
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-NetherPortals/lastSuccessfulBuild/artifact/target/Multiverse-NetherPortals-4.2.3-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-NetherPortals/808/artifact/target/Multiverse-NetherPortals-4.2.3-SNAPSHOT.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-NetherPortals/lastSuccessfulBuild/artifact/target/Multiverse-NetherPortals-4.2.3-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-NetherPortals/808/artifact/target/Multiverse-NetherPortals-4.2.3-SNAPSHOT.jar"
       }
     },
     "MultiverseSignPortals": {
@@ -161,11 +161,11 @@
       "locked": {
         "narHash": "sha256-b6g23Lje/1aRZYIGQgsbusgBESxJwg7Q2a+2NEEA6Zw=",
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-SignPortals/lastSuccessfulBuild/artifact/target/Multiverse-SignPortals-4.2.1-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-SignPortals/771/artifact/target/Multiverse-SignPortals-4.2.1-SNAPSHOT.jar"
       },
       "original": {
         "type": "file",
-        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-SignPortals/lastSuccessfulBuild/artifact/target/Multiverse-SignPortals-4.2.1-SNAPSHOT.jar"
+        "url": "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-SignPortals/771/artifact/target/Multiverse-SignPortals-4.2.1-SNAPSHOT.jar"
       }
     },
     "Vault": {
@@ -252,12 +252,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-nNKqMTQEfLHWCbiAmc7c+1hHEuJX1RFXCNQ+833FEIo=",
-        "path": "/nix/store/dy4cbk6ghw7hcs25xnws3r4iylmmmxw3-source/hosts/doosje/services/minecraft/plugins",
+        "narHash": "sha256-AT0P5JHorv7hQ0Fhg3ZdNr9vFtv5WYRQvB4sABhOpbw=",
+        "path": "/nix/store/05dz6z1im3y8in9ghw2sh5in7r79fyf1-source/hosts/doosje/services/minecraft/plugins",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dy4cbk6ghw7hcs25xnws3r4iylmmmxw3-source/hosts/doosje/services/minecraft/plugins",
+        "path": "/nix/store/05dz6z1im3y8in9ghw2sh5in7r79fyf1-source/hosts/doosje/services/minecraft/plugins",
         "type": "path"
       }
     },
