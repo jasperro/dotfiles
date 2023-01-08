@@ -2,7 +2,7 @@
   description = "Jasperro's NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -17,6 +17,8 @@
       url = "github:Misterio77/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-alien.url = "github:thiagokokada/nix-alien";
 
     minecraftPlugins.url = "./hosts/doosje/services/minecraft/plugins";
   };
