@@ -1,1 +1,6 @@
-{ imports = [ ./minecraft ]; }
+{
+  imports = [
+    ./minecraft
+    ./podman.nix
+  ];
+}
