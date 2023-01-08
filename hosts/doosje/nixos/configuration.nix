@@ -13,6 +13,7 @@ in
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
     ../services
+    ../../common/nix-alien.nix
 
     ./hardware-configuration.nix
   ];
