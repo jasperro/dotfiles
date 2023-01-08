@@ -253,11 +253,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-nNKqMTQEfLHWCbiAmc7c+1hHEuJX1RFXCNQ+833FEIo=",
-        "path": "/nix/store/s291swjw8bcl9mn8fj7b0fjq6s7da46l-source/modules/minecraft/plugins",
+        "path": "/nix/store/dy4cbk6ghw7hcs25xnws3r4iylmmmxw3-source/hosts/doosje/services/minecraft/plugins",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/s291swjw8bcl9mn8fj7b0fjq6s7da46l-source/modules/minecraft/plugins",
+        "path": "/nix/store/dy4cbk6ghw7hcs25xnws3r4iylmmmxw3-source/hosts/doosje/services/minecraft/plugins",
         "type": "path"
       }
     },

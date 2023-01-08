@@ -2,11 +2,9 @@
   description = "Jasperro's NixOS Config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nur.url = "github:nix-community/NUR";
 
-    # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -20,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    minecraftPlugins.url = "./modules/minecraft/plugins";
+    minecraftPlugins.url = "./hosts/doosje/services/minecraft/plugins";
   };
 
   outputs = { self, nixpkgs, nur, home-manager, astronvim, ... }@inputs:
@@ -67,8 +65,7 @@
         doosje = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
-            ./nixos/configuration.nix
+            ./hosts/doosje/nixos/configuration.nix
           ];
         };
       };
@@ -83,8 +80,7 @@
           extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
           modules = [
             nur.hmModules.nur
-            # > Our main home-manager configuration file <
-            ./home-manager/home.nix
+            ./home/jasperro/default.nix
           ];
         };
       };

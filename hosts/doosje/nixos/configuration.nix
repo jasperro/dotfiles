@@ -12,7 +12,7 @@ in
   imports = [
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-    ../modules/minecraft
+    ../services
 
     ./hardware-configuration.nix
   ];

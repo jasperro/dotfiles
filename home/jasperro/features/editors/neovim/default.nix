@@ -1,16 +1,16 @@
-{ pkgs, lib, homeManagerModules, ... }:
+{ pkgs, ... }:
 {
-  imports = [ ../../modules/home-manager/astronvim.nix ];
+  imports = [ ../../../modules/home-manager/astronvim.nix ];
   astronvim = {
     enable = true;
     userConfig = ./astro-userconfig;
   };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs; [ ];
-
   };
 
   home.packages = with pkgs; [
