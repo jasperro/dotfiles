@@ -5,6 +5,7 @@
   # You can import other home-manager modules here
   imports = [
     ./features/cli
+    ./features/editors/neovim
     ./features/desktop/common
   ];
 
