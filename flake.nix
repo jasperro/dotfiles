@@ -19,8 +19,6 @@
     };
 
     nix-alien.url = "github:thiagokokada/nix-alien";
-
-    minecraftPlugins.url = "./hosts/doosje/services/minecraft/plugins";
   };
 
   outputs = { self, nixpkgs, nur, home-manager, astronvim, ... }@inputs:
