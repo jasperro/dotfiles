@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services.kdeconnect.enable = true;
   home.packages = with pkgs; [

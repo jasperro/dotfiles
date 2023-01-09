@@ -3,10 +3,7 @@
 {
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = ''
-      ~/.ssh/known_host_github
-      ~/.ssh/known_hosts
-    '';
+    userKnownHostsFile = "~/.ssh/known_host_github ~/.ssh/known_hosts";
   };
   # Add github to known ssh hosts
   home.file.".ssh/known_host_github" = {
@@ -22,9 +19,9 @@
     userEmail = "jasper@albering.nl";
     extraConfig = {
       pull.rebase = true;
-      checkout.defaultremote = origin;
-      init.defaultbranch = main;
-      core.autocrlf = input;
+      checkout.defaultremote = "origin";
+      init.defaultbranch = "main";
+      core.autocrlf = "input";
     };
   };
 }
