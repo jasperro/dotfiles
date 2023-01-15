@@ -240,7 +240,11 @@ in
       enable = true;
       addresses = true;
       workstation = true;
+      domain = true;
+      hinfo = true;
+      userServices = true;
     };
+    openFirewall = true;
   };
 
   nix = {

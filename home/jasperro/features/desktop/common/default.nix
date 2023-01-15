@@ -45,6 +45,10 @@
     wev
     piper
 
+    dconf
+    gnome.dconf-editor
+    gparted
+
     # wine
     wine-wayland
     winetricks
