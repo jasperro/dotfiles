@@ -274,8 +274,14 @@ in
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      extraGroups = [ "http" "minecraft" "docker" "i2c" "users" "video" "uucp" "kvm" "audio" "wheel" "jasperro" ];
+      extraGroups = [ "http" "minecraft" "docker" "podman" "i2c" "users" "video" "uucp" "kvm" "audio" "wheel" "jasperro" ];
       shell = pkgs.zsh;
+      subUidRanges = [
+        { startUid = 100000; count = 65536; }
+      ];
+      subGidRanges = [
+        { startGid = 100000; count = 65536; }
+      ];
     };
   };
 
