@@ -12,8 +12,10 @@ in
   imports = [
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-    ../services
-    ../../common/nix-alien.nix
+    ./services
+    ../common/nixos
+    ../common/optional/nix-alien.nix
+    ../common/optional/haskell.nix
 
     ./hardware-configuration.nix
   ];
@@ -23,10 +25,6 @@ in
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
   networking.interfaces.enp3s0.useDHCP = true;
 
   # Select internationalisation properties.
@@ -108,11 +106,6 @@ in
   nixpkgs = {
     # You can add overlays here
     overlays = [ inputs.nix-minecraft.overlay ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
   };
 
   zramSwap = {
@@ -158,12 +151,6 @@ in
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   xdg.portal.enable = true;
   # xdg.portal.gtkUsePortal = true;
   networking.networkmanager.enable = true;
@@ -203,34 +190,6 @@ in
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    # general tools
-    acpi
-    acpid
-    arp-scan
-    youtube-dl
-    wget
-    wget2
-    w3m
-    sloccount
-    screen
-    nnn
-    neofetch
-    meld
-
-    zoxide
-    silver-searcher
-    ripgrep
-
-    # (de)compression
-    zip
-    unzip
-    p7zip
-
-    sshfs
-  ];
-
-
   services.avahi = {
     nssmdns = true;
     enable = true;
@@ -245,23 +204,6 @@ in
       userServices = true;
     };
     openFirewall = true;
-  };
-
-  nix = {
-    # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
-    };
   };
 
   users.groups.jasperro.gid = 1000;

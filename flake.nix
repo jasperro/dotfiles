@@ -5,10 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nur.url = "github:nix-community/NUR";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # hardware.url = "github:nixos/nixos-hardware";
+    hardware.url = "github:nixos/nixos-hardware";
 
     astronvim.url = "github:AstroNvim/AstroNvim";
     astronvim.flake = false;
@@ -18,10 +20,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix.url = "github:mic92/sops-nix";
     nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
-  outputs = { self, nixpkgs, nur, home-manager, astronvim, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , nur
+    , home-manager
+    , ...
+    }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -65,7 +74,13 @@
         doosje = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ./hosts/doosje/nixos/configuration.nix
+            ./hosts/doosje
+          ];
+        };
+        taart = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/taart
           ];
         };
       };
@@ -75,12 +90,20 @@
 
       homeConfigurations = {
         "jasperro@doosje" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
           extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
           modules = [
             nur.hmModules.nur
-            ./home/jasperro/default.nix
+            ./home/jasperro/doosje
+          ];
+        };
+        "jasperro@taart" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+
+          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
+          modules = [
+            ./home/jasperro/taart
           ];
         };
       };

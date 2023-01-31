@@ -25,6 +25,8 @@
 
     # Development
     config.nur.repos.utybo.jetbrains.rider
+    dotnet-sdk
+
     config.nur.repos.utybo.jetbrains.webstorm
     android-studio
 
@@ -73,4 +75,8 @@
     # LaTeX
     # texlive.combined.scheme-medium
   ];
+
+  home.sessionVariables = {
+    DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+  };
 }

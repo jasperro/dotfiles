@@ -7,7 +7,7 @@ let
     };
 in
 {
-  imports = [ ../../../../../modules/home-manager/astronvim.nix ];
+  imports = [ ../../../../../../modules/home-manager/astronvim.nix ];
   astronvim = {
     enable = true;
     userConfig = ./astro-userconfig;

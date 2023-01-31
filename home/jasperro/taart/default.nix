@@ -6,7 +6,6 @@
   imports = [
     ./features/cli
     ./features/editors/neovim
-    ./features/desktop/common
   ];
 
   nixpkgs = {
@@ -39,16 +38,6 @@
     username = "jasperro";
     homeDirectory = "/home/jasperro";
   };
-
-  home.pointerCursor = { package = pkgs.breeze-icons; gtk.enable = true; name = "breeze_cursors"; size = 24; };
-
-  # GTK config somehow breaks home-manager, maybe fix later?
-
-  # gtk = {
-  #   enable = true;
-  #   theme = { package = pkgs.breeze-gtk; name = "Breeze"; };
-  #   iconTheme = { package = pkgs.papirus-icon-theme; name = "Papirus Dark"; };
-  # };
 
   programs.home-manager.enable = true;
   programs.lesspipe.enable = true;

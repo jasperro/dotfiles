@@ -11,6 +11,7 @@
     ripgrep
     httpie
     jq
+    gnupg
   ];
   programs.fzf = {
     enable = true;
