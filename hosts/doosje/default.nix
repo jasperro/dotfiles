@@ -78,8 +78,10 @@ in
         };
     };
 
-  boot = {
+  boot = rec {
     kernelPackages = pkgs.linuxPackages_zen;
+    extraModulePackages = [ kernelPackages.ddcci-driver ];
+    kernelModules = [ "i2c-dev" "ddcci_backlight" ];
     supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot = {
@@ -216,7 +218,7 @@ in
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      extraGroups = [ "http" "minecraft" "docker" "podman" "i2c" "users" "video" "uucp" "kvm" "audio" "wheel" "jasperro" ];
+      extraGroups = [ "http" "minecraft" "docker" "podman" "i2c" "users" "video" "uucp" "kvm" "audio" "wheel" "usershares" "jasperro" ];
       shell = pkgs.zsh;
       subUidRanges = [
         { startUid = 100000; count = 65536; }
