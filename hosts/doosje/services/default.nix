@@ -1,8 +1,9 @@
 {
   imports = [
     ./minecraft
-    ./podman.nix
+    ../../common/optional/podman.nix
     # ./samba.nix
-    # ./docker.nix
+    # ../../common/optional/docker.nix
   ];
+
 }

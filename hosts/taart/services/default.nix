@@ -1,7 +1,6 @@
 {
   imports = [
     ./openssh.nix
-    ./podman.nix
-    ./home-assistant.nix
+    ./home-assistant-with-supervisor.nix
   ];
 }

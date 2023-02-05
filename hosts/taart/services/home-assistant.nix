@@ -1,6 +1,6 @@
 {
   imports = [
-    ./podman.nix
+    ../../common/optional/podman.nix
     ./mosquitto.nix
     ./zigbee2mqtt.nix
   ];

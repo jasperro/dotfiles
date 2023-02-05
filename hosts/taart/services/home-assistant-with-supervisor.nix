@@ -1,6 +1,6 @@
 {
   imports = [
-    ./podman.nix
+    ../../common/optional/podman.nix
     ./mosquitto.nix
     ./zigbee2mqtt.nix
   ];
@@ -10,6 +10,9 @@
       volumes = [ "home-assistant:/config" ];
       environment.TZ = "Europe/Amsterdam";
       image = "ghcr.io/home-assistant/aarch64-hassio-supervisor:2022.12.1";
+      extraOptions = [
+        "--security-opt apparmor=\"hassio-supervisor\""
+      ];
     };
     containers.homeassistant = {
       volumes = [ "home-assistant:/config" ];
@@ -21,11 +24,11 @@
       ];
     };
   };
-  systemd.services.podman-hassio-supervisor = { };
+  systemd.services.oci-hassio-supervisor = { };
   systemd.services.hassio-apparmor = {
     wantedBy = [ "multi-user.target" ];
-    wants = [ "podman-hassio-supervisor.service" ];
-    before = [ "podman-hassio-supervisor.service" ];
+    wants = [ "oci-hassio-supervisor.service" ];
+    before = [ "oci-hassio-supervisor.service" ];
     description = "Hass.io AppArmor";
     serviceConfig = { };
   };
