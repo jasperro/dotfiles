@@ -10,11 +10,11 @@
           disable_led = true;
         };
         mqtt = {
-          base_topic = zigbee2mqtt;
-          server = mqtt://localhost;
-          user = mosquitto;
-          password = mosquittomqtt;
-          client_id = ZIGB_MQTT;
+          base_topic = "zigbee2mqtt";
+          server = "mqtt://localhost";
+          user = "mosquitto";
+          password = "mosquittomqtt";
+          client_id = "ZIGB_MQTT";
           keepalive = 60;
           reject_unauthorized = true;
           version = 5;
@@ -28,7 +28,7 @@
         advanced = {
           cache_state_send_on_startup = false;
           channel = 25;
-          log_level = info;
+          log_level = "info";
           transmit_power = 9;
           # network_key = [
           # TODO: fill in key (w/ sops) here
