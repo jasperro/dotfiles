@@ -1,5 +1,6 @@
-{
+{ pkgs, ... }: {
   imports = [
-    ./home-assistant.nix
+    ../../../common/optional/arion.nix
   ];
+  virtualisation.arion.projects.home-assistant.settings = import ./arion-compose.nix;
 }
