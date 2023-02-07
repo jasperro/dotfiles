@@ -86,6 +86,7 @@ in
     loader = {
       systemd-boot = {
         enable = true;
+        configurationLimit = 6;
         consoleMode = "max";
         extraEntries = {
           "arch-zen.conf" = ''
