@@ -62,6 +62,7 @@
 
   home.packages = with pkgs; [
     asdf-vm
+    (pkgs.uutils-coreutils.override { prefix = ""; })
   ];
 
   programs.fzf = {
