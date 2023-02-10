@@ -3,6 +3,9 @@
   imports = [
     ./sops.nix
   ];
+  systemd.user.extraConfig = ''
+    DefaultEnvironment="PATH=/run/current-system/sw/bin"
+  '';
   environment.systemPackages = with pkgs; [
     # general tools
     acpi
