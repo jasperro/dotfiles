@@ -4,8 +4,8 @@ let
   papermc = lib'.mkMCServer rec {
     pname = "papermc";
     version = "1.19.3-378";
-    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/378/downloads/paper-1.19.3-378.jar";
-    sha256 = "E9BAG6skK6UXpBzvBFrnPoe/bVpz9hW9RaNuFuo/S0I=";
+    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/396/downloads/paper-1.19.3-396.jar";
+    sha256 = "zb01Ot9AlyxIaK52yBNdikzG+tsr4J6wne+44+yW0qI=";
   };
 in
 {
@@ -57,8 +57,8 @@ in
         symlinks = with pkgs;
           {
             "plugins/FastAsyncWorldEdit.jar" = fetchurl {
-              url = "https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.5.0/FastAsyncWorldEdit-Bukkit-2.5.0.jar";
-              sha256 = "154prjpf0f57pj8kdqdj0md39g6l53dfsqnr6h7nk60n1q03rsjm";
+              url = "https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.5.2/FastAsyncWorldEdit-Bukkit-2.5.2.jar";
+              sha256 = "06jzgfy10bdr03ny8d9cvv4hi1nq0mhmbbmsyqqz3mckpc7xhb9z";
             };
             "plugins/EssentialsX.jar" = fetchurl {
               url = "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsX-2.19.7.jar";
@@ -73,16 +73,16 @@ in
               sha256 = "08vlvhw9wmg6bfc2rq4df3ahf7n54vwf9nx7bw3qz27zka0rv3w7";
             };
             "plugins/DecentHolograms.jar" = fetchurl {
-              url = "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.7.9/DecentHolograms-2.7.9.jar";
-              sha256 = "1b6yx53xgmr5i1cdq20wi9vpkdm6fjq5ab6smk69m6ib4ngj5rws";
+              url = "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.7.11/DecentHolograms-2.7.11.jar";
+              sha256 = "18k1mxlm1qr2pw2jfsjd63a68kcvcm0kzkp0w3y1dgcanp87ik66";
             };
             "plugins/CleanroomGenerator.jar" = fetchurl {
               url = "https://mediafilez.forgecdn.net/files/3596/715/CleanroomGenerator-1.2.1.jar";
               sha256 = "1wpk9hmyjc71jqnzdcinh5jrn2c3ijcnfmh8r5fq1mgnv3zbxla0";
             };
             "plugins/Geyser-Spigot.jar" = fetchurl {
-              url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1270/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar";
-              sha256 = "0qs8wm85a7z2b9fk0r7wnzlv5p30q2ip281yb92ky6dq2lsivakw";
+              url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1299/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar";
+              sha256 = "0xr40yjv7v7zmv0w0v9czkyc1sasgn8y6jrmc3yl4assnq1x1jzf";
             };
             "plugins/Floodgate-Spigot.jar" = fetchurl {
               url = "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/74/artifact/spigot/build/libs/floodgate-spigot.jar";
@@ -113,8 +113,8 @@ in
               sha256 = "07fhfz7ycdlbmxsri11z02ywkby54g6wi9q0myxzap1syjbyvdd6";
             };
             "plugins/LuckPerms.jar" = fetchurl {
-              url = "https://download.luckperms.net/1465/bukkit/loader/LuckPerms-Bukkit-5.4.57.jar";
-              sha256 = "0jszqvpa4ypj8fn297pl2pnlkbz2wkpa1kiajj9r5zls9bgsmvad";
+              url = "https://download.luckperms.net/1471/bukkit/loader/LuckPerms-Bukkit-5.4.61.jar";
+              sha256 = "0av151zqddjrs5nf2z5smfd836kk0alc5mj4ci7xswl369b2whwb";
             };
           };
       };
