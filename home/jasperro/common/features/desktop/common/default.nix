@@ -1,7 +1,8 @@
 { pkgs, config, ... }:
 {
-  services.kdeconnect.enable = true;
+  # services.kdeconnect.enable = true;
   home.packages = with pkgs; [
+    plasma5Packages.kdeconnect-kde
     # general desktop apps
     vscode
     firefox-wayland
