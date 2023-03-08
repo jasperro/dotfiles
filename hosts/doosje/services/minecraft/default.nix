@@ -3,9 +3,9 @@ let
   lib' = import ./lib.nix { inherit pkgs; };
   papermc = lib'.mkMCServer rec {
     pname = "papermc";
-    version = "1.19.3-378";
-    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/396/downloads/paper-1.19.3-396.jar";
-    sha256 = "zb01Ot9AlyxIaK52yBNdikzG+tsr4J6wne+44+yW0qI=";
+    version = "1.19.3-445";
+    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/445/downloads/paper-1.19.3-445.jar";
+    sha256 = "EJ1+g4QCwEWltXESPqd5Hc+5nRy4WKuXse3wm4PuSfo=";
   };
 in
 {
@@ -81,16 +81,16 @@ in
               sha256 = "1wpk9hmyjc71jqnzdcinh5jrn2c3ijcnfmh8r5fq1mgnv3zbxla0";
             };
             "plugins/Geyser-Spigot.jar" = fetchurl {
-              url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1299/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar";
-              sha256 = "0xr40yjv7v7zmv0w0v9czkyc1sasgn8y6jrmc3yl4assnq1x1jzf";
+              url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1320/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar";
+              sha256 = "0mp4awnzj6y7kzhnmdwkfk8fdkb7aa4370wmp0mak5009v8r9hc3";
             };
             "plugins/Floodgate-Spigot.jar" = fetchurl {
-              url = "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/74/artifact/spigot/build/libs/floodgate-spigot.jar";
-              sha256 = "101plq8vxif6lp39bbba60gqmz3zjfq18wfdcsyx8qq78fj4x1g8";
+              url = "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/77/artifact/spigot/build/libs/floodgate-spigot.jar";
+              sha256 = "0x3im039sc972niad0kiywh9kdm21mc7wwd46c3qslg82123rc9j";
             };
             "plugins/HeadDB.jar" = fetchurl {
-              url = "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.2/HeadDB.jar";
-              sha256 = "1yj7rmjff7k9mg3fp2f6c601v8i5n8k11s8apg8vbk7mmr1ynhb2";
+              url = "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.3/HeadDB.jar";
+              sha256 = "0grmy1gzhayz5p73wpgk9mrvl9kxl16y9xscxfmv0zmivxfhnhg6";
             };
             "plugins/Multiverse-Core.jar" = fetchurl {
               url = "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/870/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar";
@@ -113,8 +113,8 @@ in
               sha256 = "07fhfz7ycdlbmxsri11z02ywkby54g6wi9q0myxzap1syjbyvdd6";
             };
             "plugins/LuckPerms.jar" = fetchurl {
-              url = "https://download.luckperms.net/1471/bukkit/loader/LuckPerms-Bukkit-5.4.61.jar";
-              sha256 = "0av151zqddjrs5nf2z5smfd836kk0alc5mj4ci7xswl369b2whwb";
+              url = "https://download.luckperms.net/1475/bukkit/loader/LuckPerms-Bukkit-5.4.64.jar";
+              sha256 = "1jk03xnmbngl59w924bx3qqhz81cbll3l6bzv71s56b3kmlm9dmp";
             };
           };
       };
