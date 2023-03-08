@@ -52,5 +52,11 @@
     xorg.libxkbfile
     xorg.libxshmfence
     zlib
+
+    xorg.libXinerama
+    vulkan-loader
+    speechd
+    wayland
+    gnutls
   ];
 }
