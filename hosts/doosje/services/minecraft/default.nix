@@ -3,9 +3,9 @@ let
   lib' = import ./lib.nix { inherit pkgs; };
   papermc = lib'.mkMCServer rec {
     pname = "papermc";
-    version = "1.19.3-445";
-    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/445/downloads/paper-1.19.3-445.jar";
-    sha256 = "EJ1+g4QCwEWltXESPqd5Hc+5nRy4WKuXse3wm4PuSfo=";
+    version = "1.19.3-447";
+    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/447/downloads/paper-1.19.3-447.jar";
+    sha256 = "OuPf6b6ReCwKPeNAdOMVGhZApvuYAjHuuGen/JpaP6E=";
   };
 in
 {
