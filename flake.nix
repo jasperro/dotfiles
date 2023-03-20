@@ -88,6 +88,12 @@
             ./hosts/taart
           ];
         };
+        superlaptop = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/superlaptop
+          ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -109,6 +115,14 @@
           extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
           modules = [
             ./home/jasperro/taart
+          ];
+        };
+        "colin@superlaptop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
+          modules = [
+            ./home/colin/superlaptop
           ];
         };
       };
