@@ -4,6 +4,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
+    ./features/cli
     ./features/desktop
   ];
 

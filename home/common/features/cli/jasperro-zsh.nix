@@ -49,19 +49,13 @@
       }
       {
         name = "powerlevel10k-config";
-        src = lib.cleanSource ../../config/p10k-config;
+        src = lib.cleanSource ./config/p10k-config;
         file = "p10k.zsh";
       }
-      # {
-      #   name = "asdf-vm";
-      #   src = pkgs.asdf-vm;
-      #   file = "share/asdf-vm/asdf.sh";
-      # }
     ];
   };
 
   home.packages = with pkgs; [
-    asdf-vm
     (pkgs.uutils-coreutils.override { prefix = ""; })
   ];
 
