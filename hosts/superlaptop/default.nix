@@ -17,8 +17,6 @@
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
-  networking.interfaces.enp3s0.useDHCP = true;
-
   # Select internationalisation properties.
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
