@@ -4,13 +4,23 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
+    inputs.hardware.nixosModules.common-cpu-intel
+    inputs.hardware.nixosModules.common-gpu-intel
+    inputs.hardware.nixosModules.common-pc-laptop-ssd
     ../common/nixos
     ../common/optional/nix-alien.nix
 
     ./hardware-configuration.nix
   ];
+
+  hardware = {
+    opengl = {
+      extraPackages = with pkgs; [
+        intel-ocl # OpenCL
+      ];
+      driSupport32Bit = true;
+    };
+  };
 
   networking.hostName = "superlaptop";
 
@@ -22,7 +32,7 @@
     "en_US.UTF-8/UTF-8"
     "nl_NL.UTF-8/UTF-8"
   ];
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "nl_NL.UTF-8";
 
   console = {
     font = "Lat2-Terminus16";
@@ -42,8 +52,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  services.ratbagd.enable = true;
 
   programs.gamemode.enable = true;
 
@@ -135,16 +143,6 @@
     desktopManager.plasma5.enable = true;
     desktopManager.plasma5.supportDDC = true;
   };
-
-  # OpenCL
-  hardware.opengl.extraPackages = with pkgs; [
-    rocm-opencl-icd
-    rocm-opencl-runtime
-  ];
-
-  # Vulkan
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
 
   networking.firewall = {
     enable = true;

@@ -5,7 +5,7 @@
 {
   imports = [
     inputs.hardware.nixosModules.raspberry-pi-4
-    # inputs.hardware.nixosModules.common-ssd
+    inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
     ./hardware-configuration.nix
@@ -83,8 +83,6 @@
   };
 
   services.timesyncd.enable = true;
-
-  services.fstrim.enable = true;
 
   nix = {
     gc = {

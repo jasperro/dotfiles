@@ -10,8 +10,10 @@ let
 in
 {
   imports = [
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
+    inputs.hardware.nixosModules.common-cpu-amd
+    inputs.hardware.nixosModules.common-cpu-amd-pstate
+    inputs.hardware.nixosModules.common-gpu-amd
+    inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
     ../common/optional/nix-alien.nix
@@ -19,6 +21,13 @@ in
 
     ./hardware-configuration.nix
   ];
+
+  hardware = {
+    amdgpu = {
+      loadInInitrd = true;
+      opencl = true;
+    };
+  };
 
   networking.hostName = "doosje";
 
@@ -99,15 +108,6 @@ in
         enable = true;
         configurationLimit = 6;
         consoleMode = "max";
-        extraEntries = {
-          "arch-zen.conf" = ''
-            title              Arch Linux Zen
-            linux              /vmlinuz-linux-zen
-            initrd             /amd-ucode.img
-            initrd             /booster-linux-zen.img
-            options            root=UUID=783850d4-b511-46e4-a690-11aceed00e7d rootflags=subvol=archroot rw pcie_aspm=off apparmor=1 lsm=lockdown,yama,apparmor
-          '';
-        };
       };
       efi.canTouchEfiVariables = true;
     };
@@ -182,16 +182,6 @@ in
     desktopManager.plasma5.enable = true;
     desktopManager.plasma5.supportDDC = true;
   };
-
-  # OpenCL
-  hardware.opengl.extraPackages = with pkgs; [
-    rocm-opencl-icd
-    rocm-opencl-runtime
-  ];
-
-  # Vulkan
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
 
   networking.firewall = {
     enable = true;
