@@ -68,10 +68,10 @@ in
 
   fileSystems =
     {
-      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
-      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
-      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
-      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
+      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/boot".options = [ "rw" "relatime" "fmask=0022" "dmask=0022" "codepage=437" "iocharset=iso8859-1" "shortname=mixed" "utf8" "errors=remount-ro" ];
 
       "/media/Windows10" =
@@ -85,7 +85,7 @@ in
         {
           device = "/dev/disk/by-uuid/7bf18a03-c38b-427f-b0be-fa7eb5d18643";
           fsType = "btrfs";
-          options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" "subvol=bestanden" ];
+          options = [ "rw" "noatime" "compress=zstd:3" "ssd" "subvol=bestanden" ];
         };
     };
 

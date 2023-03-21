@@ -51,10 +51,10 @@
 
   fileSystems =
     {
-      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
-      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
-      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
-      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" "space_cache" ];
+      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/boot".options = [ "rw" "utf8" ];
     };
 

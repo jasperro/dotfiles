@@ -26,7 +26,6 @@
         "autodefrag"
         "discard=async"
         "compress=zstd:3"
-        "space_cache=v2"
       ];
       fsType = "btrfs";
       device = "/dev/disk/by-label/ROOT";
