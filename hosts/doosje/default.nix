@@ -173,7 +173,6 @@ in
     layout = "us";
     xkbVariant = "altgr-intl";
     xkbOptions = "terminate:ctrl_alt_bksp";
-    videoDrivers = [ "amdgpu" ];
     displayManager = {
       sddm.enable = true;
       sddm.settings = { Theme = { CursorTheme = "breeze_cursors"; }; };
