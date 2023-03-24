@@ -142,7 +142,6 @@
       defaultSession = "plasmawayland";
     };
     desktopManager.plasma5.enable = true;
-    desktopManager.plasma5.supportDDC = true;
   };
 
   networking.firewall = {

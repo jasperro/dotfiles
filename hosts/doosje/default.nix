@@ -130,6 +130,7 @@ in
 
   fonts = {
     enableDefaultFonts = true;
+    optimizeForVeryHighDPI = true;
     fonts = with pkgs; [
       noto-fonts
       noto-fonts-cjk
@@ -171,6 +172,7 @@ in
   services.xserver = {
     enable = true;
     layout = "us";
+    dpi = 108;
     xkbVariant = "altgr-intl";
     xkbOptions = "terminate:ctrl_alt_bksp";
     displayManager = {
@@ -179,7 +181,6 @@ in
       defaultSession = "plasmawayland";
     };
     desktopManager.plasma5.enable = true;
-    desktopManager.plasma5.supportDDC = true;
   };
 
   networking.firewall = {
