@@ -94,6 +94,12 @@
             ./hosts/superlaptop
           ];
         };
+        waffie = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/waffie
+          ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -123,6 +129,14 @@
           extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
           modules = [
             ./home/colin/superlaptop
+          ];
+        };
+        "wiktorine@waffie" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
+          modules = [
+            ./home/wiktorine/waffie
           ];
         };
       };
