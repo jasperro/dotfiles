@@ -62,6 +62,7 @@
       "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
+      "/var".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/boot".options = [ "rw" "utf8" ];
     };
 
