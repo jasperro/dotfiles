@@ -7,7 +7,6 @@
     distrobox
 
     ncdu
-    exa
     ripgrep
     httpie
     jq
