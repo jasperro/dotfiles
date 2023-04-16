@@ -4,8 +4,8 @@ let
   papermc = lib'.mkMCServer rec {
     pname = "papermc";
     version = "1.19.4-466";
-    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/466/downloads/paper-1.19.4-466.jar";
-    sha256 = "Qc2wU0k9eJIvickcrI04rnr+jPKtfWWKBKlK/Mudoew=";
+    url = "https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/513/downloads/paper-1.19.4-513.jar";
+    sha256 = "NaiioeIpgak8uHCBrx4P7LsQC51Rwe0PuiaaQmidlRg=";
   };
 in
 {
@@ -57,8 +57,8 @@ in
         symlinks = with pkgs;
           {
             "plugins/FastAsyncWorldEdit.jar" = fetchurl {
-              url = "https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.5.2/FastAsyncWorldEdit-Bukkit-2.5.2.jar";
-              sha256 = "06jzgfy10bdr03ny8d9cvv4hi1nq0mhmbbmsyqqz3mckpc7xhb9z";
+              url = "https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.6.0/FastAsyncWorldEdit-Bukkit-2.6.0.jar";
+              sha256 = "1rd79v6qbl2r9p4pkpf59y53b0x0wfr88b5phd1pf69wi14j79w0";
             };
             "plugins/EssentialsX.jar" = fetchurl {
               url = "https://github.com/EssentialsX/Essentials/releases/download/2.19.7/EssentialsX-2.19.7.jar";
@@ -73,24 +73,24 @@ in
               sha256 = "08vlvhw9wmg6bfc2rq4df3ahf7n54vwf9nx7bw3qz27zka0rv3w7";
             };
             "plugins/DecentHolograms.jar" = fetchurl {
-              url = "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.7.11/DecentHolograms-2.7.11.jar";
-              sha256 = "18k1mxlm1qr2pw2jfsjd63a68kcvcm0kzkp0w3y1dgcanp87ik66";
+              url = "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.1/DecentHolograms-2.8.1.jar";
+              sha256 = "18rmjcrajkwj4hx3mirz8y59li7c6cplvwfpin0gwbdzv3j30gk4";
             };
             "plugins/CleanroomGenerator.jar" = fetchurl {
               url = "https://mediafilez.forgecdn.net/files/3596/715/CleanroomGenerator-1.2.1.jar";
               sha256 = "1wpk9hmyjc71jqnzdcinh5jrn2c3ijcnfmh8r5fq1mgnv3zbxla0";
             };
             "plugins/Geyser-Spigot.jar" = fetchurl {
-              url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1320/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar";
-              sha256 = "0mp4awnzj6y7kzhnmdwkfk8fdkb7aa4370wmp0mak5009v8r9hc3";
+              url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1350/artifact/bootstrap/spigot/build/libs/Geyser-Spigot.jar";
+              sha256 = "0xkamzn2mjfh3l3wk5vbxbk5npqnh5japkspi7xfg6fkix2cmapk";
             };
             "plugins/Floodgate-Spigot.jar" = fetchurl {
-              url = "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/77/artifact/spigot/build/libs/floodgate-spigot.jar";
-              sha256 = "0x3im039sc972niad0kiywh9kdm21mc7wwd46c3qslg82123rc9j";
+              url = "https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/82/artifact/spigot/build/libs/floodgate-spigot.jar";
+              sha256 = "11dbgyp4c77sc4mvibcfahdb4wyihvk5bf16r18v4bsdzmvpkdql";
             };
             "plugins/HeadDB.jar" = fetchurl {
-              url = "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.3/HeadDB.jar";
-              sha256 = "0grmy1gzhayz5p73wpgk9mrvl9kxl16y9xscxfmv0zmivxfhnhg6";
+              url = "https://github.com/TheSilentPro/HeadDB/releases/download/5.0.0-rc.4/HeadDB.jar";
+              sha256 = "0kiys0r8jh9p8zyqwrnsf5daffvw84g1ppp7zfzhn9jlzv7ccawh";
             };
             "plugins/Multiverse-Core.jar" = fetchurl {
               url = "https://ci.onarandombox.com/view/Multiverse/job/Multiverse-Core/870/artifact/target/Multiverse-Core-4.3.2-SNAPSHOT.jar";
@@ -113,8 +113,8 @@ in
               sha256 = "07fhfz7ycdlbmxsri11z02ywkby54g6wi9q0myxzap1syjbyvdd6";
             };
             "plugins/LuckPerms.jar" = fetchurl {
-              url = "https://download.luckperms.net/1475/bukkit/loader/LuckPerms-Bukkit-5.4.64.jar";
-              sha256 = "1jk03xnmbngl59w924bx3qqhz81cbll3l6bzv71s56b3kmlm9dmp";
+              url = "https://download.luckperms.net/1483/bukkit/loader/LuckPerms-Bukkit-5.4.71.jar";
+              sha256 = "0x6yx7ha19v1s470gg15s3mncpdmdlmz5wmyzy51wiyqfjijlzmb";
             };
           };
       };

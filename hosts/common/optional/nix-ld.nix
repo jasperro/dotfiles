@@ -9,6 +9,7 @@
     zlib
     fuse3
     alsa-lib
+    pipewire.lib
     at-spi2-atk
     at-spi2-core
     atk
