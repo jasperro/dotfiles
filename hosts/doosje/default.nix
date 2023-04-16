@@ -150,7 +150,6 @@ in
 
   fonts = {
     enableDefaultFonts = true;
-    optimizeForVeryHighDPI = true;
     fonts = with pkgs; [
       noto-fonts
       noto-fonts-cjk
@@ -232,6 +231,8 @@ in
   };
 
   users.groups.jasperro.gid = 1000;
+
+  programs.zsh.enable = true;
 
   users.users = {
     jasperro = {

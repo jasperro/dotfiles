@@ -172,6 +172,8 @@
 
   users.groups.colin.gid = 1002;
 
+  programs.zsh.enable = true;
+
   users.users = {
     colin = {
       # TODO: You can set an initial password for your user.

@@ -172,6 +172,8 @@
 
   users.groups.wiktorine.gid = 1003;
 
+  programs.zsh.enable = true;
+
   users.users = {
     wiktorine = {
       # TODO: You can set an initial password for your user.

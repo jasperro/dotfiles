@@ -99,6 +99,8 @@
 
   users.groups.jasperro.gid = 1000;
 
+  programs.zsh.enable = true;
+
   users.users = {
     jasperro = {
       # TODO: You can set an initial password for your user.
