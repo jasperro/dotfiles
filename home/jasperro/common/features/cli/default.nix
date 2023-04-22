@@ -11,6 +11,10 @@
     httpie
     jq
     gnupg
+
+    pandoc
+    appimage-run
+    gh
   ];
   programs.fzf = {
     enable = true;

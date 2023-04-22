@@ -74,7 +74,10 @@
     prismlauncher
 
     # LaTeX
-    # texlive.combined.scheme-medium
+    texlive.combined.scheme-medium
+
+    filezilla
+    aseprite
   ];
 
   home.sessionVariables = {

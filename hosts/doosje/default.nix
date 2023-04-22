@@ -230,6 +230,9 @@ in
     openFirewall = true;
   };
 
+
+  services.flatpak.enable = true;
+
   users.groups.jasperro.gid = 1000;
 
   programs.zsh.enable = true;
