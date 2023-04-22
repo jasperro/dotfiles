@@ -8,6 +8,7 @@
     inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     ../common/nixos
+    ../common/optional/openssh-inbound.nix
     ../common/optional/nix-alien.nix
 
     ./hardware-configuration.nix

@@ -1,6 +1,6 @@
 {
   imports = [
-    ./openssh.nix
+    ../common/optional/openssh-inbound.nix
     ./home-assistant
   ];
 }

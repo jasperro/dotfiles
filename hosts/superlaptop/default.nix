@@ -9,6 +9,7 @@
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     ../common/nixos
     ../common/optional/nix-alien.nix
+    ../common/optional/openssh-inbound.nix
 
     ./hardware-configuration.nix
   ];
