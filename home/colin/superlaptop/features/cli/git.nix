@@ -3,7 +3,7 @@
 {
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "~/.ssh/known_host_github ~/.ssh/known_hosts";
+    userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
   };
   # Add github to known ssh hosts
   home.file.".ssh/known_host_github" = {
