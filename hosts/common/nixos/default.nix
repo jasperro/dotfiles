@@ -6,6 +6,7 @@
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
+  environment.localBinInPath = true;
   environment.systemPackages = with pkgs; [
     # general tools
     acpi
