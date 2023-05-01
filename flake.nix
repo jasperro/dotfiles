@@ -27,6 +27,7 @@
 
     sops-nix.url = "github:mic92/sops-nix";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
   };
 
   outputs =
@@ -98,6 +99,12 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/waffie
+          ];
+        };
+        tinkpet-wsl = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/tinkpet-wsl
           ];
         };
       };
