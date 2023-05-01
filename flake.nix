@@ -130,6 +130,14 @@
             ./home/jasperro/taart
           ];
         };
+        "nixos@tinkpet-wsl" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
+          modules = [
+            ./home/jasperro/tinkpet-wsl
+          ];
+        };
         "colin@superlaptop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
