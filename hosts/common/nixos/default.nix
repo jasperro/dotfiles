@@ -12,15 +12,11 @@
     acpi
     acpid
     arp-scan
-    youtube-dl
     wget
     wget2
     w3m
-    sloccount
     screen
-    nnn
     neofetch
-    meld
 
     zoxide
     silver-searcher
