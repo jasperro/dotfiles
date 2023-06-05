@@ -56,7 +56,7 @@
   };
 
   home.packages = with pkgs; [
-    (pkgs.uutils-coreutils.override { prefix = ""; })
+    #(pkgs.uutils-coreutils.override { prefix = ""; })
     exa
   ];
 
