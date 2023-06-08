@@ -54,30 +54,31 @@ in
   services.pipewire =
     let
       defaultContextModules = (lib.importJSON "${inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json")."context.modules";
-    in {
-    enable = true;
-    # config.pipewire = {
-    #   "context.modules" = [{
-    #     name = "libpipewire-module-roc-sink";
-    #     args =  {
-    #       fec.code = "disable";
-    #       remote.ip = "192.168.1.216";
-    #       remote.source.port = 10001;
-    #       remote.repair.port = 10002;
-    #       sink.name = "ROC Sink";
-    #       sink.props = {
-    #          node.name = "roc-sink";
-    #       };
-    #     };
-    #   }
-    #   ] ++ defaultContextModules;
-    # };
+    in
+    {
+      enable = true;
+      # config.pipewire = {
+      #   "context.modules" = [{
+      #     name = "libpipewire-module-roc-sink";
+      #     args =  {
+      #       fec.code = "disable";
+      #       remote.ip = "192.168.1.216";
+      #       remote.source.port = 10001;
+      #       remote.repair.port = 10002;
+      #       sink.name = "ROC Sink";
+      #       sink.props = {
+      #          node.name = "roc-sink";
+      #       };
+      #     };
+      #   }
+      #   ] ++ defaultContextModules;
+      # };
 
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

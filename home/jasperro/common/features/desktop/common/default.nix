@@ -5,6 +5,7 @@
     plasma5Packages.kdeconnect-kde
     # general desktop apps
     vscode
+    #sandboxed-firefox-wayland
     firefox-wayland
     #firefox-devedition-bin
     arduino

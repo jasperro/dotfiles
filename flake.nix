@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpak = {
+      url = "github:max-privatevoid/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hardware.url = "github:nixos/nixos-hardware";
 
     astronvim.url = "github:AstroNvim/AstroNvim";
@@ -27,7 +32,11 @@
 
     sops-nix.url = "github:mic92/sops-nix";
     nix-alien.url = "github:thiagokokada/nix-alien";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +44,7 @@
     , nixpkgs
     , nur
     , home-manager
+    , nixpak
     , ...
     }@inputs:
     let
@@ -56,7 +66,7 @@
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
+        in import ./pkgs { inherit pkgs nixpak; }
       );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
@@ -66,7 +76,7 @@
       );
 
       # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays;
+      overlays = import ./overlays { inherit nixpak; };
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
