@@ -16,17 +16,13 @@ in
     allowedUDPPorts = [ 25565 19132 ];
   };
 
-  systemd.services.minecraft-server-hacko = {
-    restartIfChanged = false;
-    wantedBy = lib.mkForce [ ];
-  };
-
   services.minecraft-servers = {
     enable = true;
     eula = true;
     servers = {
       hacko = {
         enable = true;
+        autoStart = false;
         package = papermc;
         jvmOpts = lib'.aikarFlags "4G";
         # openFirewall = true;
