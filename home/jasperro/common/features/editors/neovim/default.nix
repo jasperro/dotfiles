@@ -1,11 +1,4 @@
 { pkgs, stdenv, ... }:
-let
-  extraNodePackages =
-    import ../extraNodePackages {
-      inherit pkgs;
-      inherit (stdenv.hostPlatform) system;
-    };
-in
 {
   imports = [ ../../../../../../modules/home-manager/astronvim.nix ];
   astronvim = {
@@ -44,10 +37,10 @@ in
     nodePackages.vue-language-server
     nodePackages.svelte-language-server
     nodePackages.stylelint
-    extraNodePackages.rome
+    rome
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     extraNodePackages.cssmodules-language-server
-    extraNodePackages.emmet-ls
+    # extraNodePackages.emmet-ls
   ];
 }
