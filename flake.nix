@@ -25,11 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    arion = {
-      url = "github:hercules-ci/arion";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sops-nix.url = "github:mic92/sops-nix";
     nix-alien.url = "github:thiagokokada/nix-alien";
 
