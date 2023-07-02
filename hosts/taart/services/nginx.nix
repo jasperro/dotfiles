@@ -17,6 +17,15 @@
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection $connection_upgrade;
     '';
+    locations."/esphome/".extraConfig = ''
+      proxy_pass http://unix:/run/esphome/esphome.sock;
+      proxy_set_header Host $host;
+      proxy_redirect http:// https://;
+      proxy_http_version 1.1;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $connection_upgrade;
+    '';
     locations."/bitwarden/".extraConfig = ''
       proxy_pass http://127.0.0.1:7277;
       proxy_set_header Host $host;

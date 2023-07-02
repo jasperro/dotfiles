@@ -8,5 +8,6 @@
     ./acme.nix
     ./nginx.nix
     ./home-assistant.nix
+    ./esphome.nix
   ];
 }
