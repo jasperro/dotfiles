@@ -1,4 +1,7 @@
 {
+  imports = [
+    ./acme.nix
+  ];
   services.nginx.virtualHosts."home.albering.nl" = {
     useACMEHost = "*.albering.nl";
     forceSSL = true;

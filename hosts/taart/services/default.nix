@@ -5,6 +5,7 @@
     ./postgresql.nix
     ./mosquitto.nix
     ./zigbee2mqtt.nix
+    ./acme.nix
     ./nginx.nix
     ./home-assistant.nix
   ];
