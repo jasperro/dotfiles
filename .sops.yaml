@@ -1,0 +1,17 @@
+keys:
+  - &hosts:
+    - &taart age1mrlzgsnuwr7yndmmfygduy8l6z8rjg82vnv2nuy082hpfpaxuvcqc8n8gp
+    - &superlaptop age1dp26sumd6ucr6a39sgvqe4v3uxyw4kyt42avm3ts5jendkngucus33gcng
+    - &waffie age147vmrylugzucucs25y9v7fu55xldvfdc8dywdun42vtpk5y0lc0qfpm73y
+
+creation_rules:
+  - path_regex: hosts/taart/secrets.ya?ml$
+    key_groups:
+      - age:
+          - *taart
+  - path_regex: hosts/common/secrets.ya?ml$
+    key_groups:
+      - age:
+          - *taart
+          - *superlaptop
+          - *waffie

@@ -1,4 +1,12 @@
 {
+  sops.secrets = {
+    mqtt = {
+      sopsFile = ../secrets.yaml;
+    };
+    z2m = {
+      sopsFile = ../secrets.yaml;
+    };
+  };
   services.zigbee2mqtt = {
     enable = true;
     settings =
@@ -12,8 +20,8 @@
         mqtt = {
           base_topic = "zigbee2mqtt";
           server = "mqtt://localhost";
-          user = "mosquitto";
-          password = "mosquittomqtt";
+          user = config.sops.secrets.mqtt.user;
+          password = config.sops.secrets.mqtt.pass;
           client_id = "ZIGB_MQTT";
           keepalive = 60;
           reject_unauthorized = true;
@@ -24,15 +32,14 @@
         frontend = {
           port = 1920;
           host = "0.0.0.0";
+          auth_token = config.sops.secrets.z2m.auth_token;
         };
         advanced = {
           cache_state_send_on_startup = false;
           channel = 25;
           log_level = "info";
           transmit_power = 9;
-          # network_key = [
-          # TODO: fill in key (w/ sops) here
-          # ];
+          network_key = config.sops.secrets.z2m.network_key;
         };
         device_options = {
           retain = true;
