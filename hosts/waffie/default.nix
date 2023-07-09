@@ -139,7 +139,14 @@
     xkbOptions = "terminate:ctrl_alt_bksp";
     displayManager = {
       sddm.enable = true;
-      sddm.settings = { Theme = { CursorTheme = "breeze_cursors"; }; };
+      sddm.settings = {
+        Theme = { CursorTheme = "breeze_cursors"; };
+        General = {
+          DisplayServer = "wayland";
+          InputMethod = "";
+        };
+        Wayland.CompositorCommand = "${pkgs.weston}/bin/weston --shell=fullscreen-shell.so";
+      };
       defaultSession = "plasmawayland";
     };
     desktopManager.plasma5.enable = true;
