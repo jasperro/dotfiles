@@ -69,8 +69,7 @@
 
   boot = rec {
     kernelPackages = pkgs.linuxPackages_zen;
-    extraModulePackages = [ kernelPackages.ddcci-driver ];
-    kernelModules = [ "i2c-dev" "ddcci_backlight" ];
+    kernelModules = [ "i2c-dev" ];
     supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot = {
