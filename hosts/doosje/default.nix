@@ -16,6 +16,7 @@ in
     inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
+    ../common/nixos/home-locale.nix
     ../common/optional/nix-alien.nix
     ../common/optional/haskell.nix
     ../common/optional/desktop/kde-sddm-wayland.nix
@@ -29,21 +30,6 @@ in
       loadInInitrd = true;
       opencl = true;
     };
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
-
-  # Select internationalisation properties.
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "nl_NL.UTF-8/UTF-8"
-  ];
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
   };
 
   # Only *.enable, otherwise split to file in services/

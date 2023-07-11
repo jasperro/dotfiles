@@ -8,6 +8,7 @@
     inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     ../common/nixos
+    ../common/nixos/home-locale.nix
     ../common/optional/nix-alien.nix
     ../common/optional/openssh-inbound.nix
     ../common/optional/desktop/kde-sddm-wayland.nix
@@ -23,21 +24,6 @@
       driSupport32Bit = true;
     };
     bluetooth.enable = true;
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
-
-  # Select internationalisation properties.
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "nl_NL.UTF-8/UTF-8"
-  ];
-  i18n.defaultLocale = "nl_NL.UTF-8";
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
   };
 
   # Only *.enable, otherwise split to file in services/

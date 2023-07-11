@@ -8,6 +8,7 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
+    ../common/nixos/home-locale.nix
     ./hardware-configuration.nix
     ./networking.nix
   ];
@@ -18,21 +19,6 @@
 
   boot = {
     tmpOnTmpfs = true;
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
-
-  # Select internationalisation properties.
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "nl_NL.UTF-8/UTF-8"
-  ];
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
   };
 
   zramSwap = {

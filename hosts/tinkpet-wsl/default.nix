@@ -10,6 +10,7 @@ in
     "${modulesPath}/profiles/minimal.nix"
     nixos-wsl.nixosModules.wsl
     ../common/nixos
+    ../common/nixos/home-locale.nix
   ];
 
   wsl = {
@@ -26,13 +27,6 @@ in
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";
-
-  # Select internationalisation properties.
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "nl_NL.UTF-8/UTF-8"
-  ];
-  i18n.defaultLocale = "en_US.UTF-8";
 
   users.groups.users.gid = 100;
 
