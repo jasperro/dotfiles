@@ -18,8 +18,10 @@ in
     ../common/nixos
     ../common/optional/nix-alien.nix
     ../common/optional/haskell.nix
+    ../common/optional/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
+    ./networking.nix
   ];
 
   hardware = {
@@ -29,12 +31,8 @@ in
     };
   };
 
-  networking.hostName = "doosje";
-
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
-
-  networking.interfaces.enp3s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.supportedLocales = [
@@ -48,42 +46,11 @@ in
     keyMap = "us";
   };
 
-  # Enable sound.
-  sound.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire =
-    let
-      defaultContextModules = (lib.importJSON "${inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json")."context.modules";
-    in
-    {
-      enable = true;
-      # config.pipewire = {
-      #   "context.modules" = [{
-      #     name = "libpipewire-module-roc-sink";
-      #     args =  {
-      #       fec.code = "disable";
-      #       remote.ip = "192.168.1.216";
-      #       remote.source.port = 10001;
-      #       remote.repair.port = 10002;
-      #       sink.name = "ROC Sink";
-      #       sink.props = {
-      #          node.name = "roc-sink";
-      #       };
-      #     };
-      #   }
-      #   ] ++ defaultContextModules;
-      # };
-
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  services.ratbagd.enable = true;
+  # Only *.enable, otherwise split to file in services/
+  services = {
+    ratbagd.enable = true;
+    flatpak.enable = true;
+  };
 
   programs.gamemode.enable = true;
 
@@ -184,62 +151,6 @@ in
     };
   };
 
-  xdg.portal.enable = true;
-  # xdg.portal.gtkUsePortal = true;
-  networking.networkmanager.enable = true;
-
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    dpi = 108;
-    xkbVariant = "altgr-intl";
-    xkbOptions = "terminate:ctrl_alt_bksp";
-    displayManager = {
-      sddm.enable = true;
-      sddm.settings = {
-        Theme = { CursorTheme = "breeze_cursors"; };
-        General = {
-          DisplayServer = "wayland";
-          InputMethod = "";
-        };
-        Wayland.CompositorCommand = "${pkgs.weston}/bin/weston --shell=fullscreen-shell.so";
-      };
-      defaultSession = "plasmawayland";
-    };
-    desktopManager.plasma5.enable = true;
-  };
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
-    ];
-    allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
-    ];
-  };
-
-  services.resolved.enable = true;
-
-  services.avahi = {
-    nssmdns = true;
-    enable = true;
-    ipv4 = true;
-    ipv6 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-      domain = true;
-      hinfo = true;
-      userServices = true;
-    };
-    openFirewall = true;
-  };
-
-
-  services.flatpak.enable = true;
-
   users.groups.jasperro.gid = 1000;
 
   programs.zsh.enable = true;
@@ -252,7 +163,21 @@ in
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      extraGroups = [ "http" "minecraft" "docker" "podman" "i2c" "users" "video" "uucp" "kvm" "audio" "wheel" "usershares" "jasperro" ];
+      extraGroups = [
+        "http"
+        "minecraft"
+        "docker"
+        "podman"
+        "i2c"
+        "users"
+        "video"
+        "uucp"
+        "kvm"
+        "audio"
+        "wheel"
+        "usershares"
+        "jasperro"
+      ];
       shell = pkgs.zsh;
       subUidRanges = [
         { startUid = 100000; count = 65536; }

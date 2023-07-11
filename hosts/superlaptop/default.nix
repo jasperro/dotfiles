@@ -10,6 +10,7 @@
     ../common/nixos
     ../common/optional/nix-alien.nix
     ../common/optional/openssh-inbound.nix
+    ../common/optional/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
   ];
@@ -23,8 +24,6 @@
     };
     bluetooth.enable = true;
   };
-
-  networking.hostName = "superlaptop";
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -41,19 +40,10 @@
     keyMap = "us";
   };
 
-  # Enable sound.
-  sound.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+  # Only *.enable, otherwise split to file in services/
+  services = {
+    flatpak.enable = true;
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   programs.gamemode.enable = true;
 
@@ -125,56 +115,6 @@
         serif = [ "Source Serif Pro" ];
       };
     };
-  };
-
-  xdg.portal.enable = true;
-  # xdg.portal.gtkUsePortal = true;
-  networking.networkmanager.enable = true;
-
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "terminate:ctrl_alt_bksp";
-    displayManager = {
-      sddm.enable = true;
-      sddm.settings = {
-        Theme = { CursorTheme = "breeze_cursors"; };
-        General = {
-          DisplayServer = "wayland";
-          InputMethod = "";
-        };
-        Wayland.CompositorCommand = "${pkgs.weston}/bin/weston --shell=fullscreen-shell.so";
-      };
-      defaultSession = "plasmawayland";
-    };
-    desktopManager.plasma5.enable = true;
-  };
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
-    ];
-    allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
-    ];
-  };
-
-  services.avahi = {
-    nssmdns = true;
-    enable = true;
-    ipv4 = true;
-    ipv6 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-      domain = true;
-      hinfo = true;
-      userServices = true;
-    };
-    openFirewall = true;
   };
 
   users.groups.colin.gid = 1002;
