@@ -9,9 +9,9 @@
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     ../common/nixos
     ../common/nixos/home-locale.nix
-    ../common/optional/nix-alien.nix
-    ../common/optional/openssh-inbound.nix
-    ../common/optional/desktop/kde-sddm-wayland.nix
+    ../common/nixos/nix-alien.nix
+    ../common/services/openssh-inbound.nix
+    ../common/desktop/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
   ];

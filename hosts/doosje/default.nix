@@ -17,9 +17,8 @@ in
     ./services
     ../common/nixos
     ../common/nixos/home-locale.nix
-    ../common/optional/nix-alien.nix
-    ../common/optional/haskell.nix
-    ../common/optional/desktop/kde-sddm-wayland.nix
+    ../common/nixos/nix-alien.nix
+    ../common/desktop/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
     ./networking.nix

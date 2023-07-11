@@ -1,6 +1,6 @@
 {
   imports = [
-    ../../common/optional/openssh-inbound.nix
+    ../../common/services/openssh-inbound.nix
     ./podman.nix
     ./postgresql.nix
     ./mosquitto.nix
