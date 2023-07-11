@@ -9,26 +9,19 @@
     ./services
     ../common/nixos
     ./hardware-configuration.nix
+    ./networking.nix
   ];
+
+  hardware = {
+    raspberry-pi."4".audio.enable = true;
+  };
 
   boot = {
     tmpOnTmpfs = true;
   };
 
-  # boot.loader.raspberryPi = {
-  #   enable = true;
-  #   version = 4;
-  #   # Surpress missing SD card errors
-  #   firmwareConfig = "dtparam=sd_poll_once=on";
-  # };
-  # boot.generic-extlinux-compatible.enable = false;
-
-  networking.hostName = "taart";
-
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
-
-  networking.interfaces.end0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.supportedLocales = [
@@ -42,24 +35,6 @@
     keyMap = "us";
   };
 
-  # Enable sound.
-  hardware.raspberry-pi."4".audio.enable = true;
-  sound.enable = true;
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # jack.enable = true;
-  };
-
-
-  nixpkgs = {
-    overlays = [ ];
-  };
-
   zramSwap = {
     enable = true;
     memoryPercent = 40;
@@ -69,18 +44,6 @@
   environment.systemPackages = with pkgs; [
     libraspberrypi
   ];
-
-  services.avahi = {
-    nssmdns = true;
-    enable = true;
-    ipv4 = true;
-    ipv6 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      # workstation = true;
-    };
-  };
 
   services.timesyncd.enable = true;
 
