@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./desktop.nix ];
+  imports = [ ./default.nix ];
   services.xserver = {
     enable = true;
     layout = "us";

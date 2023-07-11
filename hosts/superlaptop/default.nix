@@ -10,7 +10,7 @@
     ../common/nixos
     ../common/optional/nix-alien.nix
     ../common/optional/openssh-inbound.nix
-    ../common/optional/kde-sddm-wayland.nix
+    ../common/optional/desktop/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
   ];
@@ -81,45 +81,7 @@
     priority = 10;
   };
 
-  fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      liberation_ttf
-      iosevka
-      dejavu_fonts
-      fira-code
-      fira-code-symbols
-      fira-mono
-      fira
-      ubuntu_font_family
-      source-code-pro
-      source-serif-pro
-      source-sans-pro
-      roboto
-      roboto-mono
-      jetbrains-mono
-      terminus_font
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-    ];
-    fontconfig = {
-      antialias = true;
-      cache32Bit = true;
-      hinting.enable = true;
-      hinting.autohint = true;
-      defaultFonts = {
-        monospace = [ "Source Code Pro" ];
-        sansSerif = [ "Source Sans Pro" ];
-        serif = [ "Source Serif Pro" ];
-      };
-    };
-  };
-
   users.groups.colin.gid = 1002;
-
-  programs.zsh.enable = true;
 
   users.users = {
     colin = {

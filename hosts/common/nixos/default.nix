@@ -36,6 +36,8 @@
     vimAlias = true;
   };
 
+  programs.zsh.enable = true;
+
   nix = {
     settings = {
       # Enable flakes and new 'nix' command
@@ -46,6 +48,18 @@
 
       trusted-users = [ "root" "@wheel" ];
     };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
+    # Free up to 1GiB whenever there is less than 100MiB left.
+    extraOptions = ''
+      min-free = ${toString (100 * 1024 * 1024)}
+      max-free = ${toString (1024 * 1024 * 1024)}
+    '';
 
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake

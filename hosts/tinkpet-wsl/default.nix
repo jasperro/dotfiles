@@ -10,8 +10,6 @@ in
     "${modulesPath}/profiles/minimal.nix"
     nixos-wsl.nixosModules.wsl
     ../common/nixos
-    # ../common/optional/nix-alien.nix
-    ../common/optional/haskell.nix
   ];
 
   wsl = {
@@ -36,14 +34,7 @@ in
   ];
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-  # services.flatpak.enable = true;
-
   users.groups.users.gid = 100;
-
-  programs.zsh.enable = true;
 
   users.users = {
     nixos = {
