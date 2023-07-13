@@ -35,6 +35,7 @@ in
   services = {
     ratbagd.enable = true;
     flatpak.enable = true;
+    fwupd.enable = true;
   };
 
   programs.gamemode.enable = true;
