@@ -6,13 +6,11 @@
   home.packages = with pkgs; [
     distrobox
 
-    ncdu
     ripgrep
     httpie
     jq
     gnupg
 
-    pandoc
     appimage-run
     gh
   ];
