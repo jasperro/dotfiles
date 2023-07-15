@@ -34,6 +34,8 @@
     };
   };
 
+  targets.genericLinux.enable = true;
+
   home = {
     username = "jasperro";
     homeDirectory = "/home/jasperro";
