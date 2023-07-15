@@ -90,12 +90,11 @@
             ./hosts/doosje
           ];
         };
-        taart = nixpkgs-stable.lib.nixosSystem {
+        taart = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/taart
             {
-              nixpkgs.config.allowUnsupportedSystem = true;
               nixpkgs.buildPlatform.system = "x86_64-linux";
             }
           ];
