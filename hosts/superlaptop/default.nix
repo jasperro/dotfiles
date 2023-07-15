@@ -44,6 +44,7 @@
     };
 
   boot = rec {
+    tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "i2c-dev" ];
     supportedFilesystems = [ "ntfs" ];

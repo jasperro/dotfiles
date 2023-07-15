@@ -73,6 +73,7 @@ in
     };
 
   boot = rec {
+    tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages;
     kernelModules = [ "i2c-dev" ];
     kernelParams = [ "amdgpu.gpu_recovery=1" ];
