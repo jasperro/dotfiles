@@ -9,11 +9,7 @@
   environment.localBinInPath = true;
   environment.systemPackages = with pkgs; [
     # general tools
-    acpi
-    acpid
-    arp-scan
     wget
-    wget2
     w3m
     screen
     neofetch
