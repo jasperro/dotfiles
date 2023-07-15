@@ -4,21 +4,24 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
-    inputs.hardware.nixosModules.raspberry-pi-4
-    inputs.hardware.nixosModules.common-pc-ssd
+    # inputs.hardware.nixosModules.raspberry-pi-4
+    # inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
     ../common/nixos/home-locale.nix
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix (Not needed for LXC container)
     # ./networking.nix      (LXC container does not support networking.nix)
   ];
 
-  hardware = {
-    raspberry-pi."4".audio.enable = true;
-  };
+  nixpkgs.hostPlatform = "aarch64-linux";
+
+  # hardware = {
+  #   raspberry-pi."4".audio.enable = true;
+  # };
 
   boot = {
     tmp.useTmpfs = true;
+    isContainer = true;
   };
 
   zramSwap = {
