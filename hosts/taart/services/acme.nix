@@ -1,9 +1,7 @@
-{
+{ config, ... }: {
   sops.secrets = {
-    acme = {
-      sopsFile = ../secrets.yaml;
-    };
     "albering.nl-acme-credentials" = {
+      sopsFile = ../secrets.yaml;
       path = "/var/src/secrets/albering.nl-acme-credentials";
       mode = "0440";
       owner = config.users.users.acme.name;
@@ -12,15 +10,15 @@
   };
   security.acme = {
     defaults = {
-      email = config.sops.secrets.acme.email;
+      email = "jasper.albering@gmail.com";
       dnsProvider = "cloudflare";
       reloadServices = [ "nginx" ];
     };
-    enabled = true;
     acceptTerms = true;
     certs = {
-      "*.albering.nl" = {
-        credentialsFile = config.sops.secrets.acme."albering.nl-acme-credentials".path;
+      "albering" = {
+        domain = "*.albering.nl";
+        credentialsFile = config.sops.secrets."albering.nl-acme-credentials".path;
       };
     };
   };

@@ -384,6 +384,22 @@
     },
     "nixpkgs-stable": {
       "locked": {
+        "lastModified": 1689209875,
+        "narHash": "sha256-8AVcBV1DiszaZzHFd5iLc8HSLfxRAuqcU0QdfBEF3Ag=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fcc147b1e9358a8386b2c4368bd928e1f63a7df2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable_2": {
+      "locked": {
         "lastModified": 1688868408,
         "narHash": "sha256-RR9N5XTAxSBhK8MCvLq9uxfdkd7etC//seVXldy0k48=",
         "owner": "NixOS",
@@ -471,6 +487,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
         "sops-nix": "sops-nix"
       }
@@ -478,7 +495,7 @@
     "sops-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
         "lastModified": 1688873469,

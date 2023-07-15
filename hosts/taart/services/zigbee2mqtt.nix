@@ -1,13 +1,19 @@
+{ config, ... }:
+let
+  dataDir = "/var/lib/zigbee2mqtt";
+in
 {
   sops.secrets = {
-    mqtt = {
+    zigbee2mqtt = {
       sopsFile = ../secrets.yaml;
-    };
-    z2m = {
-      sopsFile = ../secrets.yaml;
+      path = "${dataDir}/secret.yaml";
+      mode = "0440";
+      owner = config.users.users.zigbee2mqtt.name;
+      group = config.users.groups.zigbee2mqtt.name;
     };
   };
   services.zigbee2mqtt = {
+    dataDir = dataDir;
     enable = true;
     settings =
       {
@@ -20,8 +26,8 @@
         mqtt = {
           base_topic = "zigbee2mqtt";
           server = "mqtt://localhost";
-          user = config.sops.secrets.mqtt.user;
-          password = config.sops.secrets.mqtt.pass;
+          user = "'!secret.yaml user'";
+          password = "'!secret.yaml pass'";
           client_id = "ZIGB_MQTT";
           keepalive = 60;
           reject_unauthorized = true;
@@ -32,14 +38,14 @@
         frontend = {
           port = 1920;
           host = "0.0.0.0";
-          auth_token = config.sops.secrets.z2m.auth_token;
+          auth_token = "'!secret.yaml auth_token'";
         };
         advanced = {
           cache_state_send_on_startup = false;
           channel = 25;
           log_level = "info";
           transmit_power = 9;
-          network_key = config.sops.secrets.z2m.network_key;
+          network_key = "'!secret.yaml network_key'";
         };
         device_options = {
           retain = true;

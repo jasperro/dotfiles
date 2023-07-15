@@ -73,8 +73,9 @@ in
     };
 
   boot = rec {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages;
     kernelModules = [ "i2c-dev" ];
+    kernelParams = [ "amdgpu.gpu_recovery=1" ];
     supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot = {
@@ -88,6 +89,7 @@ in
       enable = true;
       theme = "breeze";
     };
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
   nixpkgs = {

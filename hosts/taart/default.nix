@@ -18,7 +18,7 @@
   };
 
   boot = {
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
   };
 
   zramSwap = {

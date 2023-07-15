@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nur.url = "github:nix-community/NUR";
 
     home-manager = {
@@ -37,6 +38,7 @@
   outputs =
     { self
     , nixpkgs
+    , nixpkgs-stable
     , nur
     , home-manager
     , nixpak
@@ -88,10 +90,14 @@
             ./hosts/doosje
           ];
         };
-        taart = nixpkgs.lib.nixosSystem {
+        taart = nixpkgs-stable.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/taart
+            {
+              nixpkgs.config.allowUnsupportedSystem = true;
+              nixpkgs.buildPlatform.system = "x86_64-linux";
+            }
           ];
         };
         superlaptop = nixpkgs.lib.nixosSystem {
