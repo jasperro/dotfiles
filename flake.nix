@@ -94,9 +94,6 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/taart
-            {
-              nixpkgs.buildPlatform.system = "x86_64-linux";
-            }
           ];
         };
         superlaptop = nixpkgs.lib.nixosSystem {

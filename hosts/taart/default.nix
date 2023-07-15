@@ -20,19 +20,19 @@
   # };
 
   boot = {
-    tmp.useTmpfs = true;
+    # tmp.useTmpfs = true;
     isContainer = true;
   };
 
-  zramSwap = {
-    enable = true;
-    memoryPercent = 40;
-    priority = 10;
-  };
+  # zramSwap = {
+  #   enable = true;
+  #   memoryPercent = 40;
+  #   priority = 10;
+  # };
 
-  environment.systemPackages = with pkgs; [
-    libraspberrypi
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   libraspberrypi
+  # ];
 
   users.groups.jasperro.gid = 1000;
 
