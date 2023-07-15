@@ -10,7 +10,7 @@
     ../common/nixos
     ../common/nixos/home-locale.nix
     ./hardware-configuration.nix
-    ./networking.nix
+    # ./networking.nix      (LXC container does not support networking.nix)
   ];
 
   hardware = {
