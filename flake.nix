@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hardware.url = "github:nixos/nixos-hardware";
 
     astronvim.url = "github:AstroNvim/AstroNvim";
@@ -42,6 +47,7 @@
     , nur
     , home-manager
     , nixpak
+    , nixvim
     , ...
     }@inputs:
     let

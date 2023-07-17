@@ -4,11 +4,12 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 {
   # You can import other home-manager modules here
-  imports = [
-    ../common/features/cli
-    ../common/features/editors/neovim
-    ../common/features/desktop/common
-  ];
+  imports =
+    [
+      ../common/features/cli
+      ../common/features/editors/nixvim
+      ../common/features/desktop/common
+    ];
 
   nixpkgs = {
     # You can add overlays here

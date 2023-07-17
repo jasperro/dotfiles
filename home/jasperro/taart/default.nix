@@ -5,7 +5,7 @@
   # You can import other home-manager modules here
   imports = [
     ../common/features/cli
-    ../common/features/editors/neovim
+    ../common/features/editors/nixvim
   ];
 
   nixpkgs = {
