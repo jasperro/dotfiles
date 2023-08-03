@@ -1,13 +1,4 @@
 { inputs, pkgs, outputs, config, lib, ... }:
-let
-  lib' = import ./lib.nix { inherit pkgs; };
-  papermc = lib'.mkMCServer rec {
-    pname = "papermc";
-    version = "1.20.1-466";
-    url = "https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/62/downloads/paper-1.20.1-62.jar";
-    sha256 = "5Y+dpANM3bmJKMWvYhX4J83VQ6cmaZD7ZR65V7fHdQQ=";
-  };
-in
 {
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
 
@@ -23,8 +14,8 @@ in
       hacko = {
         enable = true;
         autoStart = false;
-        package = papermc;
-        jvmOpts = lib'.aikarFlags "4G";
+        package = pkgs.minecraftServers.paper-1_20_1;
+        jvmOpts = (import ./aikar-flags.nix) "4G";
         # openFirewall = true;
         serverProperties = {
           server-port = 25565;
