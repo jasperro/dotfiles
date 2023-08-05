@@ -5,6 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nur.url = "github:nix-community/NUR";
+    hardware.url = "github:nixos/nixos-hardware";
+    sops-nix.url = "github:mic92/sops-nix";
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
+    astronvim.url = "github:AstroNvim/AstroNvim";
+    astronvim.flake = false;
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,18 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hardware.url = "github:nixos/nixos-hardware";
-
-    astronvim.url = "github:AstroNvim/AstroNvim";
-    astronvim.flake = false;
-
     nix-minecraft = {
       url = "github:Misterio77/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    sops-nix.url = "github:mic92/sops-nix";
-    nix-alien.url = "github:thiagokokada/nix-alien";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -43,26 +41,22 @@
   outputs =
     { self
     , nixpkgs
-    , nixpkgs-stable
     , nur
     , home-manager
     , nixpak
-    , nixvim
     , ...
     }@inputs:
     let
       inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
+      systems = [
         "aarch64-linux"
         "i686-linux"
         "x86_64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-      nurNoPkgs = import nur {
-        nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
-        pkgs = throw "nixpkgs eval";
-      };
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+      pkgsFor = nixpkgs.legacyPackages;
     in
     rec {
       # Your custom packages
@@ -92,33 +86,23 @@
       nixosConfigurations = {
         doosje = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/doosje
-          ];
+          modules = [ ./hosts/doosje ];
         };
         taart = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/taart
-          ];
+          modules = [ ./hosts/taart ];
         };
         superlaptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/superlaptop
-          ];
+          modules = [ ./hosts/superlaptop ];
         };
         waffie = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/waffie
-          ];
+          modules = [ ./hosts/waffie ];
         };
         tinkpet-wsl = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/tinkpet-wsl
-          ];
+          modules = [ ./hosts/tinkpet-wsl ];
         };
       };
 
@@ -127,45 +111,29 @@
 
       homeConfigurations = {
         "jasperro@doosje" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
-          modules = [
-            nur.hmModules.nur
-            ./home/jasperro/doosje
-          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/jasperro/doosje ];
         };
         "jasperro@taart" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux;
-
-          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
-          modules = [
-            ./home/jasperro/taart
-          ];
+          pkgs = pkgsFor.aarch64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/jasperro/taart ];
         };
         "nixos@tinkpet-wsl" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
-          modules = [
-            ./home/jasperro/tinkpet-wsl
-          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/jasperro/tinkpet-wsl ];
         };
         "colin@superlaptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
-          modules = [
-            ./home/colin/superlaptop
-          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/colin/superlaptop ];
         };
         "wiktorine@waffie" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-          extraSpecialArgs = { inherit inputs outputs nurNoPkgs; };
-          modules = [
-            ./home/wiktorine/waffie
-          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/wiktorine/waffie ];
         };
       };
     };

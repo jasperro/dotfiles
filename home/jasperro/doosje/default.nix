@@ -9,6 +9,7 @@
       ../common/features/cli
       ../common/features/editors/nixvim
       ../common/features/desktop/common
+      inputs.nur.hmModules.nur
     ];
 
   nixpkgs = {
