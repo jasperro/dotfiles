@@ -29,6 +29,7 @@ in
       loadInInitrd = true;
       opencl = true;
     };
+    xone.enable = true;
   };
 
   # Only *.enable, otherwise split to file in services/
@@ -115,19 +116,17 @@ in
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
       extraGroups = [
+        "jasperro"
+        "users"
+        "wheel"
         "http"
         "minecraft"
         "docker"
         "podman"
-        "i2c"
-        "users"
         "video"
         "uucp"
         "kvm"
         "audio"
-        "wheel"
-        "usershares"
-        "jasperro"
       ];
       shell = pkgs.zsh;
       subUidRanges = [
