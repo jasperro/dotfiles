@@ -49,5 +49,5 @@ in
   # ...
   # });
   sandboxed-firefox-wayland = _sandboxed-firefox-wayland.config.env;
-
+  hyprslurp = pkgs.callPackage ./hyprslurp.nix { };
 }

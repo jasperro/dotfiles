@@ -8,6 +8,12 @@
     hardware.url = "github:nixos/nixos-hardware";
     sops-nix.url = "github:mic92/sops-nix";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-colors.url = "github:misterio77/nix-colors";
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     astronvim.url = "github:AstroNvim/AstroNvim";
     astronvim.flake = false;
@@ -57,8 +63,10 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
       pkgsFor = nixpkgs.legacyPackages;
+      lib = nixpkgs.lib // home-manager.lib;
     in
     rec {
+      inherit lib;
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
