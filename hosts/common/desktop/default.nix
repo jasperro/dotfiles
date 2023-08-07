@@ -13,7 +13,10 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   fonts = {
     enableDefaultPackages = true;
