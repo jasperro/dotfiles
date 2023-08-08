@@ -33,6 +33,8 @@ in
     xone.enable = true;
   };
 
+  environment.variables.AMD_VULKAN_ICD = "RADV";
+
   # Only *.enable, otherwise split to file in services/
   services = {
     ratbagd.enable = true;
