@@ -28,6 +28,7 @@ in
     amdgpu = {
       loadInInitrd = true;
       opencl = true;
+      amdvlk = true;
     };
     xone.enable = true;
   };
