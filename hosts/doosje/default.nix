@@ -75,9 +75,8 @@ in
 
   boot = rec {
     tmp.useTmpfs = true;
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "i2c-dev" ];
-    kernelParams = [ "amdgpu.gpu_recovery=1" ];
     supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot = {
