@@ -68,7 +68,11 @@
     vlc
 
     # games
-    lutris
+    (lutris.override {
+      extraPkgs = pkgs: [
+        pkgs.mangohud
+      ];
+    })
     steam
     superTux
     superTuxKart
