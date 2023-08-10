@@ -44,6 +44,15 @@ in
 
   programs.gamemode.enable = true;
 
+  # Overclock gpu support
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock = {
+      enable = true;
+      ppfeaturemask = "0xffffffff";
+    };
+  };
+
   fileSystems =
     {
       "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
