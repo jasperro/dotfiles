@@ -62,7 +62,6 @@
         "x86_64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      pkgsFor = nixpkgs.legacyPackages;
       lib = nixpkgs.lib // home-manager.lib;
     in
     rec {
@@ -119,27 +118,27 @@
 
       homeConfigurations = {
         "jasperro@doosje" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = nixosConfigurations.doosje.pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/jasperro/doosje ];
         };
         "jasperro@taart" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgsFor.aarch64-linux;
+          pkgs = nixosConfigurations.taart.pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/jasperro/taart ];
         };
         "nixos@tinkpet-wsl" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = nixosConfigurations.tinkpet-wsl.pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/jasperro/tinkpet-wsl ];
         };
         "colin@superlaptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = nixosConfigurations.superlaptop.pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/colin/superlaptop ];
         };
         "wiktorine@waffie" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = nixosConfigurations.waffie.pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/wiktorine/waffie ];
         };

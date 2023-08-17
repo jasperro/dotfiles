@@ -1,7 +1,7 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 let
   userMapping = pkgs.writeText "UserMapping"
     ''
@@ -10,6 +10,7 @@ let
 in
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-cpu-amd-pstate
     inputs.hardware.nixosModules.common-gpu-amd
@@ -23,6 +24,10 @@ in
     ./hardware-configuration.nix
     ./networking.nix
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   hardware = {
     amdgpu = {
@@ -108,6 +113,10 @@ in
   };
 
   users.groups.jasperro.gid = 1000;
+
+  home-manager.users.jasperro = {
+    imports = [ ../../home/jasperro/doosje/default.nix ];
+  };
 
   users.users = {
     jasperro = {

@@ -1,9 +1,10 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-laptop-ssd
@@ -16,6 +17,10 @@
     ./hardware-configuration.nix
     ./networking.nix
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   hardware = {
     opengl = {
@@ -65,6 +70,8 @@
   };
 
   users.groups.wiktorine.gid = 1003;
+
+  home-manager.users.wiktorine = import ../../home/wiktorine/${config.networking.hostName};
 
   users.users = {
     wiktorine = {

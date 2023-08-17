@@ -1,9 +1,10 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-laptop-ssd
@@ -15,6 +16,10 @@
 
     ./hardware-configuration.nix
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   hardware = {
     opengl = {
@@ -69,6 +74,8 @@
   };
 
   users.groups.colin.gid = 1002;
+
+  home-manager.users.colin = import ../../home/colin/${config.networking.hostName};
 
   users.users = {
     colin = {
