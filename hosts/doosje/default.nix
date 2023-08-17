@@ -114,9 +114,7 @@ in
 
   users.groups.jasperro.gid = 1000;
 
-  home-manager.users.jasperro = {
-    imports = [ ../../home/jasperro/doosje/default.nix ];
-  };
+  home-manager.users.jasperro = import ../../home/jasperro/doosje;
 
   users.users = {
     jasperro = {

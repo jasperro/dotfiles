@@ -75,7 +75,7 @@
 
   users.groups.colin.gid = 1002;
 
-  home-manager.users.colin = import ../../home/colin/${config.networking.hostName};
+  home-manager.users.colin = import ../../home/colin/superlaptop;
 
   users.users = {
     colin = {

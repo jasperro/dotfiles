@@ -71,7 +71,7 @@
 
   users.groups.wiktorine.gid = 1003;
 
-  home-manager.users.wiktorine = import ../../home/wiktorine/${config.networking.hostName};
+  home-manager.users.wiktorine = import ../../home/wiktorine/waffie;
 
   users.users = {
     wiktorine = {
