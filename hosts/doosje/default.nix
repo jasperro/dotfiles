@@ -84,7 +84,7 @@ in
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "i2c-dev" ];
-    kernelParams = [ "amd_pstate=passive" "amd_pstate.shared_mem=1" "amd_iommu=on" ];
+    kernelParams = [ "amd_pstate=passive" "amd_pstate.shared_mem=1" "iommu.strict=1" ];
     supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot = {
