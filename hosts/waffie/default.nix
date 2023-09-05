@@ -24,9 +24,6 @@
 
   hardware = {
     opengl = {
-      extraPackages = with pkgs; [
-        intel-ocl # OpenCL
-      ];
       driSupport32Bit = true;
     };
     bluetooth.enable = true;
