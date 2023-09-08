@@ -54,6 +54,7 @@ in
     enable = true;
     gpuOverclock = {
       enable = true;
+      ppfeaturemask = "0xffffffff";
     };
   };
 
@@ -82,9 +83,9 @@ in
 
   boot = rec {
     tmp.useTmpfs = true;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_testing;
     kernelModules = [ "i2c-dev" ];
-    kernelParams = [ "amd_pstate=passive" "amd_pstate.shared_mem=1" "iommu.strict=1" ];
+    kernelParams = [ "amd_pstate.shared_mem=1" ];
     supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot = {
