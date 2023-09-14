@@ -8,10 +8,10 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      sl = "exa";
-      ls = "exa -g";
-      l = "exa -l";
-      la = "exa -lag";
+      sl = "eza";
+      ls = "eza -g";
+      l = "eza -l";
+      la = "eza -lag";
       ip = "ip --color=auto";
       cp = "cp --reflink=auto --sparse=always";
       rm = "rm -i";
@@ -57,7 +57,7 @@
 
   home.packages = with pkgs; [
     #(pkgs.uutils-coreutils.override { prefix = ""; })
-    exa
+    eza
   ];
 
   programs.fzf = {
