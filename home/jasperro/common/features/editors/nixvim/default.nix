@@ -63,6 +63,5 @@
     # Webdev
     nodePackages.svelte-language-server
     nodePackages.stylelint
-    rome
   ];
 }

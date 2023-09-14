@@ -37,7 +37,6 @@
     nodePackages.vue-language-server
     nodePackages.svelte-language-server
     nodePackages.stylelint
-    rome
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     extraNodePackages.cssmodules-language-server
