@@ -8,7 +8,7 @@
     #firefox-devedition-bin
     arduino
     alacritty
-    teams
+    #teams
     gimp
     discord
     inkscape

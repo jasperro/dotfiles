@@ -13,7 +13,7 @@
     thunderbird
     tdesktop
     teamspeak_client
-    teams
+    #teams
     sidequest
     obsidian
     openrgb
