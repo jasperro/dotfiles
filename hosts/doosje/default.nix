@@ -33,12 +33,12 @@ in
     amdgpu = {
       loadInInitrd = true;
       opencl = true;
-      amdvlk = true;
+      # amdvlk = true;
     };
     xone.enable = true;
   };
 
-  environment.variables.AMD_VULKAN_ICD = "RADV";
+  # environment.variables.AMD_VULKAN_ICD = "RADV";
 
   # Only *.enable, otherwise split to file in services/
   services = {
