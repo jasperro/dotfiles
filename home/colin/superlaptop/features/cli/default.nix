@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     distrobox
     ncdu
-    nodePackages.wrangler
+    # nodePackages.wrangler
   ];
 }
 
