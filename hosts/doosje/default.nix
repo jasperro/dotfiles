@@ -39,6 +39,8 @@ in
     xone.enable = true;
   };
 
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   # Only *.enable, otherwise split to file in services/
   services = {
     ratbagd.enable = true;
