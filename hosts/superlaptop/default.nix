@@ -15,6 +15,7 @@
     ../common/desktop/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
+    ./networking.nix
   ];
 
   home-manager.useGlobalPkgs = true;
@@ -23,6 +24,7 @@
 
   hardware = {
     opengl = {
+      enable = true;
       driSupport32Bit = true;
     };
     bluetooth.enable = true;
