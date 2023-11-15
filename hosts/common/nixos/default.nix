@@ -8,6 +8,8 @@
   '';
   environment.localBinInPath = true;
   environment.systemPackages = with pkgs; [
+    home-manager # support for standalone home-manager
+
     # general tools
     wget
     w3m
