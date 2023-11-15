@@ -9,14 +9,50 @@
     viAlias = true;
     vimAlias = true;
 
-    maps = {
-      normal = {
-        "x" = "\"_x";
-        "X" = "\"_X";
-        "d" = "\"_d";
-        "D" = "\"_D";
-      };
-    };
+    globals.mapleader = ",";
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "x";
+        action = "\"_x";
+      }
+      {
+        mode = "n";
+        key = "X";
+        action = "\"_X";
+      }
+      {
+        mode = "n";
+        key = "d";
+        action = "\"_d";
+      }
+      {
+        mode = "n";
+        key = "D";
+        action = "\"_D";
+      }
+      {
+        mode = "n";
+        key = "<leader>x";
+        action = "x";
+      }
+      {
+        mode = "n";
+        key = "<leader>X";
+        action = "X";
+      }
+      {
+        mode = "n";
+        key = "<leader>d";
+        action = "d";
+      }
+      {
+        mode = "n";
+        key = "<leader>D";
+        action = "D";
+      }
+    ];
 
     colorschemes.gruvbox.enable = true;
 
