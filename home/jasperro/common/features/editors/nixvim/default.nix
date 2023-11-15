@@ -54,13 +54,19 @@
       }
     ];
 
-    colorschemes.gruvbox.enable = true;
-
     clipboard.providers.wl-copy.enable = true;
     clipboard.register = "unnamedplus";
 
+    colorschemes.base16 = {
+      enable = true;
+      colorscheme = "gruvbox-dark-medium";
+    };
+
     plugins = {
-      lightline.enable = true;
+      lualine = {
+        enable = true;
+        theme = "base16";
+      };
       copilot-vim.enable = true;
       emmet.enable = true;
     };
