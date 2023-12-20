@@ -80,7 +80,11 @@
         gdscript.enable = true;
         gopls.enable = true;
         hls.enable = true;
-        rust-analyzer.enable = true;
+        rust-analyzer = {
+          enable = true;
+          installCargo = true;
+          installRustc = true;
+        };
         csharp-ls.enable = true;
         kotlin-language-server.enable = true;
         pylsp.enable = true;
