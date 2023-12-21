@@ -27,7 +27,7 @@
 
     # Development
     jetbrains.rider
-    dotnet-sdk
+    dotnet-sdk_8
 
     jetbrains.webstorm
     android-studio
