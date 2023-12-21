@@ -26,10 +26,10 @@
     ark
 
     # Development
-    config.nur.repos.utybo.jetbrains.rider
+    jetbrains.rider
     dotnet-sdk
 
-    config.nur.repos.utybo.jetbrains.webstorm
+    jetbrains.webstorm
     android-studio
 
     # Office
