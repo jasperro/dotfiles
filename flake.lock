@@ -32,6 +32,29 @@
         "type": "github"
       }
     },
+    "beautysh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixvim",
+          "nixpkgs"
+        ],
+        "poetry2nix": "poetry2nix",
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1680308980,
+        "narHash": "sha256-aUEHV0jk2qIFP3jlsWYWhBbm+w/N9gzH3e4I5DcdB5s=",
+        "owner": "lovesegfault",
+        "repo": "beautysh",
+        "rev": "9845efc3ea3e86cc0d41465d720a47f521b2799c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lovesegfault",
+        "repo": "beautysh",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -275,15 +298,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1703026685,
-        "narHash": "sha256-AkualfMbc40HkDR2AZc6u71pcap50wDQOXFCY1ULDUA=",
+        "lastModified": 1703113038,
+        "narHash": "sha256-oxkyzjpD+mNT7arzU/zHrkNHLuY9tKwmnD2MNaZiSDw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "efc177c15f2a8bb063aeb250fe3c7c21e1de265e",
+        "rev": "0c2353d5d930c3d93724df6858aef064a31b3c00",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-23.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -531,7 +555,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1703013332,
         "narHash": "sha256-+tFNwMvlXLbJZXiMHqYq77z/RfmpfpiI3yjL6o/Zo9M=",
@@ -543,6 +567,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1703068421,
+        "narHash": "sha256-WSw5Faqlw75McIflnl5v7qVD/B3S2sLh+968bpOGrWA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d65bceaee0fb1e64363f7871bc43dc1c6ecad99f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -565,6 +605,7 @@
     },
     "nixvim": {
       "inputs": {
+        "beautysh": "beautysh",
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
           "nixpkgs"
@@ -572,15 +613,16 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1702895385,
-        "narHash": "sha256-xCfbHlBEPbjpecbhd9zJ79xyI9pURW9/BsY75DNIfs4=",
+        "lastModified": 1701294962,
+        "narHash": "sha256-kHXjIFKKZBhQwUnVnR0Nrm9kcMV2XYQ7RqJlW/vi8Fc=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "309e5644fc72ce82b31da5290638019f60a0a84b",
+        "rev": "4d497915bba1985622cd7eae324e69540e5ff9be",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "nixos-23.11",
         "repo": "nixvim",
         "type": "github"
       }
@@ -597,6 +639,33 @@
       "original": {
         "owner": "nix-community",
         "repo": "NUR",
+        "type": "github"
+      }
+    },
+    "poetry2nix": {
+      "inputs": {
+        "flake-utils": [
+          "nixvim",
+          "beautysh",
+          "utils"
+        ],
+        "nixpkgs": [
+          "nixvim",
+          "beautysh",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1658665240,
+        "narHash": "sha256-/wkx7D7enyBPRjIkK0w7QxLQhzEkb3UxNQnjyc3FTUI=",
+        "owner": "nix-community",
+        "repo": "poetry2nix",
+        "rev": "8b8edc85d24661d5a6d0d71d6a7011f3e699780f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "poetry2nix",
         "type": "github"
       }
     },
@@ -638,6 +707,7 @@
         "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "nur": "nur",
         "sops-nix": "sops-nix"
@@ -734,6 +804,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1678901627,
+        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     }

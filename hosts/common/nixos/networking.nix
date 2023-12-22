@@ -6,8 +6,7 @@
   services.timesyncd.enable = true;
 
   services.avahi = {
-    nssmdns4 = true;
-    nssmdns6 = true;
+    nssmdns = true;
     enable = true;
     ipv4 = true;
     ipv6 = true;
