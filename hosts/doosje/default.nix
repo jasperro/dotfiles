@@ -83,7 +83,7 @@ in
 
   boot = rec {
     tmp.useTmpfs = true;
-    kernelPackages = pkgs.linuxPackages_testing;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "i2c-dev" ];
     kernelParams = [ "amd_pstate.shared_mem=1" ];
     supportedFilesystems = [ "ntfs" ];
