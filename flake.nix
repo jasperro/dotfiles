@@ -4,7 +4,7 @@
   inputs = rec {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs = nixpkgs-stable;
+    nixpkgs = nixpkgs-unstable;
     nur.url = "github:nix-community/NUR";
     hardware.url = "github:nixos/nixos-hardware";
     sops-nix.url = "github:mic92/sops-nix";
@@ -20,7 +20,7 @@
     astronvim.flake = false;
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,7 +30,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-23.11";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
