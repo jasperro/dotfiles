@@ -125,9 +125,8 @@ in
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
+      group = "jasperro";
       extraGroups = [
-        "jasperro"
-        "users"
         "wheel"
         "http"
         "minecraft"
