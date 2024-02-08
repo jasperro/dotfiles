@@ -2,10 +2,12 @@
   imports = [ ./default.nix ];
   services.xserver = {
     enable = true;
-    layout = "us";
     dpi = 108;
-    xkbVariant = "altgr-intl";
-    xkbOptions = "terminate:ctrl_alt_bksp";
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+      options = "terminate:ctrl_alt_bksp";
+    };
     displayManager = {
       sddm = {
       	enable = true;
