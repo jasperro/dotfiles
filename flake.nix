@@ -108,6 +108,10 @@
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/waffie ];
         };
+        koekie = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/koekie ];
+        };
         tinkpet-wsl = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/tinkpet-wsl ];
@@ -142,6 +146,11 @@
           pkgs = nixosConfigurations.waffie.pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/wiktorine/waffie ];
+        };
+        "wiktorine@koekie" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixosConfigurations.waffie.pkgs;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/wiktorine/koekie ];
         };
       };
     };

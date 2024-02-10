@@ -1,9 +1,9 @@
 {
   imports = [ ../common/nixos/networking.nix ];
 
-  networking.hostName = "doosje";
+  networking.hostName = "koekie";
 
-  networking.interfaces.enp5s0.useDHCP = true;
+  networking.interfaces.enp3s0.useDHCP = true;
 
   networking.firewall = {
     enable = true;
