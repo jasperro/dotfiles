@@ -4,12 +4,19 @@
   home.packages = with pkgs; [
     plasma5Packages.kdeconnect-kde
     # general desktop apps
+    vscode
     firefox-wayland
-    #firefox-devedition-bin
     gimp
     inkscape
     qalculate-qt
     ark
+
+    # Office
+    libreoffice
+    hyphen
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.nl_nl
 
     # X/Wayland utilities
     x11_ssh_askpass
@@ -35,12 +42,16 @@
 
     # multimedia
     pavucontrol
+    audacity
     vlc
 
     # games
+    (lutris.override {
+      extraPkgs = pkgs: [
+        pkgs.mangohud
+      ];
+    })
+    steam
     prismlauncher
-
-    # LaTeX
-    # texlive.combined.scheme-medium
   ];
 }
