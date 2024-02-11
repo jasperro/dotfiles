@@ -45,6 +45,10 @@ in
     ratbagd.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+    };
   };
 
   programs.gamemode.enable = true;

@@ -16,7 +16,6 @@
     #teams
     sidequest
     obsidian
-    openrgb
     wireshark
     gimp
     discord
