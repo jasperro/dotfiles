@@ -3,7 +3,7 @@
 
   networking.hostName = "koekie";
 
-  networking.interfaces.enp3s0.useDHCP = true;
+  networking.interfaces.enp4s0.useDHCP = true;
 
   networking.firewall = {
     enable = true;
