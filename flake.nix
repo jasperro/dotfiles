@@ -89,69 +89,48 @@
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
 
+      hostUsersMap = {
+        doosje = [ "jasperro" ];
+        taart = [ "jasperro" ];
+        superlaptop = [ "colin" ];
+        waffie = [ "wiktorine" ];
+        koekie = [ "wiktorine" ];
+        tinkpet-wsl = [ "nixos" ];
+      };
+
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        doosje = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/doosje ];
-        };
-        taart = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/taart ];
-        };
-        superlaptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/superlaptop ];
-        };
-        waffie = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/waffie ];
-        };
-        koekie = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/koekie ];
-        };
-        tinkpet-wsl = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/tinkpet-wsl ];
-        };
-      };
+      nixosConfigurations = lib.listToAttrs (lib.mapAttrsToList
+        (host: _:
+          let
+            value = lib.nixosSystem {
+              specialArgs = { inherit inputs outputs; };
+              modules = [ ./hosts/${host} ];
+            };
+          in
+          { name = host; inherit value; }
+        )
+        hostUsersMap);
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
-
-      homeConfigurations = {
-        "jasperro@doosje" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixosConfigurations.doosje.pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/jasperro/doosje ];
-        };
-        "jasperro@taart" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixosConfigurations.taart.pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/jasperro/taart ];
-        };
-        "nixos@tinkpet-wsl" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixosConfigurations.tinkpet-wsl.pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/jasperro/tinkpet-wsl ];
-        };
-        "colin@superlaptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixosConfigurations.superlaptop.pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/colin/superlaptop ];
-        };
-        "wiktorine@waffie" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixosConfigurations.waffie.pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/wiktorine/waffie ];
-        };
-        "wiktorine@koekie" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixosConfigurations.waffie.pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/wiktorine/koekie ];
-        };
-      };
+      homeConfigurations = lib.listToAttrs (lib.mapAttrsToList
+        (host: users:
+          lib.listToAttrs (lib.map
+            (user:
+              let
+                value = home-manager.lib.homeManagerConfiguration {
+                  pkgs = nixosConfigurations.${host}.pkgs;
+                  extraSpecialArgs = { inherit inputs outputs; };
+                  modules = [ ./home/${user}/${host} ];
+                };
+              in
+              { name = "${user}@${host}"; inherit value; }
+            )
+            users
+          )
+        )
+        hostUsersMap
+      );
     };
 }
