@@ -3,8 +3,6 @@
 
   networking.hostName = "doosje";
 
-  networking.interfaces.enp5s0.useDHCP = true;
-
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [

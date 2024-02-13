@@ -1,6 +1,7 @@
 # This should be used on all hosts that are directly connected to LAN
 # (e.g. not a container or WSL that are networked separately)
 {
+  networking.useNetworkd = true;
   services.resolved.enable = true;
 
   services.timesyncd.enable = true;

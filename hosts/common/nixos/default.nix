@@ -85,9 +85,4 @@
         lib.optional (pkgs.obsidian.version == "1.5.3") "electron-25.9.0";
     };
   };
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
 }
