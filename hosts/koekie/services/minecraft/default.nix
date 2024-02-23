@@ -14,9 +14,9 @@ in
     enable = true;
     eula = true;
     servers = {
-      hacko = sharedMinecraftConfig // {
+      wiktor = sharedMinecraftConfig // {
         serverProperties = {
-          motd = "Welkom bij hacko!";
+          motd = "Welkom bij Wiktor's Minecraft server!";
         };
       };
     };
