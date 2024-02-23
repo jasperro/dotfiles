@@ -9,6 +9,7 @@
     inputs.hardware.nixosModules.common-cpu-amd-pstate
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
+    ./services
     ../common/nixos
     ../common/nixos/home-locale.nix
     ../common/nixos/nix-alien.nix
