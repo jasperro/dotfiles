@@ -12,6 +12,7 @@
     ../common/nixos
     ../common/nixos/home-locale.nix
     ../common/nixos/nix-alien.nix
+    ../common/services/openssh-inbound.nix
     ../common/desktop/kde-sddm-wayland.nix
 
     ./hardware-configuration.nix
