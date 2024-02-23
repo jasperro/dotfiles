@@ -3,6 +3,7 @@ let
   sharedMinecraftConfig = import ../../../common/services/minecraft/sharedMinecraftConfig.nix { inherit pkgs lib; };
 in
 {
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
 
   networking.firewall = {

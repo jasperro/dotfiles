@@ -108,7 +108,7 @@ in
 
   nixpkgs = {
     # You can add overlays here
-    overlays = [ inputs.nix-minecraft.overlay ];
+    overlays = [ ];
   };
 
   zramSwap = {
