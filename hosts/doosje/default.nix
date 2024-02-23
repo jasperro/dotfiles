@@ -138,6 +138,7 @@ in
         "podman"
         "video"
         "uucp"
+        "dialout"
         "kvm"
         "audio"
       ];
