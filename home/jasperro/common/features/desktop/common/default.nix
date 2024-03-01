@@ -2,7 +2,7 @@
 {
   # services.kdeconnect.enable = true;
   home.packages = with pkgs; [
-    plasma5Packages.kdeconnect-kde
+    kdePackages.kdeconnect-kde
     # general desktop apps
     vscode
     #sandboxed-firefox-wayland

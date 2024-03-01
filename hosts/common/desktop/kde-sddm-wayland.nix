@@ -10,15 +10,15 @@
     };
     displayManager = {
       sddm = {
-      	enable = true;
-	wayland.enable = true;
-      	settings = {
+        enable = true;
+        wayland.enable = true;
+        settings = {
           Theme = { CursorTheme = "breeze_cursors"; };
-	};
+        };
       };
-      defaultSession = "plasmawayland";
+      defaultSession = "plasma";
     };
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
   };
 
   networking.networkmanager.enable = true;
