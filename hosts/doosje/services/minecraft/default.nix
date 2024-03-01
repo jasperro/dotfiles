@@ -15,11 +15,15 @@ in
     enable = true;
     eula = true;
     servers = {
-      hacko = sharedMinecraftConfig // {
-        serverProperties = {
-          motd = "Welkom bij hacko!";
-        };
-      };
+      hacko = lib.mkMerge
+        [
+          sharedMinecraftConfig
+          ({
+            serverProperties = {
+              motd = "Welkom bij hacko!";
+            };
+          })
+        ];
     };
   };
 }

@@ -15,11 +15,15 @@ in
     enable = true;
     eula = true;
     servers = {
-      wiktor = sharedMinecraftConfig // {
-        serverProperties = {
-          motd = "Welkom bij Wiktor's Minecraft server!";
-        };
-      };
+      wiktor = lib.mkMerge
+        [
+          sharedMinecraftConfig
+          ({
+            serverProperties = {
+              motd = "Welkom bij Wiktor's Minecraft server!";
+            };
+          })
+        ];
     };
   };
 }
