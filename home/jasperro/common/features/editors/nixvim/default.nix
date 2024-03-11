@@ -75,7 +75,7 @@
       enable = true;
       servers = {
         astro.enable = true;
-        rnix-lsp.enable = true;
+        nixd.enable = true;
         yamlls.enable = true;
         gdscript.enable = true;
         gopls.enable = true;

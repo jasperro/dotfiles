@@ -16,9 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    astronvim.url = "github:AstroNvim/AstroNvim";
-    astronvim.flake = false;
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

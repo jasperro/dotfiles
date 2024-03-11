@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "astronvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709734677,
-        "narHash": "sha256-rsLYS2Q5Z6mdR5rtUadre65+ck6kREWOV3Yp75PQ5yI=",
-        "owner": "AstroNvim",
-        "repo": "AstroNvim",
-        "rev": "34208f8fed7521380930cea3ec4f65f993fe22d2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AstroNvim",
-        "repo": "AstroNvim",
-        "type": "github"
-      }
-    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -733,7 +717,6 @@
     },
     "root": {
       "inputs": {
-        "astronvim": "astronvim",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "hyprland-contrib": "hyprland-contrib",

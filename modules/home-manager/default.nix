@@ -6,6 +6,5 @@
   fonts = import ./fonts.nix;
   wallpaper = import ./wallpaper.nix;
   monitors = import ./monitors.nix;
-  astronvim = import ./astronvim.nix;
   gtklock = import ./gtklock.nix;
 }
