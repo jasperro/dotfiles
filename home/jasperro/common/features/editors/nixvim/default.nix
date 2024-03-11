@@ -75,7 +75,7 @@
       enable = true;
       servers = {
         astro.enable = true;
-        nixd.enable = true;
+        # nixd.enable = true; # Temporarily disabled due to CVE
         yamlls.enable = true;
         gdscript.enable = true;
         gopls.enable = true;
