@@ -13,6 +13,9 @@
 
     appimage-run
     gh
+
+    nixd
+    nixpkgs-fmt
   ];
   programs.fzf = {
     enable = true;
