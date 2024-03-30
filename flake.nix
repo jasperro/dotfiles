@@ -42,14 +42,7 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , nur
-    , home-manager
-    , nixpak
-    , ...
-    }@inputs:
+  outputs = { self, nixpkgs, nur, home-manager, nixpak, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -68,14 +61,15 @@
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs nixpak; }
-      );
+        in import ./pkgs { inherit pkgs nixpak; });
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
+        in import ./shell.nix { inherit pkgs; });
+
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit nixpak; };
@@ -105,8 +99,10 @@
               modules = [ ./hosts/${host} ];
             };
           in
-          { name = host; inherit value; }
-        )
+          {
+            name = host;
+            inherit value;
+          })
         hostUsersMap);
 
       # Standalone home-manager configuration entrypoint
@@ -122,12 +118,11 @@
                   modules = [ ./home/${user}/${host} ];
                 };
               in
-              { name = "${user}@${host}"; inherit value; }
-            )
-            users
-          )
-        )
-        hostUsersMap
-      );
+              {
+                name = "${user}@${host}";
+                inherit value;
+              })
+            users))
+        hostUsersMap);
     };
 }
