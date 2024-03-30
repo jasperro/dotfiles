@@ -24,7 +24,7 @@ in
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "qt";
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
   colorscheme = lib.mkDefault colorSchemes.gruvbox-dark-medium;
