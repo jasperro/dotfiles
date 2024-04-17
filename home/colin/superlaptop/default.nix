@@ -11,7 +11,6 @@
 
   home = {
     username = "colin";
-    pointerCursor = { package = pkgs.breeze-icons; gtk.enable = true; name = "breeze_cursors"; size = 24; };
   };
 
 }

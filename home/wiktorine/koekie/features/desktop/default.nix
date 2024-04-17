@@ -35,11 +35,6 @@
     wine-wayland
     winetricks
 
-    # theming
-    gnome3.adwaita-icon-theme
-    papirus-icon-theme
-    breeze-gtk
-
     # multimedia
     pavucontrol
     audacity

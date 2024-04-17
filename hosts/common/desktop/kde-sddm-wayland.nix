@@ -15,9 +15,6 @@
       sddm = {
         enable = true;
         wayland.enable = true;
-        settings = {
-          Theme = { CursorTheme = "breeze_cursors"; };
-        };
       };
       defaultSession = "plasma";
     };
