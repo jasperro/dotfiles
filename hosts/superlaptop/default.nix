@@ -56,6 +56,8 @@
         enable = true;
         configurationLimit = 6;
         consoleMode = "max";
+        netbootxyz.enable = true;
+        memtest86.enable = true;
       };
       efi.canTouchEfiVariables = true;
     };
