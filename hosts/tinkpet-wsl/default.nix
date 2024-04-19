@@ -26,8 +26,6 @@ in
     # docker-desktop.enable = true;
   };
 
-  nixpkgs.hostPlatform = "x86_64-linux";
-
   users.groups.users.gid = 100;
 
   users.users = {

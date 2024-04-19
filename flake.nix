@@ -21,11 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpak = {
-      url = "github:max-privatevoid/nixpak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,7 +37,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nur, home-manager, nixpak, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -61,7 +56,7 @@
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs nixpak; });
+        in import ./pkgs { inherit pkgs; });
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
@@ -72,7 +67,7 @@
         forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
 
       # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit nixpak; };
+      overlays = import ./overlays;
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
@@ -80,22 +75,47 @@
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
 
-      hostUsersMap = {
-        doosje = [ "jasperro" ];
-        taart = [ "jasperro" ];
-        superlaptop = [ "colin" ];
-        waffie = [ "wiktorine" ];
-        koekie = [ "wiktorine" ];
-        tinkpet-wsl = [ "nixos" ];
+      hostPropsMap = {
+        doosje = {
+          users = [ "jasperro" ];
+          system = "x86_64-linux";
+        };
+        taart = {
+          users = [ "jasperro" ];
+          system = "aarch64-linux";
+        };
+        superlaptop = {
+          users = [ "colin" ];
+          system = "x86_64-linux";
+        };
+        waffie = {
+          users = [ "wiktorine" ];
+          system = "x86_64-linux";
+        };
+        koekie = {
+          users = [ "wiktorine" ];
+          system = "x86_64-linux";
+        };
+        tinkpet-wsl = {
+          users = [ "nixos" ];
+          system = "x86_64-linux";
+        };
       };
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = lib.listToAttrs (lib.mapAttrsToList
-        (host: _:
+        (host: { system, ... }:
           let
             value = lib.nixosSystem {
-              specialArgs = { inherit inputs outputs; };
+              inherit system;
+              specialArgs = {
+                pkgs-stable = import nixpkgs-stable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+                inherit inputs outputs;
+              };
               modules = [ ./hosts/${host} ];
             };
           in
@@ -103,12 +123,12 @@
             name = host;
             inherit value;
           })
-        hostUsersMap);
+        hostPropsMap);
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = lib.listToAttrs (lib.mapAttrsToList
-        (host: users:
+        (host: { users, ... }:
           lib.listToAttrs (lib.map
             (user:
               let
@@ -123,6 +143,6 @@
                 inherit value;
               })
             users))
-        hostUsersMap);
+        hostPropsMap);
     };
 }
