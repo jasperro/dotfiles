@@ -3,6 +3,7 @@
 
   inputs = rec {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs = nixpkgs-unstable;
     nur.url = "github:nix-community/NUR";
@@ -37,7 +38,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable-small, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -111,6 +112,10 @@
               inherit system;
               specialArgs = {
                 pkgs-stable = import nixpkgs-stable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+                pkgs-unstable-small = import nixpkgs-unstable-small {
                   inherit system;
                   config.allowUnfree = true;
                 };
