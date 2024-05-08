@@ -52,7 +52,7 @@ in
     ollama = {
       enable = true;
       acceleration = "rocm";
-      package = pkgs-unstable-small.ollama;
+      package = pkgs.ollama;
     };
   };
 
