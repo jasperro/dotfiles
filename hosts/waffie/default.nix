@@ -6,7 +6,6 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-laptop-ssd
     ../common/nixos
     ../common/nixos/home-locale.nix
