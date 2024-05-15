@@ -8,7 +8,11 @@
     nixpkgs = nixpkgs-unstable;
     nur.url = "github:nix-community/NUR";
     hardware.url = "github:nixos/nixos-hardware";
-    sops-nix.url = "github:mic92/sops-nix";
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+    };
     nix-alien.url = "github:thiagokokada/nix-alien";
     nix-colors.url = "github:misterio77/nix-colors";
 
