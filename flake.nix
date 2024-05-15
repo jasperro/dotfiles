@@ -40,14 +40,9 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable-small, home-manager, nixos-cosmic, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable-small, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -131,13 +126,6 @@
                 inherit inputs outputs;
               };
               modules = [
-                {
-                  nix.settings = {
-                    substituters = [ "https://cosmic.cachix.org/" ];
-                    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                  };
-                }
-                nixos-cosmic.nixosModules.default
                 ./hosts/${host}
               ];
             };

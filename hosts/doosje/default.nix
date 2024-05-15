@@ -28,8 +28,6 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
-  services.desktopManager.cosmic.enable = true;
-
   hardware = {
     opengl = {
       enable = true;
