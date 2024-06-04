@@ -49,11 +49,11 @@ in
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
     };
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-      package = pkgs.ollama;
-    };
+#    ollama = {
+#      enable = true;
+#      acceleration = "rocm";
+#      package = pkgs.ollama;
+#    };
   };
 
   programs.gamemode.enable = true;
