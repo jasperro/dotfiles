@@ -74,27 +74,27 @@
     plugins.lsp = {
       enable = true;
       servers = {
-        astro.enable = true;
+        # astro.enable = true;
         nixd.enable = true;
         yamlls.enable = true;
-        gdscript.enable = true;
-        gopls.enable = true;
-        hls.enable = true;
+        # gdscript.enable = true;
+        # gopls.enable = true;
+        # hls.enable = true;
         rust-analyzer = {
           enable = true;
           installCargo = true;
           installRustc = true;
         };
-        csharp-ls.enable = true;
-        kotlin-language-server.enable = true;
+        # csharp-ls.enable = true;
+        # kotlin-language-server.enable = true;
         pylsp.enable = true;
-        tailwindcss.enable = true;
-        texlab.enable = true;
-        tsserver.enable = true;
+        # tailwindcss.enable = true;
+        # texlab.enable = true;
+        # tsserver.enable = true;
 
-        cssls.enable = true;
-        eslint.enable = true;
-        html.enable = true;
+        # cssls.enable = true;
+        # eslint.enable = true;
+        # html.enable = true;
         jsonls.enable = true;
       };
     };
