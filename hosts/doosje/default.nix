@@ -29,11 +29,11 @@ in
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
     };
     amdgpu = {
-      opencl = true;
+      opencl.enable = true;
     };
     xone.enable = true;
   };
@@ -49,11 +49,11 @@ in
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
     };
-#    ollama = {
-#      enable = true;
-#      acceleration = "rocm";
-#      package = pkgs.ollama;
-#    };
+    #    ollama = {
+    #      enable = true;
+    #      acceleration = "rocm";
+    #      package = pkgs.ollama;
+    #    };
   };
 
   programs.gamemode.enable = true;

@@ -21,7 +21,7 @@
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
       driSupport32Bit = true;
     };

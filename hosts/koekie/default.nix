@@ -24,11 +24,11 @@
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
     };
     amdgpu = {
-      opencl = true;
+      opencl.enable = true;
     };
     xone.enable = true;
   };
