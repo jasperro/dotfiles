@@ -8,6 +8,7 @@
     firefox-wayland
     gimp
     inkscape
+    krita
     qalculate-qt
     ark
 
