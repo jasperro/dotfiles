@@ -49,7 +49,7 @@
     piper
 
     dconf
-    gnome.dconf-editor
+    dconf-editor
     gparted
 
     # wine

@@ -21,7 +21,7 @@
     wev
 
     dconf
-    gnome.dconf-editor
+    dconf-editor
     gparted
 
     # wine
