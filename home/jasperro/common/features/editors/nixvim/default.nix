@@ -65,7 +65,7 @@
     plugins = {
       lualine = {
         enable = true;
-        theme = "base16";
+	settings.options.theme = "base16";
       };
       copilot-vim.enable = true;
       emmet.enable = true;
@@ -80,7 +80,7 @@
         # gdscript.enable = true;
         # gopls.enable = true;
         # hls.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installCargo = true;
           installRustc = true;
