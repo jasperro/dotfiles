@@ -37,7 +37,8 @@
       roboto-mono
       jetbrains-mono
       terminus_font
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
     ];
     fontconfig = {
       antialias = true;
