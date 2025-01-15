@@ -7,6 +7,7 @@
     vscode
     #sandboxed-firefox-wayland
     firefox-wayland
+    chromium
     #firefox-devedition-bin
     arduino
     alacritty
