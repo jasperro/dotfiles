@@ -1,7 +1,7 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, outputs, lib, config, pkgs, pkgs-unstable-small, ... }:
+{ inputs, outputs, impurity, lib, config, pkgs, pkgs-unstable-small, ... }:
 let
   userMapping = pkgs.writeText "UserMapping"
     ''
@@ -26,7 +26,7 @@ in
   ];
 
   home-manager.useGlobalPkgs = true;
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.extraSpecialArgs = { inherit inputs outputs impurity; };
 
   hardware = {
     graphics = {
@@ -72,7 +72,6 @@ in
       "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
       "/boot".options = [ "rw" "relatime" "fmask=0022" "dmask=0022" "codepage=437" "iocharset=iso8859-1" "shortname=mixed" "utf8" "errors=remount-ro" ];
 
       "/media/Windows10" =
@@ -150,6 +149,7 @@ in
         "audio"
       ];
       shell = pkgs.zsh;
+      # shell = pkgs.nushell;
       subUidRanges = [
         { startUid = 100000; count = 65536; }
       ];

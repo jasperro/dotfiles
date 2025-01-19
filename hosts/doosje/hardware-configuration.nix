@@ -41,12 +41,5 @@
       fsType = "vfat";
     };
 
-  fileSystems."/.snapshots" =
-    {
-      device = "/dev/disk/by-uuid/783850d4-b511-46e4-a690-11aceed00e7d";
-      fsType = "btrfs";
-      options = [ "subvol=snapshots" ];
-    };
-
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }

@@ -59,13 +59,13 @@
 
     colorschemes.base16 = {
       enable = true;
-      colorscheme = "gruvbox-dark-medium";
+      colorscheme = "onedark";
     };
 
     plugins = {
       lualine = {
         enable = true;
-	settings.options.theme = "base16";
+        settings.options.theme = "base16";
       };
       copilot-vim.enable = true;
       emmet.enable = true;

@@ -47,6 +47,10 @@
       trusted-users = [ "root" "@wheel" ];
     };
 
+    optimise = {
+      automatic = true;
+    };
+
     gc = {
       automatic = true;
       dates = "weekly";

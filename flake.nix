@@ -1,12 +1,10 @@
 {
   description = "Jasperro's NixOS Config";
 
-  inputs = rec {
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-
-    nixpkgs = nixpkgs-unstable;
 
     nur.url = "github:nix-community/NUR";
     hardware.url = "github:nixos/nixos-hardware";
@@ -44,9 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    impurity.url = "github:outfoxxed/impurity.nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable-small, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable-small, home-manager, impurity, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -113,7 +113,7 @@
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = lib.listToAttrs (lib.mapAttrsToList
+      nixosConfigurations = lib.concatMapAttrs
         (host: { system, ... }:
           let
             value = lib.nixosSystem {
@@ -130,34 +130,48 @@
                 inherit inputs outputs;
               };
               modules = [
+                {
+                  imports = [ impurity.nixosModules.impurity ];
+                  impurity.configRoot = self;
+                }
                 ./hosts/${host}
               ];
             };
           in
           {
-            name = host;
-            inherit value;
-          })
-        hostPropsMap);
+            ${host} = value;
+            "${host}-impure" = self.nixosConfigurations.${host}.extendModules
+              { modules = [{ impurity.enable = true; }]; };
+          }
+        )
+        hostPropsMap;
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = lib.listToAttrs (lib.mapAttrsToList
+      homeConfigurations = lib.concatMapAttrs
         (host: { users, ... }:
-          lib.listToAttrs (lib.map
+          lib.mergeAttrsList (map
             (user:
               let
                 value = home-manager.lib.homeManagerConfiguration {
                   pkgs = nixosConfigurations.${host}.pkgs;
                   extraSpecialArgs = { inherit inputs outputs; };
-                  modules = [ ./home/${user}/${host} ];
+                  modules = [
+                    {
+                      imports = [ impurity.nixosModules.impurity ];
+                      impurity.configRoot = self;
+                    }
+                    ./home/${user}/${host}
+                  ];
                 };
               in
               {
-                name = "${user}@${host}";
-                inherit value;
+                "${user}@${host}" = value;
+                "${user}@${host}-impure" = value.extendModules
+                  { modules = [{ impurity.enable = true; }]; };
               })
-            users))
-        hostPropsMap);
+            users)
+        )
+        hostPropsMap;
     };
 }

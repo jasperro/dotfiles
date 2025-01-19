@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ../../../../common/features/cli/jasperro-zsh.nix
+    ../../../../common/features/cli/jasperro-nu.nix
     ./git.nix
   ];
   home.packages = with pkgs; [
