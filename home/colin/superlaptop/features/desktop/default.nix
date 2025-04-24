@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     kdePackages.kdeconnect-kde
@@ -13,7 +13,7 @@
     discord
     inkscape
     qalculate-qt
-    ark
+    kdePackages.ark
     cool-retro-term
     obs-studio
 

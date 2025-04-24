@@ -1,12 +1,17 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, outputs, impurity, lib, config, pkgs, pkgs-unstable-small, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  impurity,
+  ...
+}:
 let
-  userMapping = pkgs.writeText "UserMapping"
-    ''
-      jasperro:jasperro:S-1-5-21-755346402-1880689631-2350194957-1002
-    '';
+  userMapping = pkgs.writeText "UserMapping" ''
+    jasperro:jasperro:S-1-5-21-755346402-1880689631-2350194957-1002
+  '';
 in
 {
   imports = [
@@ -67,27 +72,60 @@ in
   #   };
   # };
 
-  fileSystems =
-    {
-      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/boot".options = [ "rw" "relatime" "fmask=0022" "dmask=0022" "codepage=437" "iocharset=iso8859-1" "shortname=mixed" "utf8" "errors=remount-ro" ];
+  fileSystems = {
+    "/".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/home".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/nix".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/boot".options = [
+      "rw"
+      "relatime"
+      "fmask=0022"
+      "dmask=0022"
+      "codepage=437"
+      "iocharset=iso8859-1"
+      "shortname=mixed"
+      "utf8"
+      "errors=remount-ro"
+    ];
 
-      "/media/Windows10" =
-        {
-          device = "/dev/disk/by-uuid/14743E80743E64A0";
-          fsType = "ntfs";
-          options = [ "defaults" "rw" "noatime" "usermapping=${userMapping}" ];
-        };
-
-      "/media/OldSSD" =
-        {
-          device = "/dev/disk/by-uuid/7bf18a03-c38b-427f-b0be-fa7eb5d18643";
-          fsType = "btrfs";
-          options = [ "rw" "noatime" "compress=zstd:3" "ssd" "subvol=bestanden" ];
-        };
+    "/media/Windows10" = {
+      device = "/dev/disk/by-uuid/14743E80743E64A0";
+      fsType = "ntfs";
+      options = [
+        "defaults"
+        "rw"
+        "noatime"
+        "usermapping=${userMapping}"
+      ];
     };
+
+    "/media/OldSSD" = {
+      device = "/dev/disk/by-uuid/7bf18a03-c38b-427f-b0be-fa7eb5d18643";
+      fsType = "btrfs";
+      options = [
+        "rw"
+        "noatime"
+        "compress=zstd:3"
+        "ssd"
+        "subvol=bestanden"
+      ];
+    };
+  };
 
   boot = {
     tmp.useTmpfs = true;
@@ -151,10 +189,16 @@ in
       shell = pkgs.zsh;
       # shell = pkgs.nushell;
       subUidRanges = [
-        { startUid = 100000; count = 65536; }
+        {
+          startUid = 100000;
+          count = 65536;
+        }
       ];
       subGidRanges = [
-        { startGid = 100000; count = 65536; }
+        {
+          startGid = 100000;
+          count = 65536;
+        }
       ];
     };
   };

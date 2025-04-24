@@ -1,7 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, outputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  impurity,
+  ...
+}:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -21,7 +27,7 @@
   ];
 
   home-manager.useGlobalPkgs = true;
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.extraSpecialArgs = { inherit inputs outputs impurity; };
 
   hardware = {
     graphics = {
@@ -53,14 +59,43 @@
   #   };
   # };
 
-  fileSystems =
-    {
-      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/boot".options = [ "rw" "relatime" "fmask=0022" "dmask=0022" "codepage=437" "iocharset=iso8859-1" "shortname=mixed" "utf8" "errors=remount-ro" ];
-    };
+  fileSystems = {
+    "/".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/home".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/nix".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/.snapshots".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/boot".options = [
+      "rw"
+      "relatime"
+      "fmask=0022"
+      "dmask=0022"
+      "codepage=437"
+      "iocharset=iso8859-1"
+      "shortname=mixed"
+      "utf8"
+      "errors=remount-ro"
+    ];
+  };
 
   boot = {
     tmp.useTmpfs = true;
@@ -120,10 +155,16 @@
       ];
       shell = pkgs.zsh;
       subUidRanges = [
-        { startUid = 100000; count = 65536; }
+        {
+          startUid = 100000;
+          count = 65536;
+        }
       ];
       subGidRanges = [
-        { startGid = 100000; count = 65536; }
+        {
+          startGid = 100000;
+          count = 65536;
+        }
       ];
     };
   };

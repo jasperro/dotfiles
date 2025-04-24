@@ -1,7 +1,4 @@
 { pkgs, ... }:
-let
-  helpers = import ./helpers.nix;
-in
 {
   imports = [
     ./gammastep.nix

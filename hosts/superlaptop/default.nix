@@ -1,7 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, outputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  impurity,
+  ...
+}:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -18,7 +24,7 @@
   ];
 
   home-manager.useGlobalPkgs = true;
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.extraSpecialArgs = { inherit inputs outputs impurity; };
 
   hardware = {
     graphics = {
@@ -35,17 +41,44 @@
 
   programs.gamemode.enable = true;
 
-  fileSystems =
-    {
-      "/".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/home".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/nix".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/.snapshots".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/var".options = [ "rw" "noatime" "compress=zstd:3" "ssd" ];
-      "/boot".options = [ "rw" "utf8" ];
-    };
+  fileSystems = {
+    "/".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/home".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/nix".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/.snapshots".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/var".options = [
+      "rw"
+      "noatime"
+      "compress=zstd:3"
+      "ssd"
+    ];
+    "/boot".options = [
+      "rw"
+      "utf8"
+    ];
+  };
 
-  boot = rec {
+  boot = {
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "i2c-dev" ];
@@ -84,13 +117,29 @@
       uid = 1001;
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      extraGroups = [ "http" "docker" "i2c" "video" "uucp" "kvm" "audio" "wheel" "colin" ];
+      extraGroups = [
+        "http"
+        "docker"
+        "i2c"
+        "video"
+        "uucp"
+        "kvm"
+        "audio"
+        "wheel"
+        "colin"
+      ];
       shell = pkgs.zsh;
       subUidRanges = [
-        { startUid = 100000; count = 65536; }
+        {
+          startUid = 100000;
+          count = 65536;
+        }
       ];
       subGidRanges = [
-        { startGid = 100000; count = 65536; }
+        {
+          startGid = 100000;
+          count = 65536;
+        }
       ];
     };
   };

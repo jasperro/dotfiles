@@ -1,4 +1,11 @@
-{ lib, config, pkgs, inputs, ... }: {
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [
     ../common
     ../common/wayland-wm
@@ -121,50 +128,51 @@
           "CONTROL,Print,exec,${grimblast} --notify copy screen"
           "SUPER,Print,exec,${grimblast} --notify copy window"
           "ALT,Print,exec,${grimblast} --notify copy area"
-        ] ++
+        ]
+        ++
 
-        (lib.optionals config.services.playerctld.enable [
-          # Media control
-          ",XF86AudioNext,exec,${playerctl} next"
-          ",XF86AudioPrev,exec,${playerctl} previous"
-          ",XF86AudioPlay,exec,${playerctl} play-pause"
-          ",XF86AudioStop,exec,${playerctl} stop"
-          "ALT,XF86AudioNext,exec,${playerctld} shift"
-          "ALT,XF86AudioPrev,exec,${playerctld} unshift"
-          "ALT,XF86AudioPlay,exec,systemctl --user restart playerctld"
-        ]) ++
-        # Screen lock
-        (lib.optionals config.programs.gtklock.enable [
-          ",XF86Launch5,exec,${gtklock} -S"
-          ",XF86Launch4,exec,${gtklock} -S"
-          "SUPER,backspace,exec,${gtklock} -S"
-        ]) ++
-        # Notification manager
-        (lib.optionals config.services.mako.enable [
-          "SUPER,w,exec,${makoctl} dismiss"
-        ]) ++
+          (lib.optionals config.services.playerctld.enable [
+            # Media control
+            ",XF86AudioNext,exec,${playerctl} next"
+            ",XF86AudioPrev,exec,${playerctl} previous"
+            ",XF86AudioPlay,exec,${playerctl} play-pause"
+            ",XF86AudioStop,exec,${playerctl} stop"
+            "ALT,XF86AudioNext,exec,${playerctld} shift"
+            "ALT,XF86AudioPrev,exec,${playerctld} unshift"
+            "ALT,XF86AudioPlay,exec,systemctl --user restart playerctld"
+          ])
+        ++
+          # Screen lock
+          (lib.optionals config.programs.gtklock.enable [
+            ",XF86Launch5,exec,${gtklock} -S"
+            ",XF86Launch4,exec,${gtklock} -S"
+            "SUPER,backspace,exec,${gtklock} -S"
+          ])
+        ++
+          # Notification manager
+          (lib.optionals config.services.mako.enable [
+            "SUPER,w,exec,${makoctl} dismiss"
+          ])
+        ++
 
-        # Launcher
-        (lib.optionals config.programs.wofi.enable [
-          "SUPER,x,exec,${wofi} -S drun -x 10 -y 10 -W 25% -H 60%"
-          "SUPER,d,exec,${wofi} -S run"
-        ]);
+          # Launcher
+          (lib.optionals config.programs.wofi.enable [
+            "SUPER,x,exec,${wofi} -S drun -x 10 -y 10 -W 25% -H 60%"
+            "SUPER,d,exec,${wofi} -S run"
+          ]);
 
-      monitor = map
-        (m:
-          let
-            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-            position = "${toString m.x}x${toString m.y}";
-          in
-          "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
-        )
-        (config.monitors);
+      monitor = map (
+        m:
+        let
+          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+          position = "${toString m.x}x${toString m.y}";
+        in
+        "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
+      ) (config.monitors);
 
-      workspace = map
-        (m:
-          "${m.name},${m.workspace}"
-        )
-        (lib.filter (m: m.enabled && m.workspace != null) config.monitors);
+      workspace = map (m: "${m.name},${m.workspace}") (
+        lib.filter (m: m.enabled && m.workspace != null) config.monitors
+      );
 
     };
     # This is order sensitive, so it has to come here.

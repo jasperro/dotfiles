@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./sops.nix
@@ -44,7 +51,10 @@
       auto-optimise-store = lib.mkDefault true;
       warn-dirty = false;
 
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
 
     optimise = {

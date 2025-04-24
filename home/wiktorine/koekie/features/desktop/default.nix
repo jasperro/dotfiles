@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   # services.kdeconnect.enable = true;
   home.packages = with pkgs; [
@@ -10,7 +10,7 @@
     inkscape
     krita
     qalculate-qt
-    ark
+    kdePackages.ark
 
     # Office
     libreoffice

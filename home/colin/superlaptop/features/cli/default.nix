@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ../../../../common/features/cli/jasperro-shell.nix
     ./git.nix
@@ -9,4 +10,3 @@
     # nodePackages.wrangler
   ];
 }
-

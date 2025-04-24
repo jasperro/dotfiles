@@ -1,7 +1,16 @@
-{ writeShellApplication, hyprland, jq, slurp }:
+{
+  writeShellApplication,
+  hyprland,
+  jq,
+  slurp,
+}:
 writeShellApplication {
   name = "hyprslurp";
-  runtimeInputs = [ hyprland jq slurp ];
+  runtimeInputs = [
+    hyprland
+    jq
+    slurp
+  ];
   text = ''
     hyprctl clients -j | \
     jq -r \

@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ config, ... }:
 let
   inherit (config) colorscheme;
   inherit (colorscheme) colors;
@@ -38,17 +37,18 @@ in
         selection_bg = "#${colors.base05}";
       };
     };
-    extraConfig = /* lua */ ''
-      return {
-        font = wezterm.font("${config.fontProfiles.monospace.family}"),
-        font_size = 12.0,
-        color_scheme = "${colorscheme.slug}",
-        hide_tab_bar_if_only_one_tab = true,
-        window_close_confirmation = "NeverPrompt",
-        set_environment_variables = {
-          TERM = 'wezterm',
-        },
-      }
-    '';
+    extraConfig = # lua
+      ''
+        return {
+          font = wezterm.font("${config.fontProfiles.monospace.family}"),
+          font_size = 12.0,
+          color_scheme = "${colorscheme.slug}",
+          hide_tab_bar_if_only_one_tab = true,
+          window_close_confirmation = "NeverPrompt",
+          set_environment_variables = {
+            TERM = 'wezterm',
+          },
+        }
+      '';
   };
 }

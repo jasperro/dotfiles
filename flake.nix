@@ -48,7 +48,16 @@
     impurity.url = "github:outfoxxed/impurity.nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable-small, home-manager, impurity, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      nixpkgs-unstable-small,
+      home-manager,
+      impurity,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -65,17 +74,24 @@
       inherit lib;
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; });
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; });
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./shell.nix { inherit pkgs; }
+      );
 
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays;
@@ -115,65 +131,67 @@
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = lib.concatMapAttrs
-        (host: { system, ... }:
-          let
-            value = lib.nixosSystem {
-              inherit system;
-              specialArgs = {
-                pkgs-stable = import nixpkgs-stable {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
-                pkgs-unstable-small = import nixpkgs-unstable-small {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
-                inherit inputs outputs;
+      nixosConfigurations = lib.concatMapAttrs (
+        host:
+        { system, ... }:
+        let
+          value = lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              pkgs-stable = import nixpkgs-stable {
+                inherit system;
+                config.allowUnfree = true;
               };
-              modules = [
-                {
-                  imports = [ impurity.nixosModules.impurity ];
-                  impurity.configRoot = self;
-                }
-                ./hosts/${host}
-              ];
+              pkgs-unstable-small = import nixpkgs-unstable-small {
+                inherit system;
+                config.allowUnfree = true;
+              };
+              inherit inputs outputs;
             };
-          in
-          {
-            ${host} = value;
-            "${host}-impure" = self.nixosConfigurations.${host}.extendModules
-              { modules = [{ impurity.enable = true; }]; };
-          }
-        )
-        hostPropsMap;
+            modules = [
+              {
+                imports = [ impurity.nixosModules.impurity ];
+                impurity.configRoot = self;
+              }
+              ./hosts/${host}
+            ];
+          };
+        in
+        {
+          ${host} = value;
+          "${host}-impure" = self.nixosConfigurations.${host}.extendModules {
+            modules = [ { impurity.enable = true; } ];
+          };
+        }
+      ) hostPropsMap;
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = lib.concatMapAttrs
-        (host: { users, ... }:
-          lib.mergeAttrsList (map
-            (user:
-              let
-                value = home-manager.lib.homeManagerConfiguration {
-                  pkgs = nixosConfigurations.${host}.pkgs;
-                  extraSpecialArgs = { inherit inputs outputs; };
-                  modules = [
-                    {
-                      imports = [ impurity.nixosModules.impurity ];
-                      impurity.configRoot = self;
-                    }
-                    ./home/${user}/${host}
-                  ];
-                };
-              in
-              {
-                "${user}@${host}" = value;
-                "${user}@${host}-impure" = value.extendModules
-                  { modules = [{ impurity.enable = true; }]; };
-              })
-            users)
+      homeConfigurations = lib.concatMapAttrs (
+        host:
+        { users, ... }:
+        lib.mergeAttrsList (
+          map (
+            user:
+            let
+              value = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixosConfigurations.${host}.pkgs;
+                extraSpecialArgs = { inherit inputs outputs; };
+                modules = [
+                  {
+                    imports = [ impurity.nixosModules.impurity ];
+                    impurity.configRoot = self;
+                  }
+                  ./home/${user}/${host}
+                ];
+              };
+            in
+            {
+              "${user}@${host}" = value;
+              "${user}@${host}-impure" = value.extendModules { modules = [ { impurity.enable = true; } ]; };
+            }
+          ) users
         )
-        hostPropsMap;
+      ) hostPropsMap;
     };
 }

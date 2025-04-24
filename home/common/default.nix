@@ -1,7 +1,17 @@
-{ inputs, lib, pkgs, config, outputs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  outputs,
+  ...
+}:
 let
   inherit (inputs.nix-colors) colorSchemes;
-  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) colorschemeFromPicture nixWallpaperFromScheme;
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; })
+    # colorschemeFromPicture
+    nixWallpaperFromScheme
+    ;
 in
 {
   imports = [
@@ -11,7 +21,10 @@ in
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };
@@ -34,13 +47,12 @@ in
       largestWidth = largest (x: x.width) config.monitors;
       largestHeight = largest (x: x.height) config.monitors;
     in
-    lib.mkDefault (nixWallpaperFromScheme
-      {
-        scheme = config.colorscheme;
-        width = largestWidth;
-        height = largestHeight;
-        logoScale = 4;
-      });
+    lib.mkDefault (nixWallpaperFromScheme {
+      scheme = config.colorscheme;
+      width = largestWidth;
+      height = largestHeight;
+      logoScale = 4;
+    });
 
   home.file.".colorscheme".text = config.colorscheme.slug;
 

@@ -1,4 +1,8 @@
-{ inputs, lib, config, ... }:
+{
+  inputs,
+  config,
+  ...
+}:
 let
   isEd25519 = k: k.type == "ed25519";
   getKeyPath = k: k.path;

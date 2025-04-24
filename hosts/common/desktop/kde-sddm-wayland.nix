@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ ... }:
+{
   imports = [ ./default.nix ];
   services = {
     xserver = {

@@ -1,22 +1,26 @@
-{ outputs, config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # Dependencies
   cat = "${pkgs.coreutils}/bin/cat";
   cut = "${pkgs.coreutils}/bin/cut";
-  find = "${pkgs.findutils}/bin/find";
+  # find = "${pkgs.findutils}/bin/find";
   grep = "${pkgs.gnugrep}/bin/grep";
-  perl = "${pkgs.perl}/bin/perl";
-  pgrep = "${pkgs.procps}/bin/pgrep";
-  sed = "${pkgs.gnused}/bin/sed";
+  # perl = "${pkgs.perl}/bin/perl";
+  # pgrep = "${pkgs.procps}/bin/pgrep";
+  # sed = "${pkgs.gnused}/bin/sed";
   tail = "${pkgs.coreutils}/bin/tail";
   wc = "${pkgs.coreutils}/bin/wc";
   xargs = "${pkgs.findutils}/bin/xargs";
-  timeout = "${pkgs.coreutils}/bin/timeout";
-  ping = "${pkgs.iputils}/bin/ping";
+  # timeout = "${pkgs.coreutils}/bin/timeout";
+  # ping = "${pkgs.iputils}/bin/ping";
 
   jq = "${pkgs.jq}/bin/jq";
-  xml = "${pkgs.xmlstarlet}/bin/xml";
+  # xml = "${pkgs.xmlstarlet}/bin/xml";
   gamemoded = "${pkgs.gamemode}/bin/gamemoded";
   systemctl = "${pkgs.systemd}/bin/systemctl";
   journalctl = "${pkgs.systemd}/bin/journalctl";
@@ -26,23 +30,33 @@ let
   wofi = "${pkgs.wofi}/bin/wofi";
 
   # Function to simplify making waybar outputs
-  jsonOutput = name: { pre ? "", text ? "", tooltip ? "", alt ? "", class ? "", percentage ? "" }: "${pkgs.writeShellScriptBin "waybar-${name}" ''
-    set -euo pipefail
-    ${pre}
-    ${jq} -cn \
-      --arg text "${text}" \
-      --arg tooltip "${tooltip}" \
-      --arg alt "${alt}" \
-      --arg class "${class}" \
-      --arg percentage "${percentage}" \
-      '{text:$text,tooltip:$tooltip,alt:$alt,class:$class,percentage:$percentage}'
-  ''}/bin/waybar-${name}";
+  jsonOutput =
+    name:
+    {
+      pre ? "",
+      text ? "",
+      tooltip ? "",
+      alt ? "",
+      class ? "",
+      percentage ? "",
+    }:
+    "${pkgs.writeShellScriptBin "waybar-${name}" ''
+      set -euo pipefail
+      ${pre}
+      ${jq} -cn \
+        --arg text "${text}" \
+        --arg tooltip "${tooltip}" \
+        --arg alt "${alt}" \
+        --arg class "${class}" \
+        --arg percentage "${percentage}" \
+        '{text:$text,tooltip:$tooltip,alt:$alt,class:$class,percentage:$percentage}'
+    ''}/bin/waybar-${name}";
 in
 {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (oa: {
-      mesonFlags = (oa.mesonFlags or  [ ]) ++ [ "-Dexperimental=true" ];
+      mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
     });
     systemd.enable = true;
     systemd.target = "";
@@ -52,20 +66,22 @@ in
         layer = "top";
         height = 40;
         position = "top";
-        output = builtins.map (m: m.name) (builtins.filter (m: ! m.noBar) config.monitors);
-        modules-left = [
-          "custom/menu"
-        ] ++
-        (lib.optionals config.wayland.windowManager.sway.enable [
-          "sway/workspaces"
-          "sway/mode"
-        ]) ++ (lib.optionals config.wayland.windowManager.hyprland.enable [
-          "wlr/workspaces"
-        ])
-        ++ [
-          "custom/currentplayer"
-          "custom/player"
-        ];
+        output = builtins.map (m: m.name) (builtins.filter (m: !m.noBar) config.monitors);
+        modules-left =
+          [
+            "custom/menu"
+          ]
+          ++ (lib.optionals config.wayland.windowManager.sway.enable [
+            "sway/workspaces"
+            "sway/mode"
+          ])
+          ++ (lib.optionals config.wayland.windowManager.hyprland.enable [
+            "wlr/workspaces"
+          ])
+          ++ [
+            "custom/currentplayer"
+            "custom/player"
+          ];
         modules-center = [
           "cpu"
           "custom/gpu"
@@ -111,7 +127,11 @@ in
             headphone = "󰋋";
             headset = "󰋎";
             portable = "";
-            default = [ "" "" "" ];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
           on-click = pavucontrol;
         };
@@ -125,7 +145,18 @@ in
         battery = {
           bat = "BAT0";
           interval = 10;
-          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
           format = "{icon} {capacity}%";
           format-charging = "󰂄 {capacity}%";
           onclick = "";
@@ -252,88 +283,93 @@ in
     # x y -> vertical, horizontal
     # x y z -> top, horizontal, bottom
     # w x y z -> top, right, bottom, left
-    style = let inherit (config.colorscheme) colors; in /* css */ ''
-      * {
-        font-family: ${config.fontProfiles.regular.family}, ${config.fontProfiles.monospace.family};
-        font-size: 12pt;
-        padding: 0 8px;
-      }
+    style =
+      let
+        inherit (config.colorscheme) colors;
+      in
+      # css
+      ''
+        * {
+          font-family: ${config.fontProfiles.regular.family}, ${config.fontProfiles.monospace.family};
+          font-size: 12pt;
+          padding: 0 8px;
+        }
 
-      .modules-right {
-        margin-right: -15px;
-      }
+        .modules-right {
+          margin-right: -15px;
+        }
 
-      .modules-left {
-        margin-left: -15px;
-      }
+        .modules-left {
+          margin-left: -15px;
+        }
 
-      window#waybar.top {
-        opacity: 0.95;
-        padding: 0;
-        background-color: #${colors.base00};
-        border: 2px solid #${colors.base0C};
-        border-radius: 10px;
-      }
-      window#waybar.bottom {
-        opacity: 0.90;
-        background-color: #${colors.base00};
-        border: 2px solid #${colors.base0C};
-        border-radius: 10px;
-      }
+        window#waybar.top {
+          opacity: 0.95;
+          padding: 0;
+          background-color: #${colors.base00};
+          border: 2px solid #${colors.base0C};
+          border-radius: 10px;
+        }
+        window#waybar.bottom {
+          opacity: 0.90;
+          background-color: #${colors.base00};
+          border: 2px solid #${colors.base0C};
+          border-radius: 10px;
+        }
 
-      window#waybar {
-        color: #${colors.base05};
-      }
+        window#waybar {
+          color: #${colors.base05};
+        }
 
-      #workspaces button {
-        background-color: #${colors.base01};
-        color: #${colors.base05};
-        margin: 4px;
-      }
-      #workspaces button.hidden {
-        background-color: #${colors.base00};
-        color: #${colors.base04};
-      }
-      #workspaces button.focused,
-      #workspaces button.active {
-        background-color: #${colors.base0A};
-        color: #${colors.base00};
-      }
+        #workspaces button {
+          background-color: #${colors.base01};
+          color: #${colors.base05};
+          margin: 4px;
+        }
+        #workspaces button.hidden {
+          background-color: #${colors.base00};
+          color: #${colors.base04};
+        }
+        #workspaces button.focused,
+        #workspaces button.active {
+          background-color: #${colors.base0A};
+          color: #${colors.base00};
+        }
 
-      #clock {
-        background-color: #${colors.base0C};
-        color: #${colors.base00};
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 0;
-        margin-bottom: 0;
-        border-radius: 10px;
-      }
+        #clock {
+          background-color: #${colors.base0C};
+          color: #${colors.base00};
+          padding-left: 15px;
+          padding-right: 15px;
+          margin-top: 0;
+          margin-bottom: 0;
+          border-radius: 10px;
+        }
 
-      #custom-menu {
-        background-color: #${colors.base0C};
-        color: #${colors.base00};
-        padding-left: 15px;
-        padding-right: 22px;
-        margin-left: 0;
-        margin-right: 10px;
-        margin-top: 0;
-        margin-bottom: 0;
-        border-radius: 10px;
-      }
-      #custom-hostname {
-        background-color: #${colors.base0C};
-        color: #${colors.base00};
-        padding-left: 15px;
-        padding-right: 18px;
-        margin-right: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-        border-radius: 10px;
-      }
-      #tray {
-        color: #${colors.base05};
-      }
-    '';
+        #custom-menu {
+          background-color: #${colors.base0C};
+          color: #${colors.base00};
+          padding-left: 15px;
+          padding-right: 22px;
+          margin-left: 0;
+          margin-right: 10px;
+          margin-top: 0;
+          margin-bottom: 0;
+          border-radius: 10px;
+        }
+        #custom-hostname {
+          background-color: #${colors.base0C};
+          color: #${colors.base00};
+          padding-left: 15px;
+          padding-right: 18px;
+          margin-right: 0;
+          margin-top: 0;
+          margin-bottom: 0;
+          border-radius: 10px;
+        }
+        #tray {
+          color: #${colors.base05};
+        }
+      '';
   };
 }

@@ -1,7 +1,12 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, modulesPath, pkgs, ... }:
+{
+  inputs,
+  modulesPath,
+  pkgs,
+  ...
+}:
 let
   nixos-wsl = inputs.nixos-wsl;
 in
@@ -36,13 +41,33 @@ in
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      extraGroups = [ "http" "minecraft" "docker" "podman" "i2c" "users" "video" "uucp" "kvm" "audio" "wheel" "usershares" "nixos" ];
+      extraGroups = [
+        "http"
+        "minecraft"
+        "docker"
+        "podman"
+        "i2c"
+        "users"
+        "video"
+        "uucp"
+        "kvm"
+        "audio"
+        "wheel"
+        "usershares"
+        "nixos"
+      ];
       shell = pkgs.zsh;
       subUidRanges = [
-        { startUid = 100000; count = 65536; }
+        {
+          startUid = 100000;
+          count = 65536;
+        }
       ];
       subGidRanges = [
-        { startGid = 100000; count = 65536; }
+        {
+          startGid = 100000;
+          count = 65536;
+        }
       ];
     };
   };

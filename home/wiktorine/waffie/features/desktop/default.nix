@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   # services.kdeconnect.enable = true;
   home.packages = with pkgs; [
@@ -9,7 +9,7 @@
     gimp
     inkscape
     qalculate-qt
-    ark
+    kdePackages.ark
 
     # X/Wayland utilities
     x11_ssh_askpass

@@ -1,12 +1,18 @@
-{ lib, pkgs, modulesPath, ... }:
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  lib,
+  modulesPath,
+  ...
+}:
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot = {
-    initrd.kernelModules = [ "zstd" "btrfs" ];
+    initrd.kernelModules = [
+      "zstd"
+      "btrfs"
+    ];
     kernelParams = [
       "console=ttyS0,115200n8"
       "console=ttyAMA0,115200n8"
@@ -54,12 +60,14 @@
       "/boot" = {
         device = "/dev/disk/by-label/BOOT";
         fsType = "vfat";
-        options = [ "nofail" "noauto" ];
+        options = [
+          "nofail"
+          "noauto"
+        ];
       };
     };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault
-    "ondemand";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
   # Set your system kind (needed for flakes)
   nixpkgs.hostPlatform = "aarch64-linux";

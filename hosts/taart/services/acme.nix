@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   sops.secrets = {
     "albering.nl-acme-credentials" = {
       sopsFile = ../secrets.yaml;
