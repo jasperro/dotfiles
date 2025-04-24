@@ -7,7 +7,6 @@
     [
       ../common
       ../common/features/desktop/common
-      inputs.nur.modules.homeManager.default
     ];
 
   colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-hard;

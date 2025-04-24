@@ -45,13 +45,13 @@
   programs.gamemode.enable = true;
 
   # Overclock gpu support
-  programs.corectrl = {
-    enable = true;
-    gpuOverclock = {
-      enable = true;
-      ppfeaturemask = "0xffffffff";
-    };
-  };
+  # programs.corectrl = {
+  #   enable = true;
+  #   gpuOverclock = {
+  #     enable = true;
+  #     ppfeaturemask = "0xffffffff";
+  #   };
+  # };
 
   fileSystems =
     {
@@ -62,7 +62,7 @@
       "/boot".options = [ "rw" "relatime" "fmask=0022" "dmask=0022" "codepage=437" "iocharset=iso8859-1" "shortname=mixed" "utf8" "errors=remount-ro" ];
     };
 
-  boot = rec {
+  boot = {
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "i2c-dev" ];

@@ -67,7 +67,6 @@
         enable = true;
         settings.options.theme = "base16";
       };
-      copilot-vim.enable = true;
       emmet.enable = true;
     };
 

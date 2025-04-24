@@ -60,7 +60,7 @@
       history.share = true;
       history.ignoreDups = true;
 
-      initExtra = ''
+      initContent = ''
         setopt correct
 
         bindkey "^[[2~" overwrite-mode

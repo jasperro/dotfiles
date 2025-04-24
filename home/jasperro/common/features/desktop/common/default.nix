@@ -23,14 +23,14 @@
     blender
     inkscape
     qalculate-qt
-    ark
+    kdePackages.ark
 
     # Development
-    jetbrains.rider
-    dotnet-sdk_8
+    # jetbrains.rider
+    # dotnet-sdk_8
 
-    jetbrains.webstorm
-    android-studio
+    # jetbrains.webstorm
+    # android-studio
 
     # Office
     libreoffice
