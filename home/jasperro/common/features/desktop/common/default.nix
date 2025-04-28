@@ -2,7 +2,15 @@
 {
   # services.kdeconnect.enable = true;
   home.packages = with pkgs; [
+    # in wayland wm, still use some kde packages
     kdePackages.kdeconnect-kde
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.ark
+    kdePackages.kate
+    kdePackages.gwenview
+    kdePackages.konsole
+
     # general desktop apps
     vscode
     #sandboxed-firefox-wayland
@@ -23,7 +31,6 @@
     blender
     inkscape
     qalculate-qt
-    kdePackages.ark
 
     # Development
     # jetbrains.rider

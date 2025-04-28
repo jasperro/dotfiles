@@ -6,5 +6,4 @@
   fonts = import ./fonts.nix;
   wallpaper = import ./wallpaper.nix;
   monitors = import ./monitors.nix;
-  gtklock = import ./gtklock.nix;
 }

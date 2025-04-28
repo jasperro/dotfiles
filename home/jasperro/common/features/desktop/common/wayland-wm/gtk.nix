@@ -19,16 +19,25 @@ rec {
       package = gtkThemeFromScheme { scheme = config.colorscheme; };
     };
     iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
+      name = "Breeze Dark";
+      package = pkgs.kdePackages.breeze-icons;
     };
+  };
+
+  home.pointerCursor = rec {
+    name = "breeze";
+    package = pkgs.kdePackages.breeze-icons;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+    x11.defaultCursor = name;
   };
 
   services.xsettingsd = {
     enable = true;
     settings = {
-      "Net/ThemeName" = "${gtk.theme.name}";
-      "Net/IconThemeName" = "${gtk.iconTheme.name}";
+      "Net/ThemeName" = "${home.pointerCursor.name}";
+      "Net/IconThemeName" = "${home.pointerCursor.name}";
     };
   };
 }

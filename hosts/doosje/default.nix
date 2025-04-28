@@ -24,7 +24,7 @@ in
     ../common/nixos
     ../common/nixos/home-locale.nix
     ../common/nixos/nix-alien.nix
-    ../common/desktop/kde-sddm-wayland.nix
+    ../common/desktop/hyprland.nix
 
     ./hardware-configuration.nix
     ./networking.nix
@@ -32,6 +32,7 @@ in
 
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = { inherit inputs outputs impurity; };
+  home-manager.backupFileExtension = "hmbackup";
 
   hardware = {
     graphics = {

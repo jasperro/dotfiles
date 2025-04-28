@@ -122,11 +122,11 @@
     },
     "hardware": {
       "locked": {
-        "lastModified": 1745392233,
-        "narHash": "sha256-xmqG4MZArM1JNxPJ33s0MtuBzgnaCO9laARoU3AfP8E=",
+        "lastModified": 1745503349,
+        "narHash": "sha256-bUGjvaPVsOfQeTz9/rLTNLDyqbzhl0CQtJJlhFPhIYw=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "8bf8a2a0822365bd8f44fd1a19d7ed0a1d629d64",
+        "rev": "f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1",
         "type": "github"
       },
       "original": {
@@ -142,36 +142,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1745439012,
-        "narHash": "sha256-TwbdiH28QK7Da2JQTqFHdb+UCJq6QbF2mtf+RxHVzEA=",
+        "lastModified": 1745810134,
+        "narHash": "sha256-WfnYH/i7DFzn4SESQfWviXiNUZjohZhzODqLwKYHIPI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d31710fb2cd536b1966fee2af74e99a0816a61a8",
+        "rev": "be7cf1709b469a2a2c62169172a167d1fed3509f",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "hyprland-contrib": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1743417258,
-        "narHash": "sha256-YItzk1pj8Kz+b7VlC9zN1pSZ6CuX35asYy3HuMQ3lBQ=",
-        "owner": "hyprwm",
-        "repo": "contrib",
-        "rev": "bc2ad24e0b2e66c3e164994c4897cd94a933fd10",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "contrib",
         "type": "github"
       }
     },
@@ -289,11 +269,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745458801,
-        "narHash": "sha256-iN+VuMiu/D0Cy636ses/kVkUdmTxZqxe+kbQS8iVpRc=",
+        "lastModified": 1745804538,
+        "narHash": "sha256-4gqP9JtgScjvQvvZ5v4ToyDBZKO2DHMuPPtxxzzaC7Q=",
         "owner": "Misterio77",
         "repo": "nix-minecraft",
-        "rev": "44edf0ad56aafdfb981df3345992ca8477b6150e",
+        "rev": "6d08ab2d72707fafabe83974def17e87f5158f60",
         "type": "github"
       },
       "original": {
@@ -325,11 +305,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1745391562,
-        "narHash": "sha256-sPwcCYuiEopaafePqlG826tBhctuJsLx/mhKKM5Fmjo=",
+        "lastModified": 1745526057,
+        "narHash": "sha256-ITSpPDwvLBZBnPRS2bUcHY3gZSwis/uTe255QgMtTLA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8a2f738d9d1f1d986b5a4cd2fd2061a7127237d7",
+        "rev": "f771eb401a46846c1aebd20552521b233dd7e18b",
         "type": "github"
       },
       "original": {
@@ -372,11 +352,11 @@
     },
     "nixpkgs-unstable-small": {
       "locked": {
-        "lastModified": 1745469902,
-        "narHash": "sha256-+kHgeD+3+WZZcOaIsS6XwQWb+qbYYWYXzoEjdmdW6OY=",
+        "lastModified": 1745818722,
+        "narHash": "sha256-WSWGBO5YIMdwDP4d01093HFqZJO89Jy6iLr6dr7Fzug=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4975ac49a527b505803958595fcb191c9e889f60",
+        "rev": "a80e6503506a17b2443e98686e89a0fa74b02f1c",
         "type": "github"
       },
       "original": {
@@ -395,11 +375,11 @@
         "nuschtosSearch": "nuschtosSearch"
       },
       "locked": {
-        "lastModified": 1745467912,
-        "narHash": "sha256-ff5vwcFeTerDIwY3dKTEDs/1Ccb7xBfVuS0Fe0wlU8I=",
+        "lastModified": 1745844746,
+        "narHash": "sha256-oWijDURdyevPncpEQNNQspVqmvrXPe8tmuDqeNQabbQ=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "f42468972cc3ec4048efd49c96e363ba81145bb9",
+        "rev": "65d3f2f4ae909f9ba597b1877c2e4fd93e04e562",
         "type": "github"
       },
       "original": {
@@ -435,7 +415,6 @@
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "hyprland-contrib": "hyprland-contrib",
         "impurity": "impurity",
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",
