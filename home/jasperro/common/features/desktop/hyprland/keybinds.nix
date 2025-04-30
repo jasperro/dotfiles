@@ -1,17 +1,25 @@
 { lib, ... }:
 let
-  workspaces = (map toString (lib.range 0 9)) ++ (map (n: "F${toString n}") (lib.range 1 12));
   # Map keys to hyprland directions
-  directions = rec {
+  directionL = rec {
     left = "l";
-    right = "r";
-    up = "u";
-    down = "d";
     h = left;
+  };
+  directionR = rec {
+    right = "r";
     l = right;
-    k = up;
+  };
+  directionD = rec {
+    down = "d";
     j = down;
   };
+  directionU = rec {
+    up = "u";
+    k = up;
+  };
+  directionsX = directionL // directionR;
+  directionsY = directionU // directionD;
+  directions = directionsX // directionsY;
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -22,8 +30,11 @@ in
 
     bind =
       [
+        "SUPERSHIFT,s,exec,systemctl suspend"
+        "SUPERSHIFT,p,exec,loginctl lock-session"
+
         "SUPER,q,killactive"
-        "SUPER,e,exit"
+        "SUPERSHIFT,e,exit"
 
         "SUPER,s,togglesplit"
         "SUPER,f,fullscreen,1"
@@ -37,18 +48,24 @@ in
         "SUPERSHIFT,equal,splitratio,0.3333333"
 
         "SUPER,g,togglegroup"
+        "SUPERSHIFT,g,moveoutofgroup"
         "SUPER,apostrophe,changegroupactive,f"
         "SUPERSHIFT,apostrophe,changegroupactive,b"
 
         "SUPER,u,togglespecialworkspace"
         "SUPERSHIFT,u,movetoworkspace,special"
+
+        "SUPER,grave,hyprexpo:expo,toggle"
+
+        "SUPER,mouse_up,workspace,e+1"
+        "SUPER,mouse_down,workspace,e-1"
       ]
       ++
-        # Change workspace
-        (map (n: "SUPER,${n},workspace,name:${n}") workspaces)
+        # Move workspace next
+        (lib.mapAttrsToList (key: direction: "SUPERCONTROL,${key},workspace,e+1") directionR)
       ++
-        # Move window to workspace
-        (map (n: "SUPERSHIFT,${n},movetoworkspacesilent,name:${n}") workspaces)
+        # Move workspace prev
+        (lib.mapAttrsToList (key: direction: "SUPERCONTROL,${key},workspace,e-1") directionL)
       ++
         # Move focus
         (lib.mapAttrsToList (key: direction: "SUPER,${key},movefocus,${direction}") directions)

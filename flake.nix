@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
 
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -51,6 +51,7 @@
       nixpkgs-unstable-small,
       home-manager,
       impurity,
+      stylix,
       ...
     }@inputs:
     let
@@ -63,7 +64,8 @@
         "x86_64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      lib = nixpkgs.lib // home-manager.lib;
+      # Customize lib with custom lib
+      lib = nixpkgs.lib.extend (_: _: import ./lib // home-manager.lib);
     in
     rec {
       inherit lib;
@@ -148,6 +150,7 @@
                 imports = [ impurity.nixosModules.impurity ];
                 impurity.configRoot = self;
               }
+              stylix.nixosModules.stylix
               ./hosts/${host}
             ];
           };
@@ -171,12 +174,13 @@
             let
               value = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixosConfigurations.${host}.pkgs;
-                extraSpecialArgs = { inherit inputs outputs; };
+                extraSpecialArgs = { inherit inputs outputs lib; };
                 modules = [
                   {
                     imports = [ impurity.nixosModules.impurity ];
                     impurity.configRoot = self;
                   }
+                  stylix.homeManagerModules.stylix
                   ./home/${user}/${host}
                 ];
               };

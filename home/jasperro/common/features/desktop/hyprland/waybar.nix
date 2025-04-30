@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -100,6 +99,7 @@ in
           tooltip-format = "{title}";
           on-click = "activate";
           on-click-middle = "close";
+          sort-by-app-id = true;
         };
         pulseaudio = {
           format = "{icon}  {volume}%";
@@ -188,13 +188,11 @@ in
     # x y z -> top, horizontal, bottom
     # w x y z -> top, right, bottom, left
     style =
-      let
-        inherit (config.colorscheme) palette;
-      in
+      with config.lib.stylix.colors.withHashtag;
       # css
       ''
         * {
-          font-family: ${config.fontProfiles.regular.family}, ${config.fontProfiles.monospace.family};
+          font-family: ${config.stylix.fonts.sansSerif.name}, ${config.stylix.fonts.monospace.name};
           font-size: 12pt;
           padding: 0 8px;
         }
@@ -209,39 +207,39 @@ in
 
         window#waybar.top {
           padding: 0;
-          background-color: #${palette.base00};
+          background-color: ${base00};
           border-radius: 20px;
         }
 
         window#waybar.bottom {
-          background-color: #${palette.base00};
+          background-color: ${base00};
           border-radius: 20px;
         }
 
         window#waybar {
-          color: #${palette.base05};
+          color: ${base05};
         }
 
         #workspaces button {
           border-radius: 20px;
-          background-color: #${palette.base01};
-          color: #${palette.base05};
+          background-color: ${base01};
+          color: ${base05};
           margin: 4px;
           padding: 2px;
         }
         #workspaces button.hidden {
-          background-color: #${palette.base00};
-          color: #${palette.base04};
+          background-color: ${base00};
+          color: ${base04};
         }
         #workspaces button.focused,
         #workspaces button.active {
-          background-color: #${palette.base0A};
-          color: #${palette.base00};
+          background-color: ${base0A};
+          color: ${base00};
         }
 
         #clock {
-          background-color: #${palette.base0C};
-          color: #${palette.base00};
+          background-color: ${base0C};
+          color: ${base00};
           padding-left: 25px;
           padding-right: 25px;
           margin: 4px;
@@ -250,21 +248,21 @@ in
 
         #taskbar button {
           border-radius: 20px;
-          background-color: #${palette.base01};
-          color: #${palette.base05};
+          background-color: ${base01};
+          color: ${base05};
           margin: 4px;
           padding: 2px;
         }
 
         #taskbar button.active {
-          background-color: #${palette.base0D};
-          color: #${palette.base00};
+          background-color: ${base0D};
+          color: ${base00};
         }
 
         #custom-oslogo,
         #custom-hostname {
-          background-color: #${palette.base0C};
-          color: #${palette.base00};
+          background-color: ${base0C};
+          color: ${base00};
           border-radius: 20px;
           margin: 4px;
           padding-left: 25px;
@@ -272,7 +270,7 @@ in
         }
 
         #tray {
-          color: #${palette.base05};
+          color: ${base05};
         }
       '';
   };

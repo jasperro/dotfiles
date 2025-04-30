@@ -61,11 +61,6 @@
     clipboard.providers.wl-copy.enable = true;
     clipboard.register = "unnamedplus";
 
-    colorschemes.base16 = {
-      enable = true;
-      colorscheme = "onedark";
-    };
-
     plugins = {
       lualine = {
         enable = true;

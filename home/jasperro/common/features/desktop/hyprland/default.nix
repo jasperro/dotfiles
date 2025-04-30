@@ -4,10 +4,14 @@
   pkgs,
   ...
 }:
+let
+  inherit (config.lib.stylix) colors;
+in
 {
   imports = [
     ../common
 
+    ./workspaces.nix
     ./keybinds.nix
 
     ./waybar.nix
@@ -17,6 +21,7 @@
     ../common/wayland-wm/kitty.nix
     ../common/wayland-wm/mako.nix
     ../common/wayland-wm/wofi.nix
+    ../common/wayland-wm/cliphist.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,22 +38,24 @@
 
     settings = {
       env = [
-        "XCURSOR_THEME, ${config.home.pointerCursor.name}"
-        "XCURSOR_SIZE, ${toString config.home.pointerCursor.size}"
+        "XCURSOR_THEME, ${config.stylix.cursor.name}"
+        "XCURSOR_SIZE, ${toString config.stylix.cursor.size}"
+        "HYPRCURSOR_THEME, ${config.stylix.cursor.name}"
+        "HYPRCURSOR_SIZE, ${toString config.stylix.cursor.size}"
       ];
       exec-once = [
-        "hyprctl setcursor ${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}"
+        "hyprctl setcursor ${config.stylix.cursor.name} ${toString config.stylix.cursor.size}"
       ];
       general = {
         gaps_in = 15;
         gaps_out = 20;
         border_size = 3;
-        "col.active_border" = "0xff${config.colorscheme.palette.base0C}";
-        "col.inactive_border" = "0xff${config.colorscheme.palette.base02}";
+        "col.active_border" = lib.rgb colors.base0C;
+        "col.inactive_border" = lib.rgb colors.base02;
       };
       group = {
-        "col.border_active" = "0xff${config.colorscheme.palette.base0B}";
-        "col.border_inactive" = "0xff${config.colorscheme.palette.base04}";
+        "col.border_active" = lib.rgb colors.base0B;
+        "col.border_inactive" = lib.rgb colors.base04;
       };
       input = {
         kb_layout = "us";
@@ -104,6 +111,9 @@
         ];
       };
 
+      windowrulev2 = "bordercolor ${lib.rgb colors.base05},fullscreen:1";
+
+      # Bindings that require external apps, rest in keybinds.nix
       bind =
         let
           playerctl = "${config.services.playerctld.package}/bin/playerctl";
@@ -111,6 +121,7 @@
           makoctl = "${config.services.mako.package}/bin/makoctl";
           wofi = "${config.programs.wofi.package}/bin/wofi";
           hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
+          cliphist = "${config.services.cliphist.package}/bin/cliphist";
 
           grimblast = "${pkgs.grimblast}/bin/grimblast";
           pactl = "${pkgs.pulseaudio}/bin/pactl";
@@ -126,9 +137,6 @@
           # Program bindings
           "SUPER,Return,exec,${terminal}"
           "SUPER,b,exec,${browser}"
-          # Brightness control (only works if the system has lightd)
-          ",XF86MonBrightnessUp,exec,light -A 10"
-          ",XF86MonBrightnessDown,exec,light -U 10"
           # Volume
           ",XF86AudioRaiseVolume,exec,${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
           ",XF86AudioLowerVolume,exec,${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
@@ -168,6 +176,7 @@
           (lib.optionals config.programs.wofi.enable [
             "SUPER,x,exec,${wofi} -S drun"
             "SUPER,d,exec,${wofi} -S run"
+            "SUPER,v,exec,${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy"
           ]);
 
       monitor = map (
@@ -178,11 +187,6 @@
         in
         "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
       ) (config.monitors);
-
-      workspace = map (m: "${m.name},${m.workspace}") (
-        lib.filter (m: m.enabled && m.workspace != null) config.monitors
-      );
-
     };
     # This is order sensitive, so it has to come here.
     extraConfig = ''
@@ -203,6 +207,30 @@
     };
   };
 
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        before_sleep_cmd = "hyprlock --immediate";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        ignore_dbus_inhibit = false;
+        lock_cmd = "hyprlock --immediate";
+      };
+
+      listener = [
+        {
+          timeout = 900;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 1200;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
+    };
+  };
+
   services.hyprpolkitagent.enable = true;
 
   programs.hyprlock = {
@@ -210,7 +238,7 @@
     settings = {
       general = {
         disable_loading_bar = true;
-        grace = 300;
+        grace = 15;
         hide_cursor = true;
         no_fade_in = false;
       };
@@ -230,9 +258,9 @@
           monitor = "";
           dots_center = true;
           fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
+          font_color = lib.rgb colors.base0F;
+          inner_color = lib.rgb colors.base00;
+          outer_color = lib.rgb colors.base0C;
           outline_thickness = 5;
           placeholder_text = "Password...";
           shadow_passes = 2;

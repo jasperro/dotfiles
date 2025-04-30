@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ inputs, ... }:
+{ ... }:
 {
   # You can import other home-manager modules here
   imports = [
@@ -9,8 +9,6 @@
     ../common/features/desktop/common
     ../common/features/desktop/hyprland
   ];
-
-  colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
 
   monitors = [
     {

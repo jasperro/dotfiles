@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./font.nix
-    ./gtk.nix
+    ./stylix.nix
   ];
   xdg.mimeApps = {
     enable = true;

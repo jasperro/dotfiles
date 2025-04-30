@@ -3,7 +3,5 @@
 
 {
   # List your module files here
-  fonts = import ./fonts.nix;
-  wallpaper = import ./wallpaper.nix;
   monitors = import ./monitors.nix;
 }

@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 let
-  inherit (config.colorscheme) palette;
   kitty-xterm = pkgs.writeShellScriptBin "xterm" ''
     ${config.programs.kitty.package}/bin/kitty -1 "$@"
   '';
 in
+with config.lib.stylix.colors.withHashtag;
 {
   home = {
     packages = [ kitty-xterm ];
@@ -16,7 +16,7 @@ in
   programs.kitty = {
     enable = true;
     font = {
-      name = config.fontProfiles.monospace.family;
+      name = config.stylix.fonts.monospace.name;
       size = 12;
     };
     settings = {
@@ -24,41 +24,41 @@ in
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       window_padding_width = 15;
-      foreground = "#${palette.base05}";
-      background = "#${palette.base00}";
-      selection_background = "#${palette.base05}";
-      selection_foreground = "#${palette.base00}";
-      url_color = "#${palette.base04}";
-      cursor = "#${palette.base05}";
-      active_border_color = "#${palette.base03}";
-      inactive_border_color = "#${palette.base01}";
-      active_tab_background = "#${palette.base00}";
-      active_tab_foreground = "#${palette.base05}";
-      inactive_tab_background = "#${palette.base01}";
-      inactive_tab_foreground = "#${palette.base04}";
-      tab_bar_background = "#${palette.base01}";
-      color0 = "#${palette.base00}";
-      color1 = "#${palette.base08}";
-      color2 = "#${palette.base0B}";
-      color3 = "#${palette.base0A}";
-      color4 = "#${palette.base0D}";
-      color5 = "#${palette.base0E}";
-      color6 = "#${palette.base0C}";
-      color7 = "#${palette.base05}";
-      color8 = "#${palette.base03}";
-      color9 = "#${palette.base08}";
-      color10 = "#${palette.base0B}";
-      color11 = "#${palette.base0A}";
-      color12 = "#${palette.base0D}";
-      color13 = "#${palette.base0E}";
-      color14 = "#${palette.base0C}";
-      color15 = "#${palette.base07}";
-      color16 = "#${palette.base09}";
-      color17 = "#${palette.base0F}";
-      color18 = "#${palette.base01}";
-      color19 = "#${palette.base02}";
-      color20 = "#${palette.base04}";
-      color21 = "#${palette.base06}";
+      foreground = "${base05}";
+      background = "${base00}";
+      selection_background = "${base05}";
+      selection_foreground = "${base00}";
+      url_color = "${base04}";
+      cursor = "${base05}";
+      active_border_color = "${base03}";
+      inactive_border_color = "${base01}";
+      active_tab_background = "${base00}";
+      active_tab_foreground = "${base05}";
+      inactive_tab_background = "${base01}";
+      inactive_tab_foreground = "${base04}";
+      tab_bar_background = "${base01}";
+      color0 = "${base00}";
+      color1 = "${base08}";
+      color2 = "${base0B}";
+      color3 = "${base0A}";
+      color4 = "${base0D}";
+      color5 = "${base0E}";
+      color6 = "${base0C}";
+      color7 = "${base05}";
+      color8 = "${base03}";
+      color9 = "${base08}";
+      color10 = "${base0B}";
+      color11 = "${base0A}";
+      color12 = "${base0D}";
+      color13 = "${base0E}";
+      color14 = "${base0C}";
+      color15 = "${base07}";
+      color16 = "${base09}";
+      color17 = "${base0F}";
+      color18 = "${base01}";
+      color19 = "${base02}";
+      color20 = "${base04}";
+      color21 = "${base06}";
     };
   };
 }
