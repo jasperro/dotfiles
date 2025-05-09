@@ -6,7 +6,6 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    # image = config.lib.stylix.pixel "base0A";
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
@@ -36,8 +35,8 @@
     targets = {
       gtk.enable = true;
       firefox.enable = true;
-      # hyprpaper.enable = true;
-      kde.enable = true;
+      hyprpaper.enable = true;
+      # kde.enable = true;
       qt.enable = true;
       nixvim.enable = true;
     };

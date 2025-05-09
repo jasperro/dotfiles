@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ ... }:
+{ config, impurity, ... }:
 {
   # You can import other home-manager modules here
   imports = [
@@ -20,4 +20,6 @@
       primary = true;
     }
   ];
+
+  stylix.image = config.lib.file.mkOutOfStoreSymlink (impurity.link ./.currentwallpaper);
 }
