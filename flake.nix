@@ -2,6 +2,17 @@
   description = "Jasperro's NixOS Config";
 
   inputs = {
+    systems = {
+      url = "path:./flake.systems.nix";
+      flake = false;
+    };
+    flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -16,14 +27,22 @@
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
+    };
 
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -33,11 +52,14 @@
     nix-minecraft = {
       url = "github:Misterio77/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-utils.follows = "flake-utils";
     };
 
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     impurity.url = "github:outfoxxed/impurity.nix";
@@ -46,6 +68,7 @@
   outputs =
     {
       self,
+      systems,
       nixpkgs,
       nixpkgs-stable,
       nixpkgs-unstable-small,
@@ -56,14 +79,7 @@
     }@inputs:
     let
       inherit (self) outputs;
-      systems = [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+      forAllSystems = nixpkgs.lib.genAttrs (import systems);
       # Customize lib with custom lib
       lib = nixpkgs.lib.extend (_: _: import ./lib // home-manager.lib);
     in

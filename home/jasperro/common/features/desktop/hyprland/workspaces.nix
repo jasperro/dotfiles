@@ -5,9 +5,7 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
-    workspace = [
-      "0,defaultName:10"
-    ] ++ (map (n: "${toString (n + 10)},defaultName:f${toString n}") (lib.range 1 12));
+    workspace = (map (n: "${toString (n + 10)},defaultName:f${toString n}") (lib.range 1 12));
     bind =
       # Change workspace to number
       (lib.imap1 (i: n: "SUPER,${n},workspace,${toString i}") workspaceKeys)

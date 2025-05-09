@@ -114,6 +114,7 @@ in
               " "
             ];
           };
+          max-volume = 150;
           on-click = pavucontrol;
         };
         idle_inhibitor = {

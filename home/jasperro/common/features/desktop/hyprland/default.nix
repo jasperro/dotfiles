@@ -29,6 +29,23 @@ in
     hyprsunset
   ];
 
+  xdg.portal = {
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
+    config = {
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.FileChooser" = "kde";
+      };
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -111,7 +128,11 @@ in
         ];
       };
 
-      windowrulev2 = "bordercolor ${lib.rgb colors.base05},fullscreen:1";
+      windowrulev2 = [
+        "bordercolor ${lib.rgb colors.base05},fullscreen:1"
+        "float,class:org.pulseaudio.pavucontrol"
+        "size 800 1000,class:org.pulseaudio.pavucontrol"
+      ];
 
       # Bindings that require external apps, rest in keybinds.nix
       bind =
