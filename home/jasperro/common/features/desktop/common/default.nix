@@ -12,7 +12,6 @@
     kdePackages.konsole
 
     # general desktop apps
-    vscode
     #sandboxed-firefox-wayland
     firefox-wayland
     chromium

@@ -1,11 +1,15 @@
 {
   pkgs,
+  config,
+  lib,
   ...
 }:
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = lib.mkIf (
+      config.stylix.image == null
+    ) "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
@@ -45,13 +49,19 @@
       name = "BreezeX-RosePine-Linux";
       size = 36;
     };
+    iconTheme = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus";
+    };
   };
 
-  gtk = {
+  services.xsettingsd = {
     enable = true;
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+    settings = {
+      "Net/ThemeName" = "${config.gtk.theme.name}";
+      "Net/IconThemeName" = "${config.gtk.iconTheme.name}";
     };
   };
 }
