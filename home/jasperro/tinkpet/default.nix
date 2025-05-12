@@ -7,7 +7,7 @@
   imports = [
     ../common
     ../common/features/desktop/common
-    ../common/features/desktop/hyprland
+    ./features/desktop/hyprland
   ];
 
   monitors = [
