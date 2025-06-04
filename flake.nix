@@ -14,8 +14,8 @@
     };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     hardware.url = "github:nixos/nixos-hardware";
 
@@ -40,7 +40,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
     };
 
@@ -70,11 +69,10 @@
       self,
       systems,
       nixpkgs,
-      nixpkgs-stable,
-      nixpkgs-unstable-small,
+      # nixpkgs-stable,
+      # nixpkgs-unstable-small,
       home-manager,
       impurity,
-      stylix,
       ...
     }@inputs:
     let
@@ -155,22 +153,23 @@
           value = lib.nixosSystem {
             inherit system;
             specialArgs = {
-              pkgs-stable = import nixpkgs-stable {
-                inherit system;
-                config.allowUnfree = true;
-              };
-              pkgs-unstable-small = import nixpkgs-unstable-small {
-                inherit system;
-                config.allowUnfree = true;
-              };
+              # pkgs-stable = import nixpkgs-stable {
+              #   inherit system;
+              #   config.allowUnfree = true;
+              # };
+              # pkgs-unstable-small = import nixpkgs-unstable-small {
+              #   inherit system;
+              #   config.allowUnfree = true;
+              # };
               inherit inputs outputs;
             };
             modules = [
               {
-                imports = [ impurity.nixosModules.impurity ];
+                imports = [
+                  impurity.nixosModules.impurity
+                ];
                 impurity.configRoot = self;
               }
-              stylix.nixosModules.stylix
               ./hosts/${host}
             ];
           };
@@ -197,10 +196,11 @@
                 extraSpecialArgs = { inherit inputs outputs lib; };
                 modules = [
                   {
-                    imports = [ impurity.nixosModules.impurity ];
+                    imports = [
+                      impurity.nixosModules.impurity
+                    ];
                     impurity.configRoot = self;
                   }
-                  stylix.homeManagerModules.stylix
                   ./home/${user}/${host}
                 ];
               };

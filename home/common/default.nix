@@ -7,18 +7,8 @@
 }:
 {
   imports = [
+    ../../lib/sharedNixConfig.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
-
-  nix = {
-    package = lib.mkDefault pkgs.nix;
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      warn-dirty = false;
-    };
-  };
 
   home.homeDirectory = lib.mkDefault "/home/${config.home.username}";
 

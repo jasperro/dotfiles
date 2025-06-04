@@ -2,9 +2,12 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 {
+
+  imports = [ inputs.stylix.homeModules.stylix ];
   stylix = {
     enable = true;
     base16Scheme = lib.mkIf (

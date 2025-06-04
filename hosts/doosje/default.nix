@@ -144,10 +144,6 @@ in
       };
       efi.canTouchEfiVariables = true;
     };
-    plymouth = {
-      enable = true;
-      theme = "breeze";
-    };
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 

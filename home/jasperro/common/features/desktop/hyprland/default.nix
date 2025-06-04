@@ -64,9 +64,9 @@ in
         "hyprctl setcursor ${config.stylix.cursor.name} ${toString config.stylix.cursor.size}"
       ];
       general = {
-        gaps_in = 15;
-        gaps_out = 20;
-        border_size = 3;
+        gaps_in = 5;
+        gaps_out = 5;
+        border_size = 2;
         "col.active_border" = lib.rgb colors.base0C;
         "col.inactive_border" = lib.rgb colors.base02;
       };
