@@ -19,7 +19,7 @@
     wget
     w3m
     screen
-    neofetch
+    fastfetch
 
     zoxide
     silver-searcher
