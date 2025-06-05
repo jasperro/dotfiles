@@ -1,38 +1,38 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
-    # inputs.hardware.nixosModules.raspberry-pi-4
-    # inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.raspberry-pi-4
+    inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
     ../common/nixos/home-locale.nix
-    # ./hardware-configuration.nix (Not needed for LXC container)
-    # ./networking.nix      (LXC container does not support networking.nix)
+    ./hardware-configuration.nix
+    ./networking.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-linux";
 
-  # hardware = {
-  #   raspberry-pi."4".audio.enable = true;
-  # };
+  hardware = {
+    raspberry-pi."4".audio.enable = true;
+  };
 
   boot = {
     # tmp.useTmpfs = true;
     isContainer = true;
   };
 
-  # zramSwap = {
-  #   enable = true;
-  #   memoryPercent = 40;
-  #   priority = 10;
-  # };
+  zramSwap = {
+    enable = true;
+    memoryPercent = 40;
+    priority = 10;
+  };
 
-  # environment.systemPackages = with pkgs; [
-  #   libraspberrypi
-  # ];
+  environment.systemPackages = with pkgs; [
+    libraspberrypi
+  ];
 
   users.groups.jasperro.gid = 1000;
 
@@ -59,12 +59,11 @@
       openssh = {
         authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOPkTvmcxZ7h5afV6wOt96LUL5SjfLuvi0LSPGmOy4Gq jasperro@doosje"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFEZSIDsTBrON9sKhoq21EM7kRrO5MGcADcfjRiBAba jasperro@atoll"
         ];
       };
     };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "22.11";
+  system.stateVersion = "25.05";
 }

@@ -45,6 +45,7 @@
         monospace = [ "Source Code Pro" ];
         sansSerif = [ "Source Sans Pro" ];
         serif = [ "Source Serif Pro" ];
+        emoji = [ "Noto Sans Emoji" ];
       };
     };
   };

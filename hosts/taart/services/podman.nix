@@ -1,6 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   virtualisation = {
+    oci-containers = {
+      backend = lib.mkForce "podman";
+    };
     podman = {
       enable = true;
 
