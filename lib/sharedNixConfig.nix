@@ -1,14 +1,13 @@
 # Share common settings between home-manager and nixos for nix
 {
   lib,
-  pkgs,
   inputs,
   config,
   ...
 }:
 {
   nix = {
-    package = lib.mkDefault pkgs.nix;
+    # package = lib.mkForce pkgs.lix;
 
     settings = {
       # Enable flakes and new 'nix' command
@@ -26,7 +25,7 @@
       ];
 
       # Set to 500 MiB to hide warning
-      download-buffer-size = 524288000;
+      # download-buffer-size = 524288000;
     };
 
     # Free up to 1GiB whenever there is less than 100MiB left.

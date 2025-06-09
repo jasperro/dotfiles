@@ -3,7 +3,7 @@
 
   inputs = {
     systems = {
-      url = "path:./flake.systems.nix";
+      url = "path:flake.systems.nix";
       flake = false;
     };
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
@@ -121,6 +121,7 @@
         taart = {
           users = [ "jasperro" ];
           system = "aarch64-linux";
+          crossBuildPlatforms = [ "x86_64-linux" ];
         };
         superlaptop = {
           users = [ "colin" ];
@@ -148,23 +149,18 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = lib.concatMapAttrs (
         host:
-        { system, ... }:
+        {
+          system,
+          crossBuildPlatforms ? [ ],
+          ...
+        }:
         let
           value = lib.nixosSystem {
-            inherit system;
-            specialArgs = {
-              # pkgs-stable = import nixpkgs-stable {
-              #   inherit system;
-              #   config.allowUnfree = true;
-              # };
-              # pkgs-unstable-small = import nixpkgs-unstable-small {
-              #   inherit system;
-              #   config.allowUnfree = true;
-              # };
-              inherit inputs outputs;
-            };
+            specialArgs = { inherit inputs outputs; };
             modules = [
               {
+                nixpkgs.buildPlatform = system;
+                nixpkgs.hostPlatform = system;
                 imports = [
                   impurity.nixosModules.impurity
                 ];
@@ -180,6 +176,18 @@
             modules = [ { impurity.enable = true; } ];
           };
         }
+        # Cross compile for RPi only, can change this if needed.
+        // lib.mergeAttrsList (
+          map (bp: {
+            "${host}-cc-${bp}" = self.nixosConfigurations.${host}.extendModules {
+              modules = [
+                {
+                  nixpkgs.buildPlatform = bp;
+                }
+              ];
+            };
+          }) crossBuildPlatforms
+        )
       ) hostPropsMap;
 
       # Standalone home-manager configuration entrypoint

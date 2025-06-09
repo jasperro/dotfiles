@@ -78,14 +78,14 @@
         # gdscript.enable = true;
         # gopls.enable = true;
         # hls.enable = true;
-        rust_analyzer = {
-          enable = true;
-          installCargo = true;
-          installRustc = true;
-        };
+        # rust_analyzer = {
+        #   enable = true;
+        #   installCargo = true;
+        #   installRustc = true;
+        # };
         # csharp-ls.enable = true;
         # kotlin-language-server.enable = true;
-        pylsp.enable = true;
+        # pylsp.enable = true;
         # tailwindcss.enable = true;
         # texlab.enable = true;
         # tsserver.enable = true;

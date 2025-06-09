@@ -1,9 +1,18 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ pkgs, inputs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  impurity,
+  modulesPath,
+  ...
+}:
 {
   imports = [
+    "${modulesPath}/virtualisation/lxc-container.nix"
+    inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.raspberry-pi-4
     inputs.hardware.nixosModules.common-pc-ssd
     ./services
@@ -13,15 +22,21 @@
     ./networking.nix
   ];
 
-  nixpkgs.hostPlatform = "aarch64-linux";
+  home-manager.useGlobalPkgs = true;
+  home-manager.extraSpecialArgs = { inherit inputs outputs impurity; };
+  home-manager.backupFileExtension = "hmbackup";
 
   hardware = {
     raspberry-pi."4".audio.enable = true;
   };
 
+  sops.age.sshKeyPaths = [ "/home/jasperro/.ssh/id_ed25519" ];
+
   boot = {
     # tmp.useTmpfs = true;
+    # LXC Stuff
     isContainer = true;
+    loader.generic-extlinux-compatible.enable = false;
   };
 
   zramSwap = {
@@ -35,6 +50,8 @@
   ];
 
   users.groups.jasperro.gid = 1000;
+
+  home-manager.users.jasperro = import ../../home/jasperro/taart;
 
   users.users = {
     jasperro = {

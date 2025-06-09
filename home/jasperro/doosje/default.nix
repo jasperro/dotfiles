@@ -6,6 +6,7 @@
   # You can import other home-manager modules here
   imports = [
     ../common
+    ../common/features/editors/vscode
     ../common/features/desktop/common
     ../common/features/desktop/hyprland
   ];
