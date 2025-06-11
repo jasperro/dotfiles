@@ -6,7 +6,7 @@
     sopsFile = ../../secrets.yaml;
     key = "vaultwarden-environmentFile";
     owner = "vaultwarden";
-    group = "nginx";
+    group = "vaultwarden";
     mode = "0440";
   };
 
@@ -22,7 +22,7 @@
       SIGNUPS_ALLOWED = false;
       WEB_VAULT_ENABLED = true;
       WEBSOCKET_ENABLED = true;
-      DOMAIN = "https://192.168.1.16/bitwarden/";
+      DOMAIN = "https://home.albering.nl/bitwarden/";
     };
   };
 

@@ -44,6 +44,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/61D4-F619";
     fsType = "vfat";
+    options = [
+      "rw"
+      "utf8"
+    ];
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";

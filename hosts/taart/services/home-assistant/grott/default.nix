@@ -1,6 +1,6 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
-  imports = [ ./mosquitto.nix ];
+  imports = [ ../mosquitto.nix ];
   sops.templates."grott-env" = {
     content = ''
       gmqttpassword=${config.sops.placeholder."mqtt/password"}
@@ -12,12 +12,19 @@
   networking.firewall.allowedUDPPorts = [
     5279
   ];
+
   virtualisation.oci-containers.containers.grott = {
-    image = "ledidobe/grott";
+    image = "grott:latest";
+    imageFile = import ./container.nix { inherit pkgs; };
     autoStart = true;
 
     ports = [
       "5279:5279"
+    ];
+
+    # Improve this if it gives problems
+    extraOptions = [
+      "--network=host"
     ];
 
     environment = {
@@ -43,9 +50,9 @@
       # giftoken = "influx_token";
       # giforg = "grottorg";
       # gifbucket = "grottdb";
-      gextension = "false";
-      gextname = "grottext";
-      gextvar = ''{"ip": "192.168.0.47", "port": "8000"}'';
+      # gextension = "false";
+      # gextname = "grottext";
+      # gextvar = ''{"ip": "192.168.0.47", "port": "8000"}'';
       TZ = "Europe/Amsterdam";
     };
 

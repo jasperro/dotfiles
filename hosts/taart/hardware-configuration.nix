@@ -68,10 +68,6 @@
       "/boot" = {
         device = "/dev/disk/by-label/RASPIFIRM";
         fsType = "vfat";
-        options = [
-          "nofail"
-          "noauto"
-        ];
       };
     };
 

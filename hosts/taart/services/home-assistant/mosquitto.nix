@@ -1,5 +1,11 @@
 { config, ... }:
 {
+  networking.firewall.allowedTCPPorts = [
+    1883
+  ];
+  networking.firewall.allowedUDPPorts = [
+    1883
+  ];
   sops.secrets = {
     "mqtt/password" = {
       sopsFile = ../../secrets.yaml;
@@ -11,10 +17,11 @@
     enable = true;
     listeners = [
       {
-        users = {
-          mosquitto = {
-            passwordFile = config.sops.secrets."mqtt/password".path;
-          };
+        address = "0.0.0.0";
+        port = 1883;
+        users.mosquitto = {
+          acl = [ "readwrite #" ];
+          passwordFile = config.sops.secrets."mqtt/password".path;
         };
       }
     ];

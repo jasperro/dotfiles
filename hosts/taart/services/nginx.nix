@@ -3,6 +3,11 @@
     ./acme.nix
   ];
 
+  networking.firewall.allowedTCPPorts = [
+    443
+    80
+  ];
+
   services.nginx = {
     enable = true;
     recommendedTlsSettings = true;

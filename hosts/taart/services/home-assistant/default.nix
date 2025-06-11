@@ -7,13 +7,13 @@
     ./zigbee2mqtt
     ./vaultwarden.nix
     ./mariadb.nix
-    ./grott.nix
+    ./grott
     # ./appdaemon.nix
   ];
 
   virtualisation.oci-containers.containers.homeassistant = {
     volumes = [
-      "/var/lib/hass:/config"
+      "/var/lib/hass/homeassistant:/config"
       "/etc/localtime:/etc/localtime:ro"
       "/run/mysqld/mysqld.sock:/run/mysqld/mysqld.sock"
     ];
