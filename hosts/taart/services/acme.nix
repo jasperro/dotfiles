@@ -19,7 +19,9 @@
     certs = {
       "albering" = {
         domain = "*.albering.nl";
-        credentialsFile = config.sops.secrets."albering.nl-acme-credentials".path;
+        credentialFiles = {
+          "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.sops.secrets."albering.nl-acme-credentials".path;
+        };
       };
     };
   };

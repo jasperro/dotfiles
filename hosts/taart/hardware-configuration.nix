@@ -17,7 +17,7 @@
       "console=ttyS0,115200n8"
       "console=ttyAMA0,115200n8"
       "console=tty0"
-      "root=/dev/disk/by-label/ROOT"
+      "root=/dev/disk/by-label/RASPIROOT"
       "rootfstype=btrfs"
       "rootflags=subvol=@nixosroot"
       "rootwait"
@@ -34,7 +34,7 @@
         "compress=zstd:3"
       ];
       fsType = "btrfs";
-      device = "/dev/disk/by-label/ROOT";
+      device = "/dev/disk/by-label/RASPIROOT";
     in
     {
       "/" = {
@@ -57,8 +57,8 @@
         inherit fsType device;
         options = opts ++ [ "subvol=@snapshots" ];
       };
-      "/boot" = {
-        device = "/dev/disk/by-label/BOOT";
+      "/boot/firmware" = {
+        device = "/dev/disk/by-label/RASPIFIRM";
         fsType = "vfat";
         options = [
           "nofail"

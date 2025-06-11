@@ -1,15 +1,16 @@
 { pkgs, ... }:
 {
+  # Port 3306
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
     dataDir = "/var/lib/mariadb";
-    ensureDatabases = [ "hass" ];
+    ensureDatabases = [ "homeassistant" ];
     ensureUsers = [
       {
         name = "hass";
         ensurePermissions = {
-          "hass.*" = "ALL PRIVILEGES";
+          "homeassistant.*" = "ALL PRIVILEGES";
         };
       }
     ];

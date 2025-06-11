@@ -18,6 +18,8 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
+      noto-fonts-color-emoji
+      noto-fonts-emoji-blob-bin
       liberation_ttf
       iosevka
       dejavu_fonts
@@ -45,8 +47,12 @@
         monospace = [ "Source Code Pro" ];
         sansSerif = [ "Source Sans Pro" ];
         serif = [ "Source Serif Pro" ];
-        emoji = [ "Noto Sans Emoji" ];
+        emoji = [
+          "Blobmoji"
+          "Noto Color Emoji"
+        ];
       };
+      useEmbeddedBitmaps = true;
     };
   };
 }

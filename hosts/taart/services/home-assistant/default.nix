@@ -1,25 +1,78 @@
+{ ... }:
 {
   imports = [
     ../podman.nix
     ../nginx.nix
+    ./mosquitto.nix
+    ./zigbee2mqtt
+    ./vaultwarden.nix
     ./mariadb.nix
+    ./grott.nix
+    # ./appdaemon.nix
   ];
 
   virtualisation.oci-containers.containers.homeassistant = {
     volumes = [
       "/var/lib/hass:/config"
       "/etc/localtime:/etc/localtime:ro"
+      "/run/mysqld/mysqld.sock:/run/mysqld/mysqld.sock"
     ];
     environment.TZ = "Europe/Amsterdam";
-    image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
+    # image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
+    image = "ghcr.io/home-assistant/home-assistant:2025.5.3";
     extraOptions = [
       "--network=host"
-      "--device=/dev/ttyACM0:/dev/ttyACM0"
+      # "--device=/dev/ttyACM0:/dev/ttyACM0"
+      # DO NOT USE THIS OUTSIDE LXC
+      # "--privileged"
     ];
-    dependsOn = [ "mysql.service" ];
+    # ports = [
+    #   # Temp overlap due to LXC
+    #   "8124:8123"
+    # ];
   };
 
-  systemd.services."podman-home-assistant" = {
+  # let
+  #   cgroupSubsystems = [
+  #     "blkio"
+  #     "cpu,cpuacct"
+  #     "cpuset"
+  #     "devices"
+  #     "memory"
+  #     "net_cls,net_prio"
+  #     "freezer"
+  #     "hugetlb"
+  #     "perf_event"
+  #     "pids"
+  #     "rdma"
+  #     "misc"
+  #   ];
+  # in
+  # fileSystems =
+  #   lib.listToAttrs (
+  #     map (name: {
+  #       name = "/sys/fs/cgroup/${name}";
+  #       value = {
+  #         device = "cgroup";
+  #         fsType = "cgroup";
+  #         options = [
+  #           name
+  #           "rw"
+  #         ];
+  #         neededForBoot = true;
+  #       };
+  #     }) cgroupSubsystems
+  #   )
+  #   // {
+  #     "/sys/fs/cgroup" = {
+  #       device = "cgroup";
+  #       fsType = "cgroup2";
+  #       options = [ "rw" ];
+  #       neededForBoot = true;
+  #     };
+  #   };
+
+  systemd.services."podman-homeassistant" = {
     after = [ "mysql.service" ];
     requires = [ "mysql.service" ];
   };

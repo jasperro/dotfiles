@@ -1,0 +1,70 @@
+"0x7cb03eaa0a05feca":
+  friendly_name: ganglamp1
+  transition: 0.3
+  homeassistant:
+    light:
+      supported_color_modes:
+        - hs
+        - color_temp
+"0x7cb03eaa0a04841b":
+  friendly_name: computerpl_old
+  transition: 0.3
+"0x7cb03eaa0a039976":
+  friendly_name: plafondlamp3
+  transition: 0.3
+"0x7cb03eaa0a0398a8":
+  friendly_name: plafondlamp4
+  transition: 0.3
+"0x0017880106786971":
+  friendly_name: hue5
+  transition: 0.3
+"0x7cb03eaa0a03abb3":
+  friendly_name: ganglamp3
+  transition: 0.3
+"0x000d6f0011087bbd":
+  friendly_name: motiontemp1
+"0x000d6f001082b0c1":
+  friendly_name: switch3
+"0xec1bbdfffed1838b":
+  friendly_name: switch4
+"0xec1bbdfffed553d4":
+  friendly_name: switch5
+"0x04cf8cdf3c7bdceb":
+  friendly_name: opple1
+"0x000d6f0011087a6d":
+  friendly_name: motiontemp2
+"0xf0d1b800001a1816":
+  friendly_name: tuinpalen
+  transition: 0.3
+"0x001788010c6b29e7":
+  friendly_name: play_woonkamer1
+"0x001788010c6b29d6":
+  friendly_name: play_woonkamer2
+"0xec1bbdfffed58362":
+  friendly_name: switch6
+"0x0017880108db6b7f":
+  friendly_name: woonkamer_tafel_hue
+"0xec1bbdfffebaf02c":
+  friendly_name: switch2
+"0x0c4314fffe74a870":
+  friendly_name: ganglamp2
+"0xb4e3f9fffe08fc28":
+  friendly_name: wiktorpl1
+"0xa4c138e092569fe2":
+  friendly_name: "0xa4c138e092569fe2"
+"0x001788010dc43705":
+  friendly_name: hue1
+"0xf0d1b8000010c0c8":
+  friendly_name: osram1
+"0xb4e3f9fffe119541":
+  friendly_name: lidlknop
+"0xb4e3f9fffec0a85a":
+  friendly_name: wiktorpl2
+"0x001788010d82813d":
+  friendly_name: colinpl
+"0x001788010dc46969":
+  friendly_name: hue2
+"0xccccccfffe8a85b1":
+  friendly_name: roundswitch1
+"0xec1bbdfffebaf3e8":
+  friendly_name: switch1

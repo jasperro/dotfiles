@@ -6,38 +6,49 @@
   outputs,
   pkgs,
   impurity,
-  modulesPath,
+  # modulesPath,
+  # lib,
   ...
 }:
 {
   imports = [
-    "${modulesPath}/virtualisation/lxc-container.nix"
+    # "${modulesPath}/virtualisation/lxc-container.nix"
     inputs.home-manager.nixosModules.home-manager
-    inputs.hardware.nixosModules.raspberry-pi-4
-    inputs.hardware.nixosModules.common-pc-ssd
     ./services
     ../common/nixos
     ../common/nixos/home-locale.nix
+
+    # Disable all below for LXC
+    inputs.hardware.nixosModules.raspberry-pi-4
+    inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ./networking.nix
   ];
+
+  # For LXC/systemd-nspawn
+  # networking.useHostResolvConf = false;
+  # networking.dhcpcd.enable = lib.mkForce false;
+
+  # boot = {
+  #   # tmp.useTmpfs = true;
+  #   # LXC Stuff
+  #   isContainer = true;
+  #   loader.generic-extlinux-compatible.enable = false;
+  # };
+
+  hardware = {
+    raspberry-pi."4".apply-overlays-dtmerge.enable = true;
+    deviceTree = {
+      enable = true;
+      filter = "*rpi-4-*.dtb";
+    };
+  };
 
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = { inherit inputs outputs impurity; };
   home-manager.backupFileExtension = "hmbackup";
 
-  hardware = {
-    raspberry-pi."4".audio.enable = true;
-  };
-
   sops.age.sshKeyPaths = [ "/home/jasperro/.ssh/id_ed25519" ];
-
-  boot = {
-    # tmp.useTmpfs = true;
-    # LXC Stuff
-    isContainer = true;
-    loader.generic-extlinux-compatible.enable = false;
-  };
 
   zramSwap = {
     enable = true;
@@ -47,6 +58,7 @@
 
   environment.systemPackages = with pkgs; [
     libraspberrypi
+    raspberrypi-eeprom
   ];
 
   users.groups.jasperro.gid = 1000;
