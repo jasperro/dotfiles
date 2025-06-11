@@ -159,7 +159,7 @@
             specialArgs = { inherit inputs outputs; };
             modules = [
               {
-                nixpkgs.buildPlatform = system;
+                # nixpkgs.buildPlatform = system;
                 nixpkgs.hostPlatform = system;
                 imports = [
                   impurity.nixosModules.impurity

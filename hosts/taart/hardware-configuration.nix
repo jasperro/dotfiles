@@ -13,15 +13,23 @@
       "zstd"
       "btrfs"
     ];
-    kernelParams = [
-      "console=ttyS0,115200n8"
-      "console=ttyAMA0,115200n8"
-      "console=tty0"
-      "root=/dev/disk/by-label/RASPIROOT"
-      "rootfstype=btrfs"
-      "rootflags=subvol=@nixosroot"
-      "rootwait"
+    initrd.availableKernelModules = [
+      "usbhid"
+      "usb_storage"
+      "vc4"
+      "uas"
+      "pcie_brcmstb"
+      "reset-raspberrypi"
     ];
+    # kernelParams = [
+    #   "console=ttyS0,115200n8"
+    #   "console=ttyAMA0,115200n8"
+    #   "console=tty0"
+    #   "root=/dev/disk/by-label/RASPIROOT"
+    #   "rootfstype=btrfs"
+    #   "rootflags=subvol=@nixosroot"
+    #   "rootwait"
+    # ];
   };
 
   fileSystems =
@@ -57,7 +65,7 @@
         inherit fsType device;
         options = opts ++ [ "subvol=@snapshots" ];
       };
-      "/boot/firmware" = {
+      "/boot" = {
         device = "/dev/disk/by-label/RASPIFIRM";
         fsType = "vfat";
         options = [
