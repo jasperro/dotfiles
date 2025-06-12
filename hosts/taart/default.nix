@@ -214,7 +214,6 @@
 
   environment.systemPackages = with pkgs; [
     libraspberrypi
-    raspberrypi-eeprom
   ];
 
   users.groups.jasperro.gid = 1000;

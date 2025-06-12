@@ -7,6 +7,8 @@
     ./zigbee2mqtt
     ./vaultwarden.nix
     ./mariadb.nix
+    ./esphome.nix
+    ./appdaemon.nix
     ./grott
     # ./appdaemon.nix
   ];

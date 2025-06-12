@@ -1,4 +1,11 @@
+{ config, ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 5050 ];
+  sops.secrets = {
+    "appdaemon-environmentFile" = {
+      sopsFile = ../../secrets.yaml;
+    };
+  };
   virtualisation.oci-containers.containers.appdaemon = {
     image = "acockburn/appdaemon:latest";
     autoStart = true;
@@ -17,8 +24,12 @@
 
     environment = {
       TZ = "Europe/Amsterdam";
-      # HA_URL = "";
-      # HA_TOKEN = "";
+      HA_URL = "https://127.0.0.1";
+      # TOKEN = "";
     };
+
+    environmentFiles = [
+      config.sops.secrets.appdaemon-environmentFile.path
+    ];
   };
 }
