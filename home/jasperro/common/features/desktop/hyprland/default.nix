@@ -75,7 +75,8 @@ in
         "col.border_inactive" = lib.rgb colors.base04;
       };
       input = {
-        kb_layout = "us";
+        kb_layout = "eu";
+        kb_options = "grp:win_space_toggle,caps:backspace";
         touchpad.disable_while_typing = false;
         # do not focus window when moving cursor
         follow_mouse = 0;
