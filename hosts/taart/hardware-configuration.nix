@@ -60,6 +60,8 @@
       "/home" = {
         inherit fsType device;
         options = opts ++ [ "subvol=@home" ];
+        # Needed for boot or sops might randomly freak out.
+        neededForBoot = true;
       };
       "/.snapshots" = {
         inherit fsType device;

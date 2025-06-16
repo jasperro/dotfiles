@@ -1,4 +1,4 @@
-{ ... }:
+{ oci-images, ... }:
 {
   imports = [
     ../podman.nix
@@ -14,14 +14,14 @@
   ];
 
   virtualisation.oci-containers.containers.homeassistant = {
+    inherit (oci-images.home-assistant) image imageFile;
+    autoStart = true;
     volumes = [
       "/var/lib/hass/homeassistant:/config"
       "/etc/localtime:/etc/localtime:ro"
       "/run/mysqld/mysqld.sock:/run/mysqld/mysqld.sock"
     ];
     environment.TZ = "Europe/Amsterdam";
-    # image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
-    image = "ghcr.io/home-assistant/home-assistant:2025.5.3";
     extraOptions = [
       "--network=host"
       # "--device=/dev/ttyACM0:/dev/ttyACM0"

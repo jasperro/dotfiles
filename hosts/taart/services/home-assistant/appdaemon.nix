@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, oci-images, ... }:
 {
   networking.firewall.allowedTCPPorts = [ 5050 ];
   sops.secrets = {
@@ -7,7 +7,7 @@
     };
   };
   virtualisation.oci-containers.containers.appdaemon = {
-    image = "acockburn/appdaemon:latest";
+    inherit (oci-images.appdaemon) image imageFile;
     autoStart = true;
 
     ports = [
