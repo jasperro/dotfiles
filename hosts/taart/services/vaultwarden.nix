@@ -1,9 +1,9 @@
 { config, ... }:
 {
-  imports = [ ../nginx.nix ];
+  imports = [ ./nginx.nix ];
   # SOPS secret for admin token
   sops.secrets.vaultwarden-environmentFile = {
-    sopsFile = ../../secrets.yaml;
+    sopsFile = ../secrets.yaml;
     key = "vaultwarden-environmentFile";
     owner = "vaultwarden";
     group = "vaultwarden";

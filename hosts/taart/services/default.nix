@@ -2,9 +2,10 @@
 {
   imports = [
     ../../common/services/openssh-inbound.nix
-    ./home-assistant
+    ./home-automation
     ./acme.nix
     ./nginx.nix
+    ./vaultwarden.nix
   ];
   _module.args.oci-images = lib.mapAttrs (_: value: {
     inherit value;

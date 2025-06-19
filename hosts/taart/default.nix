@@ -229,6 +229,7 @@
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
       extraGroups = [
+        "hass"
         "http"
         "i2c"
         "users"

@@ -1,23 +1,25 @@
-{ oci-images, ... }:
+{ oci-images, config, ... }:
+let
+  cfg = {
+    configDir = "/var/lib/hass/homeassistant";
+  };
+in
 {
-  imports = [
-    ../podman.nix
-    ../nginx.nix
-    ./mosquitto.nix
-    ./zigbee2mqtt
-    ./vaultwarden.nix
-    ./mariadb.nix
-    ./esphome.nix
-    ./appdaemon.nix
-    ./grott
-    # ./appdaemon.nix
-  ];
+  users.users.hass = {
+    home = cfg.configDir;
+    createHome = true;
+    group = "hass";
+    uid = config.ids.uids.hass;
+    homeMode = "770";
+  };
+
+  users.groups.hass.gid = config.ids.gids.hass;
 
   virtualisation.oci-containers.containers.homeassistant = {
     inherit (oci-images.home-assistant) image imageFile;
     autoStart = true;
     volumes = [
-      "/var/lib/hass/homeassistant:/config"
+      "${cfg.configDir}:/config"
       "/etc/localtime:/etc/localtime:ro"
       "/run/mysqld/mysqld.sock:/run/mysqld/mysqld.sock"
     ];
@@ -33,46 +35,6 @@
     #   "8124:8123"
     # ];
   };
-
-  # let
-  #   cgroupSubsystems = [
-  #     "blkio"
-  #     "cpu,cpuacct"
-  #     "cpuset"
-  #     "devices"
-  #     "memory"
-  #     "net_cls,net_prio"
-  #     "freezer"
-  #     "hugetlb"
-  #     "perf_event"
-  #     "pids"
-  #     "rdma"
-  #     "misc"
-  #   ];
-  # in
-  # fileSystems =
-  #   lib.listToAttrs (
-  #     map (name: {
-  #       name = "/sys/fs/cgroup/${name}";
-  #       value = {
-  #         device = "cgroup";
-  #         fsType = "cgroup";
-  #         options = [
-  #           name
-  #           "rw"
-  #         ];
-  #         neededForBoot = true;
-  #       };
-  #     }) cgroupSubsystems
-  #   )
-  #   // {
-  #     "/sys/fs/cgroup" = {
-  #       device = "cgroup";
-  #       fsType = "cgroup2";
-  #       options = [ "rw" ];
-  #       neededForBoot = true;
-  #     };
-  #   };
 
   systemd.services."podman-homeassistant" = {
     after = [ "mysql.service" ];
