@@ -55,7 +55,7 @@ in
         "SUPER,u,togglespecialworkspace"
         "SUPERSHIFT,u,movetoworkspace,special"
 
-        "SUPER,grave,hyprexpo:expo,toggle"
+        "SUPER,grave,overview:toggle,all"
 
         "SUPER,mouse_up,workspace,e+1"
         "SUPER,mouse_down,workspace,e-1"

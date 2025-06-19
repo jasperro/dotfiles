@@ -38,9 +38,6 @@ in
 {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oa: {
-      mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
-    });
     systemd.enable = true;
     settings = {
       primary = {
@@ -52,7 +49,7 @@ in
         modules-left = [
           "custom/oslogo"
           "hyprland/workspaces"
-          "wlr/taskbar"
+          # "wlr/taskbar"
         ];
         modules-center = [
           "cpu"
@@ -77,7 +74,7 @@ in
             <tt><small>{calendar}</small></tt>'';
         };
         cpu = {
-          format = "   {usage}%";
+          format = "󰍛   {usage}%";
         };
         "custom/gpu" = {
           interval = 5;
@@ -86,10 +83,10 @@ in
             text = "$(${cat} /sys/class/drm/card1/device/gpu_busy_percent)";
             tooltip = "GPU Usage";
           };
-          format = "󰒋  {}%";
+          format = "󰾲   {}%";
         };
         memory = {
-          format = "󰍛  {}%";
+          format = "   {}%";
           interval = 5;
         };
         "wlr/taskbar" = {
@@ -102,16 +99,16 @@ in
           sort-by-app-id = true;
         };
         pulseaudio = {
-          format = "{icon}  {volume}%";
-          format-muted = "   0%";
+          format = "{icon} {volume}%";
+          format-muted = "󰸈 0%";
           format-icons = {
             headphone = "󰋋";
             headset = "󰋎";
             portable = "";
             default = [
-              ""
-              ""
-              " "
+              "󰕿"
+              "󰖀"
+              "󰕾"
             ];
           };
           max-volume = 150;
@@ -143,16 +140,25 @@ in
           format-charging = "󰂄 {capacity}%";
           onclick = "";
         };
-        "wlr/workspaces" = {
+        "hyprland/workspaces" = {
           on-click = "activate";
+          format = "{icon}:{windows}";
+          format-window-separator = "";
+          workspace-taskbar = {
+            enable = true;
+            update-active-window = true;
+            # format = "{icon}{title:.16}";
+            format = "{icon}";
+            icon-size = 14;
+          };
         };
         "sway/window" = {
           max-length = 20;
         };
         network = {
           interval = 3;
-          format-wifi = "  {essid}";
-          format-ethernet = "󰈁 Connected";
+          format-wifi = "󰖩 {essid}";
+          format-ethernet = "󰈀  Connected";
           format-disconnected = "";
           tooltip-format = ''
             {ifname}
@@ -164,7 +170,7 @@ in
         "custom/oslogo" = {
           return-type = "json";
           exec = jsonOutput "oslogo" {
-            text = " ";
+            text = "";
             tooltip = ''$(${cat} /etc/os-release | ${grep} PRETTY_NAME | ${cut} -d '"' -f2)'';
           };
         };
@@ -178,7 +184,7 @@ in
           exec = jsonOutput "gamemode" {
             tooltip = "Gamemode is active";
           };
-          format = " ";
+          format = "󰺵 ";
         };
       };
 
@@ -189,12 +195,25 @@ in
     # x y z -> top, horizontal, bottom
     # w x y z -> top, right, bottom, left
     style =
-      with config.lib.stylix.colors.withHashtag;
-      # css
-      ''
+      let
+        borderRadius = "10px";
+      in
+      (
+        with config.lib.stylix.colors.withHashtag;
+        # css
+        ''
+          @define-color base00 ${base00}; @define-color base01 ${base01}; @define-color base02 ${base02}; @define-color base03 ${base03};
+          @define-color base04 ${base04}; @define-color base05 ${base05}; @define-color base06 ${base06}; @define-color base07 ${base07};
+
+          @define-color base08 ${base08}; @define-color base09 ${base09}; @define-color base0A ${base0A}; @define-color base0B ${base0B};
+          @define-color base0C ${base0C}; @define-color base0D ${base0D}; @define-color base0E ${base0E}; @define-color base0F ${base0F};
+        '')
+      + (with config.lib.stylix.colors; ''
         * {
+          all: unset;
           font-family: ${config.stylix.fonts.sansSerif.name}, ${config.stylix.fonts.monospace.name};
           font-size: 12pt;
+          font-weight: bold;
           padding: 0 8px;
         }
 
@@ -206,73 +225,75 @@ in
           margin-left: -15px;
         }
 
-        window#waybar.top {
-          padding: 0;
-          background-color: ${base00};
-          border-radius: 20px;
-        }
-
+        window#waybar.top,
         window#waybar.bottom {
-          background-color: ${base00};
-          border-radius: 20px;
+          padding: 0;
+          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.8);
         }
 
         window#waybar {
-          color: ${base05};
+          color: @base05;
         }
 
         #workspaces button {
-          border-radius: 20px;
-          background-color: ${base01};
-          color: ${base05};
+          border-radius: ${borderRadius};
+          background-color: @base01;
+          color: @base05;
           margin: 4px;
           padding: 2px;
         }
+
         #workspaces button.hidden {
-          background-color: ${base00};
-          color: ${base04};
-        }
-        #workspaces button.focused,
-        #workspaces button.active {
-          background-color: ${base0A};
-          color: ${base00};
+          background-color: @base00;
+          color: @base04;
         }
 
-        #clock {
-          background-color: ${base0C};
-          color: ${base00};
-          padding-left: 25px;
-          padding-right: 25px;
-          margin: 4px;
-          border-radius: 20px;
+        #workspaces button.focused,
+        #workspaces button.active {
+          background-color: @base0D;
+          color: @base00;
+        }
+
+        #workspaces .taskbar-window {
+          padding: 0 0 2px 0;
+          margin: 0;
+          border-top: 2px solid transparent;
+        }
+
+        #workspaces .taskbar-window.active {
+          border-color: @base00;
         }
 
         #taskbar button {
-          border-radius: 20px;
-          background-color: ${base01};
-          color: ${base05};
+          border-radius: ${borderRadius};
+          background-color: @base01;
+          color: @base05;
           margin: 4px;
           padding: 2px;
         }
 
         #taskbar button.active {
-          background-color: ${base0D};
-          color: ${base00};
+          background-color: @base0D;
+          color: @base00;
         }
 
         #custom-oslogo,
-        #custom-hostname {
-          background-color: ${base0C};
-          color: ${base00};
-          border-radius: 20px;
+        #custom-hostname,
+        #clock {
+          background-color: @base0C;
+          color: @base00;
+          border-radius: ${borderRadius};
           margin: 4px;
-          padding-left: 25px;
-          padding-right: 20px;
+          padding: 2px 16px;
+        }
+
+        #custom-oslogo {
+          padding-right: 22px;
         }
 
         #tray {
-          color: ${base05};
+          color: @base05;
         }
-      '';
+      '');
   };
 }

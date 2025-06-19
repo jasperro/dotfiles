@@ -48,9 +48,13 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+    package = null;
+    portalPackage = null;
 
     plugins = with pkgs; [
-      hyprlandPlugins.hyprexpo
+      # hyprlandPlugins.hyprexpo
+      hyprlandPlugins.hyprspace
     ];
 
     settings = {
@@ -105,6 +109,8 @@ in
           color_inactive = "0x66000000";
         };
       };
+
+      layerrule = "blur,waybar";
 
       animations = {
         enabled = true;

@@ -62,6 +62,12 @@
     };
 
     impurity.url = "github:outfoxxed/impurity.nix";
+
+    waybar = {
+      url = "github:pol-rivero/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
   };
 
   outputs =

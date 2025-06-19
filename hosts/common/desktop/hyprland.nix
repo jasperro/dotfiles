@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+  nixpkgs = {
+    overlays = [ inputs.waybar.overlays.default ];
+  };
   imports = [ ./default.nix ];
   services = {
     xserver = {

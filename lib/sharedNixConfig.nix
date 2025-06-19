@@ -3,11 +3,12 @@
   lib,
   inputs,
   config,
+  pkgs,
   ...
 }:
 {
   nix = {
-    # package = lib.mkForce pkgs.lix;
+    package = lib.mkForce pkgs.nix;
 
     settings = {
       # Enable flakes and new 'nix' command

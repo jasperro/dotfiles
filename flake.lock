@@ -547,7 +547,8 @@
         "nixvim": "nixvim",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "systems": "systems_4"
+        "systems": "systems_4",
+        "waybar": "waybar"
       }
     },
     "sops-nix": {
@@ -768,6 +769,29 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "waybar": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746193714,
+        "narHash": "sha256-Xkrd/Yvb7cYLzgyN7pk6sF5+7lf58GV4nEcMC4JMd6Y=",
+        "owner": "pol-rivero",
+        "repo": "Waybar",
+        "rev": "4ae2b6f1ba42271e8751ccd02d535fb0300d0bc6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pol-rivero",
+        "repo": "Waybar",
         "type": "github"
       }
     }
