@@ -150,6 +150,7 @@ in
           wofi = "${config.programs.wofi.package}/bin/wofi";
           hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
           cliphist = "${config.services.cliphist.package}/bin/cliphist";
+          flameshot = "${config.services.flameshot.package}/bin/flameshot";
 
           grimblast = "${pkgs.grimblast}/bin/grimblast";
           pactl = "${pkgs.pulseaudio}/bin/pactl";
@@ -198,6 +199,14 @@ in
           # Notification manager
           (lib.optionals config.services.mako.enable [
             "SUPER,w,exec,${makoctl} dismiss"
+          ])
+        ++
+          # Screenshots
+          (lib.optionals config.services.flameshot.enable [
+            # Full screen or window
+            "SUPER,Print,exec,${flameshot} launcher"
+            # Selection, draw mode
+            "CONTROL,Print,exec,${flameshot} gui"
           ])
         ++
           # Launcher
@@ -260,6 +269,15 @@ in
   };
 
   services.hyprpolkitagent.enable = true;
+
+  # services.flameshot = {
+  #   enable = true;
+  #   settings = {
+  #     General = {
+  #       showStartupLaunchMessage = false;
+  #     };
+  #   };
+  # };
 
   programs.hyprlock = {
     enable = true;

@@ -217,14 +217,6 @@ in
           padding: 0 8px;
         }
 
-        .modules-right {
-          margin-right: -15px;
-        }
-
-        .modules-left {
-          margin-left: -15px;
-        }
-
         window#waybar.top,
         window#waybar.bottom {
           padding: 0;
@@ -235,9 +227,28 @@ in
           color: @base05;
         }
 
+        .modules-right {
+          margin-right: -15px;
+        }
+
+        .modules-left {
+          margin-left: -15px;
+        }
+
+        tooltip {
+          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.6);
+          border-radius: 4px;
+          border: 2px solid @base05;
+        }
+
+        tooltip label {
+          color: @base05;
+        }
+
         #workspaces button {
+          border: 2px solid @base03;
           border-radius: ${borderRadius};
-          background-color: @base01;
+          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.4);
           color: @base05;
           margin: 4px;
           padding: 2px;
@@ -250,8 +261,7 @@ in
 
         #workspaces button.focused,
         #workspaces button.active {
-          background-color: @base0D;
-          color: @base00;
+          border-color: @base0D;
         }
 
         #workspaces .taskbar-window {
@@ -261,7 +271,7 @@ in
         }
 
         #workspaces .taskbar-window.active {
-          border-color: @base00;
+          border-color: @base05;
         }
 
         #taskbar button {
@@ -280,9 +290,10 @@ in
         #custom-oslogo,
         #custom-hostname,
         #clock {
-          background-color: @base0C;
-          color: @base00;
           border-radius: ${borderRadius};
+          border: 2px solid @base0C;
+          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.4);
+          color: @base05;
           margin: 4px;
           padding: 2px 16px;
         }
