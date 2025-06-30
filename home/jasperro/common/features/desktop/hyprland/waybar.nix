@@ -251,18 +251,26 @@ in
           color: @base05;
         }
 
-        #workspaces button {
-          border: 2px solid @base03;
+        #tray {
+          color: @base05;
+        }
+
+        #custom-oslogo,
+        #custom-hostname,
+        #workspaces button,
+        #clock {
+          border: 2px solid @base0C;
           border-radius: ${borderRadius};
           background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.4);
           color: @base05;
           margin: 4px;
-          padding: 2px;
+          padding: 2px 16px;
         }
 
+        #workspaces button,
         #workspaces button.hidden {
-          background-color: @base00;
-          color: @base04;
+          border-color: @base03;
+          padding: 2px;
         }
 
         #workspaces button.focused,
@@ -280,36 +288,8 @@ in
           border-color: @base05;
         }
 
-        #taskbar button {
-          border-radius: ${borderRadius};
-          background-color: @base01;
-          color: @base05;
-          margin: 4px;
-          padding: 2px;
-        }
-
-        #taskbar button.active {
-          background-color: @base0D;
-          color: @base00;
-        }
-
-        #custom-oslogo,
-        #custom-hostname,
-        #clock {
-          border-radius: ${borderRadius};
-          border: 2px solid @base0C;
-          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.4);
-          color: @base05;
-          margin: 4px;
-          padding: 2px 16px;
-        }
-
         #custom-oslogo {
           padding-right: 22px;
-        }
-
-        #tray {
-          color: @base05;
         }
       '');
   };
