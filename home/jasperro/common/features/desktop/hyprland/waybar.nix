@@ -142,11 +142,17 @@ in
         };
         "hyprland/workspaces" = {
           on-click = "activate";
-          format = "{icon}:{windows}";
+          format = "{name}{icon}{windows}";
+          # some hacky stuff to show : only when there are windows on workspace
+          format-icons = {
+            default = ":";
+            empty = "";
+          };
           format-window-separator = "";
           workspace-taskbar = {
             enable = true;
             update-active-window = true;
+            on-click-window = "hyprctl dispatch focuswindow address:{address}";
             # format = "{icon}{title:.16}";
             format = "{icon}";
             icon-size = 14;
@@ -236,7 +242,7 @@ in
         }
 
         tooltip {
-          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.6);
+          background-color: @base00;
           border-radius: 4px;
           border: 2px solid @base05;
         }

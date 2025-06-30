@@ -110,7 +110,10 @@ in
         };
       };
 
-      layerrule = "blur,waybar";
+      layerrule = [
+        "blur,waybar"
+        # "blurpopups,waybar"
+      ];
 
       animations = {
         enabled = true;

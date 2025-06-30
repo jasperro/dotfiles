@@ -782,15 +782,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1746193714,
-        "narHash": "sha256-Xkrd/Yvb7cYLzgyN7pk6sF5+7lf58GV4nEcMC4JMd6Y=",
-        "owner": "pol-rivero",
+        "lastModified": 1750870781,
+        "narHash": "sha256-uq+6gap9tRlbTwluLf8guwDZQR9PtabYOgwudnI5ly8=",
+        "owner": "jasperro",
         "repo": "Waybar",
-        "rev": "4ae2b6f1ba42271e8751ccd02d535fb0300d0bc6",
+        "rev": "1a7e6da3ac7f0f84a9368a332e5221f9cbbf19cf",
         "type": "github"
       },
       "original": {
-        "owner": "pol-rivero",
+        "owner": "jasperro",
+        "ref": "master",
         "repo": "Waybar",
         "type": "github"
       }
