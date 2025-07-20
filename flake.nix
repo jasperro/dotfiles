@@ -69,12 +69,17 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=refs/tags/v0.49.0";
+      url = "github:hyprwm/Hyprland/tags/v0.50.1";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprchroma = {
-      url = "github:AlexTroshkin/Hyprchroma";
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hypr-darkwindow = {
+      url = "github:micha4w/Hypr-DarkWindow";
       inputs.hyprland.follows = "hyprland";
     };
   };

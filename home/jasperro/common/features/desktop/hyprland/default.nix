@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -52,9 +53,9 @@ in
     package = null;
     portalPackage = null;
 
-    plugins = with pkgs; [
-      # hyprlandPlugins.hyprexpo
-      hyprlandPlugins.hyprspace
+    plugins = [
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
     ];
 
     settings = {

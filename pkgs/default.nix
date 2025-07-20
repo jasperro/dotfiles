@@ -9,5 +9,4 @@
   # example = prev.example.overrideAttrs (oldAttrs: rec {
   # ...
   # });
-  hyprslurp = pkgs.callPackage ./hyprslurp.nix { };
 }
