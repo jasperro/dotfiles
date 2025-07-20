@@ -47,34 +47,36 @@ in
         position = "top";
         output = builtins.map (m: m.name) (builtins.filter (m: !m.noBar) config.monitors);
         modules-left = [
-          "custom/oslogo"
+          # "custom/oslogo"
           "hyprland/workspaces"
-          # "wlr/taskbar"
         ];
         modules-center = [
+          "clock"
+        ];
+        modules-right = [
+          "network"
+          "battery"
+
+          "tray"
+
           "cpu"
           "custom/gpu"
           "memory"
-          "clock"
+
           "pulseaudio"
-        ];
-        modules-right = [
-          "custom/gamemode"
-          "network"
-          "battery"
-          "tray"
+          # "custom/hostname"
           "idle_inhibitor"
-          "custom/hostname"
+          "custom/gamemode"
         ];
 
         clock = {
-          format = "{:%d/%m %H:%M}";
+          format = "{:%d-%m | %H:%M}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
         };
         cpu = {
-          format = "󰍛   {usage}%";
+          format = "󰍛  {usage}%";
         };
         "custom/gpu" = {
           interval = 5;
@@ -226,7 +228,6 @@ in
         window#waybar.top,
         window#waybar.bottom {
           padding: 0;
-          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.8);
         }
 
         window#waybar {
@@ -255,27 +256,24 @@ in
           color: @base05;
         }
 
-        #custom-oslogo,
-        #custom-hostname,
-        #workspaces button,
-        #clock {
-          border: 2px solid @base0C;
+        .module:not(#workspaces),
+        #workspaces button {
           border-radius: ${borderRadius};
-          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.4);
+          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.9);
+          box-shadow: 0 1px 3px rgba(200,200,200,0.12), 0 1px 2px rgba(200,200,200,0.24);
           color: @base05;
           margin: 4px;
           padding: 2px 16px;
         }
 
-        #workspaces button,
-        #workspaces button.hidden {
-          border-color: @base03;
+        #workspaces button {
           padding: 2px;
         }
 
         #workspaces button.focused,
         #workspaces button.active {
-          border-color: @base0D;
+          background-color: @base0D;
+          color: @base00;
         }
 
         #workspaces .taskbar-window {
@@ -285,10 +283,10 @@ in
         }
 
         #workspaces .taskbar-window.active {
-          border-color: @base05;
+          border-color: @base00;
         }
 
-        #custom-oslogo {
+        #custom-oslogo.module {
           padding-right: 22px;
         }
       '');

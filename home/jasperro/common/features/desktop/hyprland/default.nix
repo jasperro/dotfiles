@@ -110,11 +110,6 @@ in
         };
       };
 
-      layerrule = [
-        "blur,waybar"
-        # "blurpopups,waybar"
-      ];
-
       animations = {
         enabled = true;
         bezier = [

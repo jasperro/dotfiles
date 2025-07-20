@@ -1,6 +1,5 @@
 {
   imports = [
-    ./minecraft
     ../../common/services/podman.nix
   ];
   systemd.services.disable-usb-wakeup = {

@@ -6,7 +6,7 @@
     # general desktop apps
     vscode
     firefox-wayland
-    gimp
+    gimp3
     inkscape
     krita
     qalculate-qt
@@ -49,5 +49,6 @@
     })
     steam
     prismlauncher
+    heroic
   ];
 }

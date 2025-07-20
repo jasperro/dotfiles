@@ -18,16 +18,16 @@
     #firefox-devedition-bin
     arduino
     alacritty
-    thunderbird
-    tdesktop
-    teamspeak_client
-    #teams
-    sidequest
+    # thunderbird
+    # tdesktop
+    # teamspeak_client
+    # teams
+    # sidequest
     obsidian
-    wireshark
-    gimp
-    discord
-    blender
+    # wireshark
+    gimp3
+    # discord
+    # blender
     inkscape
     qalculate-qt
 
@@ -75,12 +75,13 @@
       ];
     })
     steam
+    heroic
     superTux
     superTuxKart
     prismlauncher
 
     # LaTeX
-    texlive.combined.scheme-medium
+    # texlive.combined.scheme-medium
 
     filezilla
     aseprite

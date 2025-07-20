@@ -5,8 +5,8 @@
 {
   home-assistant = {
     imageName = "ghcr.io/home-assistant/home-assistant";
-    imageDigest = "sha256:857745bd01589750174e60f2c477a65da1169c4f1c098a58db792baae7f7ada6";
-    hash = "sha256-KN54cIvKyGbwwcmAgODYlULoyJYuoopBFDjGzz5t1S0=";
+    imageDigest = "sha256:90e105ff097717556df4e87da3b825af85b181c763ca2b8d840aeae5d34a083c";
+    hash = "sha256-Q5krvVAHMVVmc4MAPcJ224GUCXZLFYPXStKBAiWorSc=";
     finalImageName = "ghcr.io/home-assistant/home-assistant";
     finalImageTag = "latest";
   };

@@ -9,7 +9,7 @@
     arduino
     alacritty
     #teams
-    gimp
+    gimp3
     discord
     inkscape
     qalculate-qt

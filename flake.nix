@@ -39,8 +39,7 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     sops-nix = {
@@ -67,6 +66,16 @@
       url = "github:jasperro/Waybar/master";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland?ref=refs/tags/v0.49.0";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprchroma = {
+      url = "github:AlexTroshkin/Hyprchroma";
+      inputs.hyprland.follows = "hyprland";
     };
   };
 

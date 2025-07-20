@@ -6,7 +6,7 @@
     # general desktop apps
     firefox-wayland
     #firefox-devedition-bin
-    gimp
+    gimp3
     inkscape
     qalculate-qt
     kdePackages.ark
