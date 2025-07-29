@@ -8,6 +8,7 @@
     ./homeassistant.nix
     ./esphome.nix
     ./appdaemon.nix
+    # ./ledfx.nix
     ./grott
   ];
 }
