@@ -6,14 +6,19 @@
       url = "path:flake.systems.nix";
       flake = false;
     };
-    flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
+
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
+    flake-compat.url = "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
     # nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
@@ -69,7 +74,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/tags/v0.50.1";
+      url = "github:hyprwm/Hyprland";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -88,6 +93,7 @@
     {
       self,
       systems,
+      determinate,
       nixpkgs,
       # nixpkgs-stable,
       # nixpkgs-unstable-small,
@@ -178,6 +184,7 @@
           value = lib.nixosSystem {
             specialArgs = { inherit inputs outputs; };
             modules = [
+              determinate.nixosModules.default
               {
                 # nixpkgs.buildPlatform = system;
                 nixpkgs.hostPlatform = system;

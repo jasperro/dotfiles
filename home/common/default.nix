@@ -6,14 +6,16 @@
   ...
 }:
 {
-  imports = [
-    ../../lib/sharedNixConfig.nix
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+  imports = (builtins.attrValues outputs.homeManagerModules);
 
   home.homeDirectory = lib.mkDefault "/home/${config.home.username}";
 
   programs.home-manager.enable = true;
   programs.lesspipe.enable = true;
+
+  # Disable nix configuration in home-manager, as we use NixOS's nix config (even when using standalone hm).
+  # Override this for non-nixos configurations.
+  nix.enable = lib.mkDefault false;
 
   services.gpg-agent = {
     enable = true;

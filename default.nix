@@ -14,4 +14,4 @@ let
     }
   );
 in
-flake.shellNix
+flake.defaultNix

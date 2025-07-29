@@ -1,15 +1,13 @@
 # Share common settings between home-manager and nixos for nix
+# Currently all home-manager configurations run on nixos, so this is now unused in hm.
 {
   lib,
   inputs,
   config,
-  pkgs,
   ...
 }:
 {
   nix = {
-    package = lib.mkForce pkgs.nix;
-
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = [
@@ -19,6 +17,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = lib.mkDefault true;
       warn-dirty = false;
+      lazy-trees = true;
 
       trusted-users = [
         "root"
