@@ -5,9 +5,7 @@
   inputs,
   ...
 }:
-let
-  inherit (config.lib.stylix) colors;
-in
+with config.lib.stylix.colors;
 {
   imports = [
     ../common
@@ -28,6 +26,7 @@ in
   home.packages = with pkgs; [
     grimblast
     hyprsunset
+    inputs.wofi-power-menu.packages.${pkgs.system}.default
   ];
 
   xdg.portal = {
@@ -72,12 +71,12 @@ in
         gaps_in = 5;
         gaps_out = 5;
         border_size = 2;
-        "col.active_border" = lib.rgb colors.base0C;
-        "col.inactive_border" = lib.rgb colors.base02;
+        "col.active_border" = "rgb(${base0C})";
+        "col.inactive_border" = "rgb(${base02})";
       };
       group = {
-        "col.border_active" = lib.rgb colors.base0B;
-        "col.border_inactive" = lib.rgb colors.base04;
+        "col.border_active" = "rgb(${base0B})";
+        "col.border_inactive" = "rgb(${base04})";
       };
       input = {
         kb_layout = "eu";
@@ -98,7 +97,7 @@ in
         blur = {
           enabled = true;
           size = 5;
-          passes = 3;
+          passes = 2;
           new_optimizations = true;
           ignore_opacity = true;
         };
@@ -134,10 +133,40 @@ in
         ];
       };
 
-      windowrulev2 = [
-        "bordercolor ${lib.rgb colors.base05},fullscreen:1"
+      "darkwindow:shader[blish]" = {
+        from = "chromakey";
+        args = "bkg=[0.0 0.0 0.0] similarity=0.0 amount=0.0 targetOpacity=0.0";
+      };
+
+      layerrule = [
+        "blur, waybar"
+        "ignorezero, waybar"
+        "blur, wofi"
+        "ignorezero, wofi"
+      ];
+
+      windowrule = [
+        "bordercolor rgb(${base05}),fullscreen:1"
         "float,class:org.pulseaudio.pavucontrol"
         "size 800 1000,class:org.pulseaudio.pavucontrol"
+
+        "workspace 9 silent,title:^(Blish HUD)$"
+        "workspace 9 silent,title:(Guild Wars 2)"
+        "float,title:^(Blish HUD)$"
+        "size 100% 100%,title:^(Blish HUD)$"
+        "pin,title:^(Blish HUD)$"
+        "center,title:^(Blish HUD)$"
+        "nofocus,title:^(Blish HUD)$"
+        "noinitialfocus,title:^(Blish HUD)$"
+        "noborder,title:^(Blish HUD)$"
+        "noblur,title:^(Blish HUD)$"
+        "noshadow,title:^(Blish HUD)$"
+        # "suppressevent activate activatefocus,title:^(Blish HUD)$"
+
+        # "nofocus,title:(Guild Wars 2)"
+
+        # "plugin:shadewindow blish,title:^(Blish HUD)$"
+        "noblur,title:(Guild Wars 2)"
       ];
 
       # Bindings that require external apps, rest in keybinds.nix
@@ -153,6 +182,9 @@ in
 
           grimblast = "${pkgs.grimblast}/bin/grimblast";
           pactl = "${pkgs.pulseaudio}/bin/pactl";
+          wofi-power-menu = "${
+            inputs.wofi-power-menu.packages.${pkgs.system}.default
+          }/bin/wofi-power-menu --disable hibernate";
 
           gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
           xdg-mime = "${pkgs.xdg-utils}/bin/xdg-mime";
@@ -177,6 +209,7 @@ in
           "CONTROL,Print,exec,${grimblast} --notify copy screen"
           "SUPER,Print,exec,${grimblast} --notify copy window"
           "ALT,Print,exec,${grimblast} --notify copy area"
+          "ALT,o,shadeactivewindow,blish"
         ]
         ++
           # Media control
@@ -213,6 +246,7 @@ in
             "SUPER,x,exec,${wofi} -S drun"
             "SUPER,d,exec,${wofi} -S run"
             "SUPER,v,exec,${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy"
+            "SUPERSHIFT,e,exec,${wofi-power-menu}"
           ]);
 
       monitor = map (
@@ -303,9 +337,9 @@ in
           monitor = "";
           dots_center = true;
           fade_on_empty = false;
-          font_color = lib.rgb colors.base0F;
-          inner_color = lib.rgb colors.base00;
-          outer_color = lib.rgb colors.base0C;
+          font_color = "rgb(${base0F})";
+          inner_color = "rgb(${base00})";
+          outer_color = "rgb(${base0C})";
           outline_thickness = 5;
           placeholder_text = "Password...";
           shadow_passes = 2;

@@ -87,6 +87,12 @@
       url = "github:micha4w/Hypr-DarkWindow";
       inputs.hyprland.follows = "hyprland";
     };
+
+    wofi-power-menu = {
+      url = "github:szaffarano/wofi-power-menu";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs =

@@ -24,6 +24,8 @@ with config.lib.stylix.colors.withHashtag;
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       window_padding_width = 15;
+      cursor_trail = 1;
+      background_opacity = 0.9;
       foreground = "${base05}";
       background = "${base00}";
       selection_background = "${base05}";

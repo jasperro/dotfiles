@@ -1,5 +1,3 @@
 {
-  # color utilities
-  rgb = color: "rgb(${color})";
-  rgba = color: alpha: "rgba(${color}${alpha})";
+  # File for global lib/utility functions
 }

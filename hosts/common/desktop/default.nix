@@ -9,6 +9,9 @@
     jack.enable = true;
   };
 
+  # store amount of channels, etc (2ch or 6ch depending on surround/headphones)
+  hardware.alsa.enablePersistence = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -20,23 +23,30 @@
       noto-fonts-emoji
       noto-fonts-color-emoji
       noto-fonts-emoji-blob-bin
+
       liberation_ttf
-      iosevka
       dejavu_fonts
+
       fira-code
       fira-code-symbols
       fira-mono
       fira
+
+      adwaita-fonts
+
       ubuntu_font_family
+
       source-code-pro
       source-serif-pro
       source-sans-pro
+
       roboto
       roboto-mono
+
       jetbrains-mono
-      terminus_font
-      nerd-fonts.fira-code
-      nerd-fonts.jetbrains-mono
+      iosevka
+
+      nerd-fonts.symbols-only
     ];
     fontconfig = {
       antialias = true;
@@ -44,7 +54,10 @@
       hinting.enable = true;
       hinting.autohint = true;
       defaultFonts = {
-        monospace = [ "Source Code Pro" ];
+        monospace = [
+          "Source Code Pro"
+          "Symbols Nerd Font Mono"
+        ];
         sansSerif = [ "Source Sans Pro" ];
         serif = [ "Source Serif Pro" ];
         emoji = [

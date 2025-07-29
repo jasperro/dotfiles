@@ -41,6 +41,7 @@ in
     systemd.enable = true;
     settings = {
       primary = {
+        margin = "0 5";
         mode = "dock";
         layer = "top";
         height = 40;
@@ -85,10 +86,10 @@ in
             text = "$(${cat} /sys/class/drm/card1/device/gpu_busy_percent)";
             tooltip = "GPU Usage";
           };
-          format = "󰾲   {}%";
+          format = "󰾲  {}%";
         };
         memory = {
-          format = "   {}%";
+          format = "  {}%";
           interval = 5;
         };
         "wlr/taskbar" = {
@@ -102,15 +103,15 @@ in
         };
         pulseaudio = {
           format = "{icon} {volume}%";
-          format-muted = "󰸈 0%";
+          format-muted = "󰸈 0%";
           format-icons = {
             headphone = "󰋋";
             headset = "󰋎";
             portable = "";
             default = [
-              "󰕿"
-              "󰖀"
-              "󰕾"
+              "󰕿 "
+              "󰖀 "
+              "󰕾 "
             ];
           };
           max-volume = 150;
@@ -225,13 +226,12 @@ in
           padding: 0 8px;
         }
 
-        window#waybar.top,
-        window#waybar.bottom {
-          padding: 0;
-        }
-
         window#waybar {
+          padding: 0;
           color: @base05;
+          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.9);
+          border-radius: 0 0 ${borderRadius} ${borderRadius};
+          transition-property: background-color;
         }
 
         .modules-right {
@@ -259,8 +259,6 @@ in
         .module:not(#workspaces),
         #workspaces button {
           border-radius: ${borderRadius};
-          background-color: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.9);
-          box-shadow: 0 1px 3px rgba(200,200,200,0.12), 0 1px 2px rgba(200,200,200,0.24);
           color: @base05;
           margin: 4px;
           padding: 2px 16px;

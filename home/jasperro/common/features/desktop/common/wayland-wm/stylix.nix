@@ -15,18 +15,18 @@
     ) "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     fonts = {
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.source-serif;
+        name = "Source Serif";
       };
 
       sansSerif = {
-        package = pkgs.fira;
-        name = "Fira Sans";
+        package = pkgs.adwaita-fonts;
+        name = "Adwaita Sans";
       };
 
       monospace = {
-        package = pkgs.nerd-fonts.fira-code;
-        name = "FiraCode Nerd Font";
+        package = pkgs.iosevka;
+        name = "Iosevka";
       };
 
       emoji = {
