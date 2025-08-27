@@ -43,7 +43,6 @@
 
     # multimedia
     pavucontrol
-    audacity
     vlc
 
     # games
