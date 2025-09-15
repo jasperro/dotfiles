@@ -53,7 +53,8 @@ with config.lib.stylix.colors;
     portalPackage = null;
 
     plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      # Temporarily disabled, broken with hyprland 0.51
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
     ];
 
