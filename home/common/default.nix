@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = (builtins.attrValues outputs.homeManagerModules);
+  imports = (builtins.attrValues outputs.homeModules);
 
   home.homeDirectory = lib.mkDefault "/home/${config.home.username}";
 

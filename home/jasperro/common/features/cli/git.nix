@@ -2,7 +2,19 @@
 {
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
+      forwardAgent = false;
+      addKeysToAgent = "no";
+      compression = false;
+      serverAliveInterval = 0;
+      serverAliveCountMax = 3;
+      hashKnownHosts = false;
+      controlMaster = "no";
+      controlPath = "~/.ssh/master-%r@%n:%p";
+      controlPersist = "no";
+    };
   };
   # Add github to known ssh hosts
   home.file.".ssh/known_host_github" = {

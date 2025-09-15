@@ -2,6 +2,7 @@
   config,
   impurity,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -38,7 +39,11 @@ in
     dataDir = dataDir;
     enable = true;
     settings = {
-      homeassistant = true;
+      homeassistant = {
+        enabled = true;
+        experimental_event_entities = true;
+        legacy_action_sensor = true;
+      };
       permit_join = false;
       serial = {
         adapter = "zstack";
