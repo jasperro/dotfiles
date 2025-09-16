@@ -13,6 +13,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "build-time-fetch-tree"
       ];
       # Deduplicate and optimize nix store
       auto-optimise-store = lib.mkDefault true;

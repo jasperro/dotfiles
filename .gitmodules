@@ -1,0 +1,4 @@
+[submodule "secrets"]
+	path = secrets
+	url = git@github.com:jasperro/dotfiles-secrets.git
+	ignore = dirty

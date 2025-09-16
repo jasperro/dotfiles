@@ -6,7 +6,6 @@ in
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-    inherit port;
     dataDir = "/var/lib/mariadb";
     ensureDatabases = [ "homeassistant" ];
     ensureUsers = [

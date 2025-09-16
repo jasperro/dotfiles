@@ -2,7 +2,7 @@
   config,
   impurity,
   pkgs,
-  lib,
+  inputs,
   ...
 }:
 let
@@ -19,7 +19,7 @@ in
   ];
   sops.secrets = {
     zigbee2mqtt = {
-      sopsFile = ../../../secrets.yaml;
+      sopsFile = "${inputs.secrets}/taart.yaml";
       path = "${dataDir}/secret.yaml";
       mode = "0440";
       owner = config.users.users.zigbee2mqtt.name;

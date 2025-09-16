@@ -1,8 +1,8 @@
-{ config, ... }:
+{ config, inputs, ... }:
 {
   sops.secrets = {
     "albering.nl-acme-credentials" = {
-      sopsFile = ../secrets.yaml;
+      sopsFile = "${inputs.secrets}/taart.yaml";
       path = "/var/src/secrets/albering.nl-acme-credentials";
       mode = "0440";
       owner = config.users.users.acme.name;

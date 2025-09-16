@@ -1,3 +1,6 @@
+let
+  port = 6052;
+in
 {
   imports = [ ../nginx.nix ];
   services.esphome = {
@@ -5,8 +8,8 @@
     # stateDir = "/var/lib/esphome";
     enable = true;
     # enableUnixSocket = true;
-    # port = 6052;
-    openFirewall = true;
+    inherit port;
+    openFirewall = false;
   };
 
   # users.users.nginx.extraGroups = [ "esphome" ];

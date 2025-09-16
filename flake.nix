@@ -2,9 +2,17 @@
   description = "Jasperro's NixOS Config";
 
   inputs = {
+    self.submodules = true;
+
     systems = {
-      url = "path:flake.systems.nix";
+      url = "./flake.systems.nix";
       flake = false;
+    };
+
+    secrets = {
+      url = "./secrets";
+      flake = false;
+      buildTime = true;
     };
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";

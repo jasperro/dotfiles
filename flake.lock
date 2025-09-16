@@ -1197,6 +1197,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "systems": "systems_6",
@@ -1224,6 +1225,19 @@
         "repo": "rust-overlay",
         "type": "github"
       }
+    },
+    "secrets": {
+      "buildTime": true,
+      "flake": false,
+      "locked": {
+        "path": "./secrets",
+        "type": "path"
+      },
+      "original": {
+        "path": "./secrets",
+        "type": "path"
+      },
+      "parent": []
     },
     "sops-nix": {
       "inputs": {
@@ -1359,11 +1373,11 @@
     "systems_6": {
       "flake": false,
       "locked": {
-        "path": "flake.systems.nix",
+        "path": "./flake.systems.nix",
         "type": "path"
       },
       "original": {
-        "path": "flake.systems.nix",
+        "path": "./flake.systems.nix",
         "type": "path"
       },
       "parent": []

@@ -1,16 +1,20 @@
-{ config, ... }:
+{ config, inputs, ... }:
+let
+  port = 1883;
+in
 {
   networking.firewall.allowedTCPPorts = [
-    1883
+    port
   ];
   networking.firewall.allowedUDPPorts = [
-    1883
+    port
   ];
   sops.secrets = {
     "mqtt/password" = {
-      sopsFile = ../../secrets.yaml;
+      sopsFile = "${inputs.secrets}/taart.yaml";
       owner = "mosquitto";
       group = "mosquitto";
+      mode = "0440";
     };
   };
   services.mosquitto = {
@@ -18,7 +22,7 @@
     listeners = [
       {
         address = "0.0.0.0";
-        port = 1883;
+        port = port;
         users.mosquitto = {
           acl = [ "readwrite #" ];
           passwordFile = config.sops.secrets."mqtt/password".path;

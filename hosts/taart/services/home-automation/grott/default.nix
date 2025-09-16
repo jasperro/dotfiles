@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  port = 5279;
+in
 {
   imports = [ ../mosquitto.nix ];
   sops.templates."grott-env" = {
@@ -7,10 +10,10 @@
     '';
   };
   networking.firewall.allowedTCPPorts = [
-    5279
+    port
   ];
   networking.firewall.allowedUDPPorts = [
-    5279
+    port
   ];
 
   virtualisation.oci-containers.containers.grott = {
@@ -19,7 +22,7 @@
     autoStart = true;
 
     ports = [
-      "5279:5279"
+      "${toString port}:5279"
     ];
 
     # Improve this if it gives problems

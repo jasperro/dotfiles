@@ -1,9 +1,17 @@
-{ config, oci-images, ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 5050 ];
+  config,
+  oci-images,
+  inputs,
+  ...
+}:
+let
+  port = 5050;
+in
+{
   sops.secrets = {
     "appdaemon-environmentFile" = {
-      sopsFile = ../../secrets.yaml;
+      sopsFile = "${inputs.secrets}/taart.yaml";
+      mode = "0440";
     };
   };
   virtualisation.oci-containers.containers.appdaemon = {
@@ -11,7 +19,7 @@
     autoStart = true;
 
     ports = [
-      "5050:5050" # Exposes AppDaemon dashboard on host:5050
+      "${toString port}:5050"
     ];
 
     volumes = [

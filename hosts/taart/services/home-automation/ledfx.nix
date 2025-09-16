@@ -2,7 +2,9 @@
   pkgs,
   ...
 }:
-
+let
+  port = 8888;
+in
 {
   systemd.services.ledfx = {
     description = "LedFX Audio Reactive LED Controller";
@@ -11,7 +13,7 @@
     path = [ pkgs.ledfx ];
 
     serviceConfig = {
-      ExecStart = "${pkgs.ledfx}/bin/ledfx --host 0.0.0.0 --port 8888";
+      ExecStart = "${pkgs.ledfx}/bin/ledfx --host 0.0.0.0 --port ${toString port}";
       DynamicUser = true;
       User = "ledfx";
       Group = "ledfx";
@@ -58,6 +60,5 @@
     };
   };
 
-  # Open port 8888 in the firewall
-  networking.firewall.allowedTCPPorts = [ 8888 ];
+  networking.firewall.allowedTCPPorts = [ port ];
 }

@@ -5,13 +5,7 @@ keys:
     - &waffie age147vmrylugzucucs25y9v7fu55xldvfdc8dywdun42vtpk5y0lc0qfpm73y
 
 creation_rules:
-  - path_regex: hosts/taart/secrets.ya?ml$
+  - path_regex: secrets/taart.ya?ml$
     key_groups:
       - age:
           - *taart
-  - path_regex: hosts/common/secrets.ya?ml$
-    key_groups:
-      - age:
-          - *taart
-          - *superlaptop
-          - *waffie

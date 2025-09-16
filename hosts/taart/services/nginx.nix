@@ -12,7 +12,7 @@
     enable = true;
     recommendedTlsSettings = true;
     recommendedGzipSettings = true;
-    recommendedProxySettings = true;
+    # recommendedProxySettings = true;
     recommendedOptimisation = true;
     # defaultHTTPListenPort = 80;
     # defaultSSLListenPort = 443;
