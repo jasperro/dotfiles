@@ -9,6 +9,7 @@
     ../database/grafana.nix
     ./mosquitto.nix
     ./zigbee2mqtt
+    ./hame.nix
     ./homeassistant.nix
     ./esphome.nix
     ./appdaemon.nix

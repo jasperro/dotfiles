@@ -16,6 +16,12 @@ in
       group = "mosquitto";
       mode = "0440";
     };
+    "mqtt/username" = {
+      sopsFile = "${inputs.secrets}/taart.yaml";
+      owner = "mosquitto";
+      group = "mosquitto";
+      mode = "0440";
+    };
   };
   services.mosquitto = {
     enable = true;

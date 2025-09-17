@@ -8,6 +8,7 @@ in
     content = ''
       gmqttpassword=${config.sops.placeholder."mqtt/password"}
     '';
+    mode = "0440";
   };
   networking.firewall.allowedTCPPorts = [
     port
