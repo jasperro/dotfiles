@@ -172,7 +172,10 @@
           system = "x86_64-linux";
         };
         koekie = {
-          users = [ "wiktorine" ];
+          users = [
+            "wiktorine"
+            "jasperro"
+          ];
           system = "x86_64-linux";
         };
         tinkpet = {

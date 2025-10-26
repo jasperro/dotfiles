@@ -163,6 +163,16 @@
         }
       ];
     };
+    jasperro = {
+      uid = 1002;
+      initialPassword = "correcthorsebatterystaple";
+      isNormalUser = true;
+      group = "wiktorine";
+      extraGroups = [
+        "wheel"
+      ];
+      shell = pkgs.zsh;
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

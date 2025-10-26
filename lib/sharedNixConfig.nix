@@ -19,6 +19,7 @@
       auto-optimise-store = lib.mkDefault true;
       warn-dirty = false;
       lazy-trees = true;
+      eval-cores = 0;
 
       trusted-users = [
         "root"

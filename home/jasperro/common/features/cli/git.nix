@@ -3,6 +3,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    includes = [ "~/.ssh/extra_config" ];
     matchBlocks."*" = {
       userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
       forwardAgent = false;
@@ -26,9 +27,11 @@
 
   programs.git = {
     enable = true;
-    userName = "Jasper Albering";
-    userEmail = "jasper@albering.nl";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Jasper Albering";
+        email = "jasper@albering.nl";
+      };
       pull.rebase = true;
       checkout.defaultremote = "origin";
       init.defaultbranch = "main";

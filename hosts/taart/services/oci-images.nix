@@ -3,6 +3,7 @@
   nix run nixpkgs\#nix-prefetch-docker -- --arch arm64 acockburn/appdaemon latest
   nix run nixpkgs\#nix-prefetch-docker -- --arch arm64 ghcr.io/tomquist/hm2mqtt latest
   nix run nixpkgs\#nix-prefetch-docker -- --arch arm64 ghcr.io/tomquist/hame-relay latest
+  nix run nixpkgs\#nix-prefetch-docker -- --arch arm64 ghcr.io/esphome/esphome latest
 */
 {
   home-assistant = {
@@ -31,6 +32,13 @@
     imageDigest = "sha256:47742c599b57b11cd90cc29d50b8f1537c39c246cd418dc2d05eee32211ea163";
     hash = "sha256-oZHk5YIbimtxdEr77Lp49T2unDg7EXB/eaJcZ/kLSbM=";
     finalImageName = "ghcr.io/tomquist/hame-relay";
+    finalImageTag = "latest";
+  };
+  esphome = {
+    imageName = "ghcr.io/esphome/esphome";
+    imageDigest = "sha256:67f4df2206af244e79c6c624ea7ef27be572f83af981657b1ac1ffa0d7b8487a";
+    hash = "sha256-E69jpsIC0um+HUwjluJxIkUdoXeIurinhzruZtTgghA=";
+    finalImageName = "ghcr.io/esphome/esphome";
     finalImageTag = "latest";
   };
 }

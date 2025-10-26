@@ -1,15 +1,30 @@
 let
   port = 6052;
 in
+{ oci-images, ... }:
 {
   imports = [ ../nginx.nix ];
-  services.esphome = {
-    # Not a setting, id systemd DynamicUser so in /var/lib/private/esphome
-    # stateDir = "/var/lib/esphome";
-    enable = true;
-    # enableUnixSocket = true;
-    inherit port;
-    openFirewall = false;
+  # services.esphome = {
+  #   # Not a setting, id systemd DynamicUser so in /var/lib/private/esphome
+  #   # stateDir = "/var/lib/esphome";
+  #   enable = true;
+  #   # enableUnixSocket = true;
+  #   inherit port;
+  #   openFirewall = false;
+  # };
+
+  virtualisation.oci-containers.containers.esphome = {
+    inherit (oci-images.esphome) image imageFile;
+    autoStart = true;
+    ports = [
+      "${toString port}:6052"
+    ];
+    volumes = [
+      "/var/lib/esphome:/config"
+    ];
+    extraOptions = [
+      "--network=host"
+    ];
   };
 
   # users.users.nginx.extraGroups = [ "esphome" ];

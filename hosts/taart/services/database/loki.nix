@@ -2,9 +2,10 @@ let
   port = 3100;
 in
 {
-  services.loki = {
+  services.loki = rec {
     enable = true;
     configuration = {
+      auth_enabled = false;
       server = {
         http_listen_port = port;
       };
@@ -15,8 +16,13 @@ in
             kvstore = {
               store = "inmemory";
             };
+            replication_factor = 1;
           };
         };
+        chunk_idle_period = "1h";
+        max_chunk_age = "1h";
+        chunk_target_size = 999999;
+        chunk_retain_period = "30s";
       };
       schema_config = {
         configs = [
@@ -33,11 +39,30 @@ in
         ];
       };
       storage_config = {
-        boltdb = {
-          directory = "/var/lib/loki/index";
+        tsdb_shipper = {
+          active_index_directory = "${dataDir}/tsdb-index";
+          cache_location = "${dataDir}/tsdb-cache";
         };
         filesystem = {
-          directory = "/var/lib/loki/chunks";
+          directory = "${dataDir}/chunks";
+        };
+      };
+      limits_config = {
+        reject_old_samples = true;
+        reject_old_samples_max_age = "168h";
+      };
+
+      table_manager = {
+        retention_deletes_enabled = false;
+        retention_period = "0s";
+      };
+
+      compactor = {
+        working_directory = dataDir;
+        compactor_ring = {
+          kvstore = {
+            store = "inmemory";
+          };
         };
       };
     };

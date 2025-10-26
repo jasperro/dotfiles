@@ -72,7 +72,7 @@ in
                 password = "$__file{${config.sops.secrets."postgresql/roles/grafanareader/password".path}}";
               };
               jsonData = {
-                database = "homeassistant";
+                database = "ltss";
                 sslmode = "disable";
                 maxOpenConns = 100;
                 maxIdleConns = 100;

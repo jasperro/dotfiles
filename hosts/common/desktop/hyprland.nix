@@ -49,4 +49,8 @@
   programs.hyprlock.enable = true;
 
   networking.networkmanager.enable = true;
+
+  # Fix broken file associations for dolphin
+  environment.etc."xdg/menus/applications.menu".source =
+    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 }

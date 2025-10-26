@@ -34,8 +34,10 @@ in
         config.sops.placeholder."postgresql/roles/grafanareader/password"
       }';
       GRANT ALL PRIVILEGES ON DATABASE homeassistant TO hass;
+      GRANT ALL PRIVILEGES ON DATABASE ltss TO hass;
       \c homeassistant;
-      GRANT ALL PRIVILEGES ON SCHEMA public TO hass;
+      GRANT SELECT ON ALL TABLES IN SCHEMA public TO grafanareader;
+      \c ltss;
       GRANT SELECT ON ALL TABLES IN SCHEMA public TO grafanareader;
     '';
   };
@@ -50,7 +52,10 @@ in
         timescaledb
       ];
     settings.shared_preload_libraries = [ "timescaledb" ];
-    ensureDatabases = [ "homeassistant" ];
+    ensureDatabases = [
+      "homeassistant"
+      "ltss"
+    ];
     authentication = pkgs.lib.mkOverride 10 ''
       #type   database        DBuser    origin-address       auth-method
       local   all             all                            trust

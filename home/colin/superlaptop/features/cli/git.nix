@@ -27,9 +27,11 @@
 
   programs.git = {
     enable = true;
-    userName = "Colin Albering";
-    userEmail = "colin@albering.nl";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Colin Albering";
+        email = "colin@albering.nl";
+      };
       pull.rebase = true;
       checkout.defaultremote = "origin";
       init.defaultbranch = "main";
