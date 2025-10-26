@@ -6,7 +6,7 @@
 {
   imports = [
     ./sops.nix
-    ../../../lib/sharedNixConfig.nix
+    ./nix.nix
   ];
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
@@ -41,26 +41,11 @@
 
   programs.zsh.enable = true;
 
-  nix = {
-    optimise = {
-      automatic = true;
-    };
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-  };
-
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
+      outputs.overlays.default
     ];
 
-    # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
     };

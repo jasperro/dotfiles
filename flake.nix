@@ -1,13 +1,8 @@
 {
-  description = "Jasperro's NixOS Config";
+  description = "Jasperro's Dotfiles Flake";
 
   inputs = {
     self.submodules = true;
-
-    systems = {
-      url = "./flake.systems.nix";
-      flake = false;
-    };
 
     secrets = {
       url = "./secrets";
@@ -22,11 +17,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
     };
 
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
+    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-unstable-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
@@ -104,165 +98,22 @@
   };
 
   outputs =
-    {
-      self,
-      systems,
-      determinate,
-      nixpkgs,
-      # nixpkgs-stable,
-      # nixpkgs-unstable-small,
-      home-manager,
-      impurity,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs (import systems);
-      # Customize lib with custom lib
-      lib = nixpkgs.lib.extend (_: _: import ./lib // home-manager.lib);
-    in
-    rec {
-      inherit lib;
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./pkgs { inherit pkgs; }
-      );
-      # Devshell for bootstrapping
-      # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./shell.nix { inherit pkgs; }
-      );
-
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays;
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeModules = import ./modules/home-manager;
-
-      hostPropsMap = {
-        doosje = {
-          users = [ "jasperro" ];
-          system = "x86_64-linux";
-        };
-        taart = {
-          users = [ "jasperro" ];
-          system = "aarch64-linux";
-          crossBuildPlatforms = [ "x86_64-linux" ];
-        };
-        superlaptop = {
-          users = [ "colin" ];
-          system = "x86_64-linux";
-        };
-        waffie = {
-          users = [ "wiktorine" ];
-          system = "x86_64-linux";
-        };
-        koekie = {
-          users = [
-            "wiktorine"
-            "jasperro"
-          ];
-          system = "x86_64-linux";
-        };
-        tinkpet = {
-          users = [ "jasperro" ];
-          system = "x86_64-linux";
-        };
-        tinkpet-wsl = {
-          users = [ "nixos" ];
-          system = "x86_64-linux";
-        };
-      };
-
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = lib.concatMapAttrs (
-        host:
-        {
-          system,
-          crossBuildPlatforms ? [ ],
-          ...
-        }:
-        let
-          value = lib.nixosSystem {
-            specialArgs = { inherit inputs outputs; };
-            modules = [
-              determinate.nixosModules.default
-              {
-                # nixpkgs.buildPlatform = system;
-                nixpkgs.hostPlatform = system;
-                imports = [
-                  impurity.nixosModules.impurity
-                ];
-                impurity.configRoot = self;
-              }
-              ./hosts/${host}
-            ];
-          };
-        in
-        {
-          ${host} = value;
-          "${host}-impure" = self.nixosConfigurations.${host}.extendModules {
-            modules = [ { impurity.enable = true; } ];
-          };
-        }
-        # Cross compile for RPi only, can change this if needed.
-        // lib.mergeAttrsList (
-          map (bp: {
-            "${host}-cc-${bp}" = self.nixosConfigurations.${host}.extendModules {
-              modules = [
-                {
-                  nixpkgs.buildPlatform = bp;
-                }
-              ];
-            };
-          }) crossBuildPlatforms
-        )
-      ) hostPropsMap;
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = lib.concatMapAttrs (
-        host:
-        { users, ... }:
-        lib.mergeAttrsList (
-          map (
-            user:
-            let
-              value = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixosConfigurations.${host}.pkgs;
-                extraSpecialArgs = { inherit inputs outputs lib; };
-                modules = [
-                  {
-                    imports = [
-                      impurity.nixosModules.impurity
-                    ];
-                    impurity.configRoot = self;
-                  }
-                  ./home/${user}/${host}
-                ];
-              };
-            in
-            {
-              "${user}@${host}" = value;
-              "${user}@${host}-impure" = value.extendModules { modules = [ { impurity.enable = true; } ]; };
-            }
-          ) users
-        )
-      ) hostPropsMap;
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./nix/devShells.nix
+        ./nix/formatter.nix
+        ./nix/hosts.nix
+        ./nix/lib.nix
+        ./nix/modules.nix
+        ./nix/overlays.nix
+        ./nix/packages.nix
+      ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
     };
 }
