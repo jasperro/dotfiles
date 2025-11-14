@@ -26,7 +26,7 @@ with config.lib.stylix.colors;
   home.packages = with pkgs; [
     grimblast
     hyprsunset
-    inputs.wofi-power-menu.packages.${pkgs.system}.default
+    inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   xdg.portal = {
@@ -54,8 +54,8 @@ with config.lib.stylix.colors;
 
     plugins = [
       # Temporarily disabled, broken with hyprland 0.51
-      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
+      # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
+      inputs.hypr-darkwindow.packages.${pkgs.stdenv.hostPlatform.system}.Hypr-DarkWindow
     ];
 
     settings = {
@@ -184,7 +184,7 @@ with config.lib.stylix.colors;
           grimblast = "${pkgs.grimblast}/bin/grimblast";
           pactl = "${pkgs.pulseaudio}/bin/pactl";
           wofi-power-menu = "${
-            inputs.wofi-power-menu.packages.${pkgs.system}.default
+            inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
           }/bin/wofi-power-menu --disable hibernate";
 
           gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";

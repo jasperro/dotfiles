@@ -92,8 +92,6 @@
 
     wofi-power-menu = {
       url = "github:szaffarano/wofi-power-menu";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
     };
   };
 

@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # general desktop apps
     vscode
-    firefox-wayland
+    firefox
     qalculate-qt
     kdePackages.ark
 

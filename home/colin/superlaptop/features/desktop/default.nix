@@ -4,7 +4,7 @@
     kdePackages.kdeconnect-kde
     # general desktop apps
     vscode
-    firefox-wayland
+    firefox
     #firefox-devedition-bin
     arduino
     alacritty

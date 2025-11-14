@@ -12,8 +12,7 @@
     kdePackages.konsole
 
     # general desktop apps
-    #sandboxed-firefox-wayland
-    firefox-wayland
+    firefox
     chromium
     #firefox-devedition-bin
     arduino

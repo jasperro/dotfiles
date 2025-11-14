@@ -5,7 +5,7 @@
     kdePackages.kdeconnect-kde
     # general desktop apps
     vscode
-    firefox-wayland
+    firefox
     gimp3
     inkscape
     krita

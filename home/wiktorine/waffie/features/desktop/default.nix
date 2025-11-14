@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     kdePackages.kdeconnect-kde
     # general desktop apps
-    firefox-wayland
+    firefox
     #firefox-devedition-bin
     gimp3
     inkscape
