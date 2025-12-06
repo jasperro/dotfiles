@@ -10,9 +10,9 @@
   imports = [ inputs.stylix.homeModules.stylix ];
   stylix = {
     enable = true;
-    base16Scheme = lib.mkIf (
-      config.stylix.image == null
-    ) "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = lib.mkIf (config.stylix.image == null) (
+      lib.mkDefault "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml"
+    );
     fonts = {
       serif = {
         package = pkgs.source-serif;

@@ -27,6 +27,8 @@ with config.lib.stylix.colors;
     grimblast
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
+    waypaper
+    hyprpaper
   ];
 
   xdg.portal = {
@@ -67,6 +69,7 @@ with config.lib.stylix.colors;
       ];
       exec-once = [
         "hyprctl setcursor ${config.stylix.cursor.name} ${toString config.stylix.cursor.size}"
+        "waypaper --restore"
       ];
       general = {
         gaps_in = 5;
