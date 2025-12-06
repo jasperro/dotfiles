@@ -33,7 +33,7 @@ with config.lib.stylix.colors;
 
   xdg.portal = {
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
       pkgs.kdePackages.xdg-desktop-portal-kde
     ];
@@ -57,7 +57,6 @@ with config.lib.stylix.colors;
     plugins = [
       # Temporarily disabled, broken with hyprland 0.51
       # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
-      inputs.hypr-darkwindow.packages.${pkgs.stdenv.hostPlatform.system}.Hypr-DarkWindow
     ];
 
     settings = {
@@ -137,40 +136,20 @@ with config.lib.stylix.colors;
         ];
       };
 
-      "darkwindow:shader[blish]" = {
-        from = "chromakey";
-        args = "bkg=[0.0 0.0 0.0] similarity=0.0 amount=0.0 targetOpacity=0.0";
-      };
-
       layerrule = [
-        "blur, waybar"
-        "ignorezero, waybar"
-        "blur, wofi"
-        "ignorezero, wofi"
+        "blur on, match:namespace waybar"
+        "ignore_alpha 0, match:namespace waybar"
+        "blur on, match:namespace wofi"
+        "ignore_alpha 0, match:namespace wofi"
       ];
 
       windowrule = [
-        "bordercolor rgb(${base05}),fullscreen:1"
-        "float,class:org.pulseaudio.pavucontrol"
-        "size 800 1000,class:org.pulseaudio.pavucontrol"
+        "border_color rgb(${base05}), match:fullscreen on"
+        "float on, match:class org.pulseaudio.pavucontrol"
+        "size 800 1000, match:class org.pulseaudio.pavucontrol"
 
-        "workspace 9 silent,title:^(Blish HUD)$"
-        "workspace 9 silent,title:(Guild Wars 2)"
-        "float,title:^(Blish HUD)$"
-        "size 100% 100%,title:^(Blish HUD)$"
-        "pin,title:^(Blish HUD)$"
-        "center,title:^(Blish HUD)$"
-        "nofocus,title:^(Blish HUD)$"
-        "noinitialfocus,title:^(Blish HUD)$"
-        "noborder,title:^(Blish HUD)$"
-        "noblur,title:^(Blish HUD)$"
-        "noshadow,title:^(Blish HUD)$"
-        # "suppressevent activate activatefocus,title:^(Blish HUD)$"
-
-        # "nofocus,title:(Guild Wars 2)"
-
-        # "plugin:shadewindow blish,title:^(Blish HUD)$"
-        "noblur,title:(Guild Wars 2)"
+        "workspace 9 silent, match:title (Guild Wars 2)"
+        "no_blur on, match:title (Guild Wars 2)"
       ];
 
       # Bindings that require external apps, rest in keybinds.nix
