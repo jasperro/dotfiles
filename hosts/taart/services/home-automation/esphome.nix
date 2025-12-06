@@ -1,7 +1,7 @@
 let
   port = 6052;
 in
-{ oci-images, ... }:
+{ ... }:
 {
   imports = [ ../nginx.nix ];
   # services.esphome = {
@@ -14,7 +14,10 @@ in
   # };
 
   virtualisation.oci-containers.containers.esphome = {
-    inherit (oci-images.esphome) image imageFile;
+    image = "ghcr.io/esphome/esphome:latest";
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     autoStart = true;
     ports = [
       "${toString port}:6052"

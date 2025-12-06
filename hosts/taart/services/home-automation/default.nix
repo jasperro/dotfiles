@@ -8,10 +8,11 @@
     ../database/grafana.nix
     ./mosquitto.nix
     ./zigbee2mqtt
-    ./hame.nix
+    # ./hame.nix
     ./homeassistant.nix
     ./esphome.nix
     ./appdaemon.nix
+    ./matter.nix
     # ./ledfx.nix
     ./grott
   ];

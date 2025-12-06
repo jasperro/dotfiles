@@ -1,6 +1,5 @@
 {
   config,
-  oci-images,
   inputs,
   pkgs,
   ...
@@ -67,7 +66,10 @@ in
     mode = "0440";
   };
   virtualisation.oci-containers.containers.hm2mqtt = {
-    inherit (oci-images.hm2mqtt) image imageFile;
+    image = "ghcr.io/tomquist/hm2mqtt:latest";
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     autoStart = true;
     environment = {
       MQTT_BROKER_URL = "mqtt://${mqttBrokerURL}";
@@ -104,7 +106,10 @@ in
   };
 
   virtualisation.oci-containers.containers.hame-relay = {
-    inherit (oci-images.hame-relay) image imageFile;
+    image = "ghcr.io/tomquist/hame-relay:latest";
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     autoStart = true;
     dependsOn = [ "hm2mqtt" ];
     volumes = [

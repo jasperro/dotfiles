@@ -1,6 +1,5 @@
 {
   config,
-  oci-images,
   inputs,
   ...
 }:
@@ -15,7 +14,10 @@ in
     };
   };
   virtualisation.oci-containers.containers.appdaemon = {
-    inherit (oci-images.appdaemon) image imageFile;
+    image = "registry.hub.docker.com/acockburn/appdaemon:latest";
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     autoStart = true;
 
     ports = [

@@ -7,6 +7,4 @@
   imports = [
     ../common
   ];
-
-  targets.genericLinux.enable = true;
 }

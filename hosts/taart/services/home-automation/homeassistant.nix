@@ -1,4 +1,4 @@
-{ oci-images, config, ... }:
+{ config, ... }:
 let
   cfg = {
     configDir = "/var/lib/hass/homeassistant";
@@ -17,7 +17,10 @@ in
   users.groups.hass.gid = config.ids.gids.hass;
 
   virtualisation.oci-containers.containers.homeassistant = {
-    inherit (oci-images.home-assistant) image imageFile;
+    image = "ghcr.io/home-assistant/home-assistant:latest";
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     autoStart = true;
     volumes = [
       "${cfg.configDir}:/config"
