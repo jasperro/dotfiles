@@ -1,19 +1,12 @@
 { pkgs, inputs, ... }:
 {
-  nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
-  };
   nixpkgs = {
-    overlays = [
-      # should override hyprland packages manually with inputs.hyprland (for cachix), but just in case
-      inputs.hyprland.overlays.default
-      inputs.waybar.overlays.default
-    ];
+    overlays = [ inputs.niri.overlays.niri ];
   };
-  imports = [ ./default.nix ];
+  imports = [
+    ./default.nix
+    inputs.niri.nixosModules.niri
+  ];
   services = {
     xserver = {
       enable = true;
@@ -37,13 +30,8 @@
   };
 
   programs.uwsm.enable = true;
-  programs.hyprland = {
+  programs.niri = {
     enable = true;
-    systemd.setPath.enable = true;
-    withUWSM = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
   programs.hyprlock.enable = true;
 

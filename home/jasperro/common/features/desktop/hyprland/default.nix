@@ -13,8 +13,7 @@ with config.lib.stylix.colors;
     ./workspaces.nix
     ./keybinds.nix
 
-    ./waybar.nix
-    # ./eww
+    ../common/wayland-wm/waybar.nix
 
     ../common/wayland-wm
     ../common/wayland-wm/kitty.nix
@@ -53,11 +52,6 @@ with config.lib.stylix.colors;
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     package = null;
     portalPackage = null;
-
-    plugins = [
-      # Temporarily disabled, broken with hyprland 0.51
-      # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
-    ];
 
     settings = {
       env = [
@@ -192,7 +186,6 @@ with config.lib.stylix.colors;
           "CONTROL,Print,exec,${grimblast} --notify copy screen"
           "SUPER,Print,exec,${grimblast} --notify copy window"
           "ALT,Print,exec,${grimblast} --notify copy area"
-          "ALT,o,shadeactivewindow,blish"
         ]
         ++
           # Media control

@@ -50,6 +50,7 @@ in
         modules-left = [
           # "custom/oslogo"
           "hyprland/workspaces"
+          "niri/workspaces"
         ];
         modules-center = [
           "clock"

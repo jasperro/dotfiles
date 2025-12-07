@@ -63,7 +63,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
@@ -80,18 +80,12 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hypr-darkwindow = {
-      url = "github:micha4w/Hypr-DarkWindow";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     wofi-power-menu = {
       url = "github:szaffarano/wofi-power-menu";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
     };
   };
 
