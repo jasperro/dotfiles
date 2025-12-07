@@ -26,8 +26,9 @@ with config.lib.stylix.colors;
     grimblast
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
-    waypaper
-    hyprpaper
+    # Broke due to https://github.com/hyprwm/hyprpaper/pull/288
+    # waypaper
+    inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
   ];
 
   xdg.portal = {
@@ -86,6 +87,8 @@ with config.lib.stylix.colors;
 
       # Freesync
       misc.vfr = "on";
+      # Due to some issues with UWSM and newer Hyprland versions (start-hyprland)
+      misc.disable_watchdog_warning = true;
 
       decoration = {
         inactive_opacity = 0.84;
@@ -246,6 +249,7 @@ with config.lib.stylix.colors;
 
   services.hyprpaper = {
     enable = true;
+    package = inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper;
     settings = {
       ipc = "on";
       splash = false;

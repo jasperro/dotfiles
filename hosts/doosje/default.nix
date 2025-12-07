@@ -25,7 +25,7 @@ in
     ../common/nixos/home-locale.nix
     ../common/nixos/nix-alien.nix
     ../common/desktop/hyprland.nix
-    ../common/desktop/niri.nix
+    # ../common/desktop/niri.nix
 
     ./hardware-configuration.nix
     ./networking.nix

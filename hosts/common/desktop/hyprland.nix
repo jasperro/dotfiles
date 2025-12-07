@@ -10,6 +10,7 @@
     overlays = [
       # should override hyprland packages manually with inputs.hyprland (for cachix), but just in case
       inputs.hyprland.overlays.default
+      inputs.hyprpaper.overlays.default
       inputs.waybar.overlays.default
     ];
   };

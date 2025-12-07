@@ -30,7 +30,7 @@ with config.lib.stylix.colors;
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
     waypaper
-    hyprpaper
+    inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
   ];
 
   xdg.portal = {

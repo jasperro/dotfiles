@@ -9,7 +9,7 @@
     ../common/features/editors/vscode
     ../common/features/desktop/common
     ../common/features/desktop/hyprland
-    ../common/features/desktop/niri
+    # ../common/features/desktop/niri
   ];
 
   monitors = [
