@@ -88,7 +88,7 @@ with config.lib.stylix.colors;
       # Freesync
       misc.vfr = "on";
       # Due to some issues with UWSM and newer Hyprland versions (start-hyprland)
-      misc.disable_watchdog_warning = true;
+      # misc.disable_watchdog_warning = true;
 
       decoration = {
         inactive_opacity = 0.84;
