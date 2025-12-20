@@ -29,7 +29,6 @@
   hardware = {
     graphics = {
       enable = true;
-      driSupport32Bit = true;
     };
     bluetooth.enable = true;
   };

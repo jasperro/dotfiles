@@ -1,15 +1,11 @@
 {
   config,
-  impurity,
-  pkgs,
   inputs,
   ...
 }:
 let
   dataDir = "/var/lib/zigbee2mqtt";
   frontendPort = 1919;
-  devicesFile = impurity.link ./devices.yaml;
-  groupsFile = impurity.link ./groups.yaml;
 in
 {
   users.users.zigbee2mqtt.extraGroups = [
@@ -27,12 +23,6 @@ in
     };
   };
   networking.firewall.allowedTCPPorts = [ frontendPort ];
-
-  # Some stupid stuff, not sure if I want these modifiable or not.
-  systemd.services.zigbee2mqtt.serviceConfig.ExecStartPre = [
-    "${pkgs.coreutils}/bin/cp --no-preserve=mode ${devicesFile} ${dataDir}/devices.yaml"
-    "${pkgs.coreutils}/bin/cp --no-preserve=mode ${groupsFile} ${dataDir}/groups.yaml"
-  ];
 
   services.zigbee2mqtt = {
     # package = pkgs.zigbee2mqtt_2;

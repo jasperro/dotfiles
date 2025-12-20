@@ -129,6 +129,7 @@
   users.groups.wiktorine.gid = 1003;
 
   home-manager.users.wiktorine = import ../../home/wiktorine/koekie;
+  home-manager.users.jasperro = import ../../home/jasperro/koekie;
 
   users.users = {
     wiktorine = {
