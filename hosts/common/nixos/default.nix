@@ -41,6 +41,8 @@
 
   programs.zsh.enable = true;
 
+  services.dbus.implementation = "broker";
+
   nixpkgs = {
     overlays = [
       outputs.overlays.default
