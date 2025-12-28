@@ -5,7 +5,7 @@
     self.submodules = true;
 
     secrets = {
-      url = "./secrets";
+      url = "path:./secrets";
       flake = false;
       buildTime = true;
     };
