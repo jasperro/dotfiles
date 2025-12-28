@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  browser = "librewolf.desktop";
+in
 {
   imports = [
     ./stylix.nix
@@ -6,12 +9,12 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "default-web-browser" = [ "firefox.desktop" ];
-      "text/html" = [ "firefox.desktop" ];
-      "x-scheme-handler/http" = [ "firefox.desktop" ];
-      "x-scheme-handler/https" = [ "firefox.desktop" ];
-      "x-scheme-handler/about" = [ "firefox.desktop" ];
-      "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+      "default-web-browser" = [ browser ];
+      "text/html" = [ browser ];
+      "x-scheme-handler/http" = [ browser ];
+      "x-scheme-handler/https" = [ browser ];
+      "x-scheme-handler/about" = [ browser ];
+      "x-scheme-handler/unknown" = [ browser ];
     };
   };
   home.packages = with pkgs; [

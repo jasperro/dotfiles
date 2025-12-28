@@ -12,9 +12,9 @@
     kdePackages.konsole
 
     # general desktop apps
-    firefox
+    # firefox
+    librewolf
     chromium
-    #firefox-devedition-bin
     arduino
     alacritty
     # thunderbird
