@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   ...
 }:
 let
@@ -13,15 +14,33 @@ in
     "lp"
     "dialout"
   ];
-  sops.secrets = {
-    zigbee2mqtt = {
-      sopsFile = "${inputs.secrets}/taart.yaml";
-      path = "${dataDir}/secret.yaml";
+  sops.secrets =
+    lib.genAttrs
+      [ "zigbee2mqtt/network_key" "zigbee2mqtt/user" "zigbee2mqtt/pass" "zigbee2mqtt/auth_token" ]
+      (_: {
+        sopsFile = "${inputs.secrets}/taart.yaml";
+        mode = "0440";
+        owner = config.users.users.zigbee2mqtt.name;
+        group = config.users.groups.zigbee2mqtt.name;
+      });
+
+  sops.templates."zigbee2mqtt-secret-yaml" =
+    let
+      secretYAML = ''
+        user: ${config.sops.placeholder."zigbee2mqtt/user"}
+        pass: ${config.sops.placeholder."zigbee2mqtt/pass"}
+        auth_token: ${config.sops.placeholder."zigbee2mqtt/auth_token"}
+        network_key: ${config.sops.placeholder."zigbee2mqtt/network_key"}
+      '';
+    in
+    {
+      content = secretYAML;
       mode = "0440";
       owner = config.users.users.zigbee2mqtt.name;
       group = config.users.groups.zigbee2mqtt.name;
+      path = "${dataDir}/secret.yaml";
     };
-  };
+
   networking.firewall.allowedTCPPorts = [ frontendPort ];
 
   services.zigbee2mqtt = {

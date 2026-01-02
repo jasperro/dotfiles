@@ -87,21 +87,19 @@ in
     ];
   };
 
-  systemd.tmpfiles.rules = [
-    "d /var/lib/hame-relay/config 0750 root root -"
-    "f /var/lib/hame-relay/config/config.json 0640 root root -"
-  ];
-
-  systemd.services.podman-hame-relay = {
-    serviceConfig = {
-      ExecStartPre = [
-        ''
-          ${pkgs.coreutils}/bin/mkdir -p /var/lib/hame-relay/config
-        ''
-        ''
-          ${pkgs.coreutils}/bin/cp --no-preserve=mode ${config.sops.templates.hame-config.path} /var/lib/hame-relay/config/config.json
-        ''
-      ];
+  systemd.tmpfiles.settings."10-hame" = {
+    "/var/lib/hame-relay".d = {
+      mode = "0750";
+      user = "root";
+      group = "root";
+    };
+    "/var/lib/hame-relay/config".d = {
+      mode = "0750";
+      user = "root";
+      group = "root";
+    };
+    "/var/lib/hame-relay/config/config.yaml"."L+" = {
+      argument = config.sops.templates.hame-config.path;
     };
   };
 

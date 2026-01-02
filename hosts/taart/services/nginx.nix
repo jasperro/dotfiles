@@ -4,8 +4,8 @@
   ];
 
   networking.firewall.allowedTCPPorts = [
-    443
-    80
+    8443
+    880
   ];
 
   services.nginx = {
@@ -14,8 +14,8 @@
     recommendedGzipSettings = true;
     # recommendedProxySettings = true;
     recommendedOptimisation = true;
-    # defaultHTTPListenPort = 80;
-    # defaultSSLListenPort = 443;
+    defaultHTTPListenPort = 880;
+    defaultSSLListenPort = 8443;
   };
 
   users.users.nginx.extraGroups = [ "acme" ];

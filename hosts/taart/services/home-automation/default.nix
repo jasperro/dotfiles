@@ -8,6 +8,7 @@
     ../database/grafana.nix
     ./mosquitto.nix
     ./zigbee2mqtt
+    # ./bifrost.nix
     # ./hame.nix
     ./homeassistant.nix
     ./esphome.nix
