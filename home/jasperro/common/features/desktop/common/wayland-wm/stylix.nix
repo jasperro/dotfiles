@@ -52,7 +52,7 @@
       name = "BreezeX-RosePine-Linux";
       size = 36;
     };
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";

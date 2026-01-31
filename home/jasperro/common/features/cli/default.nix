@@ -16,7 +16,7 @@
     gh
 
     nixd
-    nixfmt-rfc-style
+    nixfmt
   ];
   programs.fzf = {
     enable = true;

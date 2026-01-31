@@ -2,7 +2,7 @@
   description = "Jasperro's Dotfiles Flake";
 
   inputs = {
-    self.submodules = true;
+    # self.submodules = true;
 
     secrets = {
       url = "path:./secrets";
