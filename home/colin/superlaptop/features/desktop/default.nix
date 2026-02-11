@@ -26,7 +26,7 @@
 
     # X/Wayland utilities
     x11_ssh_askpass
-    xorg.xeyes
+    xeyes
     wl-clipboard
     wl-clipboard-x11
     waypipe

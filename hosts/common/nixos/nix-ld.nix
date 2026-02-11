@@ -5,58 +5,126 @@
 
   # Sets up all the libraries to load (From Mic92/dotfiles)
   programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-    fuse3
     alsa-lib
+    atk
     at-spi2-atk
     at-spi2-core
-    atk
+    bzip2
     cairo
     cups
     curl
     dbus
+    dbus-glib
+    desktop-file-utils
+    e2fsprogs
     expat
+    flac
     fontconfig
+    freeglut
     freetype
+    fribidi
+    fuse
+    fuse3
     gdk-pixbuf
+    glew_1_10
     glib
+    gmp
+    gnutls
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gstreamer
+    gtk2
     gtk3
-    libGL
+    harfbuzz
+    icu
+    keyutils.lib
+    libappindicator-gtk2
     libappindicator-gtk3
+    libcaca
+    libcanberra
+    libcap
     libdrm
+    libgcrypt
+    libGL
+    libGLU
+    libgpg-error
+    libidn
+    libjack2
+    libjpeg
+    libmikmod
     libnotify
+    libogg
+    libpng12
     libpulseaudio
+    librsvg
+    libsamplerate
+    libtheora
+    libtiff
+    libtool.lib
+    libudev0-shim
+    libusb1
     libuuid
-    xorg.libxcb
+    libvdpau
+    libvorbis
+    libvpx
     libxkbcommon
     mesa
     nspr
     nss
+    openssl
+    p11-kit
     pango
     pipewire
+    pixman
+    SDL
+    SDL2
+    SDL2_image
+    SDL2_mixer
+    SDL2_ttf
+    SDL_image
+    SDL_mixer
+    SDL_ttf
+    speechd
+    speex
+    stdenv.cc.cc
+    stdenv.cc.cc.lib
     systemd
-    icu
-    openssl
-    xorg.libX11
-    xorg.libXScrnSaver
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libxkbfile
-    xorg.libxshmfence
+    tbb
+    udev
+    vulkan-loader
+    wayland
     zlib
 
-    xorg.libXinerama
-    vulkan-loader
-    speechd
-    wayland
-    gnutls
+    # xorg
+    libice
+    libpciaccess
+    libsm
+    libx11
+    libxcb
+    libxcb-errors
+    libxcb-image
+    libxcb-keysyms
+    libxcb-render-util
+    libxcb-util
+    libxcb-wm
+    libxcomposite
+    libxcursor
+    libxdamage
+    libxdmcp
+    libxext
+    libxfixes
+    libxft
+    libxi
+    libxinerama
+    libxkbfile
+    libxmu
+    libxrandr
+    libxrender
+    libxscrnsaver
+    libxshmfence
+    libxt
+    libxtst
+    libxxf86vm
+    xkeyboard-config
   ];
 }

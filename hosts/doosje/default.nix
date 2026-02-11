@@ -45,6 +45,18 @@ in
     xone.enable = true;
   };
 
+  services.wivrn = {
+    enable = true;
+    openFirewall = true;
+    defaultRuntime = true;
+    autoStart = true;
+  };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Only *.enable, otherwise split to file in services/
