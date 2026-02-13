@@ -37,6 +37,7 @@
       opencl.enable = true;
     };
     xone.enable = true;
+    uinput.enable = true;
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -149,6 +150,8 @@
         "uucp"
         "kvm"
         "audio"
+        "input"
+        "uinput"
       ];
       shell = pkgs.zsh;
       subUidRanges = [
@@ -171,6 +174,15 @@
       group = "wiktorine";
       extraGroups = [
         "wheel"
+        "http"
+        "docker"
+        "podman"
+        "video"
+        "uucp"
+        "kvm"
+        "audio"
+        "input"
+        "uinput"
       ];
       shell = pkgs.zsh;
     };
