@@ -9,11 +9,11 @@ with config.lib.stylix.colors.withHashtag;
       anchor = "bottom-right";
       width = 400;
       height = 150;
-      borderSize = 2;
-      defaultTimeout = 12000;
-      backgroundColor = "${base00}dd";
-      borderColor = "${base03}dd";
-      textColor = "${base05}dd";
+      border-size = 2;
+      default-timeout = 12000;
+      background-color = "${base00}dd";
+      border-color = "${base03}dd";
+      text-color = "${base05}dd";
     };
   };
 }

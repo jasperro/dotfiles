@@ -29,6 +29,7 @@
   # programs.uwsm.enable = true;
   programs.niri = {
     package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+    # package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-stable;
     enable = true;
   };
   programs.hyprlock.enable = true;

@@ -51,6 +51,7 @@ in
           # "custom/oslogo"
           "hyprland/workspaces"
           "niri/workspaces"
+          # "wlr/taskbar"
         ];
         modules-center = [
           "clock"
@@ -160,6 +161,15 @@ in
             # format = "{icon}{title:.16}";
             format = "{icon}";
             icon-size = 14;
+          };
+        };
+        "niri/workspaces" = {
+          workspace-taskbar = {
+            enable = true;
+            format = "{icon}";
+            icon-size = 14;
+            separator = "";
+            tooltip-format = "{title} | {app_id}";
           };
         };
         "sway/window" = {

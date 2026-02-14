@@ -70,7 +70,7 @@
     impurity.url = "github:outfoxxed/impurity.nix";
 
     waybar = {
-      url = "github:jasperro/Waybar/master";
+      url = "github:Alexays/Waybar/master";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
