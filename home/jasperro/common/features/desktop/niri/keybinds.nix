@@ -19,19 +19,22 @@ let
   };
   directionsX = directionL // directionR;
   directionsY = directionU // directionD;
-  directions = directionsX // directionsY;
+  # directions = directionsX // directionsY;
 in
 {
   programs.niri.settings = {
     binds =
       with config.lib.niri.actions;
-      let
-        sh = spawn "sh" "-c";
-      in
       lib.attrsets.mergeAttrsList [
         {
-          "Super+Shift+s".action = sh "systemctl suspend";
-          "Super+Shift+p".action = sh "loginctl lock-session";
+          "Super+Shift+s".action = spawn [
+            "systemctl"
+            "suspend"
+          ];
+          "Super+Shift+p".action = spawn [
+            "loginctl"
+            "lock-session"
+          ];
 
           "Super+q".action = close-window;
 

@@ -1,11 +1,8 @@
 { pkgs, inputs, ... }:
 {
-  nixpkgs = {
-    overlays = [ inputs.niri.overlays.niri ];
-  };
   imports = [
     ./default.nix
-    inputs.niri.nixosModules.niri
+    inputs.niri-flake.nixosModules.niri
   ];
   services = {
     xserver = {
@@ -31,6 +28,7 @@
 
   # programs.uwsm.enable = true;
   programs.niri = {
+    package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
     enable = true;
   };
   programs.hyprlock.enable = true;

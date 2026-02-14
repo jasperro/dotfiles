@@ -87,7 +87,7 @@
       url = "github:szaffarano/wofi-power-menu";
     };
 
-    niri = {
+    niri-flake = {
       url = "github:sodiboo/niri-flake";
     };
   };

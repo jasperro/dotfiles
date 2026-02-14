@@ -204,7 +204,7 @@ with config.lib.stylix.colors;
         ++
           # Screen lock
           (lib.optionals config.programs.hyprlock.enable [
-            "SUPER,backspace,exec,${hyprlock} -S"
+            "SUPER,backspace,exec,${hyprlock}"
           ])
         ++
           # Notification manager

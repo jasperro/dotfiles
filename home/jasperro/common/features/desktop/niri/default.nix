@@ -5,7 +5,6 @@
   inputs,
   ...
 }:
-with config.lib.stylix.colors;
 {
   imports = [
     ../common
@@ -20,12 +19,10 @@ with config.lib.stylix.colors;
     ../common/wayland-wm/mako.nix
     ../common/wayland-wm/wofi.nix
     ../common/wayland-wm/cliphist.nix
-
-    # inputs.niri.homeModules.niri
   ];
 
   home.packages = with pkgs; [
-    xwayland-satellite-unstable
+    inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
     grimblast
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -52,7 +49,9 @@ with config.lib.stylix.colors;
     };
     input.mouse.accel-speed = 1.0;
 
-    xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite-unstable}";
+    xwayland-satellite.path = "${lib.getExe
+      inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+    }";
 
     prefer-no-csd = true;
 
@@ -65,16 +64,56 @@ with config.lib.stylix.colors;
       backdrop-color = "#001100";
     };
 
+    window-rules = [
+      {
+        geometry-corner-radius =
+          let
+            r = 8.0;
+          in
+          {
+            top-left = r;
+            top-right = r;
+            bottom-left = r;
+            bottom-right = r;
+          };
+        clip-to-geometry = true;
+      }
+    ];
+
     layout = {
       gaps = 10;
-      struts.left = 64;
-      struts.right = 64;
-      border.width = 4;
+      # struts.left = 64;
+      # struts.right = 64;
       always-center-single-column = true;
 
       empty-workspace-above-first = true;
 
-      shadow.enable = true;
+      # shadow = {
+      #   enable = true;
+      # };
+
+      focus-ring.enable = false;
+
+      border = with config.lib.stylix.colors.withHashtag; {
+        enable = true;
+        width = 4;
+        active.gradient = {
+          from = base0D;
+          to = base0B;
+          angle = 45;
+        };
+        inactive.gradient = {
+          from = base01;
+          to = base02;
+          angle = 45;
+          relative-to = "workspace-view";
+        };
+        urgent.gradient = {
+          from = base08;
+          to = base09;
+          angle = 45;
+        };
+      };
 
       # default-column-display = "tabbed";
 
@@ -109,9 +148,6 @@ with config.lib.stylix.colors;
 
         grimblast = "${pkgs.grimblast}/bin/grimblast";
         pactl = "${pkgs.pulseaudio}/bin/pactl";
-        wofi-power-menu = "${
-          inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
-        }/bin/wofi-power-menu --disable hibernate";
 
         gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
         xdg-mime = "${pkgs.xdg-utils}/bin/xdg-mime";
@@ -124,45 +160,111 @@ with config.lib.stylix.colors;
         [
           {
             # Program bindings
-            "Super+Return".action = spawn "${terminal}";
-            "Super+B".action = spawn "${browser}";
+            "Super+Return".action = sh "${terminal}";
+            "Super+B".action = sh "${browser}";
             # Volume
-            "XF86AudioRaiseVolume".action = sh "${pactl} set-sink-volume @DEFAULT_SINK@ +5%";
-            "XF86AudioLowerVolume".action = sh "${pactl} set-sink-volume @DEFAULT_SINK@ -5%";
-            "XF86AudioMute".action = sh "${pactl} set-sink-mute @DEFAULT_SINK@ toggle";
+            "XF86AudioRaiseVolume".action = spawn [
+              pactl
+              "set-sink-volume"
+              "@DEFAULT_SINK@"
+              "+5%"
+            ];
+            "XF86AudioLowerVolume".action = spawn [
+              pactl
+              "set-sink-volume"
+              "@DEFAULT_SINK@"
+              "-5%"
+            ];
+            "XF86AudioMute".action = spawn [
+              pactl
+              "set-sink-mute"
+              "@DEFAULT_SINK@"
+              "toggle"
+            ];
             # Screenshotting
-            "Print".action = sh "${grimblast} --notify copy output";
-            "Shift+Print".action = sh "${grimblast} --notify copy active";
-            "Control+Print".action = sh "${grimblast} --notify copy screen";
-            "Super+Print".action = sh "${grimblast} --notify copy window";
-            "Alt+Print".action = sh "${grimblast} --notify copy area";
+            "Print".action = spawn [
+              grimblast
+              "--notify"
+              "copy"
+              "output"
+            ];
+            "Shift+Print".action = spawn [
+              grimblast
+              "--notify"
+              "copy"
+              "active"
+            ];
+            "Control+Print".action = spawn [
+              grimblast
+              "--notify"
+              "copy"
+              "screen"
+            ];
+            "Super+Print".action = spawn [
+              grimblast
+              "--notify"
+              "copy"
+              "window"
+            ];
+            "Alt+Print".action = spawn [
+              grimblast
+              "--notify"
+              "copy"
+              "area"
+            ];
           }
         ]
         ++
           # Media control
           (lib.optionals config.services.playerctld.enable [
             {
-              "XF86AudioNext".action = sh "${playerctl} next";
-              "XF86AudioPrev".action = sh "${playerctl} previous";
-              "XF86AudioPlay".action = sh "${playerctl} play-pause";
-              "XF86AudioStop".action = sh "${playerctl} stop";
-              "Alt+XF86AudioNext".action = sh "${playerctld} shift";
-              "Alt+XF86AudioPrev".action = sh "${playerctld} unshift";
-              "Alt+XF86AudioPlay".action = sh "systemctl --user restart playerctld";
+              "XF86AudioNext".action = spawn [
+                playerctl
+                "next"
+              ];
+              "XF86AudioPrev".action = spawn [
+                playerctl
+                "previous"
+              ];
+              "XF86AudioPlay".action = spawn [
+                playerctl
+                "play-pause"
+              ];
+              "XF86AudioStop".action = spawn [
+                playerctl
+                "stop"
+              ];
+              "Alt+XF86AudioNext".action = spawn [
+                playerctld
+                "shift"
+              ];
+              "Alt+XF86AudioPrev".action = spawn [
+                playerctld
+                "unshift"
+              ];
+              "Alt+XF86AudioPlay".action = spawn [
+                "systemctl"
+                "--user"
+                "restart"
+                "playerctld"
+              ];
             }
           ])
         ++
           # Screen lock
           (lib.optionals config.programs.hyprlock.enable [
             {
-              "Super+Backspace".action = sh "${hyprlock} -S";
+              "Super+Backspace".action = spawn hyprlock;
             }
           ])
         ++
           # Notification manager
           (lib.optionals config.services.mako.enable [
             {
-              "Super+W".action = sh "${makoctl} dismiss";
+              "Super+W".action = spawn [
+                makoctl
+                "dismiss"
+              ];
             }
           ])
         ++
@@ -170,19 +272,37 @@ with config.lib.stylix.colors;
           (lib.optionals config.services.flameshot.enable [
             {
               # Full screen or window
-              "Super+Print".action = sh "${flameshot} launcher";
+              "Super+Print".action = spawn [
+                flameshot
+                "launcher"
+              ];
               # Selection, draw mode
-              "Control+Print".action = sh "${flameshot} gui";
+              "Control+Print".action = spawn [
+                flameshot
+                "gui"
+              ];
             }
           ])
         ++
           # Launcher
           (lib.optionals config.programs.wofi.enable [
             {
-              "Super+x".action = sh "${wofi} -S drun";
-              "Super+D".action = sh "${wofi} -S run";
+              "Super+x".action = spawn [
+                wofi
+                "-S"
+                "drun"
+              ];
+              "Super+D".action = spawn [
+                wofi
+                "-S"
+                "run"
+              ];
               "Super+V".action = sh "${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy";
-              "Super+Shift+E".action = sh "${wofi-power-menu}";
+              "Super+Shift+E".action = spawn [
+                "${inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/wofi-power-menu"
+                "--disable"
+                "hibernate"
+              ];
             }
           ])
       );
@@ -205,7 +325,7 @@ with config.lib.stylix.colors;
         }
       ];
 
-      input-field = [
+      input-field = with config.lib.stylix.colors; [
         {
           size = "200, 50";
           position = "0, -80";
