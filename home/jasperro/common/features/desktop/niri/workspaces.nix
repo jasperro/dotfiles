@@ -7,7 +7,10 @@ in
     binds = lib.mergeAttrsList (
       map (key: {
         "Super+${toString key}".action."focus-workspace" = key;
-        "Super+Shift+${toString key}".action."move-column-to-workspace" = key;
+        "Super+Shift+${toString key}".action."move-column-to-workspace" = [
+          { focus = false; }
+          key
+        ];
       }) workspaceKeys
     );
   };

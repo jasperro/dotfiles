@@ -58,6 +58,10 @@
       dark = "Papirus-Dark";
       light = "Papirus";
     };
+    opacity = {
+      desktop = 0.9;
+      popups = 0.9;
+    };
   };
 
   services.xsettingsd = {

@@ -1,0 +1,17 @@
+window-rule {
+    blur {
+        on
+        passes 3
+        radius 6.0
+        noise 0.2
+    }
+}
+
+layout {
+    blur {
+        on
+        passes 3
+        radius 6.0
+        noise 0.2
+    }
+}

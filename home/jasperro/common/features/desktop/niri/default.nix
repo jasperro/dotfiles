@@ -3,21 +3,24 @@
   config,
   pkgs,
   inputs,
+  impurity,
   ...
 }:
 {
   imports = [
     ../common
+    ../common/wayland-wm
 
     ./workspaces.nix
     ./keybinds.nix
 
-    ../common/wayland-wm/waybar.nix
+    ./noctalia-shell.nix
 
-    ../common/wayland-wm
+    # ../common/wayland-wm/waybar.nix
+    # ../common/wayland-wm/mako.nix
+    # ../common/wayland-wm/wofi.nix
+
     ../common/wayland-wm/kitty.nix
-    ../common/wayland-wm/mako.nix
-    ../common/wayland-wm/wofi.nix
     ../common/wayland-wm/cliphist.nix
   ];
 
@@ -26,6 +29,7 @@
     grimblast
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
     waypaper
     swaybg
   ];
@@ -41,7 +45,12 @@
     };
   };
 
+  xdg.configFile."niri/extra.kdl".source = impurity.link ./extra.kdl;
+
   programs.niri.settings = {
+    includes = [
+      { path = "extra.kdl"; }
+    ];
     spawn-at-startup = [
       {
         argv = [
@@ -65,13 +74,17 @@
 
     prefer-no-csd = true;
 
+    cursor = {
+      theme = config.stylix.cursor.name;
+      size = config.stylix.cursor.size;
+    };
+
     outputs."DP-2" = {
       mode.width = 2560;
       mode.height = 1440;
       mode.refresh = 180.001;
       variable-refresh-rate = true;
       focus-at-startup = true;
-      backdrop-color = "#001100";
     };
 
     window-rules = [
@@ -148,6 +161,12 @@
 
         # active.color = "red";
       };
+
+      preset-column-widths = [
+        { proportion = 1. / 3.; }
+        { proportion = 1. / 2.; }
+        { proportion = 2. / 3.; }
+      ];
     };
 
     clipboard.disable-primary = true;
@@ -162,15 +181,25 @@
     binds =
       with config.lib.niri.actions;
       let
-        playerctl = "${config.services.playerctld.package}/bin/playerctl";
-        playerctld = "${config.services.playerctld.package}/bin/playerctld";
-        makoctl = "${config.services.mako.package}/bin/makoctl";
-        wofi = "${config.programs.wofi.package}/bin/wofi";
-        hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
-        cliphist = "${config.services.cliphist.package}/bin/cliphist";
-        flameshot = "${config.services.flameshot.package}/bin/flameshot";
+        noctalia =
+          cmd:
+          spawn (
+            [
+              "noctalia-shell"
+              "ipc"
+              "call"
+            ]
+            ++ (pkgs.lib.splitString " " cmd)
+          );
+        playerctl = lib.getExe config.services.playerctld.package;
+        playerctld = lib.getExe config.services.playerctld.package;
+        makoctl = lib.getExe config.services.mako.package;
+        wofi = lib.getExe config.programs.wofi.package;
+        hyprlock = lib.getExe config.programs.hyprlock.package;
+        cliphist = lib.getExe config.services.cliphist.package;
+        flameshot = lib.getExe config.services.flameshot.package;
 
-        grimblast = "${pkgs.grimblast}/bin/grimblast";
+        grimblast = lib.getExe pkgs.grimblast;
         pactl = "${pkgs.pulseaudio}/bin/pactl";
 
         gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
@@ -276,11 +305,23 @@
           ])
         ++
           # Screen lock
-          (lib.optionals config.programs.hyprlock.enable [
-            {
-              "Super+Backspace".action = spawn hyprlock;
-            }
-          ])
+
+          (
+            if config.programs.hyprlock.enable then
+              [
+                {
+                  "Super+Shift+M".action = spawn hyprlock;
+                }
+              ]
+            else if config.programs.noctalia-shell.enable then
+              [
+                {
+                  "Super+Shift+M".action = noctalia "lockScreen lock";
+                }
+              ]
+            else
+              [ ]
+          )
         ++
           # Notification manager
           (lib.optionals config.services.mako.enable [
@@ -329,35 +370,74 @@
               ];
             }
           ])
+        ++
+          # Launcher
+          (lib.optionals config.programs.noctalia-shell.enable [
+            {
+              "Super+x".action = noctalia "launcher command";
+              "Super+D".action = noctalia "launcher toggle";
+              "Super+V".action = noctalia "launcher clipboard";
+              "Super+Shift+E".action = noctalia "sessionMenu toggle";
+            }
+          ])
       );
   };
 
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        before_sleep_cmd = "hyprlock --immediate";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-        ignore_dbus_inhibit = false;
-        lock_cmd = "hyprlock --immediate";
-      };
+  services.hypridle =
+    let
+      noctalia = "${
+        lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      } ipc call";
+    in
+    {
+      enable = config.programs.hyprlock.enable || config.programs.noctalia-shell.enable;
+      settings = {
+        general =
+          if config.programs.hyprlock.enable then
+            {
+              before_sleep_cmd = "hyprlock --immediate";
+              after_sleep_cmd = "hyprctl dispatch dpms on";
+              ignore_dbus_inhibit = false;
+              lock_cmd = "hyprlock --immediate";
+            }
+          else
+            {
+              before_sleep_cmd = "${noctalia} lockScreen lock";
+              after_sleep_cmd = "niri msg action power-on-monitors";
+              ignore_dbus_inhibit = false;
+              lock_cmd = "${noctalia} lockScreen lock";
+            };
 
-      listener = [
-        {
-          timeout = 900;
-          on-timeout = "hyprlock";
-        }
-        {
-          timeout = 1200;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-      ];
+        listener =
+          if config.programs.hyprlock.enable then
+            [
+              {
+                timeout = 900;
+                on-timeout = "hyprlock";
+              }
+              {
+                timeout = 1200;
+                on-timeout = "hyprctl dispatch dpms off";
+                on-resume = "hyprctl dispatch dpms on";
+              }
+            ]
+          else
+            [
+              {
+                timeout = 900;
+                on-timeout = "${noctalia} lockScreen lock";
+              }
+              {
+                timeout = 1200;
+                on-timeout = "niri msg action power-off-monitors";
+                on-resume = "niri msg action power-on-monitors";
+              }
+            ];
+      };
     };
-  };
 
   programs.hyprlock = {
-    enable = true;
+    enable = false;
     settings = {
       general = {
         disable_loading_bar = true;

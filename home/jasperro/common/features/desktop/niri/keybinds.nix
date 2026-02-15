@@ -40,12 +40,13 @@ in
 
           "Super+Comma".action = consume-window-into-column;
           "Super+Period".action = expel-window-from-column;
+          "Super+Slash".action = switch-preset-column-width;
 
           "Super+F".action = maximize-column;
           "Super+Shift+F".action = fullscreen-window;
 
-          "Super+Space".action = switch-focus-between-floating-and-tiling;
-          "Super+Shift+Space".action = toggle-window-floating;
+          "Super+Shift+Space".action = switch-focus-between-floating-and-tiling;
+          "Super+Space".action = toggle-window-floating;
 
           "Super+Minus".action = set-column-width "-10%";
           "Super+Shift+Minus".action = set-window-height "-10%";
@@ -53,20 +54,22 @@ in
           "Super+Equal".action = set-column-width "+10%";
           "Super+Shift+Equal".action = set-window-height "+10%";
 
-          "Super+Shift+WheelScrollDown" = {
+          "Super+Control+WheelScrollDown" = {
             cooldown-ms = 150;
             action = focus-workspace-down;
           };
-          "Super+Shift+WheelScrollUp" = {
+          "Super+Control+WheelScrollUp" = {
             cooldown-ms = 150;
             action = focus-workspace-up;
           };
-          "Super+WheelScrollDown".action = focus-column-left;
-          "Super+WheelScrollUp".action = focus-column-right;
+          "Super+WheelScrollUp".action = focus-column-left;
+          "Super+WheelScrollDown".action = focus-column-right;
         }
         (lib.concatMapAttrs (key: direction: {
           "Super+${key}".action."focus-workspace-${direction}" = { };
-          "Super+Shift+${key}".action."move-column-to-workspace-${direction}" = { };
+          "Super+Shift+${key}".action."move-column-to-workspace-${direction}" = {
+            focus = false;
+          };
         }) directionsY)
         (lib.concatMapAttrs (key: direction: {
           "Super+${key}".action."focus-column-${direction}" = { };
