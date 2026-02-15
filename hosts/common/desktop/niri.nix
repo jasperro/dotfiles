@@ -14,7 +14,6 @@
         options = "terminate:ctrl_alt_bksp";
       };
     };
-    hypridle.enable = true;
     greetd = {
       enable = true;
       settings = {

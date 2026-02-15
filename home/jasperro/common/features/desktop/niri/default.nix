@@ -27,7 +27,7 @@
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
     waypaper
-    inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.hyprpaper
+    swaybg
   ];
 
   xdg.portal = {
@@ -42,6 +42,16 @@
   };
 
   programs.niri.settings = {
+    spawn-at-startup = [
+      {
+        argv = [
+          "waypaper"
+          "--restore"
+          "--random"
+        ];
+      }
+    ];
+
     input.keyboard.xkb = {
       layout = "us";
       variant = "altgr-intl";
@@ -77,6 +87,18 @@
             bottom-right = r;
           };
         clip-to-geometry = true;
+      }
+    ];
+
+    layer-rules = [
+      {
+        matches = [
+          {
+            namespace = "waybar";
+            at-startup = true;
+          }
+        ];
+        place-within-backdrop = true;
       }
     ];
 
@@ -130,14 +152,16 @@
 
     clipboard.disable-primary = true;
 
-    overview.zoom = 0.5;
+    overview = {
+      zoom = 0.5;
+      backdrop-color = config.lib.stylix.colors.withHashtag.base01;
+    };
 
     screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
 
     binds =
       with config.lib.niri.actions;
       let
-        sh = spawn "sh" "-c";
         playerctl = "${config.services.playerctld.package}/bin/playerctl";
         playerctld = "${config.services.playerctld.package}/bin/playerctld";
         makoctl = "${config.services.mako.package}/bin/makoctl";
@@ -160,8 +184,8 @@
         [
           {
             # Program bindings
-            "Super+Return".action = sh "${terminal}";
-            "Super+B".action = sh "${browser}";
+            "Super+Return".action = spawn-sh "${terminal}";
+            "Super+B".action = spawn-sh "${browser}";
             # Volume
             "XF86AudioRaiseVolume".action = spawn [
               pactl
@@ -297,7 +321,7 @@
                 "-S"
                 "run"
               ];
-              "Super+V".action = sh "${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy";
+              "Super+V".action = spawn-sh "${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy";
               "Super+Shift+E".action = spawn [
                 "${inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/wofi-power-menu"
                 "--disable"
@@ -307,6 +331,31 @@
           ])
       );
   };
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        before_sleep_cmd = "hyprlock --immediate";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        ignore_dbus_inhibit = false;
+        lock_cmd = "hyprlock --immediate";
+      };
+
+      listener = [
+        {
+          timeout = 900;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 1200;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
+    };
+  };
+
   programs.hyprlock = {
     enable = true;
     settings = {
