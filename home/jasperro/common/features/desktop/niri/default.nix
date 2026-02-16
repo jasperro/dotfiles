@@ -352,12 +352,12 @@
           # Launcher
           (lib.optionals config.programs.wofi.enable [
             {
-              "Super+x".action = spawn [
+              "Super+C".action = spawn [
                 wofi
                 "-S"
                 "drun"
               ];
-              "Super+D".action = spawn [
+              "Super+X".action = spawn [
                 wofi
                 "-S"
                 "run"
@@ -374,8 +374,9 @@
           # Launcher
           (lib.optionals config.programs.noctalia-shell.enable [
             {
-              "Super+x".action = noctalia "launcher command";
-              "Super+D".action = noctalia "launcher toggle";
+              "Super+Z".action = noctalia "launcher windows";
+              "Super+X".action = noctalia "launcher toggle";
+              "Super+C".action = noctalia "launcher command";
               "Super+V".action = noctalia "launcher clipboard";
               "Super+Shift+E".action = noctalia "sessionMenu toggle";
             }

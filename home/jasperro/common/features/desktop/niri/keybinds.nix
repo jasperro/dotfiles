@@ -27,16 +27,19 @@ in
       with config.lib.niri.actions;
       lib.attrsets.mergeAttrsList [
         {
-          "Super+Shift+s".action = spawn [
+          "Super+Shift+S".action = spawn [
             "systemctl"
             "suspend"
           ];
-          "Super+Shift+p".action = spawn [
+          "Super+Shift+P".action = spawn [
             "loginctl"
             "lock-session"
           ];
 
-          "Super+q".action = close-window;
+          "Super+D".action = toggle-overview;
+          "Super+Tab".action = toggle-overview;
+
+          "Super+Q".action = close-window;
 
           "Super+Comma".action = consume-window-into-column;
           "Super+Period".action = expel-window-from-column;

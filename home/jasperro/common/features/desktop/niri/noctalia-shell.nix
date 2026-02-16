@@ -71,6 +71,9 @@
               id = "Brightness";
             }
             {
+              id = "NightLight";
+            }
+            {
               id = "KeepAwake";
             }
             {
@@ -91,13 +94,9 @@
       location = {
         name = "Hooglanderveen, Netherlands";
       };
-      network = {
-        wifiEnabled = false;
-        airplaneModeEnabled = false;
-        bluetoothRssiPollingEnabled = false;
-        bluetoothHideUnnamedDevices = false;
-        disableDiscoverability = true;
-      };
+      # Make this depend on if device has wifi/bluetooth (which doosje doesn't have)
+      network.airplaneModeEnabled = true;
+      sessionMenu.countdownDuration = 5000;
       appLauncher = {
         enableClipboardHistory = true;
         autoPasteClipboard = true;
