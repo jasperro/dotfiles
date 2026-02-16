@@ -31,14 +31,6 @@
           ];
           system = "x86_64-linux";
         };
-        tinkpet = {
-          users = [ "jasperro" ];
-          system = "x86_64-linux";
-        };
-        tinkpet-wsl = {
-          users = [ "nixos" ];
-          system = "x86_64-linux";
-        };
       };
     in
 
