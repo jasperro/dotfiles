@@ -87,15 +87,14 @@
       url = "github:szaffarano/wofi-power-menu";
     };
 
-    xwayland-satellite-unstable.url = "github:Supreeeme/xwayland-satellite";
-    xwayland-satellite-unstable.flake = false;
-
-    niri-flake = {
-      url = "github:sodiboo/niri-flake/very-refactor";
-      # Remove both entries when blur is merged.
-      inputs.niri-unstable.url = "github:visualglitch91/niri/feat/blur";
+    niri-nix = {
+      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.xwayland-satellite-unstable.follows = "xwayland-satellite-unstable";
+    };
+
+    niri = {
+      url = "github:Naxdy/niri";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {

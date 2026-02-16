@@ -22,62 +22,62 @@ let
   # directions = directionsX // directionsY;
 in
 {
-  programs.niri.settings = {
-    binds =
-      with config.lib.niri.actions;
-      lib.attrsets.mergeAttrsList [
-        {
-          "Super+Shift+S".action = spawn [
-            "systemctl"
-            "suspend"
-          ];
-          "Super+Shift+P".action = spawn [
-            "loginctl"
-            "lock-session"
-          ];
+  wayland.windowManager.niri.settings = {
+    binds = lib.attrsets.mergeAttrsList [
+      {
+        "Super+Shift+S".spawn = [
+          "systemctl"
+          "suspend"
+        ];
+        "Super+Shift+P".spawn = [
+          "loginctl"
+          "lock-session"
+        ];
 
-          "Super+D".action = toggle-overview;
-          "Super+Tab".action = toggle-overview;
+        "Super+D".toggle-overview = [ ];
+        "Super+Tab".toggle-overview = [ ];
 
-          "Super+Q".action = close-window;
+        "Super+Q".close-window = [ ];
 
-          "Super+Comma".action = consume-window-into-column;
-          "Super+Period".action = expel-window-from-column;
-          "Super+Slash".action = switch-preset-column-width;
+        "Super+Comma".consume-window-into-column = [ ];
+        "Super+Period".expel-window-from-column = [ ];
+        "Super+Slash".switch-preset-column-width = [ ];
 
-          "Super+F".action = maximize-column;
-          "Super+Shift+F".action = fullscreen-window;
+        "Super+F".maximize-column = [ ];
+        "Super+Shift+F".fullscreen-window = [ ];
 
-          "Super+Shift+Space".action = switch-focus-between-floating-and-tiling;
-          "Super+Space".action = toggle-window-floating;
+        "Super+Shift+Space".switch-focus-between-floating-and-tiling = [ ];
+        "Super+Space".toggle-window-floating = [ ];
 
-          "Super+Minus".action = set-column-width "-10%";
-          "Super+Shift+Minus".action = set-window-height "-10%";
+        "Super+Minus".set-column-width = "-10%";
+        "Super+Shift+Minus".set-window-height = "-10%";
 
-          "Super+Equal".action = set-column-width "+10%";
-          "Super+Shift+Equal".action = set-window-height "+10%";
+        "Super+Equal".set-column-width = "+10%";
+        "Super+Shift+Equal".set-window-height = "+10%";
 
-          "Super+Control+WheelScrollDown" = {
-            cooldown-ms = 150;
-            action = focus-workspace-down;
+        "Super+Control+WheelScrollDown" = {
+          focus-workspace-down = [ ];
+          _props.cooldown-ms = 150;
+        };
+        "Super+Control+WheelScrollUp" = {
+          focus-workspace-up = [ ];
+          _props.cooldown-ms = 150;
+        };
+        "Super+WheelScrollUp".focus-column-left = [ ];
+        "Super+WheelScrollDown".focus-column-right = [ ];
+      }
+      (lib.concatMapAttrs (key: direction: {
+        "Super+${key}"."focus-workspace-${direction}" = [ ];
+        "Super+Shift+${key}" = {
+          "move-column-to-workspace-${direction}" = {
+            _props.focus = false;
           };
-          "Super+Control+WheelScrollUp" = {
-            cooldown-ms = 150;
-            action = focus-workspace-up;
-          };
-          "Super+WheelScrollUp".action = focus-column-left;
-          "Super+WheelScrollDown".action = focus-column-right;
-        }
-        (lib.concatMapAttrs (key: direction: {
-          "Super+${key}".action."focus-workspace-${direction}" = { };
-          "Super+Shift+${key}".action."move-column-to-workspace-${direction}" = {
-            focus = false;
-          };
-        }) directionsY)
-        (lib.concatMapAttrs (key: direction: {
-          "Super+${key}".action."focus-column-${direction}" = { };
-          "Super+Shift+${key}".action."move-column-${direction}" = { };
-        }) directionsX)
-      ];
+        };
+      }) directionsY)
+      (lib.concatMapAttrs (key: direction: {
+        "Super+${key}"."focus-column-${direction}" = [ ];
+        "Super+Shift+${key}"."move-column-${direction}" = [ ];
+      }) directionsX)
+    ];
   };
 }

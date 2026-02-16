@@ -2,8 +2,9 @@
 {
   imports = [
     ./default.nix
-    inputs.niri-flake.nixosModules.niri
+    inputs.niri-nix.nixosModules.default
   ];
+
   services = {
     xserver = {
       enable = true;
@@ -25,13 +26,10 @@
     };
   };
 
-  # programs.uwsm.enable = true;
   programs.niri = {
-    package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
-    # package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-stable;
     enable = true;
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
   };
-  programs.hyprlock.enable = true;
 
   networking.networkmanager.enable = true;
 

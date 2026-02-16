@@ -3,7 +3,6 @@
   config,
   pkgs,
   inputs,
-  impurity,
   ...
 }:
 {
@@ -11,8 +10,11 @@
     ../common
     ../common/wayland-wm
 
+    inputs.niri-nix.homeModules.default
+
     ./workspaces.nix
     ./keybinds.nix
+    ./unofficial.nix
 
     ./noctalia-shell.nix
 
@@ -25,7 +27,7 @@
   ];
 
   home.packages = with pkgs; [
-    inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+    inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
     grimblast
     hyprsunset
     inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -45,20 +47,15 @@
     };
   };
 
-  xdg.configFile."niri/extra.kdl".source = impurity.link ./extra.kdl;
-
-  programs.niri.settings = {
-    includes = [
-      { path = "extra.kdl"; }
-    ];
+  wayland.windowManager.niri.enable = true;
+  wayland.windowManager.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+  wayland.windowManager.niri.settings = {
     spawn-at-startup = [
-      {
-        argv = [
-          "waypaper"
-          "--restore"
-          "--random"
-        ];
-      }
+      [
+        "waypaper"
+        "--restore"
+        "--random"
+      ]
     ];
 
     input.keyboard.xkb = {
@@ -69,46 +66,40 @@
     input.mouse.accel-speed = 1.0;
 
     xwayland-satellite.path = "${lib.getExe
-      inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+      inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
     }";
 
     prefer-no-csd = true;
 
     cursor = {
-      theme = config.stylix.cursor.name;
-      size = config.stylix.cursor.size;
+      xcursor-theme = config.stylix.cursor.name;
+      xcursor-size = config.stylix.cursor.size;
     };
 
-    outputs."DP-2" = {
-      mode.width = 2560;
-      mode.height = 1440;
-      mode.refresh = 180.001;
-      variable-refresh-rate = true;
-      focus-at-startup = true;
-    };
-
-    window-rules = [
+    output = [
       {
-        geometry-corner-radius =
-          let
-            r = 8.0;
-          in
-          {
-            top-left = r;
-            top-right = r;
-            bottom-left = r;
-            bottom-right = r;
-          };
+        _args = [ "DP-2" ];
+        mode = "2560x1440@180.001";
+        variable-refresh-rate = [ ];
+        focus-at-startup = [ ];
+      }
+    ];
+
+    window-rule = [
+      {
+        geometry-corner-radius = 8.0;
         clip-to-geometry = true;
       }
     ];
 
-    layer-rules = [
+    layer-rule = [
       {
-        matches = [
+        _children = [
           {
-            namespace = "waybar";
-            at-startup = true;
+            match._props = {
+              namespace = "^bar*";
+              at-startup = true;
+            };
           }
         ];
         place-within-backdrop = true;
@@ -117,52 +108,34 @@
 
     layout = {
       gaps = 10;
-      # struts.left = 64;
-      # struts.right = 64;
       always-center-single-column = true;
 
       empty-workspace-above-first = true;
 
-      # shadow = {
-      #   enable = true;
-      # };
-
-      focus-ring.enable = false;
+      focus-ring.off = [ ];
 
       border = with config.lib.stylix.colors.withHashtag; {
-        enable = true;
+        on = [ ];
         width = 4;
-        active.gradient = {
+        active-gradient._props = {
           from = base0D;
           to = base0B;
           angle = 45;
         };
-        inactive.gradient = {
+        inactive-gradient._props = {
           from = base01;
           to = base02;
           angle = 45;
           relative-to = "workspace-view";
         };
-        urgent.gradient = {
+        urgent-gradient._props = {
           from = base08;
           to = base09;
           angle = 45;
         };
       };
 
-      # default-column-display = "tabbed";
-
-      tab-indicator = {
-        position = "top";
-        gaps-between-tabs = 10;
-
-        # hide-when-single-tab = true;
-        # place-within-column = true;
-
-        # active.color = "red";
-      };
-
-      preset-column-widths = [
+      preset-column-widths._children = [
         { proportion = 1. / 3.; }
         { proportion = 1. / 2.; }
         { proportion = 2. / 3.; }
@@ -179,18 +152,15 @@
     screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
 
     binds =
-      with config.lib.niri.actions;
       let
-        noctalia =
-          cmd:
-          spawn (
-            [
-              "noctalia-shell"
-              "ipc"
-              "call"
-            ]
-            ++ (pkgs.lib.splitString " " cmd)
-          );
+        noctalia = cmd: {
+          spawn = [
+            "noctalia-shell"
+            "ipc"
+            "call"
+          ]
+          ++ (pkgs.lib.splitString " " cmd);
+        };
         playerctl = lib.getExe config.services.playerctld.package;
         playerctld = lib.getExe config.services.playerctld.package;
         makoctl = lib.getExe config.services.mako.package;
@@ -213,53 +183,53 @@
         [
           {
             # Program bindings
-            "Super+Return".action = spawn-sh "${terminal}";
-            "Super+B".action = spawn-sh "${browser}";
+            "Super+Return".spawn-sh = "${terminal}";
+            "Super+B".spawn-sh = "${browser}";
             # Volume
-            "XF86AudioRaiseVolume".action = spawn [
+            "XF86AudioRaiseVolume".spawn = [
               pactl
               "set-sink-volume"
               "@DEFAULT_SINK@"
               "+5%"
             ];
-            "XF86AudioLowerVolume".action = spawn [
+            "XF86AudioLowerVolume".spawn = [
               pactl
               "set-sink-volume"
               "@DEFAULT_SINK@"
               "-5%"
             ];
-            "XF86AudioMute".action = spawn [
+            "XF86AudioMute".spawn = [
               pactl
               "set-sink-mute"
               "@DEFAULT_SINK@"
               "toggle"
             ];
             # Screenshotting
-            "Print".action = spawn [
+            "Print".spawn = [
               grimblast
               "--notify"
               "copy"
               "output"
             ];
-            "Shift+Print".action = spawn [
+            "Shift+Print".spawn = [
               grimblast
               "--notify"
               "copy"
               "active"
             ];
-            "Control+Print".action = spawn [
+            "Control+Print".spawn = [
               grimblast
               "--notify"
               "copy"
               "screen"
             ];
-            "Super+Print".action = spawn [
+            "Super+Print".spawn = [
               grimblast
               "--notify"
               "copy"
               "window"
             ];
-            "Alt+Print".action = spawn [
+            "Alt+Print".spawn = [
               grimblast
               "--notify"
               "copy"
@@ -271,31 +241,31 @@
           # Media control
           (lib.optionals config.services.playerctld.enable [
             {
-              "XF86AudioNext".action = spawn [
+              "XF86AudioNext".spawn = [
                 playerctl
                 "next"
               ];
-              "XF86AudioPrev".action = spawn [
+              "XF86AudioPrev".spawn = [
                 playerctl
                 "previous"
               ];
-              "XF86AudioPlay".action = spawn [
+              "XF86AudioPlay".spawn = [
                 playerctl
                 "play-pause"
               ];
-              "XF86AudioStop".action = spawn [
+              "XF86AudioStop".spawn = [
                 playerctl
                 "stop"
               ];
-              "Alt+XF86AudioNext".action = spawn [
+              "Alt+XF86AudioNext".spawn = [
                 playerctld
                 "shift"
               ];
-              "Alt+XF86AudioPrev".action = spawn [
+              "Alt+XF86AudioPrev".spawn = [
                 playerctld
                 "unshift"
               ];
-              "Alt+XF86AudioPlay".action = spawn [
+              "Alt+XF86AudioPlay".spawn = [
                 "systemctl"
                 "--user"
                 "restart"
@@ -310,13 +280,13 @@
             if config.programs.hyprlock.enable then
               [
                 {
-                  "Super+Shift+M".action = spawn hyprlock;
+                  "Super+Shift+M".spawn = hyprlock;
                 }
               ]
             else if config.programs.noctalia-shell.enable then
               [
                 {
-                  "Super+Shift+M".action = noctalia "lockScreen lock";
+                  "Super+Shift+M" = noctalia "lockScreen lock";
                 }
               ]
             else
@@ -326,7 +296,7 @@
           # Notification manager
           (lib.optionals config.services.mako.enable [
             {
-              "Super+W".action = spawn [
+              "Super+W".spawn = [
                 makoctl
                 "dismiss"
               ];
@@ -337,12 +307,12 @@
           (lib.optionals config.services.flameshot.enable [
             {
               # Full screen or window
-              "Super+Print".action = spawn [
+              "Super+Print".spawn = [
                 flameshot
                 "launcher"
               ];
               # Selection, draw mode
-              "Control+Print".action = spawn [
+              "Control+Print".spawn = [
                 flameshot
                 "gui"
               ];
@@ -352,18 +322,18 @@
           # Launcher
           (lib.optionals config.programs.wofi.enable [
             {
-              "Super+C".action = spawn [
+              "Super+C".spawn = [
                 wofi
                 "-S"
                 "drun"
               ];
-              "Super+X".action = spawn [
+              "Super+X".spawn = [
                 wofi
                 "-S"
                 "run"
               ];
-              "Super+V".action = spawn-sh "${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy";
-              "Super+Shift+E".action = spawn [
+              "Super+V".spawn-sh = "${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | wl-copy";
+              "Super+Shift+E".spawn = [
                 "${inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/wofi-power-menu"
                 "--disable"
                 "hibernate"
@@ -374,11 +344,11 @@
           # Launcher
           (lib.optionals config.programs.noctalia-shell.enable [
             {
-              "Super+Z".action = noctalia "launcher windows";
-              "Super+X".action = noctalia "launcher toggle";
-              "Super+C".action = noctalia "launcher command";
-              "Super+V".action = noctalia "launcher clipboard";
-              "Super+Shift+E".action = noctalia "sessionMenu toggle";
+              "Super+Z" = noctalia "launcher windows";
+              "Super+X" = noctalia "launcher toggle";
+              "Super+C" = noctalia "launcher command";
+              "Super+V" = noctalia "launcher clipboard";
+              "Super+Shift+E" = noctalia "sessionMenu toggle";
             }
           ])
       );
