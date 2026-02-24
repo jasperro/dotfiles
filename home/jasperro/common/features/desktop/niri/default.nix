@@ -80,7 +80,9 @@
       {
         _args = [ "DP-2" ];
         mode = "2560x1440@180.001";
-        variable-refresh-rate = [ ];
+        variable-refresh-rate._props = {
+          on-demand = true;
+        };
         focus-at-startup = [ ];
       }
     ];

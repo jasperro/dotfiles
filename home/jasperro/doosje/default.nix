@@ -25,6 +25,6 @@
 
   stylix = {
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/penumbra-dark-contrast-plus.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
   };
 }

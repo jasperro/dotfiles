@@ -41,10 +41,12 @@
     autoEnable = false;
     targets = {
       gtk.enable = true;
-      firefox.enable = true;
       hyprpaper.enable = true;
       # kde.enable = true;
-      qt.enable = true;
+      qt = {
+        enable = true;
+        standardDialogs = "xdgdesktopportal";
+      };
       nixvim.enable = true;
     };
     cursor = {
