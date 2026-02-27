@@ -10,7 +10,7 @@ let
   grep = "${pkgs.gnugrep}/bin/grep";
   jq = "${pkgs.jq}/bin/jq";
   gamemoded = "${pkgs.gamemode}/bin/gamemoded";
-  pavucontrol = "${pkgs.pavucontrol}/bin/pavucontrol";
+  pwvucontrol = "${pkgs.pwvucontrol}/bin/pwvucontrol";
 
   # Function to simplify making waybar outputs
   jsonOutput =
@@ -117,7 +117,7 @@ in
             ];
           };
           max-volume = 150;
-          on-click = pavucontrol;
+          on-click = pwvucontrol;
         };
         idle_inhibitor = {
           format = "{icon}";

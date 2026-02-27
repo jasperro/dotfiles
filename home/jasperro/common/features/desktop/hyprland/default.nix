@@ -142,8 +142,8 @@ with config.lib.stylix.colors;
 
       windowrule = [
         "border_color rgb(${base05}), match:fullscreen on"
-        "float on, match:class org.pulseaudio.pavucontrol"
-        "size 800 1000, match:class org.pulseaudio.pavucontrol"
+        "float on, match:class com.saivert.pwvucontrol"
+        "size 800 1000, match:class com.saivert.pwvucontrol"
 
         "workspace 9 silent, match:title (Guild Wars 2)"
         "no_blur on, match:title (Guild Wars 2)"

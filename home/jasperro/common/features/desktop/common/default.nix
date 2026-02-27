@@ -63,7 +63,7 @@
     winetricks
 
     # multimedia
-    pavucontrol
+    pwvucontrol
     vlc
 
     # games
