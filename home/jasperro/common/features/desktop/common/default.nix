@@ -74,8 +74,6 @@
     })
     steam
     heroic
-    superTux
-    superTuxKart
     prismlauncher
 
     # LaTeX
