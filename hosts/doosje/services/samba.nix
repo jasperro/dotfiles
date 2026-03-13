@@ -11,19 +11,18 @@
   services.samba = {
     enable = true;
     openFirewall = true;
-    securityType = "user";
-    extraConfig = ''
-      workgroup = DOOSJE
-      server role = standalone server
-      server string = smbnix
-      netbios name = smbnix
-      security = user 
-      hosts allow = 192.168.1.0/24, 127.0.0.1, localhost
-      hosts deny = 0.0.0.0/0
-      guest account = nobody
-      map to guest = bad user
-      ntlm auth = yes
-    '';
+    settings.global = {
+      workgroup = "DOOSJE";
+      "server role" = "standalone server";
+      "server string" = "smbnix";
+      "netbios name" = "smbnix";
+      security = "user";
+      "hosts allow" = "192.168.1.0/24, 127.0.0.1, localhost";
+      "hosts deny" = "0.0.0.0/0";
+      "guest account" = "nobody";
+      "map to guest" = "bad user";
+      "ntlm auth" = "yes";
+    };
     # shares = {
     #   public = {
     #     path = "/abs/path/";
