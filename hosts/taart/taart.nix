@@ -20,6 +20,21 @@
       <JDF/nixos/utilities>
 
       <JDF/services/openssh-inbound>
+
+      <JDF/hosts/taart/services/acme>
+      <JDF/hosts/taart/services/nginx>
+      <JDF/hosts/taart/services/vaultwarden>
+      <JDF/hosts/taart/services/podman>
+
+      <JDF/hosts/taart/services/database/postgresql>
+
+      <JDF/hosts/taart/services/home-automation/mosquitto>
+      <JDF/hosts/taart/services/home-automation/zigbee2mqtt>
+      <JDF/hosts/taart/services/home-automation/homeassistant>
+      <JDF/hosts/taart/services/home-automation/esphome>
+      <JDF/hosts/taart/services/home-automation/appdaemon>
+      <JDF/hosts/taart/services/home-automation/matter>
+      <JDF/hosts/taart/services/home-automation/grott>
     ];
 
     nixos =

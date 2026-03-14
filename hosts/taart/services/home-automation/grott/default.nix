@@ -1,73 +1,79 @@
-{ config, pkgs, ... }:
 let
   port = 5279;
 in
+{ __findFile, ... }:
 {
-  imports = [ ../mosquitto.nix ];
-  sops.templates."grott-env" = {
-    content = ''
-      gmqttpassword=${config.sops.placeholder."mqtt/password"}
-    '';
-    mode = "0440";
-  };
-  networking.firewall.allowedTCPPorts = [
-    port
-  ];
-  networking.firewall.allowedUDPPorts = [
-    port
-  ];
+  JDF.hosts._.taart._.services._.home-automation._.grott = {
+    includes = [ <JDF/hosts/taart/services/home-automation/mosquitto> ];
+    nixos =
+      { config, pkgs, ... }:
+      {
+        sops.templates."grott-env" = {
+          content = ''
+            gmqttpassword=${config.sops.placeholder."mqtt/password"}
+          '';
+          mode = "0440";
+        };
+        networking.firewall.allowedTCPPorts = [
+          port
+        ];
+        networking.firewall.allowedUDPPorts = [
+          port
+        ];
 
-  virtualisation.oci-containers.containers.grott = {
-    image = "grott:latest";
-    imageFile = import ./container.nix { inherit pkgs; };
-    autoStart = true;
+        virtualisation.oci-containers.containers.grott = {
+          image = "grott:latest";
+          imageFile = import ./_container.nix { inherit pkgs; };
+          autoStart = true;
 
-    ports = [
-      "${toString port}:5279"
-    ];
+          ports = [
+            "${toString port}:5279"
+          ];
 
-    # Improve this if it gives problems
-    extraOptions = [
-      "--network=host"
-    ];
+          # Improve this if it gives problems
+          extraOptions = [
+            "--network=host"
+          ];
 
-    environment = {
-      gmode = "proxy";
-      # To block commands from outside (to change inverter and shine devices settings)
-      gblockcmd = "True";
-      gnomqtt = "False";
-      gmqttip = "localhost";
-      gmqttauth = "True";
-      gmqttuser = "mosquitto";
-      # from sops
-      # gmqttpassword = "";
-      gpvoutput = "False";
-      # gpvapikey = "yourapikey";
-      # gpvsystemid1 = "12345";
-      ginflux = "False";
-      ginflux2 = "False";
-      # gifdbname = "grottdb";
-      # gifip = "localhost";
-      # gifport = "8086";
-      # gifuser = "grott";
-      # gigpassword = "growatt2020";
-      # giftoken = "influx_token";
-      # giforg = "grottorg";
-      # gifbucket = "grottdb";
-      # gextension = "false";
-      # gextname = "grottext";
-      # gextvar = ''{"ip": "192.168.0.47", "port": "8000"}'';
-      TZ = "Europe/Amsterdam";
-    };
+          environment = {
+            gmode = "proxy";
+            # To block commands from outside (to change inverter and shine devices settings)
+            gblockcmd = "True";
+            gnomqtt = "False";
+            gmqttip = "localhost";
+            gmqttauth = "True";
+            gmqttuser = "mosquitto";
+            # from sops
+            # gmqttpassword = "";
+            gpvoutput = "False";
+            # gpvapikey = "yourapikey";
+            # gpvsystemid1 = "12345";
+            ginflux = "False";
+            ginflux2 = "False";
+            # gifdbname = "grottdb";
+            # gifip = "localhost";
+            # gifport = "8086";
+            # gifuser = "grott";
+            # gigpassword = "growatt2020";
+            # giftoken = "influx_token";
+            # giforg = "grottorg";
+            # gifbucket = "grottdb";
+            # gextension = "false";
+            # gextname = "grottext";
+            # gextvar = ''{"ip": "192.168.0.47", "port": "8000"}'';
+            TZ = "Europe/Amsterdam";
+          };
 
-    environmentFiles = [
-      config.sops.templates.grott-env.path
-    ];
+          environmentFiles = [
+            config.sops.templates.grott-env.path
+          ];
 
-    # Optional volume mounting if needed
-    # volumes = [
-    #   "/opt/grott/grottstub.ini:/app/grott.ini"
-    #   "/opt/grott/grottstub.py:/app/grottext.py"
-    # ];
+          # Optional volume mounting if needed
+          # volumes = [
+          #   "/opt/grott/grottstub.ini:/app/grott.ini"
+          #   "/opt/grott/grottstub.py:/app/grottext.py"
+          # ];
+        };
+      };
   };
 }
