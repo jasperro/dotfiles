@@ -1,30 +1,19 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ pkgs, ... }:
+{ __findFile, ... }:
 {
-  # You can import other home-manager modules here
-  imports = [
-    ../common
-    ../common/features/editors/vscode
-    ../common/features/desktop/common
-    # ../common/features/desktop/hyprland
-    ../common/features/desktop/niri
-  ];
+  den.homes.x86_64-linux.jasperro-doosje = {
+    description = "Standalone home configuration for jasperro's desktop computer.";
+    aspect = "jasperro-doosje";
+  };
 
-  monitors = [
-    {
-      name = "DP-2";
-      width = 2560;
-      height = 1440;
-      refreshRate = 180;
-      workspace = "1";
-      primary = true;
-    }
-  ];
+  den.aspects.jasperro-doosje = {
+    includes = [
+      <JDF/users/jasperro/desktop/niri>
+      <JDF/users/jasperro/desktop-packages>
+      <JDF/users/jasperro/git>
+      <JDF/users/jasperro/cli>
 
-  stylix = {
-    polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+      <JDF/users/jasperro/editors/nixvim>
+      <JDF/users/jasperro/editors/vscode>
+    ];
   };
 }

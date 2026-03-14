@@ -1,31 +1,32 @@
 {
-  lib,
-  pkgs,
-  config,
+  inputs,
   outputs,
+  lib,
   ...
 }:
 {
-  imports = (builtins.attrValues outputs.homeModules);
-
-  home.homeDirectory = lib.mkDefault "/home/${config.home.username}";
-
-  programs.home-manager.enable = true;
-  programs.lesspipe.enable = true;
-
-  # Disable nix configuration in home-manager, as we use NixOS's nix config (even when using standalone hm).
-  # Override this for non-nixos configurations.
-  nix.enable = lib.mkDefault false;
-
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-    pinentry.package = pkgs.pinentry-qt;
+  den.default.nixos = {
+    home-manager.useGlobalPkgs = true;
+    home-manager.backupFileExtension = "hmbackup";
+    home-manager.extraSpecialArgs = {
+      inherit inputs;
+      inherit outputs;
+    };
   };
+  den.default.homeManager =
+    { pkgs, ... }:
+    {
+      nix.enable = lib.mkDefault false;
 
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+      services.gpg-agent = {
+        enable = true;
+        enableSshSupport = true;
+        pinentry.package = pkgs.pinentry-qt;
+      };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = lib.mkDefault "22.11";
+      # Nicely reload system units when changing configs
+      systemd.user.startServices = "sd-switch";
+
+      home.stateVersion = "25.05";
+    };
 }

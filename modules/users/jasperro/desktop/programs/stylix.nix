@@ -1,76 +1,82 @@
 {
-  pkgs,
-  config,
   lib,
   inputs,
   ...
 }:
 {
+  JDF.users._.jasperro._.desktop._.programs._.stylix.homeManager =
+    {
+      pkgs,
+      config,
+      ...
+    }:
+    {
 
-  imports = [ inputs.stylix.homeModules.stylix ];
-  stylix = {
-    enable = true;
-    base16Scheme = lib.mkIf (config.stylix.image == null) (
-      lib.mkDefault "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml"
-    );
-    fonts = {
-      serif = {
-        package = pkgs.source-serif;
-        name = "Source Serif";
-      };
-
-      sansSerif = {
-        package = pkgs.adwaita-fonts;
-        name = "Adwaita Sans";
-      };
-
-      monospace = {
-        package = pkgs.iosevka;
-        name = "Iosevka";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-
-      sizes = {
-        applications = 11;
-      };
-    };
-    autoEnable = false;
-    targets = {
-      gtk.enable = true;
-      hyprpaper.enable = true;
-      # kde.enable = true;
-      qt = {
+      imports = [ inputs.stylix.homeModules.stylix ];
+      stylix = {
         enable = true;
-        standardDialogs = "xdgdesktopportal";
-      };
-      nixvim.enable = true;
-    };
-    cursor = {
-      package = pkgs.rose-pine-cursor;
-      name = "BreezeX-RosePine-Linux";
-      size = 36;
-    };
-    icons = {
-      enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus";
-    };
-    opacity = {
-      desktop = 0.6;
-      popups = 0.6;
-    };
-  };
+        base16Scheme = lib.mkIf (config.stylix.image == null) (
+          lib.mkDefault "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml"
+        );
+        fonts = {
+          serif = {
+            package = pkgs.source-serif;
+            name = "Source Serif";
+          };
 
-  services.xsettingsd = {
-    enable = true;
-    settings = {
-      "Net/ThemeName" = "${config.gtk.theme.name}";
-      "Net/IconThemeName" = "${config.gtk.iconTheme.name}";
+          sansSerif = {
+            package = pkgs.adwaita-fonts;
+            name = "Adwaita Sans";
+          };
+
+          monospace = {
+            package = pkgs.iosevka;
+            name = "Iosevka";
+          };
+
+          emoji = {
+            package = pkgs.noto-fonts-color-emoji;
+            name = "Noto Color Emoji";
+          };
+
+          sizes = {
+            applications = 11;
+          };
+        };
+        autoEnable = false;
+        targets = {
+          gtk.enable = true;
+          hyprpaper.enable = true;
+          # kde.enable = true;
+          qt = {
+            enable = true;
+            standardDialogs = "xdgdesktopportal";
+          };
+          nixvim.enable = true;
+        };
+        cursor = {
+          package = pkgs.rose-pine-cursor;
+          name = "BreezeX-RosePine-Linux";
+          size = 36;
+        };
+        icons = {
+          enable = true;
+          package = pkgs.papirus-icon-theme;
+          dark = "Papirus-Dark";
+          light = "Papirus";
+        };
+        opacity = {
+          desktop = 0.6;
+          popups = 0.6;
+        };
+      };
+
+      services.xsettingsd = {
+        enable = true;
+        settings = {
+          "Net/ThemeName" = "${config.gtk.theme.name}";
+          "Net/IconThemeName" = "${config.gtk.iconTheme.name}";
+        };
+      };
     };
-  };
 }

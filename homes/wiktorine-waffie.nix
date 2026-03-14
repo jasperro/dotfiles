@@ -1,41 +1,51 @@
-{ pkgs, ... }:
+{ __findFile, ... }:
 {
-  # services.kdeconnect.enable = true;
-  home.packages = with pkgs; [
-    kdePackages.kdeconnect-kde
-    # general desktop apps
-    firefox
-    #firefox-devedition-bin
-    gimp3
-    inkscape
-    qalculate-qt
-    kdePackages.ark
+  den.homes.x86_64-linux.wiktorine-waffie = {
+    description = "Standalone home configuration for wiktorine's laptop.";
+    aspect = "wiktorine-waffie";
+  };
 
-    # X/Wayland utilities
-    x11_ssh_askpass
-    xeyes
-    wl-clipboard
-    wl-clipboard-x11
-    waypipe
-    waynergy
-    wev
+  den.aspects.wiktorine-waffie = {
+    homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [
+          kdePackages.kdeconnect-kde
+          # general desktop apps
+          firefox
+          #firefox-devedition-bin
+          gimp3
+          inkscape
+          qalculate-qt
+          kdePackages.ark
 
-    dconf
-    dconf-editor
-    gparted
+          # X/Wayland utilities
+          x11_ssh_askpass
+          xeyes
+          wl-clipboard
+          wl-clipboard-x11
+          waypipe
+          waynergy
+          wev
 
-    # wine
-    wine-wayland
-    winetricks
+          dconf
+          dconf-editor
+          gparted
 
-    # multimedia
-    pwvucontrol
-    vlc
+          # wine
+          wine-wayland
+          winetricks
 
-    # games
-    prismlauncher
+          # multimedia
+          pwvucontrol
+          vlc
 
-    # LaTeX
-    # texlive.combined.scheme-medium
-  ];
+          # games
+          prismlauncher
+
+          # LaTeX
+          # texlive.combined.scheme-medium
+        ];
+      };
+  };
 }

@@ -1,26 +1,33 @@
-{ pkgs, ... }:
+{ __findFile, ... }:
 {
-  imports = [
-    ../../../../common/features/cli/jasperro-shell.nix
-    ./git.nix
-  ];
-  home.packages = with pkgs; [
-    distrobox
+  JDF.users._.jasperro._.cli = {
+    includes = [
+      <JDF/cli/jasperro-shell>
 
-    ripgrep
-    httpie
-    jq
-    gnupg
+      <JDF/users/jasperro/git>
+    ];
+    homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [
+          distrobox
 
-    appimage-run
-    gh
+          ripgrep
+          httpie
+          jq
+          gnupg
 
-    nixd
-    nixfmt
-  ];
-  programs.fzf = {
-    enable = true;
+          appimage-run
+          gh
+
+          nixd
+          nixfmt
+        ];
+        programs.fzf = {
+          enable = true;
+        };
+        programs.direnv.enable = true;
+        programs.direnv.nix-direnv.enable = true;
+      };
   };
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
 }

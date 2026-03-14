@@ -1,53 +1,63 @@
-{ pkgs, ... }:
+{ __findFile, ... }:
 {
-  # services.kdeconnect.enable = true;
-  home.packages = with pkgs; [
-    kdePackages.kdeconnect-kde
-    # general desktop apps
-    vscode
-    firefox
-    gimp3
-    inkscape
-    krita
-    qalculate-qt
-    kdePackages.ark
+  den.homes.x86_64-linux.wiktorine-koekie = {
+    description = "Standalone home configuration for wiktorine's desktop computer.";
+    aspect = "jasperro-wiktorine";
+  };
 
-    # Office
-    libreoffice
-    hyphen
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.nl_nl
+  den.aspects.wiktorine-koekie = {
+    homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [
+          kdePackages.kdeconnect-kde
+          # general desktop apps
+          vscode
+          firefox
+          gimp3
+          inkscape
+          krita
+          qalculate-qt
+          kdePackages.ark
 
-    # X/Wayland utilities
-    x11_ssh_askpass
-    xeyes
-    wl-clipboard
-    wl-clipboard-x11
-    waypipe
-    waynergy
-    wev
+          # Office
+          libreoffice
+          hyphen
+          hunspell
+          hunspellDicts.en_US
+          hunspellDicts.nl_nl
 
-    dconf
-    dconf-editor
-    gparted
+          # X/Wayland utilities
+          x11_ssh_askpass
+          xeyes
+          wl-clipboard
+          wl-clipboard-x11
+          waypipe
+          waynergy
+          wev
 
-    # wine
-    wine-wayland
-    winetricks
+          dconf
+          dconf-editor
+          gparted
 
-    # multimedia
-    pwvucontrol
-    vlc
+          # wine
+          wine-wayland
+          winetricks
 
-    # games
-    (lutris.override {
-      extraPkgs = pkgs: [
-        pkgs.mangohud
-      ];
-    })
-    steam
-    prismlauncher
-    heroic
-  ];
+          # multimedia
+          pwvucontrol
+          vlc
+
+          # games
+          (lutris.override {
+            extraPkgs = pkgs: [
+              pkgs.mangohud
+            ];
+          })
+          steam
+          prismlauncher
+          heroic
+        ];
+      };
+  };
 }

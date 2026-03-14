@@ -1,56 +1,100 @@
-{ pkgs, ... }:
+{ __findFile, ... }:
 {
-  home.packages = with pkgs; [
-    kdePackages.kdeconnect-kde
-    # general desktop apps
-    vscode
-    firefox
-    #firefox-devedition-bin
-    arduino
-    alacritty
-    #teams
-    gimp3
-    discord
-    inkscape
-    qalculate-qt
-    kdePackages.ark
-    cool-retro-term
-    obs-studio
+  den.aspects.colin-superlaptop = {
+    homeManager =
+      { pkgs, ... }:
+      {
+        programs.ssh = {
+          enable = true;
+          enableDefaultConfig = false;
+          matchBlocks."*" = {
+            userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
+            forwardAgent = false;
+            addKeysToAgent = "no";
+            compression = false;
+            serverAliveInterval = 0;
+            serverAliveCountMax = 3;
+            hashKnownHosts = false;
+            controlMaster = "no";
+            controlPath = "~/.ssh/master-%r@%n:%p";
+            controlPersist = "no";
+          };
+        };
+        # Add github to known ssh hosts
+        home.file.".ssh/known_host_github" = {
+          text = ''
+            github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+          '';
+          force = true;
+        };
 
-    # Office
-    libreoffice
-    hyphen
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.nl_nl
+        programs.git = {
+          enable = true;
+          settings = {
+            user = {
+              name = "Colin Albering";
+              email = "colin@albering.nl";
+            };
+            pull.rebase = true;
+            checkout.defaultremote = "origin";
+            init.defaultbranch = "main";
+            core.autocrlf = "input";
+          };
+        };
 
-    # X/Wayland utilities
-    x11_ssh_askpass
-    xeyes
-    wl-clipboard
-    wl-clipboard-x11
-    waypipe
-    waynergy
-    wev
+        home.packages = with pkgs; [
+          kdePackages.kdeconnect-kde
+          # general desktop apps
+          vscode
+          firefox
+          #firefox-devedition-bin
+          arduino
+          alacritty
+          #teams
+          gimp3
+          discord
+          inkscape
+          qalculate-qt
+          kdePackages.ark
+          cool-retro-term
+          obs-studio
 
-    dconf
-    dconf-editor
-    gparted
+          # Office
+          libreoffice
+          hyphen
+          hunspell
+          hunspellDicts.en_US
+          hunspellDicts.nl_nl
 
-    # wine
-    wine-wayland
-    winetricks
+          # X/Wayland utilities
+          x11_ssh_askpass
+          xeyes
+          wl-clipboard
+          wl-clipboard-x11
+          waypipe
+          waynergy
+          wev
 
-    # multimedia
-    pwvucontrol
-    vlc
+          dconf
+          dconf-editor
+          gparted
 
-    # games
-    lutris
-    steam
-    prismlauncher
+          # wine
+          wine-wayland
+          winetricks
 
-    # LaTeX
-    # texlive.combined.scheme-medium
-  ];
+          # multimedia
+          pwvucontrol
+          vlc
+
+          # games
+          lutris
+          steam
+          prismlauncher
+
+          # LaTeX
+          # texlive.combined.scheme-medium
+        ];
+      };
+  };
 }

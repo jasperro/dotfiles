@@ -1,12 +1,14 @@
 {
-  home = {
-    sessionVariables = {
-      TERMINAL = "wezterm";
+  JDF.users._.jasperro._.desktop._.programs._.wezterm.homeManager = {
+    home = {
+      sessionVariables = {
+        TERMINAL = "wezterm";
+      };
     };
+    programs.wezterm = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    stylix.targets.wezterm.enable = true;
   };
-  programs.wezterm = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  stylix.targets.wezterm.enable = true;
 }

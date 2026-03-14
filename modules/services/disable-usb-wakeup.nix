@@ -1,20 +1,19 @@
 {
-  imports = [
-    ../../common/services/podman.nix
-  ];
-  systemd.services.disable-usb-wakeup = {
-    description = "Disable USB wakeup";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = "yes";
+  JDF.services._.disable-usb-wakeup.nixos = {
+    systemd.services.disable-usb-wakeup = {
+      description = "Disable USB wakeup";
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = "yes";
+      };
+      script = ''
+        echo PTXH > /proc/acpi/wakeup
+      '';
+      postStop = ''
+        echo PTXH > /proc/acpi/wakeup
+      '';
+      enable = true;
     };
-    script = ''
-      echo PTXH > /proc/acpi/wakeup
-    '';
-    postStop = ''
-      echo PTXH > /proc/acpi/wakeup
-    '';
-    enable = true;
   };
 }

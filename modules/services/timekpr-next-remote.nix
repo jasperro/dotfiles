@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-
   pythonEnv = pkgs.python3.withPackages (
     ps: with ps; [
       fabric
@@ -37,34 +36,36 @@ let
   };
 in
 {
-  networking.firewall.allowedTCPPorts = [
-    8080
-  ];
-  networking.firewall.allowedUDPPorts = [
-    8080
-  ];
-
-  virtualisation.oci-containers.containers.timekpr-next-remote = {
-    image = "timekpr-next-remote:latest";
-    inherit imageFile;
-    autoStart = true;
-
-    ports = [
-      "8080:8080"
+  JDF.services._.timekpr-next-remote.nixos = {
+    networking.firewall.allowedTCPPorts = [
+      8080
+    ];
+    networking.firewall.allowedUDPPorts = [
+      8080
     ];
 
-    environment.TZ = "Europe/Amsterdam";
+    virtualisation.oci-containers.containers.timekpr-next-remote = {
+      image = "timekpr-next-remote:latest";
+      inherit imageFile;
+      autoStart = true;
 
-    volumes = [
-      "${/var/lib/timekpr-next-remote/conf.py}:/app/conf.py"
-    ];
+      ports = [
+        "8080:8080"
+      ];
 
-    copyToRoot = pkgs.buildEnv {
-      name = "timekpr-next-remote-root";
-      paths = [ pythonEnv ];
-      postBuild = ''
-        cp ${timekprRemoteSource} $out/app
-      '';
+      environment.TZ = "Europe/Amsterdam";
+
+      volumes = [
+        "${/var/lib/timekpr-next-remote/conf.py}:/app/conf.py"
+      ];
+
+      copyToRoot = pkgs.buildEnv {
+        name = "timekpr-next-remote-root";
+        paths = [ pythonEnv ];
+        postBuild = ''
+          cp ${timekprRemoteSource} $out/app
+        '';
+      };
     };
   };
 }
