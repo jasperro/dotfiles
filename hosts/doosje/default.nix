@@ -188,7 +188,6 @@ in
       extraGroups = [
         "wheel"
         "http"
-        "minecraft"
         "docker"
         "podman"
         "video"

@@ -48,13 +48,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-minecraft = {
-      url = "github:Misterio77/nix-minecraft";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       # inputs.nixpkgs.follows = "nixpkgs";

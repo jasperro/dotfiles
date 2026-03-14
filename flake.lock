@@ -1283,32 +1283,6 @@
         "type": "github"
       }
     },
-    "nix-minecraft": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1758762701,
-        "narHash": "sha256-gR1G/cbdDEc4cjhEDGb4DYLJ4jtqzzMWs3eIqkV/TLs=",
-        "owner": "Misterio77",
-        "repo": "nix-minecraft",
-        "rev": "d10afc8758719130991350a7e292944c4943c560",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Misterio77",
-        "repo": "nix-minecraft",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1761597516,
@@ -1702,7 +1676,6 @@
         "niri": "niri",
         "niri-nix": "niri-nix",
         "nix-alien": "nix-alien",
-        "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_8",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
