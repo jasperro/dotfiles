@@ -4,7 +4,6 @@ in
 { __findFile, ... }:
 {
   JDF.hosts._.taart._.services._.home-automation._.grott = {
-    includes = [ <JDF/hosts/taart/services/home-automation/mosquitto> ];
     nixos =
       { config, pkgs, ... }:
       {
