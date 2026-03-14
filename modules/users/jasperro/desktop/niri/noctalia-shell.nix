@@ -1,105 +1,107 @@
 { inputs, ... }:
 {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
+  JDF.users._.jasperro._.desktop._.niri._.noctalia-shell.homeManager = {
+    imports = [
+      inputs.noctalia.homeModules.default
+    ];
 
-  stylix.targets.noctalia-shell.enable = true;
+    stylix.targets.noctalia-shell.enable = true;
 
-  programs.noctalia-shell = {
-    enable = true;
-    systemd.enable = true;
-    settings = {
-      bar = {
-        barType = "simple";
-        position = "top";
-        monitors = [ ];
-        density = "default";
-        showOutline = false;
-        showCapsule = false;
-        useSeparateOpacity = false;
-        floating = false;
-        marginVertical = 4;
-        marginHorizontal = 4;
-        frameThickness = 8;
-        frameRadius = 12;
-        outerCorners = true;
-        hideOnOverview = false;
-        displayMode = "always_visible";
-        widgets = {
-          left = [
-            {
-              id = "Launcher";
-              icon = "apps";
-            }
-            {
-              id = "Clock";
-            }
-            {
-              id = "SystemMonitor";
-            }
-            {
-              id = "ActiveWindow";
-              maxWidth = 550;
-            }
-          ];
-          center = [
-            {
-              id = "Workspace";
-              # pillSize = 0.8;
-              showApplications = true;
-            }
-          ];
-          right = [
-            {
-              id = "MediaMini";
-            }
-            {
-              id = "Tray";
-            }
-            {
-              id = "NotificationHistory";
-            }
-            {
-              id = "Volume";
-            }
-            {
-              id = "Brightness";
-            }
-            {
-              id = "NightLight";
-            }
-            {
-              id = "KeepAwake";
-            }
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-              colorizeDistroLogo = true;
-              enableColorization = true;
-            }
-          ];
+    programs.noctalia-shell = {
+      enable = true;
+      systemd.enable = true;
+      settings = {
+        bar = {
+          barType = "simple";
+          position = "top";
+          monitors = [ ];
+          density = "default";
+          showOutline = false;
+          showCapsule = false;
+          useSeparateOpacity = false;
+          floating = false;
+          marginVertical = 4;
+          marginHorizontal = 4;
+          frameThickness = 8;
+          frameRadius = 12;
+          outerCorners = true;
+          hideOnOverview = false;
+          displayMode = "always_visible";
+          widgets = {
+            left = [
+              {
+                id = "Launcher";
+                icon = "apps";
+              }
+              {
+                id = "Clock";
+              }
+              {
+                id = "SystemMonitor";
+              }
+              {
+                id = "ActiveWindow";
+                maxWidth = 550;
+              }
+            ];
+            center = [
+              {
+                id = "Workspace";
+                # pillSize = 0.8;
+                showApplications = true;
+              }
+            ];
+            right = [
+              {
+                id = "MediaMini";
+              }
+              {
+                id = "Tray";
+              }
+              {
+                id = "NotificationHistory";
+              }
+              {
+                id = "Volume";
+              }
+              {
+                id = "Brightness";
+              }
+              {
+                id = "NightLight";
+              }
+              {
+                id = "KeepAwake";
+              }
+              {
+                id = "ControlCenter";
+                useDistroLogo = true;
+                colorizeDistroLogo = true;
+                enableColorization = true;
+              }
+            ];
+          };
+          screenOverrides = [ ];
         };
-        screenOverrides = [ ];
+        dock.enabled = false;
+        wallpaper.enabled = false;
+        general = {
+          radiusRatio = 0.4;
+        };
+        location = {
+          name = "Hooglanderveen, Netherlands";
+        };
+        # Make this depend on if device has wifi/bluetooth (which doosje doesn't have)
+        network.airplaneModeEnabled = true;
+        sessionMenu.countdownDuration = 5000;
+        appLauncher = {
+          enableClipboardHistory = true;
+          autoPasteClipboard = true;
+        };
+        brightness.enableDdcSupport = true;
+        nightLight.enabled = true;
+        audio.volumeFeedback = true;
       };
-      dock.enabled = false;
-      wallpaper.enabled = false;
-      general = {
-        radiusRatio = 0.4;
-      };
-      location = {
-        name = "Hooglanderveen, Netherlands";
-      };
-      # Make this depend on if device has wifi/bluetooth (which doosje doesn't have)
-      network.airplaneModeEnabled = true;
-      sessionMenu.countdownDuration = 5000;
-      appLauncher = {
-        enableClipboardHistory = true;
-        autoPasteClipboard = true;
-      };
-      brightness.enableDdcSupport = true;
-      nightLight.enabled = true;
-      audio.volumeFeedback = true;
     };
   };
 }

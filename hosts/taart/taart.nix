@@ -26,8 +26,6 @@
       { pkgs, ... }:
       {
         imports = [
-          ./_services
-
           # Disable all below for LXC
           # inputs.hardware.nixosModules.raspberry-pi-4
           # inputs.hardware.nixosModules.common-pc-ssd

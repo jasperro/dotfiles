@@ -8,6 +8,10 @@
   JDF.users._.jasperro._.desktop._.niri = {
     includes = [
       <JDF/desktop/niri>
+      <JDF/users/jasperro/desktop/niri/workspaces>
+      <JDF/users/jasperro/desktop/niri/keybinds>
+      <JDF/users/jasperro/desktop/niri/unofficial>
+      <JDF/users/jasperro/desktop/niri/noctalia-shell>
 
       <JDF/users/jasperro/desktop/wayland-wm>
 
@@ -24,11 +28,6 @@
       {
         imports = [
           inputs.niri-nix.homeModules.default
-
-          ./_workspaces.nix
-          ./_keybinds.nix
-          ./_unofficial.nix
-          ./_noctalia-shell.nix
         ];
 
         home.packages = with pkgs; [

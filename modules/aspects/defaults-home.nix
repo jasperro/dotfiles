@@ -1,18 +1,22 @@
 {
+  lib,
   inputs,
   outputs,
-  lib,
   ...
 }:
 {
-  den.default.nixos = {
-    home-manager.useGlobalPkgs = true;
-    home-manager.backupFileExtension = "hmbackup";
-    home-manager.extraSpecialArgs = {
-      inherit inputs;
-      inherit outputs;
-    };
-  };
+  den.ctx.hm-host.includes = [
+    {
+      nixos.home-manager = {
+        useGlobalPkgs = true;
+        backupFileExtension = "hmbackup";
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit outputs;
+        };
+      };
+    }
+  ];
   den.default.homeManager =
     { pkgs, ... }:
     {

@@ -1,10 +1,11 @@
 { inputs, self, ... }:
 {
+
   JDF.nixos._.impurity = {
     nixos = {
-      imports = [ inputs.impurity.nixosModules.default ({impurity, ...}: {
-        home-manager.extraSpecialArgs = {inherit impurity;};
-      }) ];
+      imports = [
+        inputs.impurity.nixosModules.default
+      ];
       impurity.configRoot = self;
     };
     homeManager = {

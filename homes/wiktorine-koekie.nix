@@ -1,10 +1,5 @@
 { __findFile, ... }:
 {
-  den.homes.x86_64-linux.wiktorine-koekie = {
-    description = "Standalone home configuration for wiktorine's desktop computer.";
-    aspect = "jasperro-wiktorine";
-  };
-
   den.aspects.wiktorine-koekie = {
     homeManager =
       { pkgs, ... }:

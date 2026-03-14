@@ -1,10 +1,5 @@
 { __findFile, ... }:
 {
-  den.homes.x86_64-linux.wiktorine-waffie = {
-    description = "Standalone home configuration for wiktorine's laptop.";
-    aspect = "wiktorine-waffie";
-  };
-
   den.aspects.wiktorine-waffie = {
     homeManager =
       { pkgs, ... }:
