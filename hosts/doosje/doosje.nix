@@ -6,7 +6,10 @@
 {
   den.hosts.x86_64-linux.doosje = {
     description = "Main desktop computer, used for gaming and general use.";
-    users.jasperro.aspect = "jasperro-doosje";
+    users.jasperro = {
+      aspect = "jasperro-doosje";
+      classes = [ "homeManager" ];
+    };
     aspect = "doosje";
   };
 

@@ -6,7 +6,10 @@
 {
   den.hosts.x86_64-linux.waffie = {
     description = "Wiktorine low-powered laptop, used for school work.";
-    users.wiktorine.aspect = "wiktorine-waffie";
+    users.wiktorine = {
+      aspect = "wiktorine-waffie";
+      classes = [ "homeManager" ];
+    };
     aspect = "waffie";
   };
 

@@ -6,8 +6,14 @@
 {
   den.hosts.x86_64-linux.koekie = {
     description = "Wiktorine's desktop.";
-    users.wiktorine.aspect = "wiktorine-koekie";
-    users.jasperro.aspect = "jasperro-koekie";
+    users.wiktorine = {
+      aspect = "wiktorine-koekie";
+      classes = [ "homeManager" ];
+    };
+    users.jasperro = {
+      aspect = "jasperro-koekie";
+      classes = [ "homeManager" ];
+    };
     aspect = "koekie";
   };
 
