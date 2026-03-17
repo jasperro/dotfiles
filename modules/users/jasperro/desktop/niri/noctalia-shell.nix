@@ -96,7 +96,7 @@
         sessionMenu.countdownDuration = 5000;
         appLauncher = {
           enableClipboardHistory = true;
-          autoPasteClipboard = true;
+          autoPasteClipboard = false;
         };
         brightness.enableDdcSupport = true;
         nightLight.enabled = true;
