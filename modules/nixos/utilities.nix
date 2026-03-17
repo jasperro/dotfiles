@@ -50,5 +50,10 @@
           allowUnfree = true;
         };
       };
+
+      # Thanks, PriceHiller! (https://pricehiller.com/posts/private-git-submodule-authentication-and-nixos-rebuilds)
+      security.sudo.extraConfig = ''
+        Defaults env_keep+=SSH_AUTH_SOCK
+      '';
     };
 }
