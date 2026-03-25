@@ -1,7 +1,6 @@
 { inputs, self, ... }:
 {
-
-  JDF.nixos._.impurity = {
+  den.aspects.impurity = {
     nixos = {
       imports = [
         inputs.impurity.nixosModules.default

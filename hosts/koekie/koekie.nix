@@ -20,7 +20,6 @@
   den.aspects.koekie = {
     includes = [
       <JDF/nixos/determinate>
-      <JDF/nixos/impurity>
 
       <JDF/nixos/audio>
       <JDF/nixos/gui>

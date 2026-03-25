@@ -2,6 +2,7 @@
   lib,
   inputs,
   outputs,
+  __findFile,
   ...
 }:
 {
@@ -17,6 +18,9 @@
       };
     }
   ];
+
+  den.default.includes = [ <impurity> ];
+
   den.default.homeManager =
     { pkgs, ... }:
     {
