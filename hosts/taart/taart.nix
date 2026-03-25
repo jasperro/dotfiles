@@ -33,7 +33,7 @@
       <JDF/hosts/taart/services/home-automation/homeassistant>
       <JDF/hosts/taart/services/home-automation/esphome>
       <JDF/hosts/taart/services/home-automation/appdaemon>
-      <JDF/hosts/taart/services/home-automation/matter>
+      <JDF/hosts/taart/services/home-automation/matterbridge>
       <JDF/hosts/taart/services/home-automation/grott>
     ];
 

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  JDF.hosts._.taart._.services._.home-automation._.matter.nixos =
+  JDF.hosts._.taart._.services._.home-automation._.matter-hub.nixos =
     { config, ... }:
     {
       sops.secrets = {
