@@ -3,6 +3,7 @@ let
 in
 {
   JDF.hosts._.taart._.services._.database._.loki.nixos = {
+    key = "loki";
     services.loki = rec {
       enable = true;
       configuration = {

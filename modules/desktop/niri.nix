@@ -4,6 +4,7 @@
     nixos =
       { pkgs, ... }:
       {
+        key = "niri";
         imports = [
           inputs.niri-nix.nixosModules.default
         ];

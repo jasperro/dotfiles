@@ -8,6 +8,7 @@ in
     nixos =
       { config, ... }:
       {
+        key = "vaultwarden";
         # SOPS secret for admin token
         sops.secrets.vaultwarden-environmentFile = {
           sopsFile = "${inputs.secrets}/taart.yaml";

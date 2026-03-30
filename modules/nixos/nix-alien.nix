@@ -5,6 +5,7 @@
     nixos =
       { pkgs, ... }:
       {
+        key = "nix-alien";
         environment.systemPackages =
           with pkgs;
           with inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system};

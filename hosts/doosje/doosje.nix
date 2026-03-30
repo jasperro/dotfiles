@@ -54,6 +54,7 @@
         '';
       in
       {
+        key = "doosje";
         imports = [
           inputs.hardware.nixosModules.common-cpu-amd
           inputs.hardware.nixosModules.common-cpu-amd-pstate

@@ -14,6 +14,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        key = "jasperro-doosje";
         stylix = {
           polarity = "dark";
           base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";

@@ -7,6 +7,7 @@
   JDF.nixos._.nix.nixos =
     { config, ... }:
     {
+      key = "nix";
       nix = {
         settings = {
           experimental-features = [

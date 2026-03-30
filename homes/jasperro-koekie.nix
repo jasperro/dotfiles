@@ -4,6 +4,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        key = "jasperro-koekie";
         home.packages = with pkgs; [
           waypipe
         ];

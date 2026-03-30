@@ -4,6 +4,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        key = "colin-superlaptop";
         programs.ssh = {
           enable = true;
           enableDefaultConfig = false;

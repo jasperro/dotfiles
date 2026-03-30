@@ -9,6 +9,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        key = "jasperro-cli";
         home.packages = with pkgs; [
           distrobox
 

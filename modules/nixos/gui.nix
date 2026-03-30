@@ -2,6 +2,7 @@
   JDF.nixos._.gui.nixos =
     { pkgs, ... }:
     {
+      key = "gui";
       # Enable CUPS to print documents.
       services.printing.enable = true;
 

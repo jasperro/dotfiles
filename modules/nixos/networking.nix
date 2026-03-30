@@ -10,6 +10,7 @@
       den._.hostname
     ];
     nixos = {
+      key = "networking";
       networking.useNetworkd = true;
       networking.firewall.enable = true;
 

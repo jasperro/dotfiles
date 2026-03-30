@@ -1,5 +1,6 @@
 {
   JDF.nixos._.audio.nixos = {
+    key = "audio";
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

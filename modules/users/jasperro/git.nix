@@ -2,6 +2,7 @@
   JDF.users._.jasperro._.git.homeManager =
     { ... }:
     {
+      key = "jasperro-git";
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;

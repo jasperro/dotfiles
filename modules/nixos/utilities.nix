@@ -6,6 +6,7 @@
   JDF.nixos._.utilities.nixos =
     { pkgs, ... }:
     {
+      key = "utilities";
       systemd.user.extraConfig = ''
         DefaultEnvironment="PATH=/run/current-system/sw/bin"
       '';

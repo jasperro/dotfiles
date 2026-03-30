@@ -26,6 +26,7 @@
         ...
       }:
       {
+        key = "jasperro-niri";
         imports = [
           inputs.niri-nix.homeModules.default
         ];

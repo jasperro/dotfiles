@@ -1,5 +1,6 @@
 {
   JDF.services._.disable-usb-wakeup.nixos = {
+    key = "disable-usb-wakeup";
     systemd.services.disable-usb-wakeup = {
       description = "Disable USB wakeup";
       wantedBy = [ "multi-user.target" ];

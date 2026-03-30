@@ -11,6 +11,7 @@ in
   JDF.hosts._.taart._.services._.home-automation._.zigbee2mqtt.nixos =
     { config, ... }:
     {
+      key = "zigbee2mqtt";
       users.users.zigbee2mqtt.extraGroups = [
         # Because I forgot to map the group, change to dialout only!
         "lp"

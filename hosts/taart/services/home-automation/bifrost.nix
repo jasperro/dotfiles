@@ -1,8 +1,9 @@
 { lib, ... }:
 {
-  JDF.hosts._.taart._.services._.home-automation._.podman.nixos =
+  JDF.hosts._.taart._.services._.home-automation._.bifrost.nixos =
     { config, ... }:
     {
+      key = "bifrost";
       sops.templates."bifrost-config" =
         let
           bifrostConfig = {

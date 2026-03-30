@@ -4,6 +4,7 @@
     nixos =
       { pkgs, ... }:
       {
+        key = "hyprland";
         nix.settings = {
           substituters = [ "https://hyprland.cachix.org" ];
           trusted-public-keys = [

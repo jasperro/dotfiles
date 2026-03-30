@@ -8,6 +8,7 @@ in
   den.default.homeManager =
     { config, ... }:
     {
+      key = "monitors";
       options.monitors = mkOption {
         type = types.listOf (
           types.submodule {

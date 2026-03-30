@@ -19,6 +19,7 @@
       { config, pkgs, ... }:
       with config.lib.stylix.colors;
       {
+        key = "jasperro-hyprland";
         imports = [
           ./_workspaces.nix
           ./_keybinds.nix

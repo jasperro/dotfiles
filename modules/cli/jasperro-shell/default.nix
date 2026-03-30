@@ -1,7 +1,13 @@
 {
   JDF.cli._.jasperro-shell.homeManager =
-    { pkgs, config, impurity, ... }:
     {
+      pkgs,
+      config,
+      impurity,
+      ...
+    }:
+    {
+      key = "jasperro-shell";
       home.packages = with pkgs; [
         #(pkgs.uutils-coreutils.override { prefix = ""; })
         eza

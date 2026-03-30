@@ -2,6 +2,7 @@
   JDF.users._.jasperro._.desktop._.programs._.kitty.homeManager =
     { config, pkgs, ... }:
     {
+      key = "jasperro-kitty";
       home = {
         packages =
           let

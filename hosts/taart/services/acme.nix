@@ -3,6 +3,7 @@
   JDF.hosts._.taart._.services._.acme.nixos =
     { config, ... }:
     {
+      key = "acme";
       sops.secrets = {
         "albering.nl-acme-credentials" = {
           sopsFile = "${inputs.secrets}/taart.yaml";

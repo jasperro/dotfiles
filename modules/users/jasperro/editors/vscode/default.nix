@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   JDF.users._.jasperro._.editors._.vscode.homeManager = {
+    key = "jasperro-vscode";
     programs.vscode = {
       enable = true;
       profiles.default.userSettings = lib.mkForce { };

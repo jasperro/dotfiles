@@ -10,6 +10,7 @@ in
     nixos =
       { config, ... }:
       {
+        key = "homeassistant";
         users.users.hass = {
           home = cfg.configDir;
           createHome = true;

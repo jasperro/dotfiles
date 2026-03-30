@@ -2,6 +2,7 @@
   JDF.services._.timekpr.nixos =
     { pkgs, ... }:
     {
+      key = "timekpr";
       services.timekpr = {
         enable = true;
         adminUsers = [ "jasperro" ];

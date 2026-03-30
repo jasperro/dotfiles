@@ -37,6 +37,7 @@
     nixos =
       { pkgs, ... }:
       {
+        key = "superlaptop";
         imports = [
           inputs.hardware.nixosModules.common-cpu-intel
           inputs.hardware.nixosModules.common-pc-laptop-ssd

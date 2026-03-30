@@ -1,5 +1,6 @@
 {
   JDF.users._.jasperro._.desktop._.niri._.unofficial.homeManager = {
+    key = "jasperro-niri-unofficial";
     wayland.windowManager.niri.settings = {
       layout = {
         blur = {

@@ -12,6 +12,7 @@
       keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
     in
     {
+      key = "sops";
       imports = [
         inputs.sops-nix.nixosModules.sops
       ];

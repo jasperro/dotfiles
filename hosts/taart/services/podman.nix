@@ -3,6 +3,7 @@
   JDF.hosts._.taart._.services._.podman.nixos =
     { pkgs, ... }:
     {
+      key = "podman";
       virtualisation = {
         oci-containers = {
           backend = lib.mkForce "podman";

@@ -2,6 +2,7 @@
   JDF.hosts._.taart._.services._.home-automation._.matterbridge.nixos =
     { config, ... }:
     {
+      key = "matterbridge";
       systemd.tmpfiles.settings."10-matterbridge" = {
         "/var/lib/matterbridge".d = {
           mode = "0750";

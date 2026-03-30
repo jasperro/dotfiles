@@ -12,6 +12,7 @@ in
     nixos =
       { config, ... }:
       {
+        key = "grafana";
         sops.secrets."grafana/admin-password" = {
           sopsFile = "${inputs.secrets}/taart.yaml";
           owner = "grafana";

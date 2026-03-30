@@ -6,6 +6,7 @@
         browser = "librewolf.desktop";
       in
       {
+        key = "jasperro-wayland-wm";
         xdg.mimeApps = {
           enable = true;
           defaultApplications = {

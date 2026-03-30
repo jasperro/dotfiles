@@ -6,6 +6,7 @@ in
   JDF.hosts._.taart._.services._.home-automation._.mosquitto.nixos =
     { config, ... }:
     {
+      key = "mosquitto";
       networking.firewall.allowedTCPPorts = [
         port
       ];

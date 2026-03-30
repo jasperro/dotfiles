@@ -5,6 +5,7 @@ in
   JDF.hosts._.taart._.services._.home-automation._.ledfx.nixos =
     { pkgs, ... }:
     {
+      key = "ledfx";
       systemd.services.ledfx = {
         description = "LedFX Audio Reactive LED Controller";
         after = [ "network.target" ];

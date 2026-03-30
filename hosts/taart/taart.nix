@@ -39,6 +39,7 @@
     nixos =
       { pkgs, ... }:
       {
+        key = "taart";
         imports = [
           # Disable all below for LXC
           # inputs.hardware.nixosModules.raspberry-pi-4

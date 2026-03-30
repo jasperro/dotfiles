@@ -2,6 +2,7 @@
   JDF.services._.podman.nixos =
     { pkgs, ... }:
     {
+      key = "podman";
       virtualisation = {
         podman = {
           enable = true;

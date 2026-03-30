@@ -1,5 +1,6 @@
 {
   JDF.hosts._.taart._.services._.ftpd.nixos = {
+    key = "ftpd";
     services.vsftpd = {
       enable = true;
       forceLocalLoginsSSL = true;

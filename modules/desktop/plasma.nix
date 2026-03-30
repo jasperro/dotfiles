@@ -4,6 +4,7 @@
     nixos =
       { ... }:
       {
+        key = "plasma";
         services = {
           xserver = {
             enable = true;

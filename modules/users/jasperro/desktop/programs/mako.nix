@@ -3,6 +3,7 @@
     { config, ... }:
     with config.lib.stylix.colors.withHashtag;
     {
+      key = "jasperro-mako";
       services.mako = {
         enable = true;
         settings = {

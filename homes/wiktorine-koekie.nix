@@ -4,6 +4,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        key = "wiktorine-koekie";
         home.packages = with pkgs; [
           kdePackages.kdeconnect-kde
           # general desktop apps

@@ -38,6 +38,7 @@
         ''}/bin/waybar-${name}";
     in
     {
+      key = "jasperro-waybar";
       programs.waybar = {
         enable = true;
         systemd.enable = true;

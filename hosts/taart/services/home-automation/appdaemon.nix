@@ -9,6 +9,7 @@ in
   JDF.hosts._.taart._.services._.home-automation._.appdaemon.nixos =
     { config, ... }:
     {
+      key = "appdaemon";
       sops.secrets = {
         "appdaemon-environmentFile" = {
           sopsFile = "${inputs.secrets}/taart.yaml";

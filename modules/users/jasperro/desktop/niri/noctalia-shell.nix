@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   JDF.users._.jasperro._.desktop._.niri._.noctalia-shell.homeManager = {
+    key = "jasperro-noctalia-shell";
     imports = [
       inputs.noctalia.homeModules.default
     ];

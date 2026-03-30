@@ -3,6 +3,7 @@
   JDF.hosts._.taart._.services._.home-automation._.matter-hub.nixos =
     { config, ... }:
     {
+      key = "matter-hub";
       sops.secrets = {
         "matter-hub-environmentFile" = {
           sopsFile = "${inputs.secrets}/taart.yaml";
