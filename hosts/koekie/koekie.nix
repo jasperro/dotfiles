@@ -62,6 +62,7 @@
         };
 
         services.xserver.videoDrivers = [ "amdgpu" ];
+        xdg.portal.enable = true;
 
         # Only *.enable, otherwise split to file in services/
         services = {

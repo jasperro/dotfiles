@@ -52,6 +52,8 @@
           bluetooth.enable = true;
         };
 
+        xdg.portal.enable = true;
+
         # Only *.enable, otherwise split to file in services/
         services = {
           flatpak.enable = true;

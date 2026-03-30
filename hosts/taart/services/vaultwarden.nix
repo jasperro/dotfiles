@@ -4,7 +4,7 @@ let
 in
 {
   JDF.hosts._.taart._.services._.vaultwarden = {
-    includes = [ <JDF/hosts/taart/services/nginx> ];
+    includes = [ <JDF/hosts/taart/services/nginx> ]; # See https://github.com/vic/den/discussions/344
     nixos =
       { config, ... }:
       {

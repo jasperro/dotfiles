@@ -31,9 +31,8 @@
       <JDF/services/disable-usb-wakeup>
     ];
 
-    homeManager =
-      { pkgs, ... }:
-      {
+    provides.to-users = {
+      homeManager = {
         monitors = [
           {
             name = "DP-2";
@@ -44,11 +43,8 @@
             primary = true;
           }
         ];
-        stylix = {
-          polarity = "dark";
-          base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-        };
       };
+    };
 
     nixos =
       { pkgs, ... }:
@@ -91,6 +87,7 @@
         };
 
         services.xserver.videoDrivers = [ "amdgpu" ];
+        xdg.portal.enable = true;
 
         # Only *.enable, otherwise split to file in services/
         services = {

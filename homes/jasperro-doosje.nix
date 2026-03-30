@@ -10,5 +10,14 @@
       <JDF/users/jasperro/editors/nixvim>
       <JDF/users/jasperro/editors/vscode>
     ];
+
+    homeManager =
+      { pkgs, ... }:
+      {
+        stylix = {
+          polarity = "dark";
+          base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+        };
+      };
   };
 }

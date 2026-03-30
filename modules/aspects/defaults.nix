@@ -2,6 +2,7 @@
   lib,
   inputs,
   outputs,
+  den,
   __findFile,
   ...
 }:
@@ -19,7 +20,13 @@
     }
   ];
 
-  den.default.includes = [ <impurity> ];
+  den.default.includes = [
+    <impurity>
+  ];
+
+  den.ctx.user.includes = [
+    den._.mutual-provider
+  ];
 
   den.default.homeManager =
     { pkgs, ... }:
