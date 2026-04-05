@@ -106,10 +106,6 @@
         gnumake
 
         texlab
-
-        # Webdev
-        nodePackages.svelte-language-server
-        nodePackages.stylelint
       ];
     };
 }
