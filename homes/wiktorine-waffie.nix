@@ -1,12 +1,12 @@
 { __findFile, ... }:
 {
   den.aspects.wiktorine-waffie = {
+    includes = [ <JDF/services/kdeconnect> ];
     homeManager =
       { pkgs, ... }:
       {
         key = "wiktorine-waffie";
         home.packages = with pkgs; [
-          kdePackages.kdeconnect-kde
           # general desktop apps
           firefox
           #firefox-devedition-bin

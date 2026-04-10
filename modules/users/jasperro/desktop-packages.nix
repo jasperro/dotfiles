@@ -1,5 +1,7 @@
+{ __findFile, ... }:
 {
   JDF.users._.jasperro._.desktop-packages = {
+    includes = [ <JDF/services/kdeconnect> ];
     homeManager =
       { pkgs, ... }:
       {
@@ -7,7 +9,6 @@
         # services.kdeconnect.enable = true;
         home.packages = with pkgs; [
           # in wayland wm, still use some kde packages
-          kdePackages.kdeconnect-kde
           kdePackages.dolphin
           kdePackages.dolphin-plugins
           kdePackages.ark

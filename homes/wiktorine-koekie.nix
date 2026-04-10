@@ -1,12 +1,12 @@
 { __findFile, ... }:
 {
   den.aspects.wiktorine-koekie = {
+    includes = [ <JDF/services/kdeconnect> ];
     homeManager =
       { pkgs, ... }:
       {
         key = "wiktorine-koekie";
         home.packages = with pkgs; [
-          kdePackages.kdeconnect-kde
           # general desktop apps
           vscode
           firefox

@@ -1,6 +1,7 @@
 { __findFile, ... }:
 {
   den.aspects.colin-superlaptop = {
+    includes = [ <JDF/services/kdeconnect> ];
     homeManager =
       { pkgs, ... }:
       {
@@ -44,7 +45,6 @@
         };
 
         home.packages = with pkgs; [
-          kdePackages.kdeconnect-kde
           # general desktop apps
           vscode
           firefox
