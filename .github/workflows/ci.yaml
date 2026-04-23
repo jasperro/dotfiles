@@ -25,4 +25,4 @@ jobs:
       - name: Enable magic Nix cache
         uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Dry build nixos configurations
-        run: nix build --dry-run .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
+        run: nix build --extra-experimental-features build-time-fetch-tree --dry-run .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
