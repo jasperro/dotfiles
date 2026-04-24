@@ -1,16 +1,17 @@
 {
   inputs,
   __findFile,
+  den,
   ...
 }:
 {
   den.hosts.x86_64-linux.superlaptop = {
     description = "Colin's desktop.";
     users.colin = {
-      aspect = "colin-superlaptop";
+      aspect = den.aspects.colin-superlaptop;
       classes = [ "homeManager" ];
     };
-    aspect = "superlaptop";
+    aspect = den.aspects.superlaptop;
   };
 
   den.aspects.superlaptop = {

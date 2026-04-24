@@ -1,20 +1,21 @@
 {
   inputs,
   __findFile,
+  den,
   ...
 }:
 {
   den.hosts.x86_64-linux.koekie = {
     description = "Wiktorine's desktop.";
     users.wiktorine = {
-      aspect = "wiktorine-koekie";
+      aspect = den.aspects.wiktorine-koekie;
       classes = [ "homeManager" ];
     };
     users.jasperro = {
-      aspect = "jasperro-koekie";
+      aspect = den.aspects.jasperro-koekie;
       classes = [ "homeManager" ];
     };
-    aspect = "koekie";
+    aspect = den.aspects.koekie;
   };
 
   den.aspects.koekie = {

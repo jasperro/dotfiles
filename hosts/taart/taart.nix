@@ -1,11 +1,12 @@
 {
   __findFile,
+  den,
   ...
 }:
 {
   den.hosts.aarch64-linux.taart = {
     description = "Raspberry Pi 4, used for various home server tasks.";
-    aspect = "taart";
+    aspect = den.aspects.taart;
   };
 
   den.aspects.taart = {

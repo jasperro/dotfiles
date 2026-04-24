@@ -1,16 +1,17 @@
 {
   inputs,
   __findFile,
+  den,
   ...
 }:
 {
   den.hosts.x86_64-linux.waffie = {
     description = "Wiktorine low-powered laptop, used for school work.";
     users.wiktorine = {
-      aspect = "wiktorine-waffie";
+      aspect = den.aspects.wiktorine-waffie;
       classes = [ "homeManager" ];
     };
-    aspect = "waffie";
+    aspect = den.aspects.waffie;
   };
 
   den.aspects.waffie = {
