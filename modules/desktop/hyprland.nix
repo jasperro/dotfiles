@@ -1,5 +1,15 @@
 { inputs, ... }:
 {
+  flake-file.inputs = {
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+    };
+  };
+
   JDF.desktop._.hyprland = {
     nixos =
       { pkgs, ... }:

@@ -1,5 +1,17 @@
 { inputs, ... }:
 {
+  flake-file.inputs = {
+    niri-nix = {
+      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:Naxdy/niri";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   JDF.desktop._.niri = {
     nixos =
       { pkgs, ... }:

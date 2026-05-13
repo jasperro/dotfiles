@@ -1,5 +1,12 @@
 { inputs, ... }:
 {
+  flake-file.inputs = {
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   JDF.users._.jasperro._.desktop._.niri._.noctalia-shell.homeManager = {
     key = "jasperro-noctalia-shell";
     imports = [

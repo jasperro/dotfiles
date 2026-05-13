@@ -4,6 +4,14 @@
   ...
 }:
 {
+  flake-file.inputs = {
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+  };
+
   JDF.users._.jasperro._.desktop._.programs._.stylix.homeManager =
     {
       pkgs,

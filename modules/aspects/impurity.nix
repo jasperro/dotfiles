@@ -1,5 +1,9 @@
 { inputs, self, ... }:
 {
+  flake-file.inputs = {
+    impurity.url = "github:outfoxxed/impurity.nix";
+  };
+
   den.aspects.impurity = {
     nixos = {
       key = "impurity";

@@ -1,4 +1,12 @@
 {
+  flake-file.inputs = {
+    waybar = {
+      url = "github:Alexays/Waybar/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+  };
+
   JDF.users._.jasperro._.desktop._.programs._.waybar.homeManager =
     {
       config,

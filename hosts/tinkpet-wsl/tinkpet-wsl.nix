@@ -17,8 +17,6 @@
 
   den.aspects.tinkpet-wsl = {
     includes = [
-      <JDF/nixos/determinate>
-
       <JDF/nixos/audio>
       <JDF/nixos/home-locale>
       <JDF/nixos/nix-alien>

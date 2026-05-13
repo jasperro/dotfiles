@@ -16,8 +16,6 @@
 
   den.aspects.superlaptop = {
     includes = [
-      <JDF/nixos/determinate>
-
       <JDF/nixos/audio>
       <JDF/nixos/gui>
       <JDF/nixos/home-locale>

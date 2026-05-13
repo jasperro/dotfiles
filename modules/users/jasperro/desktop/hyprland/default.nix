@@ -5,6 +5,12 @@
   ...
 }:
 {
+  flake-file.inputs = {
+    wofi-power-menu = {
+      url = "github:szaffarano/wofi-power-menu";
+    };
+  };
+
   JDF.users._.jasperro._.desktop._.hyprland = {
     includes = [
       <JDF/users/jasperro/desktop/wayland-wm>

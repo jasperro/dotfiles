@@ -13,7 +13,7 @@
           experimental-features = [
             "nix-command"
             "flakes"
-            "build-time-fetch-tree"
+            # "build-time-fetch-tree"
             "ca-derivations"
             "pipe-operators"
           ];
@@ -21,8 +21,8 @@
           # Deduplicate and optimize nix store
           auto-optimise-store = lib.mkDefault true;
           warn-dirty = false;
-          lazy-trees = true;
-          eval-cores = 0;
+          # lazy-trees = true;
+          # eval-cores = 0;
 
           trusted-users = [
             "root"

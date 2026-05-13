@@ -1,5 +1,13 @@
 { inputs, __findFile, ... }:
 {
+  flake-file.inputs = {
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+  };
+
   JDF.nixos._.nix-alien = {
     includes = [ <JDF/nixos/nix-ld> ];
     nixos =

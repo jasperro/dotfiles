@@ -15,8 +15,6 @@
 
   den.aspects.taart = {
     includes = [
-      <JDF/nixos/determinate>
-
       <JDF/nixos/home-locale>
       <JDF/nixos/networking>
       <JDF/nixos/nix>

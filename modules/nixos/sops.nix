@@ -4,6 +4,18 @@
 }:
 
 {
+  flake-file.inputs = {
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    secrets = {
+      url = "./secrets";
+      flake = false;
+    };
+  };
+
   JDF.nixos._.sops.nixos =
     { config, ... }:
     let
