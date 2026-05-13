@@ -87,7 +87,6 @@
           # texlive.combined.scheme-medium
 
           filezilla
-          aseprite
         ];
 
         home.sessionVariables = {
