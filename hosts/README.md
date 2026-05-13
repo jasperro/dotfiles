@@ -5,7 +5,7 @@ This directory contains the system-level configurations for the different machin
 ## Structure
 Each subdirectory corresponds to a specific machine:
 - **Desktop configurations:** `doosje` and `koekie`
-- **Laptop configurations:** `superlaptop` and `waffie`
+- **Laptop configurations:** `tinkpet`, `superlaptop` and `waffie`
 - **Server configurations:** `taart`
 
 Inside each host directory, you will typically find:
