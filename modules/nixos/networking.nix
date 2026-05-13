@@ -7,7 +7,7 @@
 {
   JDF.nixos._.networking = {
     includes = [
-      den._.hostname
+      den.batteries.hostname
     ];
     nixos = {
       key = "networking";
