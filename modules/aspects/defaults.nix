@@ -7,7 +7,7 @@
   ...
 }:
 {
-  den.ctx.hm-host.includes = [
+  den.schema.hm-host.includes = [
     {
       nixos.home-manager = {
         useGlobalPkgs = true;
@@ -24,7 +24,7 @@
     <impurity>
   ];
 
-  den.ctx.user.includes = [
+  den.schema.user.includes = [
     den._.mutual-provider
   ];
 

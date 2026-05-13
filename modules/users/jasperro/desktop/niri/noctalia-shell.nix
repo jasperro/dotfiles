@@ -8,9 +8,14 @@
 
     stylix.targets.noctalia-shell.enable = true;
 
+    wayland.windowManager.niri.settings.spawn-at-startup = [
+      [
+        "noctalia-shell"
+      ]
+    ];
+
     programs.noctalia-shell = {
       enable = true;
-      systemd.enable = true;
       settings = {
         bar = {
           barType = "simple";
