@@ -89,8 +89,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    den.url = "github:vic/den";
-    import-tree.url = "github:vic/import-tree";
+    den.url = "github:denful/den";
+    import-tree.url = "github:denful/import-tree";
   };
 
   outputs =
