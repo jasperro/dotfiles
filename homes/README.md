@@ -7,6 +7,7 @@ Configurations here follow a strict naming convention: `{user}-{host}.nix`
 
 Current configurations include:
 - `colin-superlaptop.nix`
+- `jasperro-taart.nix`
 - `jasperro-doosje.nix`
 - `jasperro-koekie.nix`
 - `wiktorine-koekie.nix`

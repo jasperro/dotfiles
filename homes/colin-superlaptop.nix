@@ -1,7 +1,10 @@
 { __findFile, ... }:
 {
   den.aspects.colin-superlaptop = {
-    includes = [ <JDF/services/kdeconnect> ];
+    includes = [
+      <JDF/cli/jasperro-shell>
+      <JDF/services/kdeconnect>
+    ];
     homeManager =
       { pkgs, ... }:
       {
@@ -49,7 +52,6 @@
           vscode
           firefox
           #firefox-devedition-bin
-          arduino
           alacritty
           #teams
           gimp3

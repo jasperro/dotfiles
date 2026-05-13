@@ -1,7 +1,10 @@
 { __findFile, ... }:
 {
   den.aspects.wiktorine-waffie = {
-    includes = [ <JDF/services/kdeconnect> ];
+    includes = [
+      <JDF/cli/jasperro-shell>
+      <JDF/services/kdeconnect>
+    ];
     homeManager =
       { pkgs, ... }:
       {

@@ -1,6 +1,10 @@
 { __findFile, ... }:
 {
   den.aspects.jasperro-koekie = {
+    includes = [
+      <JDF/users/jasperro/git>
+      <JDF/users/jasperro/cli>
+    ];
     homeManager =
       { pkgs, ... }:
       {
