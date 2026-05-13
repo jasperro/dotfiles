@@ -161,46 +161,6 @@
           priority = 10;
         };
 
-        users.groups.jasperro.gid = 1000;
-
-        users.users = {
-          jasperro = {
-            # TODO: You can set an initial password for your user.
-            # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-            # Be sure to change it (using passwd) after rebooting!
-            uid = 1000;
-            initialPassword = "correcthorsebatterystaple";
-            isNormalUser = true;
-            group = "jasperro";
-            extraGroups = [
-              "wheel"
-              "http"
-              "minecraft"
-              "docker"
-              "podman"
-              "video"
-              "uucp"
-              "dialout"
-              "kvm"
-              "audio"
-            ];
-            shell = pkgs.zsh;
-            # shell = pkgs.nushell;
-            subUidRanges = [
-              {
-                startUid = 100000;
-                count = 65536;
-              }
-            ];
-            subGidRanges = [
-              {
-                startGid = 100000;
-                count = 65536;
-              }
-            ];
-          };
-        };
-
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
         system.stateVersion = "25.05";
       };

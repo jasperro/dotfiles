@@ -1,10 +1,48 @@
-{ __findFile, ... }:
+{ den, __findFile, ... }:
 {
   den.aspects.colin-superlaptop = {
     includes = [
       <JDF/cli/jasperro-shell>
       <JDF/services/kdeconnect>
+
+      den.batteries.define-user
+      den.batteries.primary-user
+      (den.batteries.user-shell "zsh")
     ];
+
+    nixos.users.groups.colin.gid = 1002;
+
+    user = {
+      uid = 1001;
+      initialPassword = "correcthorsebatterystaple";
+      group = "colin";
+      extraGroups = [
+        "wheel"
+        "http"
+        "docker"
+        "podman"
+        "video"
+        "uucp"
+        "dialout"
+        "kvm"
+        "audio"
+        "i2c"
+      ];
+
+      subUidRanges = [
+        {
+          startUid = 100000;
+          count = 65536;
+        }
+      ];
+      subGidRanges = [
+        {
+          startGid = 100000;
+          count = 65536;
+        }
+      ];
+    };
+
     homeManager =
       { pkgs, ... }:
       {

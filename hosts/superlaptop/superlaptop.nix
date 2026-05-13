@@ -123,43 +123,6 @@
           priority = 10;
         };
 
-        users.groups.colin.gid = 1002;
-
-        users.users = {
-          colin = {
-            # TODO: You can set an initial password for your user.
-            # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-            # Be sure to change it (using passwd) after rebooting!
-            uid = 1001;
-            initialPassword = "correcthorsebatterystaple";
-            isNormalUser = true;
-            extraGroups = [
-              "http"
-              "docker"
-              "i2c"
-              "video"
-              "uucp"
-              "kvm"
-              "audio"
-              "wheel"
-              "colin"
-            ];
-            shell = pkgs.zsh;
-            subUidRanges = [
-              {
-                startUid = 100000;
-                count = 65536;
-              }
-            ];
-            subGidRanges = [
-              {
-                startGid = 100000;
-                count = 65536;
-              }
-            ];
-          };
-        };
-
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
         system.stateVersion = "22.11";
       };

@@ -1,10 +1,46 @@
-{ __findFile, ... }:
+{ den, __findFile, ... }:
 {
   den.aspects.wiktorine-waffie = {
     includes = [
       <JDF/cli/jasperro-shell>
       <JDF/services/kdeconnect>
+
+      den.batteries.define-user
+      den.batteries.primary-user
+      (den.batteries.user-shell "zsh")
     ];
+
+    nixos.users.groups.wiktorine.gid = 1003;
+
+    user = {
+      uid = 1000;
+      initialPassword = "correcthorsebatterystaple";
+      group = "wiktorine";
+      extraGroups = [
+        "wheel"
+        "http"
+        "docker"
+        "podman"
+        "video"
+        "uucp"
+        "dialout"
+        "kvm"
+        "audio"
+      ];
+
+      subUidRanges = [
+        {
+          startUid = 100000;
+          count = 65536;
+        }
+      ];
+      subGidRanges = [
+        {
+          startGid = 100000;
+          count = 65536;
+        }
+      ];
+    };
     homeManager =
       { pkgs, ... }:
       {

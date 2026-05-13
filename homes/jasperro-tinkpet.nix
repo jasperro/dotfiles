@@ -1,4 +1,4 @@
-{ __findFile, ... }:
+{ den, __findFile, ... }:
 {
   den.aspects.jasperro-tinkpet = {
     includes = [
@@ -9,7 +9,43 @@
 
       <JDF/users/jasperro/editors/nixvim>
       <JDF/users/jasperro/editors/vscode>
+
+      den.batteries.define-user
+      den.batteries.primary-user
+      (den.batteries.user-shell "zsh")
     ];
+
+    nixos.users.groups.jasperro.gid = 1000;
+
+    user = {
+      uid = 1000;
+      initialPassword = "correcthorsebatterystaple";
+      group = "jasperro";
+      extraGroups = [
+        "wheel"
+        "http"
+        "docker"
+        "podman"
+        "video"
+        "uucp"
+        "dialout"
+        "kvm"
+        "audio"
+      ];
+
+      subUidRanges = [
+        {
+          startUid = 100000;
+          count = 65536;
+        }
+      ];
+      subGidRanges = [
+        {
+          startGid = 100000;
+          count = 65536;
+        }
+      ];
+    };
 
     homeManager =
       { pkgs, ... }:

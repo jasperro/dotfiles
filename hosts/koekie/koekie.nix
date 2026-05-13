@@ -151,64 +151,6 @@
           priority = 10;
         };
 
-        users.groups.wiktorine.gid = 1003;
-
-        users.users = {
-          wiktorine = {
-            # TODO: You can set an initial password for your user.
-            # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-            # Be sure to change it (using passwd) after rebooting!
-            uid = 1000;
-            initialPassword = "correcthorsebatterystaple";
-            isNormalUser = true;
-            group = "wiktorine";
-            extraGroups = [
-              "wheel"
-              "http"
-              "docker"
-              "podman"
-              "video"
-              "uucp"
-              "kvm"
-              "audio"
-              "input"
-              "uinput"
-            ];
-            shell = pkgs.zsh;
-            subUidRanges = [
-              {
-                startUid = 100000;
-                count = 65536;
-              }
-            ];
-            subGidRanges = [
-              {
-                startGid = 100000;
-                count = 65536;
-              }
-            ];
-          };
-          jasperro = {
-            uid = 1002;
-            initialPassword = "correcthorsebatterystaple";
-            isNormalUser = true;
-            group = "wiktorine";
-            extraGroups = [
-              "wheel"
-              "http"
-              "docker"
-              "podman"
-              "video"
-              "uucp"
-              "kvm"
-              "audio"
-              "input"
-              "uinput"
-            ];
-            shell = pkgs.zsh;
-          };
-        };
-
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
         system.stateVersion = "22.11";
       };
