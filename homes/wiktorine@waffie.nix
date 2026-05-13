@@ -1,6 +1,6 @@
 { den, __findFile, ... }:
 {
-  den.aspects.wiktorine-waffie = {
+  den.aspects."wiktorine@waffie" = {
     includes = [
       <JDF/cli/jasperro-shell>
       <JDF/services/kdeconnect>

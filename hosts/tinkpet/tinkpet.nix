@@ -8,7 +8,7 @@
   den.hosts.x86_64-linux.tinkpet = {
     description = "Lenovo ThinkPad L15 Gen 2 AMD.";
     users.jasperro = {
-      aspect = den.aspects.jasperro-tinkpet;
+      aspect = den.aspects."jasperro@tinkpet";
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.tinkpet;

@@ -8,7 +8,7 @@
   den.hosts.x86_64-linux.waffie = {
     description = "Wiktorine low-powered laptop, used for school work.";
     users.wiktorine = {
-      aspect = den.aspects.wiktorine-waffie;
+      aspect = den.aspects."wiktorine@waffie";
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.waffie;

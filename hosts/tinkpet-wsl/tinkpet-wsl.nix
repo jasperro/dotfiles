@@ -9,7 +9,7 @@
     description = "Lenovo ThinkPad L15 Gen 2 AMD (WSL configuration).";
     wsl.enable = true;
     users.jasperro = {
-      aspect = den.aspects.jasperro-tinkpet-wsl;
+      aspect = den.aspects."jasperro@tinkpet-wsl";
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.tinkpet-wsl;

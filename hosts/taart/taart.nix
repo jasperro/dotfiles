@@ -8,7 +8,7 @@
     description = "Raspberry Pi 4, used for various home server tasks.";
     aspect = den.aspects.taart;
     users.jasperro = {
-      aspect = den.aspects.jasperro-taart;
+      aspect = den.aspects."jasperro@taart";
       classes = [ "homeManager" ];
     };
   };

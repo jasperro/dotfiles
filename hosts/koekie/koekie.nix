@@ -8,11 +8,11 @@
   den.hosts.x86_64-linux.koekie = {
     description = "Wiktorine's desktop.";
     users.wiktorine = {
-      aspect = den.aspects.wiktorine-koekie;
+      aspect = den.aspects."wiktorine@koekie";
       classes = [ "homeManager" ];
     };
     users.jasperro = {
-      aspect = den.aspects.jasperro-koekie;
+      aspect = den.aspects."jasperro@koekie";
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.koekie;

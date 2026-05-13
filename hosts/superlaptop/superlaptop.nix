@@ -8,7 +8,7 @@
   den.hosts.x86_64-linux.superlaptop = {
     description = "Colin's desktop.";
     users.colin = {
-      aspect = den.aspects.colin-superlaptop;
+      aspect = den.aspects."colin@superlaptop";
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.superlaptop;

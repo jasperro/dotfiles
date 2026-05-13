@@ -1,14 +1,9 @@
 { den, __findFile, ... }:
 {
-  den.aspects.jasperro-tinkpet = {
+  den.aspects."jasperro@taart" = {
     includes = [
-      <JDF/users/jasperro/desktop/niri>
-      <JDF/users/jasperro/desktop-packages>
       <JDF/users/jasperro/git>
       <JDF/users/jasperro/cli>
-
-      <JDF/users/jasperro/editors/nixvim>
-      <JDF/users/jasperro/editors/vscode>
 
       den.batteries.define-user
       den.batteries.primary-user
@@ -29,8 +24,11 @@
         "video"
         "uucp"
         "dialout"
+        "i2c"
         "kvm"
         "audio"
+        "hass"
+        "users"
       ];
 
       subUidRanges = [
@@ -45,16 +43,12 @@
           count = 65536;
         }
       ];
-    };
 
-    homeManager =
-      { pkgs, ... }:
-      {
-        key = "jasperro-tinkpet";
-        stylix = {
-          polarity = "dark";
-          base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-        };
+      openssh = {
+        authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOPkTvmcxZ7h5afV6wOt96LUL5SjfLuvi0LSPGmOy4Gq jasperro@doosje"
+        ];
       };
+    };
   };
 }

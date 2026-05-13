@@ -1,6 +1,6 @@
 { den, __findFile, ... }:
 {
-  den.aspects.jasperro-doosje = {
+  den.aspects."jasperro@tinkpet" = {
     includes = [
       <JDF/users/jasperro/desktop/niri>
       <JDF/users/jasperro/desktop-packages>
@@ -31,7 +31,6 @@
         "dialout"
         "kvm"
         "audio"
-        "minecraft"
       ];
 
       subUidRanges = [
@@ -51,7 +50,7 @@
     homeManager =
       { pkgs, ... }:
       {
-        key = "jasperro-doosje";
+        key = "jasperro-tinkpet";
         stylix = {
           polarity = "dark";
           base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";

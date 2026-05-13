@@ -1,6 +1,6 @@
 { den, __findFile, ... }:
 {
-  den.aspects.jasperro-koekie = {
+  den.aspects."jasperro@koekie" = {
     includes = [
       <JDF/users/jasperro/git>
       <JDF/users/jasperro/cli>

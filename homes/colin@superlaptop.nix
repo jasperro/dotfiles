@@ -1,6 +1,6 @@
 { den, __findFile, ... }:
 {
-  den.aspects.colin-superlaptop = {
+  den.aspects."colin@superlaptop" = {
     includes = [
       <JDF/cli/jasperro-shell>
       <JDF/services/kdeconnect>
