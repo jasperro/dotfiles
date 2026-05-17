@@ -7,6 +7,8 @@
 {
   JDF.users._.jasperro._.desktop._.niri = {
     includes = [
+      <JDF/stylix>
+
       <JDF/desktop/niri>
       <JDF/users/jasperro/desktop/niri/workspaces>
       <JDF/users/jasperro/desktop/niri/keybinds>
@@ -17,7 +19,6 @@
 
       <JDF/users/jasperro/desktop/programs/cliphist>
       <JDF/users/jasperro/desktop/programs/kitty>
-      <JDF/users/jasperro/desktop/programs/stylix>
     ];
     homeManager =
       {

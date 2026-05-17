@@ -12,14 +12,14 @@
     };
   };
 
-  JDF.users._.jasperro._.desktop._.programs._.stylix.homeManager =
+  JDF.stylix.homeManager =
     {
       pkgs,
       config,
       ...
     }:
     {
-      key = "jasperro-stylix";
+      key = "stylix";
       imports = [ inputs.stylix.homeModules.stylix ];
       stylix = {
         enable = true;

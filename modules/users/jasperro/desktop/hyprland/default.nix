@@ -13,11 +13,12 @@
 
   JDF.users._.jasperro._.desktop._.hyprland = {
     includes = [
+      <JDF/stylix>
+
       <JDF/users/jasperro/desktop/wayland-wm>
 
       <JDF/users/jasperro/desktop/programs/cliphist>
       <JDF/users/jasperro/desktop/programs/kitty>
-      <JDF/users/jasperro/desktop/programs/stylix>
       <JDF/users/jasperro/desktop/programs/waybar>
       <JDF/users/jasperro/desktop/programs/mako>
     ];
