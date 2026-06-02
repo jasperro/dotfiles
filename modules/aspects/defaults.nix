@@ -29,13 +29,7 @@
   ];
 
   den.default.nixos = {
-    # Temporary fix, see https://github.com/NixOS/nixpkgs/issues/513245
     nixpkgs.overlays = [
-      (final: prev: {
-        openldap = prev.openldap.overrideAttrs (_: {
-          doCheck = !prev.stdenv.hostPlatform.isi686;
-        });
-      })
     ];
   };
 
