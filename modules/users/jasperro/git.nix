@@ -7,7 +7,7 @@
         enable = true;
         enableDefaultConfig = false;
         includes = [ "~/.ssh/extra_config" ];
-        matchBlocks."*" = {
+        settings."*" = {
           userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
           forwardAgent = false;
           addKeysToAgent = "no";

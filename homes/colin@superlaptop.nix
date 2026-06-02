@@ -50,7 +50,7 @@
         programs.ssh = {
           enable = true;
           enableDefaultConfig = false;
-          matchBlocks."*" = {
+          settings."*" = {
             userKnownHostsFile = "~/.ssh/known_hosts ~/.ssh/known_host_github";
             forwardAgent = false;
             addKeysToAgent = "no";
