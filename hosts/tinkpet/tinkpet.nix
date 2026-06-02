@@ -90,6 +90,9 @@
 
         programs.gamemode.enable = true;
 
+        # Enable wifi using networkmanager
+        networking.networkmanager.enable = true;
+
         # Overclock gpu support
         # programs.corectrl = {
         #   enable = true;
