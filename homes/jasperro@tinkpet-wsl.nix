@@ -2,6 +2,8 @@
 {
   den.aspects."jasperro@tinkpet-wsl" = {
     includes = [
+      <JDF/stylix>
+
       <JDF/users/jasperro/git>
       <JDF/users/jasperro/cli>
 

@@ -17,7 +17,7 @@
 
   den.aspects.tinkpet-wsl = {
     includes = [
-      <JDF/nixos/audio>
+      # <JDF/nixos/audio>
       <JDF/nixos/home-locale>
       <JDF/nixos/nix-alien>
       <JDF/nixos/nix-ld>
@@ -34,6 +34,8 @@
         imports = [
           inputs.nixos-wsl.nixosModules.wsl
         ];
+
+        programs.dconf.enable = true;
 
         wsl = {
           wslConf.automount.root = "/mnt";
