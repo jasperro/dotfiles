@@ -5,11 +5,6 @@
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    niri = {
-      url = "github:Naxdy/niri";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   JDF.desktop._.niri = {
@@ -20,6 +15,17 @@
         imports = [
           inputs.niri-nix.nixosModules.default
         ];
+
+        nixpkgs.overlays = [ inputs.niri-nix.overlays.niri-nix ];
+
+        # nix.settings = {
+        #   substituters = [
+        #     "https://niri-nix.cachix.org"
+        #   ];
+        #   trusted-public-keys = [
+        #     "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
+        #   ];
+        # };
 
         services = {
           xserver = {
@@ -44,7 +50,8 @@
 
         programs.niri = {
           enable = true;
-          package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+          # package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+          package = pkgs.niri-unstable;
         };
 
         networking.networkmanager.enable = true;

@@ -19,10 +19,6 @@
     hyprpaper.url = "github:hyprwm/hyprpaper";
     import-tree.url = "github:denful/import-tree";
     impurity.url = "github:outfoxxed/impurity.nix";
-    niri = {
-      url = "github:Naxdy/niri";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     niri-nix = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.nixpkgs.follows = "nixpkgs";

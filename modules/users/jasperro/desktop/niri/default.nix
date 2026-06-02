@@ -10,7 +10,7 @@
       <JDF/desktop/niri>
       <JDF/users/jasperro/desktop/niri/workspaces>
       <JDF/users/jasperro/desktop/niri/keybinds>
-      <JDF/users/jasperro/desktop/niri/unofficial>
+      <JDF/users/jasperro/desktop/niri/blur>
       <JDF/users/jasperro/desktop/niri/noctalia-shell>
 
       <JDF/users/jasperro/desktop/wayland-wm>
@@ -53,7 +53,8 @@
         };
 
         wayland.windowManager.niri.enable = true;
-        wayland.windowManager.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+        # wayland.windowManager.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+        wayland.windowManager.niri.package = pkgs.niri-unstable;
         wayland.windowManager.niri.settings = {
           spawn-at-startup = [
             [
