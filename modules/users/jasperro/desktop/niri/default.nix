@@ -13,7 +13,7 @@
       <JDF/users/jasperro/desktop/niri/workspaces>
       <JDF/users/jasperro/desktop/niri/keybinds>
       <JDF/users/jasperro/desktop/niri/blur>
-      <JDF/users/jasperro/desktop/niri/noctalia-shell>
+      <JDF/users/jasperro/desktop/niri/noctalia>
 
       <JDF/users/jasperro/desktop/wayland-wm>
 
@@ -164,9 +164,8 @@
             let
               noctalia = cmd: {
                 spawn = [
-                  "noctalia-shell"
-                  "ipc"
-                  "call"
+                  "noctalia"
+                  "msg"
                 ]
                 ++ (pkgs.lib.splitString " " cmd);
               };
@@ -292,10 +291,10 @@
                         "Super+Shift+M".spawn = hyprlock;
                       }
                     ]
-                  else if config.programs.noctalia-shell.enable then
+                  else if config.programs.noctalia.enable then
                     [
                       {
-                        "Super+Shift+M" = noctalia "lockScreen lock";
+                        "Super+Shift+M" = noctalia "session lock";
                       }
                     ]
                   else
@@ -351,13 +350,12 @@
                 ])
               ++
                 # Launcher
-                (lib.optionals config.programs.noctalia-shell.enable [
+                (lib.optionals config.programs.noctalia.enable [
                   {
-                    "Super+Z" = noctalia "launcher windows";
-                    "Super+X" = noctalia "launcher toggle";
-                    "Super+C" = noctalia "launcher command";
-                    "Super+V" = noctalia "launcher clipboard";
-                    "Super+Shift+E" = noctalia "sessionMenu toggle";
+                    "Super+Z" = noctalia "panel-toggle launcher /win";
+                    "Super+X" = noctalia "panel-toggle launcher";
+                    "Super+V" = noctalia "panel-toggle clipboard";
+                    "Super+Shift+E" = noctalia "panel-toggle session";
                   }
                 ])
             );
@@ -365,12 +363,10 @@
 
         services.hypridle =
           let
-            noctalia = "${
-              lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-            } ipc call";
+            noctalia = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default} msg";
           in
           {
-            enable = config.programs.hyprlock.enable || config.programs.noctalia-shell.enable;
+            enable = config.programs.hyprlock.enable || config.programs.noctalia.enable;
             settings = {
               general =
                 if config.programs.hyprlock.enable then
@@ -382,10 +378,10 @@
                   }
                 else
                   {
-                    before_sleep_cmd = "${noctalia} lockScreen lock";
+                    before_sleep_cmd = "${noctalia} session lock";
                     after_sleep_cmd = "niri msg action power-on-monitors";
                     ignore_dbus_inhibit = false;
-                    lock_cmd = "${noctalia} lockScreen lock";
+                    lock_cmd = "${noctalia} session lock";
                   };
 
               listener =
@@ -405,7 +401,7 @@
                   [
                     {
                       timeout = 900;
-                      on-timeout = "${noctalia} lockScreen lock";
+                      on-timeout = "${noctalia} session lock";
                     }
                     {
                       timeout = 1200;

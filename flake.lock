@@ -1135,7 +1135,7 @@
         ],
         "nix-index-database": "nix-index-database",
         "nixpkgs": [
-          "nixpkgs"
+          "pyPatchNixpkgs"
         ]
       },
       "locked": {
@@ -1443,13 +1443,13 @@
         "lastModified": 1783712293,
         "narHash": "sha256-4LhuqV5mgNjvqjouu87OU7FFCR8bKWQMtbABBCsPa40=",
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "repo": "noctalia",
         "rev": "15de398abd7893704b1cc7ea4f619ade7be40f53",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "repo": "noctalia",
         "type": "github"
       }
     },
@@ -1500,6 +1500,22 @@
         "type": "github"
       }
     },
+    "pyPatchNixpkgs": {
+      "locked": {
+        "lastModified": 1783520258,
+        "narHash": "sha256-5SBBq7+8um59Rf0qf6L8YYM0PDu9KGVHNJniETId35o=",
+        "owner": "applePrincess",
+        "repo": "nixpkgs",
+        "rev": "2bb1c58eed9a6bccbcdef6ce2829ab2b46232856",
+        "type": "github"
+      },
+      "original": {
+        "owner": "applePrincess",
+        "ref": "fix-dpcontracts",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "den": "den",
@@ -1520,6 +1536,7 @@
         "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "pyPatchNixpkgs": "pyPatchNixpkgs",
         "secrets": "secrets",
         "sops-nix": "sops-nix",
         "stylix": "stylix",

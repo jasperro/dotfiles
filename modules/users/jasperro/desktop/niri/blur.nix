@@ -22,14 +22,14 @@
           _children = [
             {
               match._props = {
-                namespace = "noctalia-background-.*$";
+                namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$";
               };
             }
           ];
           background-effect = {
-            blur = true;
+            # blur = false;
+            # noise = 0.05;
             xray = false;
-            noise = 0.05;
           };
         }
       ];

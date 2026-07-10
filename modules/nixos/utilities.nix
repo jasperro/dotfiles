@@ -7,9 +7,7 @@
     { pkgs, ... }:
     {
       key = "utilities";
-      systemd.user.extraConfig = ''
-        DefaultEnvironment="PATH=/run/current-system/sw/bin"
-      '';
+      systemd.user.settings.Manager.DefaultEnvironment = "PATH=/run/current-system/sw/bin";
       environment.localBinInPath = true;
       environment.systemPackages = with pkgs; [
         home-manager # support for standalone home-manager
@@ -21,7 +19,7 @@
         fastfetch
 
         zoxide
-        silver-searcher
+        silver-searcher-ng
         ripgrep
 
         # (de)compression
