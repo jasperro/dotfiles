@@ -1,5 +1,5 @@
 {
-  inputs,
+  self,
   lib,
   ...
 }:
@@ -20,7 +20,7 @@ in
         lib.genAttrs
           [ "zigbee2mqtt/network_key" "zigbee2mqtt/user" "zigbee2mqtt/pass" "zigbee2mqtt/auth_token" ]
           (_: {
-            sopsFile = "${inputs.secrets}/taart.yaml";
+            sopsFile = "${self}/secrets/taart.yaml";
             mode = "0440";
             owner = config.users.users.zigbee2mqtt.name;
             group = config.users.groups.zigbee2mqtt.name;

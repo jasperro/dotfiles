@@ -1,11 +1,11 @@
-{ inputs, ... }:
+{ self, ... }:
 {
   jdf.hosts._.taart._.services._.acme.nixos =
     { config, ... }:
     {
       sops.secrets = {
         "albering.nl-acme-credentials" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           path = "/var/src/secrets/albering.nl-acme-credentials";
           mode = "0440";
           owner = config.users.users.acme.name;

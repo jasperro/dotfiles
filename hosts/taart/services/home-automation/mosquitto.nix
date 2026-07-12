@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ self, ... }:
 let
   port = 1883;
 in
@@ -14,13 +14,13 @@ in
       ];
       sops.secrets = {
         "mqtt/password" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           owner = "mosquitto";
           group = "mosquitto";
           mode = "0440";
         };
         "mqtt/username" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           owner = "mosquitto";
           group = "mosquitto";
           mode = "0440";

@@ -48,10 +48,6 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    secrets = {
-      url = "./secrets";
-      flake = false;
-    };
     self.submodules = true;
     sops-nix = {
       url = "github:Mic92/sops-nix";

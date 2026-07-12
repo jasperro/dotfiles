@@ -1,5 +1,5 @@
 {
-  inputs,
+  self,
   ...
 }:
 let
@@ -11,19 +11,19 @@ in
     {
       sops.secrets = {
         "hame/username" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           mode = "0440";
         };
         "hame/password" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           mode = "0440";
         };
         "hame/device0/mac" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           mode = "0440";
         };
         "hame/device0/id" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           mode = "0440";
         };
       };

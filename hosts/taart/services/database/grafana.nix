@@ -1,6 +1,6 @@
 {
   lib,
-  inputs,
+  self,
   ...
 }:
 let
@@ -13,7 +13,7 @@ in
       { config, ... }:
       {
         sops.secrets."grafana/admin-password" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           owner = "grafana";
           group = "grafana";
           mode = "0440";

@@ -1,4 +1,4 @@
-{ inputs, jdf, ... }:
+{ self, jdf, ... }:
 let
   port = 8222;
 in
@@ -10,7 +10,7 @@ in
       {
         # SOPS secret for admin token
         sops.secrets.vaultwarden-environmentFile = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           key = "vaultwarden-environmentFile";
           owner = "vaultwarden";
           group = "vaultwarden";

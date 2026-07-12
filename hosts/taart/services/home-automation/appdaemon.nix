@@ -1,5 +1,5 @@
 {
-  inputs,
+  self,
   ...
 }:
 let
@@ -11,7 +11,7 @@ in
     {
       sops.secrets = {
         "appdaemon-environmentFile" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           mode = "0440";
         };
       };

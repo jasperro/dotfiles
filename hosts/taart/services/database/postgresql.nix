@@ -1,7 +1,6 @@
 {
-  inputs,
+  self,
   lib,
-  den,
   ...
 }:
 let
@@ -22,7 +21,7 @@ in
               sops.secrets =
                 lib.optionalAttrs (host ? enabled.homeassistant) {
                   "postgresql/roles/hass/password" = {
-                    sopsFile = "${inputs.secrets}/taart.yaml";
+                    sopsFile = "${self}/secrets/taart.yaml";
                     owner = "postgres";
                     group = "hass";
                     mode = "0440";
@@ -30,7 +29,7 @@ in
                 }
                 // lib.optionalAttrs (host ? enabled.grafana) {
                   "postgresql/roles/grafanareader/password" = {
-                    sopsFile = "${inputs.secrets}/taart.yaml";
+                    sopsFile = "${self}/secrets/taart.yaml";
                     owner = "postgres";
                     group = "grafana";
                     mode = "0440";

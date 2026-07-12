@@ -1572,7 +1572,6 @@
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "pyPatchNixpkgs": "pyPatchNixpkgs",
-        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "waybar": "waybar",
@@ -1599,18 +1598,6 @@
         "repo": "rust-overlay",
         "type": "github"
       }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "path": "./secrets",
-        "type": "path"
-      },
-      "original": {
-        "path": "./secrets",
-        "type": "path"
-      },
-      "parent": []
     },
     "sops-nix": {
       "inputs": {

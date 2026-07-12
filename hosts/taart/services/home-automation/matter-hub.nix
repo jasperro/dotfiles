@@ -1,11 +1,11 @@
-{ inputs, ... }:
+{ self, ... }:
 {
   jdf.hosts._.taart._.services._.home-automation._.matter-hub.nixos =
     { config, ... }:
     {
       sops.secrets = {
         "matter-hub-environmentFile" = {
-          sopsFile = "${inputs.secrets}/taart.yaml";
+          sopsFile = "${self}/secrets/taart.yaml";
           mode = "0440";
         };
       };

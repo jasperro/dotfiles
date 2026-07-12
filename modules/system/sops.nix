@@ -9,11 +9,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    secrets = {
-      url = "./secrets";
-      flake = false;
-    };
   };
 
   jdf.system._.sops.nixos =
