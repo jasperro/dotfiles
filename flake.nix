@@ -24,11 +24,12 @@
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pyPatchNixpkgs.url = "github:applePrincess/nixpkgs/fix-dpcontracts";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs = {
         flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "pyPatchNixpkgs";
       };
     };
     nixos-wsl = {

@@ -1153,7 +1153,7 @@
         ],
         "nix-index-database": "nix-index-database",
         "nixpkgs": [
-          "nixpkgs"
+          "pyPatchNixpkgs"
         ]
       },
       "locked": {
@@ -1534,6 +1534,22 @@
         "type": "github"
       }
     },
+    "pyPatchNixpkgs": {
+      "locked": {
+        "lastModified": 1783520258,
+        "narHash": "sha256-5SBBq7+8um59Rf0qf6L8YYM0PDu9KGVHNJniETId35o=",
+        "owner": "applePrincess",
+        "repo": "nixpkgs",
+        "rev": "2bb1c58eed9a6bccbcdef6ce2829ab2b46232856",
+        "type": "github"
+      },
+      "original": {
+        "owner": "applePrincess",
+        "ref": "fix-dpcontracts",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "den": "den",
@@ -1555,6 +1571,7 @@
         "nixpkgs": "nixpkgs_7",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "pyPatchNixpkgs": "pyPatchNixpkgs",
         "secrets": "secrets",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
