@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.desktop._.programs._.wezterm.homeManager = {
+  jdf.users._.jasperro._.desktop._.programs._.wezterm.homeManager = {
     home = {
       sessionVariables = {
         TERMINAL = "wezterm";

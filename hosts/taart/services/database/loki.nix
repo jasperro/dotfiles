@@ -2,7 +2,7 @@ let
   port = 3100;
 in
 {
-  JDF.hosts._.taart._.services._.database._.loki.nixos = {
+  jdf.hosts._.taart._.services._.database._.loki.nixos = {
     services.loki = rec {
       enable = true;
       configuration = {

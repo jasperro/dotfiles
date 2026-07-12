@@ -5,7 +5,7 @@ let
   port = 8123;
 in
 {
-  JDF.hosts._.taart._.services._.home-automation._.homeassistant = {
+  jdf.hosts._.taart._.services._.home-automation._.homeassistant = {
     enabled.homeassistant = true;
     nixos =
       { config, ... }:

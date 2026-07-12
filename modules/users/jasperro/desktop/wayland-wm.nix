@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.desktop._.wayland-wm = {
+  jdf.users._.jasperro._.desktop._.wayland-wm = {
     homeManager =
       { pkgs, config, ... }:
       let

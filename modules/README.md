@@ -2,7 +2,7 @@
 ## General
 `den.nix`: Import den module.
 
-`namespace.nix`: Define namespaces (currently only JDF, which stands for Jasperro Dot Files). Most aspects need to be defined in this namespace directly.
+`namespace.nix`: Define namespaces (currently only jdf, which stands for Jasperro Dot Files). Most aspects need to be defined in this namespace directly.
 
 `aspects/`: Generic aspects that should be default or included in most configurations. Only for stuff that doesn't fit anywhere else. Another name is probably better. Everything is in the `den` namespace.
 

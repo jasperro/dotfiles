@@ -1,9 +1,9 @@
 let
   port = 5279;
 in
-{ __findFile, ... }:
+{ jdf, ... }:
 {
-  JDF.hosts._.taart._.services._.home-automation._.grott = {
+  jdf.hosts._.taart._.services._.home-automation._.grott = {
     nixos =
       { config, pkgs, ... }:
       {

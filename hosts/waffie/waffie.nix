@@ -1,6 +1,6 @@
 {
   inputs,
-  __findFile,
+  jdf,
   den,
   ...
 }:
@@ -16,19 +16,19 @@
 
   den.aspects.waffie = {
     includes = [
-      <JDF/system/audio>
-      <JDF/system/gui>
-      <JDF/system/home-locale>
-      <JDF/system/networking>
-      <JDF/system/nix-alien>
-      <JDF/system/nix-ld>
-      <JDF/system/nix>
-      <JDF/system/sops>
-      <JDF/system/utilities>
+      jdf.system._.audio
+      jdf.system._.gui
+      jdf.system._.home-locale
+      jdf.system._.networking
+      jdf.system._.nix-alien
+      jdf.system._.nix-ld
+      jdf.system._.nix
+      jdf.system._.sops
+      jdf.system._.utilities
 
-      <JDF/desktop/plasma>
+      jdf.desktop._.plasma
 
-      <JDF/services/openssh-inbound>
+      jdf.services._.openssh-inbound
     ];
 
     nixos =

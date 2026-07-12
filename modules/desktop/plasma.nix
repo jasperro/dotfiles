@@ -1,6 +1,6 @@
 { ... }:
 {
-  JDF.desktop._.plasma = {
+  jdf.desktop._.plasma = {
     nixos =
       { ... }:
       {

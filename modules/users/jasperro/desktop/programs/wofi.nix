@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.desktop._.programs._.wofi.homeManager =
+  jdf.users._.jasperro._.desktop._.programs._.wofi.homeManager =
     {
       pkgs,
       config,

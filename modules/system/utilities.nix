@@ -3,7 +3,7 @@
   ...
 }:
 {
-  JDF.system._.utilities.nixos =
+  jdf.system._.utilities.nixos =
     { pkgs, ... }:
     {
       systemd.user.settings.Manager.DefaultEnvironment = "PATH=/run/current-system/sw/bin";

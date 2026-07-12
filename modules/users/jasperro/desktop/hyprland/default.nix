@@ -1,7 +1,7 @@
 {
   lib,
   inputs,
-  __findFile,
+  jdf,
   ...
 }:
 {
@@ -11,16 +11,16 @@
     };
   };
 
-  JDF.users._.jasperro._.desktop._.hyprland = {
+  jdf.users._.jasperro._.desktop._.hyprland = {
     includes = [
-      <JDF/stylix>
+      jdf.stylix
 
-      <JDF/users/jasperro/desktop/wayland-wm>
+      jdf.users._.jasperro._.desktop._.wayland-wm
 
-      <JDF/users/jasperro/desktop/programs/cliphist>
-      <JDF/users/jasperro/desktop/programs/kitty>
-      <JDF/users/jasperro/desktop/programs/waybar>
-      <JDF/users/jasperro/desktop/programs/mako>
+      jdf.users._.jasperro._.desktop._.programs._.cliphist
+      jdf.users._.jasperro._.desktop._.programs._.kitty
+      jdf.users._.jasperro._.desktop._.programs._.waybar
+      jdf.users._.jasperro._.desktop._.programs._.mako
     ];
     homeManager =
       { config, pkgs, ... }:

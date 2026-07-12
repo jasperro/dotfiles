@@ -12,7 +12,7 @@
     };
   };
 
-  JDF.stylix.homeManager =
+  jdf.stylix.homeManager =
     {
       pkgs,
       config,

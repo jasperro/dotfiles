@@ -36,7 +36,7 @@ let
   };
 in
 {
-  JDF.services._.timekpr-next-remote.nixos = {
+  jdf.services._.timekpr-next-remote.nixos = {
     networking.firewall.allowedTCPPorts = [
       8080
     ];

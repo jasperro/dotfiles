@@ -1,9 +1,9 @@
-{ den, __findFile, ... }:
+{ den, jdf, ... }:
 {
   den.aspects."jasperro@taart" = {
     includes = [
-      <JDF/users/jasperro/git>
-      <JDF/users/jasperro/cli>
+      jdf.users._.jasperro._.git
+      jdf.users._.jasperro._.cli
 
       den.batteries.define-user
       den.batteries.primary-user

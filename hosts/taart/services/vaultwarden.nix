@@ -1,10 +1,10 @@
-{ inputs, __findFile, ... }:
+{ inputs, jdf, ... }:
 let
   port = 8222;
 in
 {
-  JDF.hosts._.taart._.services._.vaultwarden = {
-    includes = [ <JDF/hosts/taart/services/nginx> ]; # See https://github.com/vic/den/discussions/344
+  jdf.hosts._.taart._.services._.vaultwarden = {
+    includes = [ jdf.hosts._.taart._.services._.nginx ]; # See https://github.com/vic/den/discussions/344
     nixos =
       { config, ... }:
       {

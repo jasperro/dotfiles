@@ -8,7 +8,7 @@ let
   frontendPort = 1919;
 in
 {
-  JDF.hosts._.taart._.services._.home-automation._.zigbee2mqtt.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.zigbee2mqtt.nixos =
     { config, ... }:
     {
       users.users.zigbee2mqtt.extraGroups = [

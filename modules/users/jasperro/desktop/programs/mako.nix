@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.desktop._.programs._.mako.homeManager =
+  jdf.users._.jasperro._.desktop._.programs._.mako.homeManager =
     { config, ... }:
     with config.lib.stylix.colors.withHashtag;
     {

@@ -1,5 +1,5 @@
 {
-  __findFile,
+  jdf,
   den,
   ...
 }:
@@ -15,28 +15,28 @@
 
   den.aspects.taart = {
     includes = [
-      <JDF/system/home-locale>
-      <JDF/system/networking>
-      <JDF/system/nix>
-      <JDF/system/sops>
-      <JDF/system/utilities>
+      jdf.system._.home-locale
+      jdf.system._.networking
+      jdf.system._.nix
+      jdf.system._.sops
+      jdf.system._.utilities
 
-      <JDF/services/openssh-inbound>
+      jdf.services._.openssh-inbound
 
-      <JDF/hosts/taart/services/acme>
-      <JDF/hosts/taart/services/nginx>
-      <JDF/hosts/taart/services/vaultwarden>
-      <JDF/hosts/taart/services/podman>
+      jdf.hosts._.taart._.services._.acme
+      jdf.hosts._.taart._.services._.nginx
+      jdf.hosts._.taart._.services._.vaultwarden
+      jdf.hosts._.taart._.services._.podman
 
-      <JDF/hosts/taart/services/database/postgresql>
+      jdf.hosts._.taart._.services._.database._.postgresql
 
-      <JDF/hosts/taart/services/home-automation/mosquitto>
-      <JDF/hosts/taart/services/home-automation/zigbee2mqtt>
-      <JDF/hosts/taart/services/home-automation/homeassistant>
-      <JDF/hosts/taart/services/home-automation/esphome>
-      <JDF/hosts/taart/services/home-automation/appdaemon>
-      <JDF/hosts/taart/services/home-automation/matterbridge>
-      <JDF/hosts/taart/services/home-automation/grott>
+      jdf.hosts._.taart._.services._.home-automation._.mosquitto
+      jdf.hosts._.taart._.services._.home-automation._.zigbee2mqtt
+      jdf.hosts._.taart._.services._.home-automation._.homeassistant
+      jdf.hosts._.taart._.services._.home-automation._.esphome
+      jdf.hosts._.taart._.services._.home-automation._.appdaemon
+      jdf.hosts._.taart._.services._.home-automation._.matterbridge
+      jdf.hosts._.taart._.services._.home-automation._.grott
     ];
 
     nixos =

@@ -1,5 +1,5 @@
 {
-  JDF.cli._.jasperro-shell.homeManager =
+  jdf.cli._.jasperro-shell.homeManager =
     {
       pkgs,
       config,

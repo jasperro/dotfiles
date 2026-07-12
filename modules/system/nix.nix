@@ -4,7 +4,7 @@
   ...
 }:
 {
-  JDF.system._.nix.nixos =
+  jdf.system._.nix.nixos =
     { config, ... }:
     {
       nix = {

@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.desktop._.programs._.kitty.homeManager =
+  jdf.users._.jasperro._.desktop._.programs._.kitty.homeManager =
     { config, pkgs, ... }:
     {
       home = {

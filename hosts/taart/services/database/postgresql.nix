@@ -8,7 +8,7 @@ let
   port = 5432;
 in
 {
-  JDF.hosts._.taart._.services._.database._.postgresql = {
+  jdf.hosts._.taart._.services._.database._.postgresql = {
     includes = [
       (
         {

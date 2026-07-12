@@ -7,7 +7,7 @@
     };
   };
 
-  JDF.desktop._.niri = {
+  jdf.desktop._.niri = {
     nixos =
       { pkgs, ... }:
       {

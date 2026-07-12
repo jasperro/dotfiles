@@ -11,7 +11,7 @@
     };
   };
 
-  JDF.users._.jasperro._.editors._.nixvim.homeManager =
+  jdf.users._.jasperro._.editors._.nixvim.homeManager =
     { pkgs, ... }:
     {
       imports = [

@@ -1,5 +1,5 @@
 {
-  JDF.hosts._.taart._.services._.home-automation._.matterbridge.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.matterbridge.nixos =
     { config, ... }:
     {
       systemd.tmpfiles.settings."10-matterbridge" = {

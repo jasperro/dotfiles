@@ -5,7 +5,7 @@
   ...
 }:
 {
-  JDF.system._.networking = {
+  jdf.system._.networking = {
     includes = [
       den.batteries.hostname
     ];

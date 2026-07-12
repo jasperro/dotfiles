@@ -1,5 +1,5 @@
 {
-  JDF.services._.podman.nixos =
+  jdf.services._.podman.nixos =
     { pkgs, ... }:
     {
       virtualisation = {

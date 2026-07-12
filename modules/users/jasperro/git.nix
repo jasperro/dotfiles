@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.git.homeManager =
+  jdf.users._.jasperro._.git.homeManager =
     { ... }:
     {
       programs.ssh = {

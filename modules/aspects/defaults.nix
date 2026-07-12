@@ -3,7 +3,6 @@
   inputs,
   outputs,
   den,
-  __findFile,
   ...
 }:
 {
@@ -21,7 +20,7 @@
   ];
 
   den.default.includes = [
-    <impurity>
+    den.aspects.impurity
   ];
 
   den.schema.user.includes = [

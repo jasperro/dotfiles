@@ -3,7 +3,7 @@ let
   workspaceKeys = (lib.range 1 9);
 in
 {
-  JDF.users._.jasperro._.desktop._.niri._.workspaces.homeManager = {
+  jdf.users._.jasperro._.desktop._.niri._.workspaces.homeManager = {
     wayland.windowManager.niri.settings = {
       binds = lib.mergeAttrsList (
         map (key: {

@@ -1,7 +1,7 @@
 let
 in
 {
-  JDF.services._.kdeconnect = {
+  jdf.services._.kdeconnect = {
     nixos = {
       networking.firewall = {
         allowedTCPPortRanges = [

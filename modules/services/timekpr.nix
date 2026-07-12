@@ -1,5 +1,5 @@
 {
-  JDF.services._.timekpr.nixos =
+  jdf.services._.timekpr.nixos =
     { pkgs, ... }:
     {
       services.timekpr = {

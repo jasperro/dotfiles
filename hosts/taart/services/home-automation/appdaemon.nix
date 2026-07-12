@@ -6,7 +6,7 @@ let
   port = 5050;
 in
 {
-  JDF.hosts._.taart._.services._.home-automation._.appdaemon.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.appdaemon.nixos =
     { config, ... }:
     {
       sops.secrets = {

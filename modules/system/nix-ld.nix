@@ -1,5 +1,5 @@
 {
-  JDF.system._.nix-ld.nixos =
+  jdf.system._.nix-ld.nixos =
     { pkgs, ... }:
     {
       # Enable nix ld

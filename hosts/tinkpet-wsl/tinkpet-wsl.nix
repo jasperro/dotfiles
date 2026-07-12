@@ -1,6 +1,6 @@
 {
   inputs,
-  __findFile,
+  jdf,
   den,
   ...
 }:
@@ -17,15 +17,15 @@
 
   den.aspects.tinkpet-wsl = {
     includes = [
-      # <JDF/system/audio>
-      <JDF/system/home-locale>
-      <JDF/system/nix-alien>
-      <JDF/system/nix-ld>
-      <JDF/system/nix>
-      <JDF/system/sops>
-      <JDF/system/utilities>
+      # jdf.system._.audio
+      jdf.system._.home-locale
+      jdf.system._.nix-alien
+      jdf.system._.nix-ld
+      jdf.system._.nix
+      jdf.system._.sops
+      jdf.system._.utilities
 
-      <JDF/services/podman>
+      jdf.services._.podman
     ];
 
     nixos =

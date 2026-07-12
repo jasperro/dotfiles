@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  JDF.hosts._.taart._.services._.podman.nixos =
+  jdf.hosts._.taart._.services._.podman.nixos =
     { pkgs, ... }:
     {
       virtualisation = {

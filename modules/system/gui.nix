@@ -1,5 +1,5 @@
 {
-  JDF.system._.gui.nixos =
+  jdf.system._.gui.nixos =
     { pkgs, ... }:
     {
       # Enable CUPS to print documents.

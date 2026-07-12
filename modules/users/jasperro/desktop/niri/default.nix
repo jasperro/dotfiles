@@ -1,24 +1,24 @@
 {
   inputs,
   lib,
-  __findFile,
+  jdf,
   ...
 }:
 {
-  JDF.users._.jasperro._.desktop._.niri = {
+  jdf.users._.jasperro._.desktop._.niri = {
     includes = [
-      <JDF/stylix>
+      jdf.stylix
 
-      <JDF/desktop/niri>
-      <JDF/users/jasperro/desktop/niri/workspaces>
-      <JDF/users/jasperro/desktop/niri/keybinds>
-      <JDF/users/jasperro/desktop/niri/blur>
-      <JDF/users/jasperro/desktop/niri/noctalia>
+      jdf.desktop._.niri
+      jdf.users._.jasperro._.desktop._.niri._.workspaces
+      jdf.users._.jasperro._.desktop._.niri._.keybinds
+      jdf.users._.jasperro._.desktop._.niri._.blur
+      jdf.users._.jasperro._.desktop._.niri._.noctalia
 
-      <JDF/users/jasperro/desktop/wayland-wm>
+      jdf.users._.jasperro._.desktop._.wayland-wm
 
-      <JDF/users/jasperro/desktop/programs/cliphist>
-      <JDF/users/jasperro/desktop/programs/kitty>
+      jdf.users._.jasperro._.desktop._.programs._.cliphist
+      jdf.users._.jasperro._.desktop._.programs._.kitty
     ];
     homeManager =
       {

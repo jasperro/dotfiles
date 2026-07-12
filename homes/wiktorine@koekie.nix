@@ -1,9 +1,9 @@
-{ den, __findFile, ... }:
+{ den, jdf, ... }:
 {
   den.aspects."wiktorine@koekie" = {
     includes = [
-      <JDF/cli/jasperro-shell>
-      <JDF/services/kdeconnect>
+      jdf.cli._.jasperro-shell
+      jdf.services._.kdeconnect
 
       den.batteries.define-user
       den.batteries.primary-user

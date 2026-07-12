@@ -1,5 +1,5 @@
 {
-  JDF.users._.jasperro._.desktop._.niri._.blur.homeManager = {
+  jdf.users._.jasperro._.desktop._.niri._.blur.homeManager = {
     wayland.windowManager.niri.settings = {
       blur = {
         on = [ ];

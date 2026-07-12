@@ -1,7 +1,7 @@
-{ __findFile, ... }:
+{ jdf, ... }:
 {
-  JDF.users._.jasperro._.desktop-packages = {
-    includes = [ <JDF/services/kdeconnect> ];
+  jdf.users._.jasperro._.desktop-packages = {
+    includes = [ jdf.services._.kdeconnect ];
     homeManager =
       { pkgs, ... }:
       {

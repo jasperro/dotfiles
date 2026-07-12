@@ -1,10 +1,10 @@
-{ __findFile, ... }:
+{ jdf, ... }:
 {
-  JDF.users._.jasperro._.cli = {
+  jdf.users._.jasperro._.cli = {
     includes = [
-      <JDF/cli/jasperro-shell>
+      jdf.cli._.jasperro-shell
 
-      <JDF/users/jasperro/git>
+      jdf.users._.jasperro._.git
     ];
     homeManager =
       { pkgs, ... }:

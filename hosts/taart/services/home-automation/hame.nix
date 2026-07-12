@@ -6,7 +6,7 @@ let
   mqttBrokerURL = "127.0.0.1:1883";
 in
 {
-  JDF.hosts._.taart._.services._.home-automation._.hame.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.hame.nixos =
     { config, ... }:
     {
       sops.secrets = {

@@ -10,7 +10,7 @@
     };
   };
 
-  JDF.desktop._.hyprland = {
+  jdf.desktop._.hyprland = {
     nixos =
       { pkgs, ... }:
       {

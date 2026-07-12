@@ -7,7 +7,7 @@
     };
   };
 
-  JDF.users._.jasperro._.desktop._.programs._.waybar.homeManager =
+  jdf.users._.jasperro._.desktop._.programs._.waybar.homeManager =
     {
       config,
       pkgs,

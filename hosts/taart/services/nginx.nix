@@ -1,12 +1,12 @@
 {
   den,
   lib,
-  __findFile,
+  jdf,
   ...
 }:
 {
-  JDF.hosts._.taart._.services._.nginx = {
-    includes = [ <JDF/hosts/taart/services/acme> ];
+  jdf.hosts._.taart._.services._.nginx = {
+    includes = [ jdf.hosts._.taart._.services._.acme ];
     nixos = {
       networking.firewall.allowedTCPPorts = [
         # 8443

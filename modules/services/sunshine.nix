@@ -1,5 +1,5 @@
 {
-  JDF.services._.sunshine.nixos = {
+  jdf.services._.sunshine.nixos = {
     services.sunshine = {
       enable = true;
       openFirewall = true;

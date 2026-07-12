@@ -22,7 +22,7 @@ let
   # directions = directionsX // directionsY;
 in
 {
-  JDF.users._.jasperro._.desktop._.niri._.keybinds.homeManager = {
+  jdf.users._.jasperro._.desktop._.niri._.keybinds.homeManager = {
     wayland.windowManager.niri.settings = {
       binds = lib.attrsets.mergeAttrsList [
         {

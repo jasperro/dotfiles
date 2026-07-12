@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  JDF.hosts._.taart._.services._.home-automation._.bifrost.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.bifrost.nixos =
     { config, ... }:
     {
       sops.templates."bifrost-config" =

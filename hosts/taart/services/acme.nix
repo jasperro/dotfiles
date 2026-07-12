@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  JDF.hosts._.taart._.services._.acme.nixos =
+  jdf.hosts._.taart._.services._.acme.nixos =
     { config, ... }:
     {
       sops.secrets = {

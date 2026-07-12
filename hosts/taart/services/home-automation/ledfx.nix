@@ -2,7 +2,7 @@ let
   port = 8888;
 in
 {
-  JDF.hosts._.taart._.services._.home-automation._.ledfx.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.ledfx.nixos =
     { pkgs, ... }:
     {
       systemd.services.ledfx = {

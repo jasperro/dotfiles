@@ -3,7 +3,7 @@ let
   port = 1883;
 in
 {
-  JDF.hosts._.taart._.services._.home-automation._.mosquitto.nixos =
+  jdf.hosts._.taart._.services._.home-automation._.mosquitto.nixos =
     { config, ... }:
     {
       networking.firewall.allowedTCPPorts = [

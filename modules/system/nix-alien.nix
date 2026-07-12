@@ -1,4 +1,4 @@
-{ inputs, __findFile, ... }:
+{ inputs, jdf, ... }:
 {
   flake-file.inputs = {
     nix-alien = {
@@ -8,8 +8,8 @@
     };
   };
 
-  JDF.system._.nix-alien = {
-    includes = [ <JDF/system/nix-ld> ];
+  jdf.system._.nix-alien = {
+    includes = [ jdf.system._.nix-ld ];
     nixos =
       { pkgs, ... }:
       {

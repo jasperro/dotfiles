@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  JDF.hosts._.taart._.services._.database._.prometheus.nixos =
+  jdf.hosts._.taart._.services._.database._.prometheus.nixos =
     { config, ... }:
     {
       services.prometheus = {

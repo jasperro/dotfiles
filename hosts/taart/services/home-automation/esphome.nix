@@ -1,10 +1,10 @@
 let
   port = 6052;
 in
-{ __findFile, ... }:
+{ jdf, ... }:
 {
-  JDF.hosts._.taart._.services._.home-automation._.esphome = {
-    includes = [ <JDF/hosts/taart/services/nginx> ]; # See https://github.com/vic/den/discussions/344
+  jdf.hosts._.taart._.services._.home-automation._.esphome = {
+    includes = [ jdf.hosts._.taart._.services._.nginx ]; # See https://github.com/vic/den/discussions/344
     nixos = {
       # services.esphome = {
       #   # Not a setting, id systemd DynamicUser so in /var/lib/private/esphome

@@ -1,5 +1,5 @@
 {
-  JDF.services._.openssh-inbound.nixos = {
+  jdf.services._.openssh-inbound.nixos = {
     services.openssh = {
       enable = true;
       ports = [ 2123 ];

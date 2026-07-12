@@ -1,13 +1,13 @@
-{ den, __findFile, ... }:
+{ den, jdf, ... }:
 {
   den.aspects."jasperro@tinkpet-wsl" = {
     includes = [
-      <JDF/stylix>
+      jdf.stylix
 
-      <JDF/users/jasperro/git>
-      <JDF/users/jasperro/cli>
+      jdf.users._.jasperro._.git
+      jdf.users._.jasperro._.cli
 
-      <JDF/users/jasperro/editors/nixvim>
+      jdf.users._.jasperro._.editors._.nixvim
 
       den.batteries.define-user
       den.batteries.primary-user

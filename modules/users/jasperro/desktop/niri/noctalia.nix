@@ -7,7 +7,7 @@
     };
   };
 
-  JDF.users._.jasperro._.desktop._.niri._.noctalia = {
+  jdf.users._.jasperro._.desktop._.niri._.noctalia = {
     nixos = {
       imports = [
         inputs.noctalia.nixosModules.default

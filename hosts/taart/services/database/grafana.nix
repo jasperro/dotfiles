@@ -7,7 +7,7 @@ let
   port = 3000;
 in
 {
-  JDF.hosts._.taart._.services._.database._.grafana = {
+  jdf.hosts._.taart._.services._.database._.grafana = {
     enabled.grafana = true;
     nixos =
       { config, ... }:
