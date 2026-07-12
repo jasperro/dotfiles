@@ -6,6 +6,7 @@
   inputs = {
     den.url = "github:denful/den";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    disko.url = "github:nix-community/disko";
     flake-compat.url = "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz";
     flake-file.url = "github:denful/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -23,12 +24,11 @@
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pyPatchNixpkgs.url = "github:applePrincess/nixpkgs/fix-dpcontracts";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs = {
         flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "pyPatchNixpkgs";
+        nixpkgs.follows = "nixpkgs";
       };
     };
     nixos-wsl = {
