@@ -48,7 +48,6 @@
     homeManager =
       { pkgs, ... }:
       {
-        key = "wiktorine-koekie";
         home.packages = with pkgs; [
           # general desktop apps
           vscode

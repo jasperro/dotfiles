@@ -1,5 +1,5 @@
 {
-  JDF.nixos._.home-locale.nixos = {
+  JDF.system._.home-locale.nixos = {
     time.timeZone = "Europe/Amsterdam";
 
     i18n.supportedLocales = [

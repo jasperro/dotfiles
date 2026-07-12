@@ -14,7 +14,6 @@
   JDF.users._.jasperro._.editors._.nixvim.homeManager =
     { pkgs, ... }:
     {
-      key = "jasperro-nixvim";
       imports = [
         inputs.nixvim.homeModules.nixvim
       ];

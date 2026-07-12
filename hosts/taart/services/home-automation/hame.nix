@@ -9,7 +9,6 @@ in
   JDF.hosts._.taart._.services._.home-automation._.hame.nixos =
     { config, ... }:
     {
-      key = "hame";
       sops.secrets = {
         "hame/username" = {
           sopsFile = "${inputs.secrets}/taart.yaml";

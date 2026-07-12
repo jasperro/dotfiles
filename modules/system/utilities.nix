@@ -3,10 +3,9 @@
   ...
 }:
 {
-  JDF.nixos._.utilities.nixos =
+  JDF.system._.utilities.nixos =
     { pkgs, ... }:
     {
-      key = "utilities";
       systemd.user.settings.Manager.DefaultEnvironment = "PATH=/run/current-system/sw/bin";
       environment.localBinInPath = true;
       environment.systemPackages = with pkgs; [

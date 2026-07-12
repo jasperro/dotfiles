@@ -5,7 +5,6 @@
     homeManager =
       { pkgs, ... }:
       {
-        key = "jasperro-desktop-packages";
         # services.kdeconnect.enable = true;
         home.packages = with pkgs; [
           # in wayland wm, still use some kde packages

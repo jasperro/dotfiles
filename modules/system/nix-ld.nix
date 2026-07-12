@@ -1,8 +1,7 @@
 {
-  JDF.nixos._.nix-ld.nixos =
+  JDF.system._.nix-ld.nixos =
     { pkgs, ... }:
     {
-      key = "nix-ld";
       # Enable nix ld
       programs.nix-ld.enable = true;
 

@@ -15,11 +15,11 @@
 
   den.aspects.taart = {
     includes = [
-      <JDF/nixos/home-locale>
-      <JDF/nixos/networking>
-      <JDF/nixos/nix>
-      <JDF/nixos/sops>
-      <JDF/nixos/utilities>
+      <JDF/system/home-locale>
+      <JDF/system/networking>
+      <JDF/system/nix>
+      <JDF/system/sops>
+      <JDF/system/utilities>
 
       <JDF/services/openssh-inbound>
 
@@ -42,7 +42,6 @@
     nixos =
       { pkgs, ... }:
       {
-        key = "taart";
         imports = [
           # Disable all below for LXC
           # inputs.hardware.nixosModules.raspberry-pi-4

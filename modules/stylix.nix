@@ -19,7 +19,6 @@
       ...
     }:
     {
-      key = "stylix";
       imports = [ inputs.stylix.homeModules.stylix ];
       stylix = {
         enable = true;

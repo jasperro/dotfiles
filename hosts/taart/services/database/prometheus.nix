@@ -3,7 +3,6 @@
   JDF.hosts._.taart._.services._.database._.prometheus.nixos =
     { config, ... }:
     {
-      key = "prometheus";
       services.prometheus = {
         enable = true;
         scrapeConfigs = [

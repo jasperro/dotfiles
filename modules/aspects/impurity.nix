@@ -6,7 +6,6 @@
 
   den.aspects.impurity = {
     nixos = {
-      key = "impurity";
       imports = [
         inputs.impurity.nixosModules.default
       ];

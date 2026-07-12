@@ -5,12 +5,11 @@
   ...
 }:
 {
-  JDF.nixos._.networking = {
+  JDF.system._.networking = {
     includes = [
       den.batteries.hostname
     ];
     nixos = {
-      key = "networking";
       networking.useNetworkd = true;
       networking.firewall.enable = true;
 

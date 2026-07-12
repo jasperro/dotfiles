@@ -4,10 +4,9 @@
   ...
 }:
 {
-  JDF.nixos._.nix.nixos =
+  JDF.system._.nix.nixos =
     { config, ... }:
     {
-      key = "nix";
       nix = {
         settings = {
           experimental-features = [

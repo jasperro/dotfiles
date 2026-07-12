@@ -17,13 +17,13 @@
 
   den.aspects.tinkpet-wsl = {
     includes = [
-      # <JDF/nixos/audio>
-      <JDF/nixos/home-locale>
-      <JDF/nixos/nix-alien>
-      <JDF/nixos/nix-ld>
-      <JDF/nixos/nix>
-      <JDF/nixos/sops>
-      <JDF/nixos/utilities>
+      # <JDF/system/audio>
+      <JDF/system/home-locale>
+      <JDF/system/nix-alien>
+      <JDF/system/nix-ld>
+      <JDF/system/nix>
+      <JDF/system/sops>
+      <JDF/system/utilities>
 
       <JDF/services/podman>
     ];

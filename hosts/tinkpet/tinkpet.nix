@@ -16,15 +16,15 @@
 
   den.aspects.tinkpet = {
     includes = [
-      <JDF/nixos/audio>
-      <JDF/nixos/gui>
-      <JDF/nixos/home-locale>
-      <JDF/nixos/networking>
-      <JDF/nixos/nix-alien>
-      <JDF/nixos/nix-ld>
-      <JDF/nixos/nix>
-      <JDF/nixos/sops>
-      <JDF/nixos/utilities>
+      <JDF/system/audio>
+      <JDF/system/gui>
+      <JDF/system/home-locale>
+      <JDF/system/networking>
+      <JDF/system/nix-alien>
+      <JDF/system/nix-ld>
+      <JDF/system/nix>
+      <JDF/system/sops>
+      <JDF/system/utilities>
 
       <JDF/services/podman>
     ];
@@ -47,7 +47,6 @@
     nixos =
       { pkgs, ... }:
       {
-        key = "tinkpet";
         imports = [
           inputs.hardware.nixosModules.common-cpu-amd
           inputs.hardware.nixosModules.common-cpu-amd-pstate

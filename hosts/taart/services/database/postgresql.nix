@@ -19,7 +19,6 @@ in
           nixos =
             { pkgs, config, ... }:
             {
-              key = "postgresql";
               sops.secrets =
                 lib.optionalAttrs (host ? enabled.homeassistant) {
                   "postgresql/roles/hass/password" = {

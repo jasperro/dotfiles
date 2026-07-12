@@ -8,12 +8,11 @@
     };
   };
 
-  JDF.nixos._.nix-alien = {
-    includes = [ <JDF/nixos/nix-ld> ];
+  JDF.system._.nix-alien = {
+    includes = [ <JDF/system/nix-ld> ];
     nixos =
       { pkgs, ... }:
       {
-        key = "nix-alien";
         environment.systemPackages =
           with pkgs;
           with inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system};

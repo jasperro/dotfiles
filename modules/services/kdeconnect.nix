@@ -1,10 +1,8 @@
 let
-  key = "kdeconnect";
 in
 {
   JDF.services._.kdeconnect = {
     nixos = {
-      inherit key;
       networking.firewall = {
         allowedTCPPortRanges = [
           {
@@ -23,7 +21,6 @@ in
     homeManager =
       { pkgs, ... }:
       {
-        inherit key;
         home.packages = [
           pkgs.kdePackages.kdeconnect-kde
         ];

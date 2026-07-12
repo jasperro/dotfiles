@@ -7,7 +7,6 @@ in
     nixos =
       { config, pkgs, ... }:
       {
-        key = "grott";
         sops.templates."grott-env" = {
           content = ''
             gmqttpassword=${config.sops.placeholder."mqtt/password"}

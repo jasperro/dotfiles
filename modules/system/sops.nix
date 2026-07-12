@@ -16,7 +16,7 @@
     };
   };
 
-  JDF.nixos._.sops.nixos =
+  JDF.system._.sops.nixos =
     { config, ... }:
     let
       isEd25519 = k: k.type == "ed25519";
@@ -24,7 +24,6 @@
       keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
     in
     {
-      key = "sops";
       imports = [
         inputs.sops-nix.nixosModules.sops
       ];

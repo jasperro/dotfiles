@@ -8,7 +8,6 @@
   JDF.hosts._.taart._.services._.nginx = {
     includes = [ <JDF/hosts/taart/services/acme> ];
     nixos = {
-      key = "nginx";
       networking.firewall.allowedTCPPorts = [
         # 8443
         # 880

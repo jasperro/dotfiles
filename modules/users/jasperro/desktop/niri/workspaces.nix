@@ -4,7 +4,6 @@ let
 in
 {
   JDF.users._.jasperro._.desktop._.niri._.workspaces.homeManager = {
-    key = "jasperro-niri-workspaces";
     wayland.windowManager.niri.settings = {
       binds = lib.mergeAttrsList (
         map (key: {

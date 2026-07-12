@@ -1,8 +1,7 @@
 { inputs, __findFile, ... }: {
   den.aspects.tosti._.disko-config = {
-    includes = [ <JDF/nixos/disko> ];
+    includes = [ <JDF/system/disko> ];
     nixos = {
-      key = "tosti-disko-config";
       disko.devices = {
         disk = {
           main = {

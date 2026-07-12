@@ -6,10 +6,9 @@
 
   imports = [ inputs.disko.flakeModules.default ];
 
-  JDF.nixos._.disko.nixos =
+  JDF.system._.disko.nixos =
     { pkgs, ... }:
     {
-      key = "disko";
       imports = [ inputs.disko.nixosModules.default ];
     };
 }

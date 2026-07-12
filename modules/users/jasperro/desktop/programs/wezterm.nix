@@ -1,6 +1,5 @@
 {
   JDF.users._.jasperro._.desktop._.programs._.wezterm.homeManager = {
-    key = "jasperro-wezterm";
     home = {
       sessionVariables = {
         TERMINAL = "wezterm";

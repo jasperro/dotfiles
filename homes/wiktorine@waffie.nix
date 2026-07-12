@@ -44,7 +44,6 @@
     homeManager =
       { pkgs, ... }:
       {
-        key = "wiktorine-waffie";
         home.packages = with pkgs; [
           # general desktop apps
           firefox

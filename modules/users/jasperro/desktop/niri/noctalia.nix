@@ -9,7 +9,6 @@
 
   JDF.users._.jasperro._.desktop._.niri._.noctalia = {
     nixos = {
-      key = "jasperro-noctalia";
       imports = [
         inputs.noctalia.nixosModules.default
       ];
@@ -27,7 +26,6 @@
       };
     };
     homeManager = {
-      key = "jasperro-noctalia";
       imports = [
         inputs.noctalia.homeModules.default
       ];

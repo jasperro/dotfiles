@@ -23,7 +23,6 @@ let
 in
 {
   JDF.users._.jasperro._.desktop._.niri._.keybinds.homeManager = {
-    key = "jasperro-niri-keybinds";
     wayland.windowManager.niri.settings = {
       binds = lib.attrsets.mergeAttrsList [
         {
