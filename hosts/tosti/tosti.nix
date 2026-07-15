@@ -12,6 +12,13 @@
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.tosti;
+    encrypted-btrfs-filesystem = {
+      enable = true;
+      partitions = {
+        boot = "/dev/disk/by-uuid/XXXX";
+        luks = "/dev/disk/by-uuid/XXXX";
+      };
+    };
   };
 
   den.aspects.tosti = {
@@ -27,8 +34,6 @@
       jdf.system._.utilities
 
       jdf.services._.podman
-
-      den.aspects.tosti._.disko-config
     ];
 
     provides.to-users = {
@@ -50,7 +55,8 @@
       { pkgs, ... }:
       {
         imports = [
-          inputs.hardware.nixosModules.lenovo-yoga-7-14ILL10
+          inputs.hardware.nixosModules.common-cpu-intel
+          inputs.hardware.nixosModules.common-pc-ssd
 
           ./_hardware-configuration.nix
         ];
@@ -80,38 +86,6 @@
         # Enable wifi using networkmanager
         networking.networkmanager.enable = true;
 
-        fileSystems = {
-          "/".options = [
-            "rw"
-            "noatime"
-            "compress=zstd:3"
-            "ssd"
-          ];
-          "/home".options = [
-            "rw"
-            "noatime"
-            "compress=zstd:3"
-            "ssd"
-          ];
-          "/nix".options = [
-            "rw"
-            "noatime"
-            "compress=zstd:3"
-            "ssd"
-          ];
-          "/boot".options = [
-            "rw"
-            "relatime"
-            "fmask=0022"
-            "dmask=0022"
-            "codepage=437"
-            "iocharset=iso8859-1"
-            "shortname=mixed"
-            "utf8"
-            "errors=remount-ro"
-          ];
-        };
-
         boot = {
           tmp.useTmpfs = true;
           kernelPackages = pkgs.linuxPackages_zen;
@@ -140,7 +114,7 @@
         };
 
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-        system.stateVersion = "25.11";
+        system.stateVersion = "26.05";
       };
   };
 }
