@@ -12,13 +12,6 @@
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.tosti;
-    encrypted-btrfs-filesystem = {
-      enable = true;
-      partitions = {
-        boot = "/dev/disk/by-uuid/XXXX";
-        luks = "/dev/disk/by-uuid/XXXX";
-      };
-    };
   };
 
   den.aspects.tosti = {
@@ -34,6 +27,8 @@
       jdf.system._.utilities
 
       jdf.services._.podman
+
+      den.aspects.tosti._.disko-config
     ];
 
     provides.to-users = {
@@ -66,6 +61,8 @@
             enable = true;
           };
         };
+
+        systemd.tpm2.enable = true;
 
         programs.appimage = {
           enable = true;

@@ -1,18 +1,26 @@
-{ inputs, jdf, ... }: {
+{
+  inputs,
+  lib,
+  jdf,
+  ...
+}:
+{
   den.aspects.tosti._.disko-config = {
     includes = [ jdf.system._.disko ];
-    nixos = {
+    nixos = { config, ... }: {
       disko.devices = {
         disk = {
           main = {
             type = "disk";
-            device = "/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+            device = "/dev/disk/by-id/XXXXXX";
             content = {
               type = "gpt";
               partitions = {
                 ESP = {
                   size = "512M";
+                  priority = 10;
                   type = "EF00";
+                  label = "ESP";
                   content = {
                     type = "filesystem";
                     format = "vfat";
@@ -22,6 +30,8 @@
                 };
                 luks = {
                   size = "100%";
+                  priority = 11;
+                  label = "crypted";
                   content = {
                     type = "luks";
                     name = "crypted";
@@ -30,6 +40,7 @@
                     settings = {
                       allowDiscards = true;
                       # keyFile = "/tmp/secret.key";
+                      crypttabExtraOpts = lib.mkIf config.systemd.tpm2.enable [ "tpm2-device=auto" ];
                     };
                     additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
                     content = {
