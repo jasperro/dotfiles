@@ -12,6 +12,13 @@
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.tosti;
+    encrypted-btrfs-filesystem = {
+      enable = true;
+      partitions = {
+        boot = "/dev/disk/by-uuid/90D4-E485";
+        luks = "/dev/disk/by-uuid/6241c212-ec7c-464c-b5bf-4971e8cd1987";
+      };
+    };
   };
 
   den.aspects.tosti = {
@@ -27,8 +34,6 @@
       jdf.system._.utilities
 
       jdf.services._.podman
-
-      den.aspects.tosti._.disko-config
     ];
 
     provides.to-users = {
@@ -36,9 +41,9 @@
         monitors = [
           {
             name = "eDP-1";
-            width = 2880;
-            height = 1800;
-            refreshRate = 120;
+            width = 2560;
+            height = 1600;
+            refreshRate = 144;
             workspace = "1";
             primary = true;
           }
