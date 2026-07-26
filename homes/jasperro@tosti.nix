@@ -19,6 +19,11 @@
 
     nixos.users.groups.jasperro.gid = 1000;
 
+    xdg = {
+      enable = true;
+      createDirectories = true;
+    };
+
     user = {
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";

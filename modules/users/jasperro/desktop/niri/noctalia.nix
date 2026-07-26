@@ -51,8 +51,8 @@
             frame_radius = 12;
             frame_thickness = 8;
             hide_on_overview = false;
-            margin_horizontal = 8;
-            margin_vertical = 6;
+            margin_horizontal = 0;
+            margin_vertical = 0;
             monitors = [ ];
             outer_corners = true;
             position = "top";

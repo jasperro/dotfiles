@@ -42,6 +42,7 @@
         ];
 
         xdg.portal = {
+          enable = true;
           extraPortals = [
             pkgs.kdePackages.xdg-desktop-portal-kde
           ];
@@ -70,6 +71,12 @@
             options = "terminate:ctrl_alt_bksp";
           };
           input.mouse.accel-speed = 1.0;
+          input.touchpad = {
+            tap = [ ];
+            accel-profile = "adaptive";
+            accel-speed = 0.2;
+            scroll-factor = 0.8;
+          };
 
           xwayland-satellite.path = "${lib.getExe
             inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
@@ -191,6 +198,7 @@
                 {
                   # Program bindings
                   "Super+Return".spawn-sh = "${terminal}";
+                  "Super+Shift+F23".spawn-sh = "${terminal}";
                   "Super+B".spawn-sh = "${browser}";
                   # Volume
                   "XF86AudioRaiseVolume".spawn = [
