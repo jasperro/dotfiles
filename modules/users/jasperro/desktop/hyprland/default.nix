@@ -11,7 +11,7 @@
     };
   };
 
-  jdf.users._.jasperro._.desktop._.hyprland = {
+  jdf.users._.jasperro._.desktop._.hyprland = { home, ... }: {
     includes = [
       jdf.stylix
 
@@ -244,7 +244,7 @@
                 position = "${toString m.x}x${toString m.y}";
               in
               "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
-            ) (config.monitors);
+            ) (home.monitors);
           };
           # This is order sensitive, so it has to come here.
           extraConfig = ''

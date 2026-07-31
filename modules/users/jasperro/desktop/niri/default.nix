@@ -10,6 +10,7 @@
       jdf.stylix
 
       jdf.desktop._.niri
+      jdf.users._.jasperro._.desktop._.niri._.outputs
       jdf.users._.jasperro._.desktop._.niri._.workspaces
       jdf.users._.jasperro._.desktop._.niri._.keybinds
       jdf.users._.jasperro._.desktop._.niri._.blur
@@ -88,17 +89,6 @@
             xcursor-theme = config.stylix.cursor.name;
             xcursor-size = config.stylix.cursor.size;
           };
-
-          output = [
-            {
-              _args = [ "DP-2" ];
-              mode = "2560x1440@180.001";
-              variable-refresh-rate._props = {
-                on-demand = true;
-              };
-              focus-at-startup = [ ];
-            }
-          ];
 
           window-rule = [
             {

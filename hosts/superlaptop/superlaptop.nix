@@ -20,6 +20,16 @@
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.superlaptop;
+    monitors = [
+      {
+        name = "eDP-1";
+        width = 1920;
+        height = 1080;
+        refreshRate = 60;
+        workspace = "1";
+        primary = true;
+      }
+    ];
   };
 
   den.aspects.superlaptop = {

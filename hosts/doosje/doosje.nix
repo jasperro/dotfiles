@@ -12,6 +12,17 @@
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.doosje;
+    monitors = [
+      {
+        name = "DP-3";
+        width = 2560;
+        height = 1440;
+        refreshRate = 180.01;
+        workspace = "1";
+        primary = true;
+        vrr = true;
+      }
+    ];
   };
 
   den.aspects.doosje = {
@@ -29,21 +40,6 @@
       jdf.services._.podman
       jdf.services._.disable-usb-wakeup
     ];
-
-    provides.to-users = {
-      homeManager = {
-        monitors = [
-          {
-            name = "DP-2";
-            width = 2560;
-            height = 1440;
-            refreshRate = 180;
-            workspace = "1";
-            primary = true;
-          }
-        ];
-      };
-    };
 
     nixos =
       { pkgs, ... }:

@@ -19,6 +19,17 @@
         luks = "/dev/disk/by-uuid/6241c212-ec7c-464c-b5bf-4971e8cd1987";
       };
     };
+    monitors = [
+      {
+        name = "eDP-1";
+        width = 2560;
+        height = 1600;
+        refreshRate = 144;
+        workspace = "1";
+        primary = true;
+        vrr = true;
+      }
+    ];
   };
 
   den.aspects.tosti = {
@@ -35,21 +46,6 @@
 
       jdf.services._.podman
     ];
-
-    provides.to-users = {
-      homeManager = {
-        monitors = [
-          {
-            name = "eDP-1";
-            width = 2560;
-            height = 1600;
-            refreshRate = 144;
-            workspace = "1";
-            primary = true;
-          }
-        ];
-      };
-    };
 
     nixos =
       { pkgs, ... }:
