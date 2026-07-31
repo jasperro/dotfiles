@@ -44,6 +44,7 @@ in
           "Super+Period".expel-window-from-column = [ ];
           "Super+Slash".switch-preset-column-width = [ ];
 
+          "Super+M".maximize-window-to-edges = [ ];
           "Super+F".maximize-column = [ ];
           "Super+Shift+F".fullscreen-window = [ ];
 
