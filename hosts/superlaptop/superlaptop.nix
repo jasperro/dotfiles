@@ -6,9 +6,17 @@
 }:
 {
   den.hosts.x86_64-linux.superlaptop = {
-    description = "Colin's desktop.";
-    users.colin = {
-      aspect = den.aspects."colin@superlaptop";
+    description = "Dell laptop";
+    users.wiktorine = {
+      aspect = den.aspects."wiktorine@superlaptop";
+      classes = [ "homeManager" ];
+    };
+    users.ewa = {
+      aspect = den.aspects."ewa@superlaptop";
+      classes = [ "homeManager" ];
+    };
+    users.jasperro = {
+      aspect = den.aspects."jasperro@superlaptop";
       classes = [ "homeManager" ];
     };
     aspect = den.aspects.superlaptop;
