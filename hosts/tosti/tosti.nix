@@ -28,6 +28,7 @@
         workspace = "1";
         primary = true;
         vrr = true;
+        scale = 1.35;
       }
     ];
   };

@@ -26,7 +26,7 @@ let
         example = 1080;
       };
       refreshRate = lib.mkOption {
-        type = lib.types.float;
+        type = lib.types.number;
         default = 60;
       };
       x = lib.mkOption {
@@ -50,7 +50,7 @@ let
         default = false;
       };
       scale = lib.mkOption {
-        type = lib.types.float;
+        type = lib.types.number;
         default = 1.0;
       };
     };
