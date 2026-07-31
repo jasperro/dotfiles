@@ -43,11 +43,6 @@
 
     nixos =
       { pkgs, ... }:
-      let
-        userMapping = pkgs.writeText "UserMapping" ''
-          jasperro:jasperro:S-1-5-21-755346402-1880689631-2350194957-1002
-        '';
-      in
       {
         imports = [
           inputs.hardware.nixosModules.common-cpu-amd
@@ -143,7 +138,10 @@
               "defaults"
               "rw"
               "noatime"
-              "usermapping=${userMapping}"
+              "uid=1000"
+              "gid=1000"
+              "fmask=0133"
+              "dmask=0022"
             ];
           };
 
