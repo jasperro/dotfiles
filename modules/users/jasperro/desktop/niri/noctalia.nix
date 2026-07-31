@@ -55,7 +55,7 @@
             margin_vertical = 0;
             monitors = [ ];
             outer_corners = true;
-            position = "top";
+            position = "left";
             radius_top_left = 0;
             radius_top_right = 0;
             radius_bottom_left = 0;
