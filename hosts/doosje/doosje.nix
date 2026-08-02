@@ -14,10 +14,10 @@
     aspect = den.aspects.doosje;
     monitors = [
       {
-        name = "DP-3";
+        name = "DP-2";
         width = 2560;
         height = 1440;
-        refreshRate = 180.01;
+        refreshRate = 180.001;
         workspace = "1";
         primary = true;
         vrr = true;
