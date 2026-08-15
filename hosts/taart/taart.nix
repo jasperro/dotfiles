@@ -29,6 +29,7 @@
 
       jdf.services._.openssh-inbound
 
+      jdf.hosts._.taart._.services._.dns-sync
       jdf.hosts._.taart._.services._.acme
       jdf.hosts._.taart._.services._.nginx
       jdf.hosts._.taart._.services._.podman

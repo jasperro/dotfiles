@@ -42,7 +42,7 @@
             extraConfig = ''
               error_page 403 = @drop;
               allow 192.168.1.0/24;
-              allow 100.64.0.0/10;
+              allow 10.42.0.0/24;
               deny all;
 
               proxy_set_header Host $host;

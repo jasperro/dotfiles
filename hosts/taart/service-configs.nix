@@ -22,7 +22,6 @@
               lanDevices = lib.mkOption {
                 type = lib.types.attrsOf (lib.types.listOf lib.types.str);
                 default = {
-                  "192.168.1.1" = [ "router" ];
                   "192.168.1.16" = [
                     "taart"
                     "vault"

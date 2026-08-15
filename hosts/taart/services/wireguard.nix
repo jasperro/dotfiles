@@ -15,41 +15,6 @@
       cfg = host.settings.services.wireguard;
       netCfg = host.settings.services.network;
 
-      mkWgPeer =
-        {
-          publicKey,
-          allowedIPs,
-          endpoint ? null,
-          keepAlive ? 25,
-        }:
-        {
-          WireGuardPeer = {
-            PublicKey = publicKey;
-            AllowedIPs = allowedIPs;
-            PersistentKeepalive = keepAlive;
-          }
-          // (lib.optionalAttrs (endpoint != null) { Endpoint = endpoint; });
-        };
-
-      translateToVpnIp =
-        ip:
-        let
-          cleanIp = lib.head (lib.splitString "/" ip);
-          hostOctet = lib.last (lib.splitString "." cleanIp);
-        in
-        "10.42.0.${hostOctet}";
-
-      dnsMasqRecords = lib.concatLists (
-        lib.mapAttrsToList (
-          lanIp: subdomains:
-          let
-            vpnIp = translateToVpnIp lanIp;
-          in
-          map (subdomain: "/${subdomain}.${netCfg.baseDomain}/${vpnIp}") subdomains
-        ) netCfg.lanDevices
-      );
-
-      # Script to add WireGuard peers live and persist them to netdev.d
       wgAddPeer = pkgs.writeShellScriptBin "wg-add-peer" ''
                 set -euo pipefail
 
@@ -70,31 +35,27 @@
                 PUBKEY=$(echo "$PRIVKEY" | ${pkgs.wireguard-tools}/bin/wg pubkey)
 
                 # Retrieve server public key
-                SERVER_PUBKEY_FILE="/var/lib/wireguard/public.key"
-                if [ ! -f "$SERVER_PUBKEY_FILE" ]; then
-                  if [ -f "/var/lib/wireguard/private.key" ]; then
-                    ${pkgs.wireguard-tools}/bin/wg pubkey < /var/lib/wireguard/private.key > "$SERVER_PUBKEY_FILE"
-                  else
-                    echo "Error: /var/lib/wireguard/private.key not found."
-                    exit 1
-                  fi
+                SERVER_PRIVKEY_FILE="/var/lib/wireguard/private.key"
+                if [ ! -f "$SERVER_PRIVKEY_FILE" ]; then
+                  echo "Error: /var/lib/wireguard/private.key not found."
+                  exit 1
                 fi
-                SERVER_PUBKEY=$(cat "$SERVER_PUBKEY_FILE")
+                SERVER_PUBKEY=$(${pkgs.wireguard-tools}/bin/wg pubkey < "$SERVER_PRIVKEY_FILE")
 
                 # Public endpoint
-                ENDPOINT="${netCfg.baseDomain}:${toString cfg.port}"
+                ENDPOINT="${cfg.host}:${toString cfg.port}"
 
-                # 1. Prepare client configuration string
+                # 1. Prepare client configuration string (Split Tunneling)
                 CLIENT_CONF=$(cat <<EOF
         [Interface]
         PrivateKey = $PRIVKEY
         Address = $IP
-        DNS = 10.42.0.1
+        DNS = 10.42.0.16
 
         [Peer]
         PublicKey = $SERVER_PUBKEY
         Endpoint = $ENDPOINT
-        AllowedIPs = 0.0.0.0/0, ::/0
+        AllowedIPs = 10.42.0.0/24
         PersistentKeepalive = 25
         EOF
                 )
@@ -106,6 +67,7 @@
         AllowedIPs = $IP
         PersistentKeepalive = 25
         EOF
+                chown systemd-network:systemd-network "$PEER_FILE"
                 chmod 600 "$PEER_FILE"
 
                 # 3. Apply peer directly to live interface instantly
@@ -119,6 +81,24 @@
                 echo "=============================================================="
                 echo "Peer saved to: $PEER_FILE"
       '';
+
+      translateToVpnIp =
+        ip:
+        let
+          cleanIp = lib.head (lib.splitString "/" ip);
+          hostOctet = lib.last (lib.splitString "." cleanIp);
+        in
+        "10.42.0.${hostOctet}";
+
+      dnsMasqRecords = lib.concatLists (
+        lib.mapAttrsToList (
+          lanIp: subdomains:
+          let
+            vpnIp = translateToVpnIp lanIp;
+          in
+          map (subdomain: "/${subdomain}.${netCfg.baseDomain}/${vpnIp}") subdomains
+        ) netCfg.lanDevices
+      );
     in
     {
       boot.kernel.sysctl = {
@@ -133,28 +113,52 @@
         wgAddPeer
       ];
 
-      # Ensure drop-in directories exist with proper permissions
       systemd.tmpfiles.rules = [
-        "d /etc/systemd/network/10-wg0.netdev.d 0700 root root - -"
-        "d /var/lib/wireguard 0700 root root - -"
+        "d /etc/systemd/network/10-wg0.netdev.d  0700 systemd-network systemd-network - -"
+        "d /var/lib/wireguard                    0700 systemd-network systemd-network - -"
+        "Z /var/lib/wireguard/private.key        0600 systemd-network systemd-network - -"
+        "Z /var/lib/wireguard/public.key         0600 systemd-network systemd-network - -"
       ];
+
+      systemd.services.wireguard-keygen = {
+        description = "Generate WireGuard Server Keys";
+        wantedBy = [ "multi-user.target" ];
+        before = [ "systemd-networkd.service" ];
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          User = "systemd-network";
+          Group = "systemd-network";
+          UMask = "0077"; # Ensures all created files automatically get 0600 permissions
+        };
+        script = ''
+          if [ ! -f /var/lib/wireguard/private.key ]; then
+            ${pkgs.wireguard-tools}/bin/wg genkey > /var/lib/wireguard/private.key
+            ${pkgs.wireguard-tools}/bin/wg pubkey < /var/lib/wireguard/private.key > /var/lib/wireguard/public.key
+          fi
+        '';
+      };
 
       networking.firewall = {
         enable = true;
         allowedUDPPorts = [
           cfg.port
-          53
         ];
 
-        allowedTCPPorts = [ 53 ];
+        interfaces.wg0 = {
+          allowedTCPPorts = [ 53 ];
+          allowedUDPPorts = [ 53 ];
+        };
+
+        checkReversePath = "loose";
 
         extraCommands = ''
-          ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -i wg0 -d 10.42.0.0/24 -j NETMAP --to 192.168.1.0/24
+          ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -i wg0 -d 10.42.0.31 -j DNAT --to-destination 192.168.1.31
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.42.0.0/24 -o ${cfg.externalInterface} -j MASQUERADE
         '';
 
         extraStopCommands = ''
-          ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -i wg0 -d 10.42.0.0/24 -j NETMAP --to 192.168.1.0/24
+          ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -i wg0 -d 10.42.0.31 -j DNAT --to-destination 192.168.1.31
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.42.0.0/24 -o ${cfg.externalInterface} -j MASQUERADE
         '';
       };
@@ -162,15 +166,28 @@
       services.dnsmasq = {
         enable = true;
         settings = {
-          interface = "wg0";
-          bind-dynamic = true;
-          listen-address = "10.42.0.1";
-          server = [
-            "1.1.1.1"
-            "1.0.0.1"
+          interface = [
+            "wg0"
           ];
+          bind-dynamic = true;
+          listen-address = [
+            "10.42.0.16"
+          ];
+          # server = [
+          #   "1.1.1.1"
+          #   "1.0.0.1"
+          # ];
           address = dnsMasqRecords;
+          local-service = false;
         };
+      };
+
+      systemd.services.dnsmasq = {
+        after = [
+          "network-online.target"
+          "systemd-networkd.service"
+        ];
+        wants = [ "network-online.target" ];
       };
 
       systemd.network = {
@@ -189,10 +206,9 @@
 
         networks."10-wg0" = {
           matchConfig.Name = "wg0";
-          address = [ "10.42.0.1/24" ];
-          networkConfig = {
-            IPForward = "yes";
-          };
+          address = [
+            "10.42.0.16/24"
+          ];
         };
       };
     };
