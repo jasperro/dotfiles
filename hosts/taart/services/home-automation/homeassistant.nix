@@ -1,14 +1,11 @@
-let
-  cfg = {
-    configDir = "/var/lib/hass/homeassistant";
-  };
-  port = 8123;
-in
+{ jdf, ... }:
 {
   jdf.hosts._.taart._.services._.home-automation._.homeassistant = {
-    enabled.homeassistant = true;
     nixos =
-      { config, ... }:
+      { config, host, ... }:
+      let
+        cfg = host.settings.services.homeassistant;
+      in
       {
         users.users.hass = {
           home = cfg.configDir;
@@ -36,21 +33,29 @@ in
             "--cap-add=CAP_NET_RAW,CAP_NET_BIND_SERVICE"
           ];
           ports = [
-            "${toString port}:8123"
+            "${toString cfg.port}:8123"
           ];
         };
 
         systemd.services."podman-homeassistant" = {
-          # after = [ "mysql.service" ];
-          # requires = [ "mysql.service" ];
           after = [ "postgresql.service" ];
           requires = [ "postgresql.service" ];
         };
 
         services.nginx.virtualHosts."home.albering.nl" = {
+          useACMEHost = "albering";
+          forceSSL = true;
+
+          locations."@drop".extraConfig = "return 444;";
+
           locations."/" = {
-            proxyPass = "http://127.0.0.1:${toString port}";
+            proxyPass = "http://127.0.0.1:${toString cfg.port}";
             extraConfig = ''
+              error_page 403 = @drop;
+              allow 192.168.1.0/24;
+              allow 100.64.0.0/10;
+              deny all;
+
               proxy_set_header Host $host;
               proxy_redirect http:// https://;
               proxy_http_version 1.1;

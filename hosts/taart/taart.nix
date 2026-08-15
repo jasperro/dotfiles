@@ -1,6 +1,7 @@
 {
   jdf,
   den,
+  lib,
   ...
 }:
 {
@@ -10,6 +11,11 @@
     users.jasperro = {
       aspect = den.aspects."jasperro@taart";
       classes = [ "homeManager" ];
+    };
+    settings.services = {
+      headscale.enable = true;
+      vaultwarden.enable = true;
+      homeassistant.enable = true;
     };
   };
 
@@ -36,7 +42,10 @@
       jdf.hosts._.taart._.services._.home-automation._.esphome
       jdf.hosts._.taart._.services._.home-automation._.appdaemon
       jdf.hosts._.taart._.services._.home-automation._.matterbridge
+      jdf.hosts._.taart._.services._.home-automation._.matterjs-server
       jdf.hosts._.taart._.services._.home-automation._.grott
+
+      jdf.hosts._.taart._.service-configs
     ];
 
     nixos =

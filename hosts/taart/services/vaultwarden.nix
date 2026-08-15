@@ -1,14 +1,13 @@
 { self, jdf, ... }:
-let
-  port = 8222;
-in
 {
   jdf.hosts._.taart._.services._.vaultwarden = {
-    includes = [ jdf.hosts._.taart._.services._.nginx ]; # See https://github.com/vic/den/discussions/344
+    includes = [ jdf.hosts._.taart._.services._.nginx ];
     nixos =
-      { config, ... }:
+      { config, host, ... }:
+      let
+        cfg = host.settings.services.vaultwarden;
+      in
       {
-        # SOPS secret for admin token
         sops.secrets.vaultwarden-environmentFile = {
           sopsFile = "${self}/secrets/taart.yaml";
           key = "vaultwarden-environmentFile";
@@ -17,7 +16,6 @@ in
           mode = "0440";
         };
 
-        # Enable Vaultwarden using the NixOS module
         services.vaultwarden = {
           enable = true;
           dbBackend = "sqlite";
@@ -25,18 +23,28 @@ in
 
           config = {
             ROCKET_ADDRESS = "127.0.0.1";
-            ROCKET_PORT = port;
+            ROCKET_PORT = cfg.port;
             SIGNUPS_ALLOWED = false;
             WEB_VAULT_ENABLED = true;
             WEBSOCKET_ENABLED = true;
-            DOMAIN = "https://home.albering.nl/bitwarden/";
+            DOMAIN = "https://vault.albering.nl/";
           };
         };
 
-        services.nginx.virtualHosts."home.albering.nl" = {
-          locations."/bitwarden/" = {
-            proxyPass = "http://127.0.0.1:${toString port}";
+        services.nginx.virtualHosts."vault.albering.nl" = {
+          useACMEHost = "albering";
+          forceSSL = true;
+
+          locations."@drop".extraConfig = "return 444;";
+
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:${toString cfg.port}";
             extraConfig = ''
+              error_page 403 = @drop;
+              allow 192.168.1.0/24;
+              allow 100.64.0.0/10;
+              deny all;
+
               proxy_set_header Host $host;
               proxy_redirect http:// https://;
               proxy_http_version 1.1;
@@ -46,11 +54,13 @@ in
             '';
           };
 
-          locations."~* /bitwarden/admin$" = {
-            proxyPass = "http://127.0.0.1:${toString port}";
+          locations."/admin" = {
+            proxyPass = "http://127.0.0.1:${toString cfg.port}";
             extraConfig = ''
-              deny all;
+              error_page 403 = @drop;
               allow 192.168.1.0/24;
+              deny all;
+
               proxy_set_header Host $host;
               proxy_redirect http:// https://;
               proxy_set_header X-Real-IP $remote_addr;

@@ -21,6 +21,7 @@
 
   den.default.includes = [
     den.aspects.impurity
+    den.policies.settings-injection
   ];
 
   den.schema.user.includes = [
