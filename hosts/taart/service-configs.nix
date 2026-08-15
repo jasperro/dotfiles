@@ -9,31 +9,59 @@
       services = {
         enable = lib.mkEnableOption "service configurations";
 
-        headscale = lib.mkOption {
+        network = lib.mkOption {
+          default = { };
           type = lib.types.submodule {
             options = {
-              enable = lib.mkEnableOption "headscale service";
+              baseDomain = lib.mkOption {
+                type = lib.types.str;
+                default = "albering.nl";
+                description = "Base domain used for DNS resolution";
+              };
+
+              lanDevices = lib.mkOption {
+                type = lib.types.attrsOf (lib.types.listOf lib.types.str);
+                default = {
+                  "192.168.1.1" = [ "router" ];
+                  "192.168.1.16" = [
+                    "taart"
+                    "vault"
+                    "home"
+                    "z2m"
+                  ];
+                  "192.168.1.31" = [
+                    "camera"
+                  ];
+                };
+                description = "Map of IP addresses to lists of subdomains";
+              };
+            };
+          };
+        };
+
+        wireguard = lib.mkOption {
+          default = { };
+          type = lib.types.submodule {
+            options = {
+              enable = lib.mkEnableOption "wireguard service";
               port = lib.mkOption {
                 type = lib.types.port;
-                default = 8080;
-              };
-              dataDir = lib.mkOption {
-                type = lib.types.str;
-                default = "/etc/headscale";
+                default = 51820;
               };
               host = lib.mkOption {
                 type = lib.types.str;
                 default = "vpn.albering.nl";
               };
-              url = lib.mkOption {
+              externalInterface = lib.mkOption {
                 type = lib.types.str;
-                default = "https://vpn.albering.nl";
+                default = "end0";
               };
             };
           };
         };
 
         vaultwarden = lib.mkOption {
+          default = { };
           type = lib.types.submodule {
             options = {
               enable = lib.mkEnableOption "vaultwarden service";
@@ -50,6 +78,7 @@
         };
 
         homeassistant = lib.mkOption {
+          default = { };
           type = lib.types.submodule {
             options = {
               enable = lib.mkEnableOption "homeassistant service";
@@ -75,8 +104,8 @@
         in
         {
           includes =
-            lib.optionals (cfg.headscale.enable) [
-              jdf.hosts._.taart._.services._.headscale
+            lib.optionals (cfg.wireguard.enable) [
+              jdf.hosts._.taart._.services._.wireguard
             ]
             ++ lib.optionals (cfg.vaultwarden.enable) [
               jdf.hosts._.taart._.services._.vaultwarden

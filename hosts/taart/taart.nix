@@ -13,7 +13,7 @@
       classes = [ "homeManager" ];
     };
     settings.services = {
-      headscale.enable = true;
+      wireguard.enable = true;
       vaultwarden.enable = true;
       homeassistant.enable = true;
     };
@@ -31,14 +31,12 @@
 
       jdf.hosts._.taart._.services._.acme
       jdf.hosts._.taart._.services._.nginx
-      jdf.hosts._.taart._.services._.vaultwarden
       jdf.hosts._.taart._.services._.podman
 
       jdf.hosts._.taart._.services._.database._.postgresql
 
       jdf.hosts._.taart._.services._.home-automation._.mosquitto
       jdf.hosts._.taart._.services._.home-automation._.zigbee2mqtt
-      jdf.hosts._.taart._.services._.home-automation._.homeassistant
       jdf.hosts._.taart._.services._.home-automation._.esphome
       jdf.hosts._.taart._.services._.home-automation._.appdaemon
       jdf.hosts._.taart._.services._.home-automation._.matterbridge
