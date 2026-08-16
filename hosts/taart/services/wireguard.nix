@@ -55,7 +55,7 @@
         [Peer]
         PublicKey = $SERVER_PUBKEY
         Endpoint = $ENDPOINT
-        AllowedIPs = 10.42.0.0/24
+        AllowedIPs = 10.42.0.0/23
         PersistentKeepalive = 25
         EOF
                 )
@@ -81,24 +81,6 @@
                 echo "=============================================================="
                 echo "Peer saved to: $PEER_FILE"
       '';
-
-      translateToVpnIp =
-        ip:
-        let
-          cleanIp = lib.head (lib.splitString "/" ip);
-          hostOctet = lib.last (lib.splitString "." cleanIp);
-        in
-        "10.42.0.${hostOctet}";
-
-      dnsMasqRecords = lib.concatLists (
-        lib.mapAttrsToList (
-          lanIp: subdomains:
-          let
-            vpnIp = translateToVpnIp lanIp;
-          in
-          map (subdomain: "/${subdomain}.${netCfg.baseDomain}/${vpnIp}") subdomains
-        ) netCfg.lanDevices
-      );
     in
     {
       boot.kernel.sysctl = {
@@ -139,55 +121,38 @@
         '';
       };
 
+      networking.nftables.enable = true;
+
       networking.firewall = {
         enable = true;
         allowedUDPPorts = [
           cfg.port
         ];
 
-        interfaces.wg0 = {
-          allowedTCPPorts = [ 53 ];
-          allowedUDPPorts = [ 53 ];
-        };
-
         checkReversePath = "loose";
-
-        extraCommands = ''
-          ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -i wg0 -d 10.42.0.31 -j DNAT --to-destination 10.42.1.31
-          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.42.0.0/24 -o ${cfg.externalInterface} -j MASQUERADE
-        '';
-
-        extraStopCommands = ''
-          ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -i wg0 -d 10.42.0.31 -j DNAT --to-destination 10.42.1.31
-          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.42.0.0/24 -o ${cfg.externalInterface} -j MASQUERADE
-        '';
       };
 
-      services.dnsmasq = {
-        enable = true;
-        settings = {
-          interface = [
-            "wg0"
-          ];
-          bind-dynamic = true;
-          listen-address = [
-            "10.42.0.16"
-          ];
-          # server = [
-          #   "1.1.1.1"
-          #   "1.0.0.1"
-          # ];
-          address = dnsMasqRecords;
-          local-service = false;
+      networking.nftables.tables = {
+        wg-rules = {
+          enable = true;
+          family = "ip";
+          content = ''
+            chain wg_forward {
+              type filter hook forward priority filter; policy accept;
+              
+              ct state established,related accept;
+              iifname "wg0" oifname "wg0" ip saddr 10.42.0.0/24 ip daddr 10.42.0.0/24 accept;
+              iifname "wg0" ip daddr 10.42.1.31 accept;
+              iifname "wg0" ip daddr 10.42.1.16 accept;
+              iifname "wg0" ip daddr 10.42.1.0/24 drop;
+            }
+
+            chain wg_postrouting {
+              type nat hook postrouting priority srcnat; policy accept;
+              ip saddr 10.42.0.0/24 oifname "${cfg.externalInterface}" masquerade;
+            }
+          '';
         };
-      };
-
-      systemd.services.dnsmasq = {
-        after = [
-          "network-online.target"
-          "systemd-networkd.service"
-        ];
-        wants = [ "network-online.target" ];
       };
 
       systemd.network = {
