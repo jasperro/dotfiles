@@ -59,7 +59,7 @@ in
             # gifbucket = "grottdb";
             # gextension = "false";
             # gextname = "grottext";
-            # gextvar = ''{"ip": "192.168.0.47", "port": "8000"}'';
+            # gextvar = ''{"ip": "10.42.0.47", "port": "8000"}'';
             TZ = "Europe/Amsterdam";
           };
 

@@ -22,13 +22,13 @@
               lanDevices = lib.mkOption {
                 type = lib.types.attrsOf (lib.types.listOf lib.types.str);
                 default = {
-                  "192.168.1.16" = [
+                  "10.42.1.16" = [
                     "taart"
                     "vault"
                     "home"
                     "z2m"
                   ];
-                  "192.168.1.31" = [
+                  "10.42.1.31" = [
                     "camera"
                   ];
                 };

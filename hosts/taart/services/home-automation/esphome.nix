@@ -37,7 +37,7 @@ in
       # services.nginx.virtualHosts."home.albering.nl" = {
       #   locations."/esphome/".extraConfig = ''
       #     deny all;
-      #     allow 192.168.1.0/24;
+      #     allow 10.42.1.0/24;
 
       #     proxy_pass http://unix:/run/esphome/esphome.sock;
       #     proxy_set_header Host $host;

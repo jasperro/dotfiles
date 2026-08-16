@@ -52,7 +52,7 @@
             proxyPass = "http://127.0.0.1:${toString cfg.port}";
             extraConfig = ''
               error_page 403 = @drop;
-              allow 192.168.1.0/24;
+              allow 10.42.1.0/24;
               allow 10.42.0.0/24;
               deny all;
 
