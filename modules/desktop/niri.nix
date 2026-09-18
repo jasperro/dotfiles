@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  jdfPath,
+  ...
+}:
 {
   flake-file.inputs = {
     niri-nix = {
@@ -7,7 +12,7 @@
     };
   };
 
-  jdf.desktop._.niri = {
+  jdf = lib.setAttrByPath jdfPath {
     nixos =
       { pkgs, ... }:
       {

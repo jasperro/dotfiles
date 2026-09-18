@@ -1,4 +1,10 @@
-{ inputs, jdf, ... }:
+{
+  inputs,
+  lib,
+  jdf,
+  jdfPath,
+  ...
+}:
 {
   flake-file.inputs = {
     nix-alien = {
@@ -8,7 +14,7 @@
     };
   };
 
-  jdf.system._.nix-alien = {
+  jdf = lib.setAttrByPath jdfPath {
     includes = [ jdf.system._.nix-ld ];
     nixos =
       { pkgs, ... }:

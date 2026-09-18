@@ -1,10 +1,11 @@
 {
   jdf,
+  jdfPath,
   lib,
   ...
 }:
 {
-  jdf.hosts._.taart._.service-configs = {
+  jdf = lib.setAttrByPath jdfPath {
     settings = {
       services = {
         enable = lib.mkEnableOption "service configurations";

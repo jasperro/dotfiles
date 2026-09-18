@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  jdfPath,
+  ...
+}:
 {
   flake-file.inputs = {
     disko.url = "github:nix-community/disko";
@@ -6,9 +11,11 @@
 
   imports = [ inputs.disko.flakeModules.default ];
 
-  jdf.system._.disko.nixos =
-    { pkgs, ... }:
-    {
-      imports = [ inputs.disko.nixosModules.default ];
-    };
+  jdf = lib.setAttrByPath jdfPath {
+    nixos =
+      { pkgs, ... }:
+      {
+        imports = [ inputs.disko.nixosModules.default ];
+      };
+  };
 }

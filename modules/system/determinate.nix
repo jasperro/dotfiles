@@ -1,10 +1,15 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  jdfPath,
+  ...
+}:
 {
   flake-file.inputs = {
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
   };
 
-  jdf.system._.determinate = {
+  jdf = lib.setAttrByPath jdfPath {
     nixos.imports = [ inputs.determinate.nixosModules.default ];
   };
 }

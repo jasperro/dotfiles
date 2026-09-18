@@ -1,87 +1,90 @@
 {
   jdf,
+  jdfPath,
   den,
   lib,
   ...
 }:
 {
-  jdf.system._.encrypted-btrfs-filesystem = { host }: {
-    ${host.class} =
-      { config, lib, ... }:
-      let
-        cfg = host.encrypted-btrfs-filesystem;
-        decryptPart = "crypted";
-        decryptPath = "/dev/mapper/${decryptPart}";
-      in
-      {
-        assertions = [
-          {
-            assertion = cfg.partitions.luks != "";
-            message = "Please specify a LUKS partition to use as the root filesystem.";
-          }
-          {
-            assertion = cfg.partitions.boot != "";
-            message = "Please specify your boot partition.";
-          }
-        ];
+  jdf = lib.setAttrByPath jdfPath (
+    { host }: {
+      ${host.class} =
+        { config, lib, ... }:
+        let
+          cfg = host.encrypted-btrfs-filesystem;
+          decryptPart = "crypted";
+          decryptPath = "/dev/mapper/${decryptPart}";
+        in
+        {
+          assertions = [
+            {
+              assertion = cfg.partitions.luks != "";
+              message = "Please specify a LUKS partition to use as the root filesystem.";
+            }
+            {
+              assertion = cfg.partitions.boot != "";
+              message = "Please specify your boot partition.";
+            }
+          ];
 
-        boot.initrd.luks.devices.${decryptPart} = {
-          device = cfg.partitions.luks;
-          crypttabExtraOpts = lib.mkIf config.systemd.tpm2.enable [ "tpm2-device=auto" ];
-        };
+          boot.initrd.luks.devices.${decryptPart} = {
+            device = cfg.partitions.luks;
+            crypttabExtraOpts = lib.mkIf config.systemd.tpm2.enable [ "tpm2-device=auto" ];
+          };
 
-        fileSystems = {
-          "/boot" = {
-            device = cfg.partitions.boot;
-            fsType = "vfat";
-            options = [
-              "rw"
-              "relatime"
-              "fmask=0022"
-              "dmask=0022"
-              "codepage=437"
-              "iocharset=iso8859-1"
-              "shortname=mixed"
-              "utf8"
-              "errors=remount-ro"
-            ];
-          };
-          "/" = {
-            device = decryptPath;
-            fsType = "btrfs";
-            options = [
-              "subvol=@nixosroot"
-              "rw"
-              "noatime"
-              "compress=zstd:3"
-              "ssd"
-            ];
-          };
-          "/home" = {
-            device = decryptPath;
-            fsType = "btrfs";
-            options = [
-              "subvol=@home"
-              "rw"
-              "noatime"
-              "compress=zstd:3"
-              "ssd"
-            ];
-          };
-          "/nix" = {
-            device = decryptPath;
-            fsType = "btrfs";
-            options = [
-              "subvol=@nix"
-              "rw"
-              "noatime"
-              "compress=zstd:3"
-              "ssd"
-            ];
+          fileSystems = {
+            "/boot" = {
+              device = cfg.partitions.boot;
+              fsType = "vfat";
+              options = [
+                "rw"
+                "relatime"
+                "fmask=0022"
+                "dmask=0022"
+                "codepage=437"
+                "iocharset=iso8859-1"
+                "shortname=mixed"
+                "utf8"
+                "errors=remount-ro"
+              ];
+            };
+            "/" = {
+              device = decryptPath;
+              fsType = "btrfs";
+              options = [
+                "subvol=@nixosroot"
+                "rw"
+                "noatime"
+                "compress=zstd:3"
+                "ssd"
+              ];
+            };
+            "/home" = {
+              device = decryptPath;
+              fsType = "btrfs";
+              options = [
+                "subvol=@home"
+                "rw"
+                "noatime"
+                "compress=zstd:3"
+                "ssd"
+              ];
+            };
+            "/nix" = {
+              device = decryptPath;
+              fsType = "btrfs";
+              options = [
+                "subvol=@nix"
+                "rw"
+                "noatime"
+                "compress=zstd:3"
+                "ssd"
+              ];
+            };
           };
         };
-      };
-  };
+    }
+  );
 
   den.policies.encrypted-btrfs-filesystem = { host, ... }: [
     (den.lib.policy.include jdf.system._.encrypted-btrfs-filesystem)

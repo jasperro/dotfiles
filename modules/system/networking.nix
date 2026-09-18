@@ -2,10 +2,12 @@
 # (e.g. not a container or WSL that are networked separately)
 {
   den,
+  lib,
+  jdfPath,
   ...
 }:
 {
-  jdf.system._.networking = {
+  jdf = lib.setAttrByPath jdfPath {
     includes = [
       den.batteries.hostname
     ];

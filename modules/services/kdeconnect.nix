@@ -1,7 +1,6 @@
-let
-in
+{ lib, jdfPath, ... }:
 {
-  jdf.services._.kdeconnect = {
+  jdf = lib.setAttrByPath jdfPath {
     nixos = {
       networking.firewall = {
         allowedTCPPortRanges = [

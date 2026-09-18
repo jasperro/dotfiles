@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  jdfPath,
+  ...
+}:
 {
   flake-file.inputs = {
     hyprland = {
@@ -10,7 +15,7 @@
     };
   };
 
-  jdf.desktop._.hyprland = {
+  jdf = lib.setAttrByPath jdfPath {
     nixos =
       { pkgs, ... }:
       {

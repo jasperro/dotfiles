@@ -2,10 +2,11 @@
   den,
   lib,
   jdf,
+  jdfPath,
   ...
 }:
 {
-  jdf.hosts._.taart._.services._.nginx = {
+  jdf = lib.setAttrByPath jdfPath {
     includes = [ jdf.hosts._.taart._.services._.acme ];
     nixos = {
       networking.firewall.allowedTCPPorts = [

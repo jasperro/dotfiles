@@ -1,5 +1,6 @@
+{ lib, jdfPath, ... }:
 {
-  jdf.users._.jasperro._.desktop._.wayland-wm = {
+  jdf = lib.setAttrByPath jdfPath {
     homeManager =
       { pkgs, config, ... }:
       let

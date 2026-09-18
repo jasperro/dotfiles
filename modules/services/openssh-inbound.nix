@@ -1,12 +1,14 @@
-{
-  jdf.services._.openssh-inbound.nixos = {
-    services.openssh = {
-      enable = true;
-      ports = [ 2123 ];
-      settings = {
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
-        PermitRootLogin = "no";
+{ lib, jdfPath, ... }: {
+  jdf = lib.setAttrByPath jdfPath {
+    nixos = {
+      services.openssh = {
+        enable = true;
+        ports = [ 2123 ];
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+          PermitRootLogin = "no";
+        };
       };
     };
   };

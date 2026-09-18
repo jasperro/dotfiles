@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, jdfPath, ... }:
 {
-  jdf.desktop._.plasma = {
+  jdf = lib.setAttrByPath jdfPath {
     nixos =
       { ... }:
       {

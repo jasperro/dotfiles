@@ -1,8 +1,11 @@
+{ lib, jdfPath, ... }:
 {
-  jdf.users._.jasperro._.desktop._.programs._.cliphist.homeManager = {
-    services.cliphist = {
-      enable = true;
-      allowImages = true;
+  jdf = lib.setAttrByPath jdfPath {
+    homeManager = {
+      services.cliphist = {
+        enable = true;
+        allowImages = true;
+      };
     };
   };
 }

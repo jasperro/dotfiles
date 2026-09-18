@@ -1,6 +1,12 @@
-{ self, jdf, ... }:
 {
-  jdf.hosts._.taart._.services._.vaultwarden = {
+  self,
+  jdf,
+  lib,
+  jdfPath,
+  ...
+}:
+{
+  jdf = lib.setAttrByPath jdfPath {
     includes = [ jdf.hosts._.taart._.services._.nginx ];
     nixos =
       { config, host, ... }:
