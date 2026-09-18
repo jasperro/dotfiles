@@ -2,10 +2,11 @@
   inputs,
   lib,
   jdf,
+  jdfPath,
   ...
 }:
 {
-  jdf.users._.jasperro._.desktop._.niri = {
+  jdf = lib.setAttrByPath jdfPath {
     includes = [
       jdf.stylix
 
@@ -32,15 +33,19 @@
           inputs.niri-nix.homeModules.default
         ];
 
-        home.packages = with pkgs; [
-          inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
-          grimblast
-          hyprsunset
-          inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
-          inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
-          waypaper
-          swaybg
-        ];
+        home.packages =
+          with pkgs;
+          [
+            inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+            grimblast
+            hyprsunset
+            inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
+            waypaper
+            swaybg
+          ]
+          ++ lib.optionals config.programs.wofi.enable [
+            inputs.wofi-power-menu.packages.${pkgs.stdenv.hostPlatform.system}.default
+          ];
 
         xdg.portal = {
           enable = true;
