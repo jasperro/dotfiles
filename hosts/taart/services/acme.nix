@@ -1,7 +1,7 @@
 {
-  self,
-  lib,
   jdfPath,
+  lib,
+  self,
   ...
 }:
 {

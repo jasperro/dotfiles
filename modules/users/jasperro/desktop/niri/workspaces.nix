@@ -1,4 +1,8 @@
-{ lib, jdfPath, ... }:
+{
+  jdfPath,
+  lib,
+  ...
+}:
 let
   workspaceKeys = (lib.range 1 9);
 in

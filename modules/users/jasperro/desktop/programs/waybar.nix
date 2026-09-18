@@ -1,4 +1,9 @@
-{ lib, jdfPath, ... }: {
+{
+  jdfPath,
+  lib,
+  ...
+}:
+{
   flake-file.inputs = {
     waybar = {
       url = "github:Alexays/Waybar/master";

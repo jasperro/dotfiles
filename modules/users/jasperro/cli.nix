@@ -1,4 +1,7 @@
-{ jdf, ... }:
+{
+  jdf,
+  ...
+}:
 {
   jdf.users._.jasperro._.cli = {
     includes = [

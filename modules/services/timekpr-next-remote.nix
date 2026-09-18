@@ -1,7 +1,7 @@
 {
-  pkgs,
-  lib,
   jdfPath,
+  lib,
+  pkgs,
   ...
 }:
 

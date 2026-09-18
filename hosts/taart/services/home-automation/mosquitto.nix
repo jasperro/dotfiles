@@ -1,4 +1,7 @@
-{ self, ... }:
+{
+  self,
+  ...
+}:
 let
   port = 1883;
 in

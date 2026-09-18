@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 {
   jdf.users._.jasperro._.desktop._.niri._.outputs =
     let

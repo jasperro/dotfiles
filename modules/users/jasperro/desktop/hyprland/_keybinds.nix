@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 let
   # Map keys to hyprland directions
   directionL = rec {

@@ -1,8 +1,8 @@
 {
   den,
-  lib,
   jdf,
   jdfPath,
+  lib,
   ...
 }:
 {

@@ -1,8 +1,8 @@
 {
   inputs,
-  lib,
   jdf,
   jdfPath,
+  lib,
   ...
 }:
 {

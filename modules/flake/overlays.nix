@@ -1,4 +1,8 @@
-{ self, inputs, ... }:
+{
+  inputs,
+  self,
+  ...
+}:
 let
   inherit (self) outputs;
   inherit (outputs) lib;

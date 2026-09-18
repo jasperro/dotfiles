@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 {
   jdf.hosts._.taart._.services._.home-automation._.bifrost.nixos =
     { config, ... }:

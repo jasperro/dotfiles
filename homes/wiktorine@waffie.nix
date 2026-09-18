@@ -1,4 +1,8 @@
-{ den, jdf, ... }:
+{
+  den,
+  jdf,
+  ...
+}:
 {
   den.aspects."wiktorine@waffie" = {
     includes = [

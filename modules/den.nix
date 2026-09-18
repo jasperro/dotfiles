@@ -1,4 +1,8 @@
-{ inputs, den, ... }:
+{
+  den,
+  inputs,
+  ...
+}:
 {
   imports = [
     inputs.den.flakeModule

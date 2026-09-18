@@ -1,4 +1,8 @@
-{ den, jdf, ... }:
+{
+  den,
+  jdf,
+  ...
+}:
 {
   den.aspects."jasperro@doosje" = {
     includes = [

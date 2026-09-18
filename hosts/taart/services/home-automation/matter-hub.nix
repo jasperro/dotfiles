@@ -1,4 +1,7 @@
-{ self, ... }:
+{
+  self,
+  ...
+}:
 {
   jdf.hosts._.taart._.services._.home-automation._.matter-hub.nixos =
     { config, ... }:

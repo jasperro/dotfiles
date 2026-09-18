@@ -1,4 +1,9 @@
-{ lib, jdfPath, ... }: {
+{
+  jdfPath,
+  lib,
+  ...
+}:
+{
   jdf = lib.setAttrByPath jdfPath {
     nixos = {
       time.timeZone = "Europe/Amsterdam";

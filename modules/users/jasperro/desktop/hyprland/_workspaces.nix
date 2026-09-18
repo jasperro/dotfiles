@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 let
   workspaceKeys =
     (map toString (lib.range 1 9)) ++ [ "0" ] ++ (map (n: "F${toString n}") (lib.range 1 12));

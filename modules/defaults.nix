@@ -1,8 +1,8 @@
 {
-  lib,
-  inputs,
-  outputs,
   den,
+  inputs,
+  lib,
+  outputs,
   ...
 }:
 {

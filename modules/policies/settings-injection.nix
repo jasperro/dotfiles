@@ -1,4 +1,7 @@
-{ den, ... }:
+{
+  den,
+  ...
+}:
 {
   den.policies.settings-injection =
     {

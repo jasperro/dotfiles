@@ -1,7 +1,7 @@
 {
-  lib,
-  jdfPath,
   inputs,
+  jdfPath,
+  lib,
   ...
 }:
 {

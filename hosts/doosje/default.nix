@@ -1,9 +1,9 @@
 {
-  lib,
+  den,
   inputs,
   jdf,
   jdfPath,
-  den,
+  lib,
   ...
 }:
 {

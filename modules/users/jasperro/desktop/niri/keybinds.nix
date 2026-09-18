@@ -1,4 +1,8 @@
-{ lib, jdfPath, ... }:
+{
+  jdfPath,
+  lib,
+  ...
+}:
 let
   # Map keys to directions
   directionL = rec {

@@ -1,7 +1,7 @@
 {
-  lib,
-  jdf,
   den,
+  jdf,
+  lib,
   ...
 }:
 {

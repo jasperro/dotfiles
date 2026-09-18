@@ -1,4 +1,8 @@
-{ inputs, self, ... }:
+{
+  inputs,
+  self,
+  ...
+}:
 {
   flake-file.inputs = {
     impurity.url = "github:outfoxxed/impurity.nix";

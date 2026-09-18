@@ -1,4 +1,7 @@
-{ jdf, ... }:
+{
+  jdf,
+  ...
+}:
 {
   jdf.hosts._.taart._.services._.home-automation._.homeassistant = {
     nixos =
