@@ -2,8 +2,6 @@
   den,
   inputs,
   jdf,
-  jdfPath,
-  lib,
   ...
 }:
 {
@@ -13,7 +11,7 @@
       aspect = den.aspects."jasperro@doosje";
       classes = [ "homeManager" ];
     };
-    aspect = lib.getAttrFromPath jdfPath jdf;
+    aspect = den.aspects.doosje;
     monitors = [
       {
         name = "DP-2";
@@ -27,7 +25,7 @@
     ];
   };
 
-  jdf = lib.setAttrByPath jdfPath {
+  den.aspects.doosje = {
     includes = [
       jdf.system._.audio
       jdf.system._.gui
