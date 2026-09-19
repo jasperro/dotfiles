@@ -14,17 +14,17 @@ Currently trying the "dendritic" pattern by using [vic/den](https://github.com/v
 I'm trying to improve documentation. If you have a question, feel free to open an issue or discussion.
 
 ### Desktop configurations
-* `hosts/doosje`
-* `hosts/koekie`
+* `modules/hosts/doosje`
+* `modules/hosts/koekie`
 ### Laptop configurations
-* `hosts/superlaptop`
-* `hosts/waffie`
+* `modules/hosts/superlaptop`
+* `modules/hosts/waffie`
 ### Server configurations
-* `hosts/taart`
+* `modules/hosts/taart`
 ### Home configurations
-Every home-manager config is currently bound to a host in structure `homes/{user}-{host}.nix`.
+Every home-manager config is currently bound to a host in structure `modules/homes/{user}-{host}.nix`.
 ### Modules
-Modules are flake-parts modules, mostly using [vic/den](https://github.com/vic/den). See `modules/README.md` for info.
+Modules are flake-parts modules, mostly using [vic/den](https://github.com/vic/den).
 
 ### Inspiration from (non-exhaustive list)
 * [Misterio77/nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
