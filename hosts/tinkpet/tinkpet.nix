@@ -61,12 +61,6 @@
           xone.enable = true;
         };
 
-        services.wivrn = {
-          enable = true;
-          openFirewall = true;
-          autoStart = true;
-        };
-
         programs.appimage = {
           enable = true;
           binfmt = true;

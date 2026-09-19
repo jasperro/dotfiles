@@ -21,17 +21,13 @@
 
   den.default.includes = [
     den.aspects.impurity
+    den.aspects.overlays
     den.policies.settings-injection
   ];
 
   den.schema.user.includes = [
     den._.mutual-provider
   ];
-
-  den.default.nixos = {
-    nixpkgs.overlays = [
-    ];
-  };
 
   den.default.homeManager =
     { pkgs, ... }:
