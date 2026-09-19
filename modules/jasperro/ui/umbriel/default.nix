@@ -10,18 +10,18 @@
     includes = [
       jdf.ui._.stylix
 
-      jdf.ui._.niri
-
-      jdf.jasperro._.ui._.niri._.outputs
-      jdf.jasperro._.ui._.niri._.workspaces
-      jdf.jasperro._.ui._.niri._.keybinds
-      jdf.jasperro._.ui._.niri._.blur
+      jdf.ui._.umbriel
+      jdf.jasperro._.ui._.umbriel._.blur
+      jdf.jasperro._.ui._.umbriel._.outputs
+      jdf.jasperro._.ui._.umbriel._.workspaces
+      jdf.jasperro._.ui._.umbriel._.keybinds
 
       jdf.jasperro._.ui._.wayland-wm
 
       jdf.jasperro._.ui._.programs._.cliphist
       jdf.jasperro._.ui._.programs._.kitty
     ];
+
     homeManager =
       {
         config,
@@ -30,13 +30,12 @@
       }:
       {
         imports = [
-          inputs.niri-nix.homeModules.default
+          inputs.umbriel.homeModules.default
         ];
 
         home.packages =
           with pkgs;
           [
-            inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
             grimblast
             hyprsunset
             inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
@@ -53,113 +52,38 @@
             pkgs.kdePackages.xdg-desktop-portal-kde
           ];
           config = {
-            niri = {
+            umbriel = {
               "org.freedesktop.impl.portal.FileChooser" = "kde";
             };
           };
         };
 
-        wayland.windowManager.niri.enable = true;
-        # wayland.windowManager.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
-        wayland.windowManager.niri.package = pkgs.niri-unstable;
-        wayland.windowManager.niri.settings = {
-          spawn-at-startup = [
-            [
-              "waypaper"
-              "--restore"
-              "--random"
-            ]
-          ];
-
-          input.keyboard.xkb = {
-            layout = "us";
-            variant = "altgr-intl";
-            options = "terminate:ctrl_alt_bksp";
-          };
-          input.mouse.accel-speed = 1.0;
-          input.touchpad = {
-            tap = [ ];
-            accel-profile = "adaptive";
-            accel-speed = 0.2;
-            scroll-factor = 0.8;
-          };
-
-          xwayland-satellite.path = "${lib.getExe
-            inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
-          }";
-
-          prefer-no-csd = true;
-
-          cursor = {
-            xcursor-theme = config.stylix.cursor.name;
-            xcursor-size = config.stylix.cursor.size;
-          };
-
-          window-rule = [
-            {
-              geometry-corner-radius = 8.0;
-              clip-to-geometry = true;
-            }
-          ];
-
-          layer-rule = [
-            {
-              _children = [
-                {
-                  match._props = {
-                    namespace = "^bar*";
-                    at-startup = true;
-                  };
-                }
+        programs.umbriel = {
+          enable = true;
+          settings = {
+            general = {
+              autostart = [
+                "waypaper --restore --random"
               ];
-              place-within-backdrop = true;
-            }
-          ];
-
-          layout = {
-            gaps = 10;
-            always-center-single-column = true;
-
-            empty-workspace-above-first = true;
-
-            focus-ring.off = [ ];
-
-            border = with config.lib.stylix.colors.withHashtag; {
-              on = [ ];
-              width = 4;
-              active-gradient._props = {
-                from = base0D;
-                to = base0B;
-                angle = 45;
-              };
-              inactive-gradient._props = {
-                from = base01;
-                to = base02;
-                angle = 45;
-                relative-to = "workspace-view";
-              };
-              urgent-gradient._props = {
-                from = base08;
-                to = base09;
-                angle = 45;
-              };
             };
 
-            preset-column-widths._children = [
-              { proportion = 1. / 3.; }
-              { proportion = 1. / 2.; }
-              { proportion = 2. / 3.; }
-            ];
+            layout = {
+              gap = 10;
+              extent_presets = [
+                (1. / 3.)
+                (1. / 2.)
+                (2. / 3.)
+              ];
+            };
+
+            input = {
+              keyboard = {
+                layout = "us";
+                variant = "altgr-intl";
+                options = "terminate:ctrl_alt_bksp";
+              };
+            };
           };
-
-          clipboard.disable-primary = true;
-
-          overview = {
-            zoom = 0.5;
-            backdrop-color = config.lib.stylix.colors.withHashtag.base01;
-          };
-
-          screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
         };
 
         services.hypridle =
@@ -180,7 +104,7 @@
                 else
                   {
                     before_sleep_cmd = "${noctalia} session lock";
-                    after_sleep_cmd = "niri msg action power-on-monitors";
+                    after_sleep_cmd = "umbriel msg dpms on";
                     ignore_dbus_inhibit = false;
                     lock_cmd = "${noctalia} session lock";
                   };
@@ -206,8 +130,8 @@
                     }
                     {
                       timeout = 1200;
-                      on-timeout = "niri msg action power-off-monitors";
-                      on-resume = "niri msg action power-on-monitors";
+                      on-timeout = "umbriel msg dpms off";
+                      on-resume = "umbriel msg dpms on";
                     }
                   ];
             };

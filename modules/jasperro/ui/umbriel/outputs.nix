@@ -6,18 +6,13 @@
 {
   jdf = lib.setAttrByPath jdfPath (
     let
-      formatNiriOutput = monitor: {
-        _args = [ monitor.name ];
-        mode = "${toString monitor.width}x${toString monitor.height}@${toString monitor.refreshRate}";
-        scale = monitor.scale;
-
-        variable-refresh-rate = lib.mkIf monitor.vrr {
-          _props = {
-            on-demand = true;
-          };
+      formatOutput = monitor: {
+        name = monitor.name;
+        value = {
+          mode = "${toString monitor.width}x${toString monitor.height}@${toString monitor.refreshRate}";
+          scale = monitor.scale;
+          vrr = if monitor.vrr then "always" else "disabled";
         };
-
-        focus-at-startup = lib.mkIf monitor.primary [ ];
       };
     in
     {
@@ -43,8 +38,8 @@
     in
     {
       homeManager = {
-        wayland.windowManager.niri.settings.output = map formatNiriOutput (
-          lib.filter (m: m.enabled) monitors
+        programs.umbriel.settings.output = lib.listToAttrs (
+          map formatOutput (lib.filter (m: m.enabled) monitors)
         );
       };
     }

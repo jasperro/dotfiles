@@ -9,6 +9,8 @@
       jdf.ui._.stylix
 
       jdf.jasperro._.ui._.niri
+      jdf.jasperro._.ui._.noctalia
+
       jdf.jasperro._.packages._.desktop
       jdf.jasperro._.git
       jdf.jasperro._.cli
