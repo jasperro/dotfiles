@@ -38,8 +38,6 @@ inputs.flake-parts.lib.mkFlake { inherit inputs; } {
     in
     [
       (mapTree ./modules [ ])
-      (mapTree ./homes [ "homes" ])
-      (mapTree ./hosts [ "hosts" ])
     ];
 
   systems = [
