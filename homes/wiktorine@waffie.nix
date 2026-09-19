@@ -6,8 +6,8 @@
 {
   den.aspects."wiktorine@waffie" = {
     includes = [
-      jdf.cli._.jasperro-shell
-      jdf.services._.kdeconnect
+      jdf.jasperro._.shell
+      jdf.system._.kdeconnect
 
       den.batteries.define-user
       den.batteries.primary-user

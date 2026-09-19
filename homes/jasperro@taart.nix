@@ -6,8 +6,8 @@
 {
   den.aspects."jasperro@taart" = {
     includes = [
-      jdf.users._.jasperro._.git
-      jdf.users._.jasperro._.cli
+      jdf.jasperro._.git
+      jdf.jasperro._.cli
 
       den.batteries.define-user
       den.batteries.primary-user

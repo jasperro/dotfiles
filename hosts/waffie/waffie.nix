@@ -35,10 +35,9 @@
       jdf.system._.nix
       jdf.system._.sops
       jdf.system._.utilities
+      jdf.system._.openssh-inbound
 
-      jdf.desktop._.plasma
-
-      jdf.services._.openssh-inbound
+      jdf.ui._.plasma
     ];
 
     nixos =

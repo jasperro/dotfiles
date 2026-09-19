@@ -43,12 +43,11 @@
       jdf.system._.nix
       jdf.system._.sops
       jdf.system._.utilities
+      jdf.system._.openssh-inbound
+      jdf.system._.timekpr
+      jdf.system._.sunshine
 
-      jdf.desktop._.plasma
-
-      jdf.services._.openssh-inbound
-      jdf.services._.timekpr
-      jdf.services._.sunshine
+      jdf.ui._.plasma
     ];
 
     nixos =

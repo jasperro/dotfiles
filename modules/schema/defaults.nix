@@ -1,6 +1,7 @@
 {
   den,
   inputs,
+  jdf,
   lib,
   outputs,
   ...
@@ -20,9 +21,8 @@
   ];
 
   den.default.includes = [
-    den.aspects.impurity
-    den.aspects.overlays
-    den.policies.settings-injection
+    jdf.system._.impurity
+    jdf.system._.overlays
   ];
 
   den.schema.user.includes = [

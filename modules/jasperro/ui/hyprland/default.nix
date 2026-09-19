@@ -15,14 +15,14 @@
   jdf = lib.setAttrByPath jdfPath (
     { home, ... }: {
       includes = [
-        jdf.stylix
+        jdf.ui._.stylix
 
-        jdf.users._.jasperro._.desktop._.wayland-wm
+        jdf.jasperro._.ui._.wayland-wm
 
-        jdf.users._.jasperro._.desktop._.programs._.cliphist
-        jdf.users._.jasperro._.desktop._.programs._.kitty
-        jdf.users._.jasperro._.desktop._.programs._.waybar
-        jdf.users._.jasperro._.desktop._.programs._.mako
+        jdf.jasperro._.ui._.programs._.cliphist
+        jdf.jasperro._.ui._.programs._.kitty
+        jdf.jasperro._.ui._.programs._.waybar
+        jdf.jasperro._.ui._.programs._.mako
       ];
       homeManager =
         { config, pkgs, ... }:

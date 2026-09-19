@@ -6,15 +6,15 @@
 {
   den.aspects."jasperro@doosje" = {
     includes = [
-      jdf.stylix
+      jdf.ui._.stylix
 
-      jdf.users._.jasperro._.desktop._.niri
-      jdf.users._.jasperro._.desktop-packages
-      jdf.users._.jasperro._.git
-      jdf.users._.jasperro._.cli
+      jdf.jasperro._.ui._.niri
+      jdf.jasperro._.packages._.desktop
+      jdf.jasperro._.git
+      jdf.jasperro._.cli
 
-      jdf.users._.jasperro._.editors._.nixvim
-      jdf.users._.jasperro._.editors._.vscode
+      jdf.jasperro._.editors._.nixvim
+      jdf.jasperro._.editors._.vscode
 
       den.batteries.define-user
       den.batteries.primary-user

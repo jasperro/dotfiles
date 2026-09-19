@@ -24,8 +24,7 @@
       jdf.system._.nix
       jdf.system._.sops
       jdf.system._.utilities
-
-      jdf.services._.podman
+      jdf.system._.podman
     ];
 
     nixos =

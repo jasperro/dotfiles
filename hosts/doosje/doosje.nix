@@ -36,9 +36,8 @@
       jdf.system._.nix
       jdf.system._.sops
       jdf.system._.utilities
-
-      jdf.services._.podman
-      jdf.services._.disable-usb-wakeup
+      jdf.system._.podman
+      jdf.system._.disable-usb-wakeup
     ];
 
     nixos =

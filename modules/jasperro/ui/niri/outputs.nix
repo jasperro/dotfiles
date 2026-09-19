@@ -3,7 +3,7 @@
   ...
 }:
 {
-  jdf.users._.jasperro._.desktop._.niri._.outputs =
+  jdf.jasperro._.ui._.niri._.outputs =
     let
       formatNiriOutput = monitor: {
         _args = [ monitor.name ];

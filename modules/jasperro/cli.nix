@@ -3,11 +3,11 @@
   ...
 }:
 {
-  jdf.users._.jasperro._.cli = {
+  jdf.jasperro._.cli = {
     includes = [
-      jdf.cli._.jasperro-shell
+      jdf.jasperro._.shell
 
-      jdf.users._.jasperro._.git
+      jdf.jasperro._.git
     ];
     homeManager =
       { pkgs, ... }:

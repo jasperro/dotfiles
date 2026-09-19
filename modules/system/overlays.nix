@@ -1,5 +1,10 @@
-{ ... }: {
-  den.aspects.overlays = {
+{
+  jdfPath,
+  lib,
+  ...
+}:
+{
+  jdf = lib.setAttrByPath jdfPath {
     os =
       {
         ...

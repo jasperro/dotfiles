@@ -26,8 +26,7 @@
       jdf.system._.nix
       jdf.system._.sops
       jdf.system._.utilities
-
-      jdf.services._.openssh-inbound
+      jdf.system._.openssh-inbound
 
       jdf.hosts._.taart._.services._.dns-sync
       jdf.hosts._.taart._.services._.acme

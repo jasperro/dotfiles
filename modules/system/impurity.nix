@@ -1,6 +1,8 @@
 {
   inputs,
   self,
+  jdfPath,
+  lib,
   ...
 }:
 {
@@ -8,7 +10,7 @@
     impurity.url = "github:outfoxxed/impurity.nix";
   };
 
-  den.aspects.impurity = {
+  jdf = lib.setAttrByPath jdfPath {
     nixos = {
       imports = [
         inputs.impurity.nixosModules.default

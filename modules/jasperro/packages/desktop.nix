@@ -1,10 +1,12 @@
 {
   jdf,
+  jdfPath,
+  lib,
   ...
 }:
 {
-  jdf.users._.jasperro._.desktop-packages = {
-    includes = [ jdf.services._.kdeconnect ];
+  jdf = lib.setAttrByPath jdfPath {
+    includes = [ jdf.system._.kdeconnect ];
     homeManager =
       { pkgs, ... }:
       {

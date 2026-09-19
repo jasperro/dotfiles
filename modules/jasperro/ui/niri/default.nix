@@ -8,19 +8,19 @@
 {
   jdf = lib.setAttrByPath jdfPath {
     includes = [
-      jdf.stylix
+      jdf.ui._.stylix
 
-      jdf.desktop._.niri
-      jdf.users._.jasperro._.desktop._.niri._.outputs
-      jdf.users._.jasperro._.desktop._.niri._.workspaces
-      jdf.users._.jasperro._.desktop._.niri._.keybinds
-      jdf.users._.jasperro._.desktop._.niri._.blur
-      jdf.users._.jasperro._.desktop._.niri._.noctalia
+      jdf.ui._.niri
+      jdf.jasperro._.ui._.niri._.outputs
+      jdf.jasperro._.ui._.niri._.workspaces
+      jdf.jasperro._.ui._.niri._.keybinds
+      jdf.jasperro._.ui._.niri._.blur
+      jdf.jasperro._.ui._.niri._.noctalia
 
-      jdf.users._.jasperro._.desktop._.wayland-wm
+      jdf.jasperro._.ui._.wayland-wm
 
-      jdf.users._.jasperro._.desktop._.programs._.cliphist
-      jdf.users._.jasperro._.desktop._.programs._.kitty
+      jdf.jasperro._.ui._.programs._.cliphist
+      jdf.jasperro._.ui._.programs._.kitty
     ];
     homeManager =
       {
