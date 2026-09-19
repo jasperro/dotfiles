@@ -12,10 +12,10 @@ let
       # Keys that are NOT child aspects: structural keys (includes, nixos, …),
       # plus your framework's registered class names and quirk/extension keys.
       # Adapt these three sources to your own framework.
-      inherit (den.lib.aspects.fx.keyClassification) structuralKeysSet;
+      inherit (den.lib.aspects.fx.keyClassification) isStructuralKey;
       classKeys = den.classes or { };
       quirkKeys = den.quirks or { };
-      skipKey = k: structuralKeysSet ? ${k} || classKeys ? ${k} || quirkKeys ? ${k};
+      skipKey = k: isStructuralKey k || classKeys ? ${k} || quirkKeys ? ${k};
 
       # A settings block may be a plain options attrset ({ foo = mkOption {...}; })
       # OR module-shaped ({ imports; config; options; }). Normalize to the latter.
