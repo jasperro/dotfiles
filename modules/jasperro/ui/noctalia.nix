@@ -1,5 +1,6 @@
 {
   inputs,
+  jdf,
   jdfPath,
   lib,
   ...
@@ -32,11 +33,13 @@
     };
 
     homeManager =
-      { config, pkgs, ... }:
+      {
+        user,
+        ...
+      }:
       let
-        # Detect active WM in Home Manager context
-        isNiri = config.wayland.windowManager.niri.enable or false;
-        isUmbriel = config.programs.umbriel.enable or false;
+        isNiri = user.hasAspect jdf.ui._.niri;
+        isUmbriel = user.hasAspect jdf.ui._.umbriel;
       in
       {
         imports = [
