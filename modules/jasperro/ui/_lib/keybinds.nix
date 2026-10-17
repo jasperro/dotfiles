@@ -68,7 +68,6 @@ rec {
           "lock-session"
         ];
 
-        "${modKey}+D" = mkWmAction "overview-toggle";
         "${modKey}+Tab" = mkWmAction "overview-toggle";
 
         "${modKey}+Q" = mkWmAction "window-close";
@@ -278,7 +277,7 @@ rec {
 
       # Noctalia
       (lib.optionalAttrs config.programs.noctalia.enable {
-        "${modKey}" = mkNoctalia "panel-toggle launcher";
+        "${modKey}+D" = mkNoctalia "panel-toggle launcher";
         "${modKey}+Z" = mkNoctalia "panel-toggle launcher /win";
         "${modKey}+X" = mkNoctalia "panel-toggle launcher";
         "${modKey}+V" = mkNoctalia "panel-toggle clipboard";

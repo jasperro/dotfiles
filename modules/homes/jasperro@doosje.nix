@@ -8,7 +8,7 @@
     includes = [
       jdf.ui._.stylix
 
-      jdf.jasperro._.ui._.umbriel
+      jdf.jasperro._.ui._.niri
       jdf.jasperro._.ui._.noctalia
 
       jdf.jasperro._.packages._.desktop

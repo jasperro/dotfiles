@@ -201,14 +201,14 @@
             };
           };
         };
-
-        # Niri-specific autostart
-        wayland.windowManager.niri.settings.spawn-at-startup = lib.mkIf isNiri [
+      }
+      // lib.optionalAttrs isNiri {
+        wayland.windowManager.niri.settings.spawn-at-startup = [
           [ "noctalia" ]
         ];
-
-        # Umbriel-specific autostart
-        programs.umbriel.settings.general.autostart = lib.mkIf isUmbriel [
+      }
+      // lib.optionalAttrs isUmbriel {
+        programs.umbriel.settings.general.autostart = [
           "noctalia"
         ];
       };

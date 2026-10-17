@@ -116,6 +116,24 @@ in
               "window-consume-or-expel-left" = {
                 focus-column-right = [ ];
               };
+              "column-move-to-workspace-previous" = {
+                move-column-to-workspace-up = [ ];
+              };
+              "column-move-to-workspace-next" = {
+                move-column-to-workspace-down = [ ];
+              };
+              "output-focus-next" = {
+                focus-monitor-right = [ ];
+              };
+              "output-focus-previous" = {
+                focus-monitor-left = [ ];
+              };
+              "column-move-to-output-left" = {
+                move-column-to-monitor-left = [ ];
+              };
+              "column-move-to-output-right" = {
+                move-column-to-monitor-right = [ ];
+              };
             }
             .${action} or { };
 
