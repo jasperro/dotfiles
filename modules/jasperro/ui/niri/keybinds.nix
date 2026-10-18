@@ -93,10 +93,10 @@ in
                 focus-window-or-workspace-up = [ ];
               };
               "move-y-down" = {
-                move-column-to-workspace-down._props.focus = false;
+                move-window-down-or-to-workspace-down = [ ];
               };
               "move-y-up" = {
-                move-column-to-workspace-up._props.focus = false;
+                move-window-up-or-to-workspace-up = [ ];
               };
               "focus-x-left" = {
                 focus-column-left = [ ];
