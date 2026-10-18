@@ -29,18 +29,18 @@
           );
           fonts = {
             serif = {
-              package = pkgs.source-serif;
-              name = "Source Serif";
+              package = pkgs.fraunces;
+              name = "Fraunces";
             };
 
             sansSerif = {
-              package = pkgs.terminus_font_ttf;
-              name = "Terminus (TTF)";
+              package = pkgs.figtree;
+              name = "Figtree";
             };
 
             monospace = {
-              package = pkgs.terminus_font_ttf;
-              name = "Terminus (TTF)";
+              package = pkgs.iosevka;
+              name = "Iosevka";
             };
 
             emoji = {
