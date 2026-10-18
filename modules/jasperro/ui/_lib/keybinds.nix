@@ -90,8 +90,8 @@ rec {
         "${modKey}+Shift+Equal" = mkWmAction "window-resize-height-inc";
 
         # Scroll / Workspace strip actions
-        "${mkWheel modKey "Down"}" = mkWmAction "window-focus-previous";
-        "${mkWheel modKey "Up"}" = mkWmAction "window-focus-next";
+        "${mkWheel modKey "Up"}" = mkWmAction "window-focus-previous";
+        "${mkWheel modKey "Down"}" = mkWmAction "window-focus-next";
 
         "${mkWheel "${modKey}+Control" "Up"}" = mkWithOptions (mkWmAction "workspace-previous") {
           cooldown_ms = 150;

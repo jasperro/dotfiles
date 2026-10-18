@@ -38,8 +38,8 @@ in
               "window-resize-height-inc" = "window-modify-height-down:+0.1";
               "window-consume-right" = "window-consume-or-expel-right";
               "window-consume-left" = "window-consume-left";
-              "window-focus-previous" = "window-focus-next";
-              "window-focus-next" = "window-focus-previous";
+              "window-focus-previous" = "window-focus-previous";
+              "window-focus-next" = "window-focus-next";
               "focus-y-down" = "window-focus-down";
               "focus-y-up" = "window-focus-up";
               "move-y-down" = "window-move-down";
