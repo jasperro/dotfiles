@@ -37,7 +37,6 @@
       opts = [
         "noatime"
         "ssd"
-        "autodefrag"
         "discard=async"
         "compress=zstd:3"
       ];

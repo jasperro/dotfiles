@@ -13,6 +13,7 @@
       classes = [ "homeManager" ];
     };
     settings.services = {
+      enable = true;
       wireguard.enable = true;
       vaultwarden.enable = true;
       homeassistant.enable = true;
@@ -54,8 +55,9 @@
           # inputs.hardware.nixosModules.raspberry-pi-4
           # inputs.hardware.nixosModules.common-pc-ssd
           ./_hardware-configuration.nix
-          ./_firmware.nix
         ];
+
+        hardware.enableRedistributableFirmware = true;
 
         boot = {
           # tmp.useTmpfs = true;
@@ -68,7 +70,6 @@
             };
             efi.canTouchEfiVariables = true;
           };
-          initrd.systemd.enable = true;
         };
 
         sops.age.sshKeyPaths = [ "/home/jasperro/.ssh/id_ed25519" ];

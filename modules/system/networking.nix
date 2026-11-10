@@ -23,15 +23,17 @@
         nssmdns4 = true;
         #nssmdns6 = true;
         enable = true;
-        ipv4 = true;
-        ipv6 = true;
-        publish = {
-          enable = true;
-          addresses = true;
-          workstation = true;
-          domain = true;
-          hinfo = true;
-          userServices = true;
+        settings = {
+          server = {
+            use-ipv4 = true;
+            use-ipv6 = true;
+          };
+          publish = {
+            publish-addresses = true;
+            publish-workstation = true;
+            publish-domain = true;
+            publish-hinfo = true;
+          };
         };
         openFirewall = true;
       };
